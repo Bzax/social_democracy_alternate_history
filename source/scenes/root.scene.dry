@@ -231,19 +231,19 @@ Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
 
-// Support for party by social group
+// Support for party by social group (source: (jeg burde undersøge vælgerundersøgelsen og gå direkte til kilden på den måde) Jørgen Goul Andersen, 'Socialdemokratiets vælgertilslutning', s.181-82)
 // they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_spd = 60;
-Q.workers_kpd = 20;
+Q.workers_spd = 54;
+Q.workers_kpd = 5;
 Q.workers_z = 5;
-Q.workers_ddp = 0;
-Q.workers_dvp = 0;
+Q.workers_ddp = 13;
+Q.workers_dvp = 2;
 Q.workers_dnvp = 5;
 Q.workers_nsdap = 0;
 Q.workers_other = 10;
 
-Q.old_middle_spd = 5;
-Q.old_middle_kpd = 0;
+Q.old_middle_spd = 43;
+Q.old_middle_kpd = 5;
 Q.old_middle_z = 5;
 Q.old_middle_ddp= 10;
 Q.old_middle_dvp = 25;

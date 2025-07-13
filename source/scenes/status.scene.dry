@@ -38,7 +38,7 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
+{!<span class="tooltip-text" title="Socialdemokratiet">A</span>!}: [+ spd_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
 {!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
@@ -117,7 +117,7 @@ if (Q.sa_strength) {
 }
 !}
 
-= Paramilitaries
+= Socio-Economics
 
 {!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
 
@@ -158,21 +158,21 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 (if the election were to be held now):
 
-SPD: [+ spd_votes +]%
+A: [+ spd_votes +]%
 
-[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+[? if sapd_formed: Z: [+ sapd_votes +]% ?]
 
-Z + BVP: [+ z_votes +]%
+V: [+ z_votes +]%
 
-KPD: [+ kpd_votes +]%
+DKP: [+ kpd_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
+[? if not ddp_name: Radikale Venstre?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
 
-DVP: [+ dvp_votes +]%
+Radikale Venstre: [+ dvp_votes +]%
 
-DNVP: [+ dnvp_votes +]%
+SF: [+ dnvp_votes +]%
 
-NSDAP: [+ nsdap_votes +]%
+VS: [+ nsdap_votes +]%
 
 Others: [+ other_votes +]%
 
