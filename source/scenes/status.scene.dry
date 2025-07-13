@@ -38,20 +38,20 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Socialdemokratiet i Danmark (The Social-Democracy in Denmark)">A</span>!}: [+ spd_r +]%
+{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
 [? if Z_formed and sapd_r > 0: Z: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Venstre (Left, to discover the origins of the peculiar naming go to the **Library** found in the top menu.)">V</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Det Konservative Folkeparti (The Conservative Peoples Party)">C</span>!}: [+ kpd_r +]%
+{!<span class="tooltip-text" title="'The Conservative Peoples Party' (Danish name: 'Det Konservative Folkeparti')">C</span>!}: [+ kpd_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="Radikale Venstre (Radical Left, to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ ddp_r +]%
+{!<span class="tooltip-text" title="'Radical Left' (Danish name: 'Radikale Venstre', to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ ddp_r +]%
 # 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="Socialistisk Folkeparti (Socialist Peoples Party)">SF</span>!}: [+ dvp_r +]%
+{!<span class="tooltip-text" title="Socialist Peoples Party (Danish name: 'Socialistisk Folkeparti')">SF</span>!}: [+ dvp_r +]%
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="Danmarks Kommunistiske Parti (Danish Communist Party)">DKP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dnvp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="Venstresocialisterne">VS</span>!}: [+ nsdap_r +]%
+{!<span class="tooltip-text" title="'Left Socialists' (Dansih Name: 'Venstresocialisterne'">VS</span>!}: [+ nsdap_r +]%
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
