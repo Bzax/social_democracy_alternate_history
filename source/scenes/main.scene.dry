@@ -22,7 +22,7 @@ max-cards: 3
 - @shuffle_leadership_pinned
 
 @main_easy
-set-bg: img/background-train.jpg
+set-bg: img/Background-train.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
