@@ -192,16 +192,17 @@ Q.capital_strike_progress = 0;
 
 Q.budget = 4;
 
-// Proportion of different social groups
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+// Proportion of different families by socio-economic status of main incomeprovider
+// source: 'Vælgerundersøgelsen 1971', 'vælgerundersøgelsen 1975', 'statistisk årsbog 1970' (my calculations can be downloaded from the credits)
+Q.prole = 25.5; // private sector proletarians (private sector workers renting their homes)
+Q.homeowner = 22.16; // private sector workers who own their homes
+Q.public_prole = 11.5; // public sector proletarians
+Q.public_homeowner = 10.1; // public sector homeowners
+Q.pettyb = 11,6; // petty bourgeoise, small urban business owners, artisans and independent producers
+Q.rural = 13.2; // rural population, largely 'gårdmænd', rich capitalist independent farmers who by now have largely mechanized the 'husmænd' out of existence
+Q.owner = 4;
+// source: '60 år i tal – Danmark siden 2. verdenskrig', by 'Danmarks Statistik'
+Q.unemployed = 1.8;
 
 // unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
 
@@ -209,7 +210,7 @@ Q.catholics = 30;
 Q.income = 1600;
 // what about incomes for different classes? rural workers? middle-class workers?
 
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
+// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: '60 år i tal – Danmark siden 2. verdenskrig', by 'Danmarks Statistik'
 Q.inflation = 2.9;
 
 // economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
@@ -225,40 +226,49 @@ Q.unemployed_qol = 100;
 Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
-Q.classes = ['proletarians', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
+Q.classes = ['prole', 'homeowner', 'public_prole', 'public_homeowner','pettyb', 'rural', 'unemployed', 'owner'];
+Q.parties = ['a', 'v', 'c', 'b', 'z', 'dkp', 'sf', 'vs','rfb','kf','others'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
 
-// Support for party by social group (source: (jeg burde undersøge vælgerundersøgelsen og gå direkte til kilden på den måde) Jørgen Goul Andersen, 'Socialdemokratiets vælgertilslutning', s.181-82)
+// Support for party by social group (source:  'Vælgerundersøgelsen 1971', 'vælgerundersøgelsen 1975', 'statistisk årsbog 1970' (calculations can be downloaded from the credits), 'Socialdemokratiets vælgertilslutning', s.181-82)
 // they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_spd = 54;
-Q.workers_kpd = 5;
-Q.workers_z = 5;
-Q.workers_ddp = 13;
-Q.workers_dvp = 2;
-Q.workers_dnvp = 5;
-Q.workers_nsdap = 0;
-Q.workers_other = 10;
+Q.prole_a = 55;
+Q.prole_v = 6.1;
+Q.prole_c = 6.1;
+Q.prole_b = 3.8;
+Q.prole_z = 0;
+Q.prole_dkp = 0.8;
+Q.prole_sf = 6.1;
+Q.prole_vs = 1.5;
+Q.prole_rfb = 0;
+Q.prole_kf = 0;
+Q.prole_others = 0.4;
 
-Q.old_middle_spd = 43;
-Q.old_middle_kpd = 5;
-Q.old_middle_z = 5;
-Q.old_middle_ddp= 10;
-Q.old_middle_dvp = 25;
-Q.old_middle_dnvp = 25;
-Q.old_middle_nsdap = 10;
-Q.old_middle_other = 10;
+Q.homeowner_a = 39.5;
+Q.homeowner_v = 9.9;
+Q.homeowner_c = 12.4;
+Q.homeowner_b = 12.4;
+Q.homeowner_z = 25;
+Q.homeowner_dkp = 25;
+Q.homeowner_sf = 5.2;
+Q.homeowner_vs = 0.9;
+Q.homeowner_rfb = 0.4
+Q.homeowner_kf = 0.9
+Q.homeowner_others = 0.8
 
-Q.new_middle_spd = 5;
-Q.new_middle_kpd = 1;
-Q.new_middle_z = 10;
-Q.new_middle_ddp= 25;
-Q.new_middle_dvp = 25;
-Q.new_middle_dnvp = 10;
-Q.new_middle_nsdap = 5;
-Q.new_middle_other = 15;
+Q.public_prole_a = 47.5;
+Q.public_prole_v = 3.3;
+Q.public_prole_c = 13.3;
+Q.public_prole_b = 11.7;
+Q.public_prole_z = 0;
+Q.public_prole_dkp = 0.8;
+Q.public_prole_sf = 6.7;
+Q.public_prole_vs = 0;
+Q.public_prole_rfb = 0;
+Q.public_prole_kf = 0;
+Q.public_prole_others = 0.4;
 
 Q.rural_spd = 10;
 Q.rural_kpd = 0;
