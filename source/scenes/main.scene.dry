@@ -1,4 +1,5 @@
 title: Next month
+set-bg: img/Background-train.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
