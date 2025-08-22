@@ -160,7 +160,7 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 A: [+ a_votes +]%
 
-[? if Z_formed: Z: [+ Z_votes +]% ?]
+[? if Z_formed: Z: [+ z_votes +]% ?]
 
 V: [+ v_votes +]%
 
@@ -180,7 +180,7 @@ VS: [+ vs_votes +]%
 
 RFB: [+ rfb_votes +]%
 
-Others: [+ other_votes +]%
+Others: [+ others_votes +]%
 
 **Detailed results for each demographic**
 
