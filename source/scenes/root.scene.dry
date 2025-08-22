@@ -349,14 +349,17 @@ Q.kf_r = 0;
 Q.others_r = 0.7;
 
 // diff from prev
-Q.old_spd_r = 26;
-Q.old_kpd_r = 9;
-Q.old_z_r = 17;
-Q.old_ddp_r = 6;
-Q.old_dvp_r = 10;
-Q.old_dnvp_r = 20;
-Q.old_nsdap_r = 3;
-Q.old_other_r = 9;
+Q.old_a_r = 26;
+Q.old_v_r = 9;
+Q.old_c_r = 17;
+Q.old_b_r = 6;
+Q.old_z_r = 10;
+Q.old_dkp_r = 20;
+Q.old_sf_r = 3;
+Q.old_vs_r = 9;
+Q.old_rfb_r = 0;
+Q.old_kf_r = 0;
+Q.old_others_r = 0;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
@@ -374,12 +377,12 @@ Q.economic_records = [];
 
 
 // State of the government
-Q.president = "Hindenburg";
-// starting chancellor: Wilhelm Marx
-Q.chancellor = "Marx";
-Q.chancellor_party = 'Z';
+Q.president = "Frederik IX";
+// starting chancellor: Hilmar Baunsgaard
+Q.chancellor = "Baunsgaard";
+Q.chancellor_party = 'B';
 Q.spd_in_government = 0;
-Q.z_in_government = 1;
+Q.b_in_government = 1;
 Q.ddp_in_government = 0;
 Q.dvp_in_government = 1;
 Q.dnvp_in_government = 1;

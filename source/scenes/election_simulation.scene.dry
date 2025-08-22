@@ -6,7 +6,7 @@ set-jump: post_election
 - @1930: 1930 historical scenario
 - @1932: 1932 (July) historical scenario
 
-@1928
+@1971
 on-arrival: {!
 Q.workers = 46; // industry and trade
 Q.old_middle = 13; // "old mittelstand"
@@ -22,59 +22,101 @@ Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_spd = 65;
-Q.workers_kpd = 20;
-Q.workers_z = 5;
-Q.workers_ddp = 0;
-Q.workers_dvp = 0;
-Q.workers_dnvp = 5;
-Q.workers_nsdap = 0;
-Q.workers_other = 10;
+Q.prole_a = 51.7;
+Q.prole_v = 10.0;
+Q.prole_c = 10.7;
+Q.prole_b = 7.2;
+Q.prole_z = 0;
+Q.prole_dkp = 1.7;
+Q.prole_sf = 10.3;
+Q.prole_vs = 2.4;
+Q.prole_rfb = 1.4;
+Q.prole_kf = 1.2;
+Q.prole_others = 0.1;
 
-Q.old_middle_spd = 5;
-Q.old_middle_kpd = 0;
-Q.old_middle_z = 5;
-Q.old_middle_ddp= 10;
-Q.old_middle_dvp = 25;
-Q.old_middle_dnvp = 25;
-Q.old_middle_nsdap = 10;
-Q.old_middle_other = 10;
+Q.homeowner_a = 36.2;
+Q.homeowner_v = 13.8;
+Q.homeowner_c = 17.1;
+Q.homeowner_b = 15.8;
+Q.homeowner_z = 0;
+Q.homeowner_dkp = 1.3;
+Q.homeowner_sf = 9.3;
+Q.homeowner_vs = 1.8;
+Q.homeowner_rfb = 1.8;
+Q.homeowner_kf = 1.3;
+Q.homeowner_others = 0.5;
 
-Q.new_middle_spd = 5;
-Q.new_middle_kpd = 0;
-Q.new_middle_z = 10;
-Q.new_middle_ddp= 25;
-Q.new_middle_dvp = 25;
-Q.new_middle_dnvp = 10;
-Q.new_middle_nsdap = 5;
-Q.new_middle_other = 15;
+Q.public_prole_a = 44.3;
+Q.public_prole_v = 7.3;
+Q.public_prole_c = 18;
+Q.public_prole_b = 15;
+Q.public_prole_z = 0;
+Q.public_prole_dkp = 1.7;
+Q.public_prole_sf = 10.9;
+Q.public_prole_vs = 0.9;
+Q.public_prole_rfb = 1.4;
+Q.public_prole_kf = 1.3;
+Q.public_prole_others = 0.5;
 
-Q.rural_spd = 10;
-Q.rural_kpd = 0;
-Q.rural_z = 5;
-Q.rural_ddp= 5;
-Q.rural_dvp = 15;
-Q.rural_dnvp = 45;
-Q.rural_nsdap = 5;
-Q.rural_other = 10;
+Q.public_homeowner_a = 29.1;
+Q.public_homeowner_v = 13.7;
+Q.public_homeowner_c = 20.3;
+Q.public_homeowner_b = 23.9;
+Q.public_homeowner_z = 0;
+Q.public_homeowner_dkp = 0.9;
+Q.public_homeowner_sf = 8.1;
+Q.public_homeowner_vs = 0.9;
+Q.public_homeowner_rfb = 2.4;
+Q.public_homeowner_kf = 5.4;
+Q.public_homeowner_others = 0.0;
 
-Q.unemployed_spd = 25;
-Q.unemployed_kpd = 55;
-Q.unemployed_z = 1;
-Q.unemployed_ddp = 0;
-Q.unemployed_dvp = 0;
-Q.unemployed_dnvp = 5;
-Q.unemployed_nsdap = 15;
-Q.unemployed_other = 9;
+Q.rural_a = 9.5;
+Q.rural_v = 45.4;
+Q.rural_c = 6;
+Q.rural_b= 24.1;
+Q.rural_z = 0;
+Q.rural_dkp = 0;
+Q.rural_sf = 4.3;
+Q.rural_vs = 0;
+Q.rural_rfb = 0;
+Q.rural_kf = 2.9;
+Q.rural_others = 7.7;
 
-Q.catholics_spd = 15;
-Q.catholics_kpd = 5;
-Q.catholics_z = 50;
-Q.catholics_ddp = 0;
-Q.catholics_dvp = 5;
-Q.catholics_dnvp = 5;
-Q.catholics_nsdap = 0;
-Q.catholics_other = 10;
+Q.pettyb_a = 9.5;
+Q.pettyb_v = 23.3;
+Q.pettyb_c = 34.9;
+Q.pettyb_b = 24.1;
+Q.pettyb_z = 0;
+Q.pettyb_dkp = 0;
+Q.pettyb_sf = 4.3;
+Q.pettyb_vs = 0;
+Q.pettyb_rfb = 0;
+Q.pettyb_kf = 4.3;
+Q.pettyb_others = 0;
+
+Q.unemployed_a = 40;
+Q.unemployed_v = 20;
+Q.unemployed_c = 0;
+Q.unemployed_b = 40;
+Q.unemployed_z = 0;
+Q.unemployed_dkp = 0;
+Q.unemployed_sf = 0;
+Q.unemployed_vs = 0;
+Q.unemployed_rfb = 0;
+Q.unemployed_kf = 0;
+Q.unemployed_others = 0;
+
+Q.capitalist_a = 3.8;
+Q.capitalist_v = 7.5;
+Q.capitalist_c = 39.6;
+Q.capitalist_b = 30.2;
+Q.capitalist_z = 0;
+Q.capitalist_dkp = 0;
+Q.capitalist_sf = 0;
+Q.capitalist_vs = 0;
+Q.capitalist_rfb = 15.1;
+Q.capitalist_kf = 0;
+Q.capitalist_others = 0;
 !}
 go-to: election_algorithm
 set-jump: post_election
