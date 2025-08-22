@@ -198,9 +198,9 @@ Q.prole = 25.5; // private sector proletarians (private sector workers renting t
 Q.homeowner = 22.16; // private sector workers who own their homes
 Q.public_prole = 11.5; // public sector proletarians
 Q.public_homeowner = 10.1; // public sector homeowners
-Q.pettyb = 11,6; // petty bourgeoise, small urban business owners, artisans and independent producers
+Q.pettyb = 11.6; // petty bourgeoise, small urban business owners, artisans and independent producers
 Q.rural = 13.2; // rural population, largely 'gårdmænd', rich capitalist independent farmers who by now have largely mechanized the 'husmænd' out of existence
-Q.owner = 4;
+Q.capitalist = 4;
 // source: '60 år i tal – Danmark siden 2. verdenskrig', by 'Danmarks Statistik'
 Q.unemployed = 1.8;
 
