@@ -90,7 +90,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; b_relation += 3*(1 - globalization)
-go-to: liberal_op if b_in_government = 1 and spd_in_government = 0 and chancellor != "Brüning"; liberal_coalition if spd_in_government = 1 and b_in_government = 1; liberal_bruning if chancellor = "Brüning"
+go-to: liberal_op if b_in_government = 1 and spd_in_government = 0 and chancellor != "Brüning"; liberal_coalition if spd_in_government = 1 and b_in_government = 1
 
 The somewhat confusingly named 'radical left' party has historically represented the poor farmers as well as white collor workers in the cities, by extending a hand we will try to bridge the last few years' unfortunate developments.
 
