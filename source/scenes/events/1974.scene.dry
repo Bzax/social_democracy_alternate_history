@@ -1,4 +1,4 @@
-title: 1931
+title: 1974
 subtitle: A new year 
 on-arrival: {!
 // increase NSDAP vote share 
@@ -21,7 +21,7 @@ if (Q.works_program && Q.works_program > 1) {
 // moved demographic changes to post_event
 !}
 tags: event
-view-if: year = 1931 and month = 1 
+view-if: year = 1974 and month = 1 
 priority: 2
 max-visits: 1
 
