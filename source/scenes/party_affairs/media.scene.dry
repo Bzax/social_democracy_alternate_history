@@ -11,7 +11,7 @@ card-image: img/aktuelt.jpg
 
 In spite of the best work of our journalists, our media empire has seen better days. Nonetheless, we can still take a variety of actions...
 
-Current media health: [+ mediahealth].
+Current media health: mediahealth.display
 
 - @commercial
 - @investigative
