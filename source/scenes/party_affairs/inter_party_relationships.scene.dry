@@ -104,11 +104,6 @@ on-arrival: z_relation += 8*(1 - dissent)
 
 We are currently coalition partners with them, so improving relations comes naturally.
 
-@center_bruning
-on-arrival: z_relation += 5*(1 - dissent)
-
-The Brüning semi-autocratic regime makes building friendly relations difficult, but not impossible.
-
 @spd_alone
 
 Whether it is because we *cannot* or *will not*, we do not make ties with other parties at this moment.
