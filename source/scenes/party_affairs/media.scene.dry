@@ -4,32 +4,40 @@ is-card: true
 tags: party_affairs
 view-if: media_timer <= 0
 on-arrival: month_actions += 1; media_timer += 6;
-card-image: img/sangerbund.jpg
+card-image: img/aktuelt.jpg
 #subtitle: Setting the direction for our newspapers and radio.
 
-= Media
+= Media 
 
-The SPD runs a veritable media empire, with many newspapers throughout every German city and region. We could use the media for various purposes...
+In spite of the best work of our journalists, our media empire has seen better days. Nonetheless, we can still take a variety of actions...
+
+Current media health: [+ mediahealth].
 
 - @commercial
+- @investigative
 - @campaign
 - @ideological
 - @radio
 - @radio_2
-- @radio_3
-- @radio_4
 - @return: We should not do anything with media at the moment.
 - @easy_discard
 - @cancel_advisor_action
 
 @commercial
-title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
+title: Make our newspapers more commercialized by broadening their appeal beyond politics.
 subtitle: This might upset ideological purists, but it may bring in more funds and perhaps expose the middle class to socialist views.
-on-arrival: resources += 1; commercialized_media += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1-dissent); left_dissent += 10; labor_dissent += 10
+on-arrival: resources += 1; commercialized_media += 1; pettyb_a += 3; homeowner_a += 3*(1-globalization); public_homeowner_a += 3*(1-globalization); left_dissent += 10; left_worker_dissent += 5; mediahealth += 4
 
-Our commercialized newspapers are able to bring in more funds. However, the left and labor factions express their displeasure.
+Our commercialized newspapers are able to bring in more funds. However, the left and some of the labor factions express their displeasure.
 
-@campaign
+@investigative
+title: We will advance the class struggle by focusing on investigative journalism.
+subtitle: This may alienate the bourgious parties, as well as some of our more moderate comrades, but perhaps returning to our roots is the answer?
+on-arrival: investigative_media += 1; prole_a += 7*(1 - globalization); homeowner_a += 4*(1 - globalization); public_prole_a += 5; public_homeowner_a += 1; technocrat_dissent += 8; right_worker_dissent += 5; mediahealth += 10
+
+Our journalists are quick to heed the call, for better or for worse wider society quickly takes notice.
+
+@continue as we have
 title: The purpose of our media is to elect more Social Democrats.
 subtitle: Our newspapers will focus on the electoral campaign.
 on-arrival: campaign_media += 1; workers_spd += 4*(1 - dissent); unemployed_spd += 2*(1-dissent);
@@ -39,44 +47,52 @@ Our campaign media is mostly reaching the workers who are already saturated with
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
 subtitle: There will be space for all factions to air their views.
-on-arrival: left_dissent -= 6; labor_dissent -= 6; center_dissent -= 6; reformist_dissent -= 6; neorevisionist_dissent -= 6
+on-arrival: left_worker_dissent -= 4; right_worker_dissent -= 3; technocrat_dissent -= 8; left_dissent -= 8
 
-This has been our media course historically, and it has successfully paved over the many tensions in our party.
+This has been an important function of our media historically, and it has successfully paved over many tensions in our party. However, not all comrades are equally interested.
 
 @radio
 title: Why not fund a radio station?
+subtitle: We will investigate this along with our allies in the labor movement
+choose-if: radiolegal = 1
+unavailable-subtitle: this would be illegal as DR currently has a state monopoly on radio
+view-if: radio = 0
+on-arrival: radio += 1 new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+
+Since the end of DR's media monopoly various trade unions have already experimented with local channels with mixed sucess, perhaps what they need is name recognition? We will call some meetings.
+
+@radio_2
+title: Let us launch our radio station
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-view-if: radio = 0
-on-arrival: radio += 1; resources -= 2; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+view-if: radio > 0 and radio <= 2 and resources >=2
+on-arrival: radio += 1; resources -= 2
 
-Our new radio station allows us to connect to people in a more intimate setting than before, spreading the message of socialism along with music and other popular content. Since most proletarians cannot afford family radios right now, we are reaching the middle class, a fact of which our labor comrades are painfully aware.
+After much deliberation we are now ready to launch our radio station! Together with a coalition of trade unions we have decided on the following name and schema...
 
-@radio_2
-title: We must keep on building up our radio network.
-subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-view-if: radio > 0 and radio <= 3
-on-arrival: radio += 1; resources -= 1; new_middle_spd += 5*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 3*(1 - dissent); socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
+- @redchannel
+- @fmfremad
+- @radio71
 
-Our new radio network has a mix of popular and political programming, and is proving a success.
+@redchannel
+title: 'Rosen' ('the Rose'), an unapoligetically socialist radio station
+subtitle: This will upset the more moderate elements of our party and established society, but a national channel agitiating our views may make it worth it? 
+on-arrival: redchannel += 1; unemployed_a += 3; prole_a += 5*(1 - globalization); homeowner_a += 3*(1 - globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a -= 4; pettyb_a -= 3; capitalist -= 10; socialism += 3*(1 - globalization); technocrat_dissent += 8; right_worker_dissent += 8; mediahealth -= 10
 
-@radio_3
-title: We must keep on building up our radio network.
-subtitle: It is now financially self-sufficient, and does not require any more resources.
-view-if: radio > 3 and radio <= 5 and year <= 1931
-on-arrival: radio += 1; new_middle_spd += 5*(1 - dissent); old_middle_spd += 4*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 2*(1-dissent); socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
+With a focus on historical broadcasts, news from the labour struggle and explicitly socialist music, our bold execution is met with an, at least initial, curiousity from the working class. The bourgeois parties and press however, react with predictable horror at our 'naked propaganda'.
 
-Our radio network has become a successful tool for spreading our message.
+@fmfremad
+title: 'FM Fremad' ('FM Forwards'), a channel offering a mix of popular and political programming.
+subtitle: This seems the safest option
+on-arrival: fmfremad += 1; unemployed_a += 2; prole_a += 2*(1 - globalization); homeowner_a += 3*(1 - globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a += 2; pettyb_a -= 1; capitalist -= 3; socialism += 3*(1 - globalization); technocrat_dissent += 2; mediahealth += 15
 
-@radio_4
-title: We should keep on supporting our radio network.
-subtitle: As radio becomes more common, the novelty is beginning to wear off, and radio is becoming saturated in society. -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-view-if: radio > 3 and (radio >= 6 or year >= 1932) and radio <= 9
-on-arrival: radio += 1; resources -= 1; new_middle_spd += 3*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 3*(1 - dissent); rural_spd += 2*(1 - dissent); unemployed_spd += 2*(1-dissent); socialism += 2*(1 - dissent); nationalism -= 2*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 2*(1-dissent)*(democratization-2) if democratization > 2
+Our new radio network has a mix of popular and political programming, and as listeners are curious to be given an alternative to DR, it is even proving a limited commercial success.
 
-We are continuing to invest in our radio stations. Both commercial and political radio are becoming more prevalent, making it harder to spread our message amidst the competition.
+@radio71
+title: 'radio71', a channel mostly dedicated to popular programming, trying to beat DR at its own game
+subtitle: As DR has stood without any true competitors up until this point, the people are hungry for something new
+on-arrival: radio71 += 1; unemployed_a += 3; prole_a += 2*(1 - globalization); homeowner_a += 2*(1 - globalization); public_homeowner_a += 2; public_prole_a += 2; rural_a += 1; pettyb_a += 1; capitalist += 3; socialism += 3*(1 - globalization); technocrat_dissent -= 2; mediahealth += 25
+
+Listeners initially flock to the new radio, but it is difficult to actually compete with the accumulated skill and experience of DR. Nevertheless, a not insignificant amount of the new listeners stay, and our media is slightly better of for it.
+

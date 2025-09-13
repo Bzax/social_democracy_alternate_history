@@ -46,6 +46,13 @@ Q.dues = 2;
 Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
+// globalization
+Q.globalization = 0.1;
+
+
+// media health is a measure of how succesfull our media is
+Q.mediahealth = 50
+
 // factions
 Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
 // should this be normalized to 100%?

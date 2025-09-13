@@ -37,6 +37,9 @@ for (var c of Q.classes) {
         Q[c + '_' + party + '_display'] = Math.round(100*Q[c+'_'+party]/class_votes);
     }
 }
+// Advance globalization each year
+Q.globalization += 0.0025; // adjust the increment as needed
+
 // calculate support for each of the parties
 var total_support = 0; 
 for (var party of Q.parties) {
