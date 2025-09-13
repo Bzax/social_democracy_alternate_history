@@ -15,7 +15,6 @@ Current media health: [+ mediahealth].
 
 - @commercial
 - @investigative
-- @campaign
 - @ideological
 - @radio
 - @radio_2
@@ -37,13 +36,6 @@ on-arrival: investigative_media += 1; prole_a += 7*(1 - globalization); homeowne
 
 Our journalists are quick to heed the call, for better or for worse wider society quickly takes notice.
 
-@continue as we have
-title: The purpose of our media is to elect more Social Democrats.
-subtitle: Our newspapers will focus on the electoral campaign.
-on-arrival: campaign_media += 1; workers_spd += 4*(1 - dissent); unemployed_spd += 2*(1-dissent);
-
-Our campaign media is mostly reaching the workers who are already saturated with Socialist propaganda, but it must be doing *something*, or at least that is what we hope.
-
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
 subtitle: There will be space for all factions to air their views.
@@ -57,7 +49,7 @@ subtitle: We will investigate this along with our allies in the labor movement
 choose-if: radiolegal = 1
 unavailable-subtitle: this would be illegal as DR currently has a state monopoly on radio
 view-if: radio = 0
-on-arrival: radio += 1 new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
 
 Since the end of DR's media monopoly various trade unions have already experimented with local channels with mixed sucess, perhaps what they need is name recognition? We will call some meetings.
 
@@ -66,7 +58,7 @@ title: Let us launch our radio station
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-view-if: radio > 0 and radio <= 2 and resources >=2
+view-if: radio > 0 and radio <= 3 and resources >=2
 on-arrival: radio += 1; resources -= 2
 
 After much deliberation we are now ready to launch our radio station! Together with a coalition of trade unions we have decided on the following name and schema...
@@ -76,7 +68,7 @@ After much deliberation we are now ready to launch our radio station! Together w
 - @radio71
 
 @redchannel
-title: 'Rosen' ('the Rose'), an unapoligetically socialist radio station
+title: 'Rosen' ('the Rose'), an unapologetically socialist radio station
 subtitle: This will upset the more moderate elements of our party and established society, but a national channel agitiating our views may make it worth it? 
 on-arrival: redchannel += 1; unemployed_a += 3; prole_a += 5*(1 - globalization); homeowner_a += 3*(1 - globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a -= 4; pettyb_a -= 3; capitalist -= 10; socialism += 3*(1 - globalization); technocrat_dissent += 8; right_worker_dissent += 8; mediahealth -= 10
 
