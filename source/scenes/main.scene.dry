@@ -46,7 +46,7 @@ max-cards: 4
 
 @party
 title: Party Affairs
-card-image: img/Vorwaerts_nr_1.png
+card-image: img/partymeeting.jpg
 is-deck: true
 
 - #party_affairs
@@ -54,7 +54,7 @@ is-deck: true
 @govt
 title: Government Affairs
 view-if: time >= 6
-card-image: img/reichstag_2.jpg
+card-image: img/folketing.jpg
 is-deck: true
 
 - #govt_affairs
