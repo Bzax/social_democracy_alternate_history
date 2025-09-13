@@ -13,11 +13,11 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 
 - @workers: The proletarians, our traditional base.
 - @public: Public sector workers, who have felt neglected by us in the past.
-- @private: Private sector workers, who have felt
+- @private: Private sector workers, the backbone of the workers movement.
 - @homeowners: The "new middle class" of homeowning workers.
 - @rural: The "old middle class" of small business owners and independent farmers.
 - @unemployed: The unemployed.
-- @youth
+- @youth: Students and the broader youth.
 - @root: We either don't want to or cannot campaign right now.
 - @easy_discard
 
