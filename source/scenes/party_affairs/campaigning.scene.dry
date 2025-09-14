@@ -3,7 +3,7 @@ new-page: true
 on-arrival: month_actions += 1
 max-visits: 36
 is-card: true
-card-image: img/campaign2.jpg
+card-image: img/fmln.jpg
 frequency: 100
 tags: party_affairs
 

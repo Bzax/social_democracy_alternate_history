@@ -23,7 +23,7 @@ Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1970;
-Q.month = 4;
+Q.month = 5;
 // how many actions have been taken this month?
 Q.month_actions = 0;
 
@@ -109,13 +109,16 @@ Q.moderate_plan_adopted = 0;
 // organizations
 
 // inter-party relations
-Q.z_relation = 50;
-Q.kpd_relation = 25;
-Q.ddp_relation = 60;
-Q.dvp_relation = 35;
+Q.b_relation = 35;
+Q.sf_relation = 65;
+Q.v_relation = 35;
+Q.c_relation = 30;
+Q.vs_relation = 30;
+Q.dkp_relation = 45;
+Q.rfb_relation = 55;
+Q.kf_relation = 35;
 // DNVP and NSDAP are invariably hostile
-Q.DNVP_relation = 10;
-Q.NSDAP_relation = 0;
+Q.Z_relation = 0;
 
 Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
