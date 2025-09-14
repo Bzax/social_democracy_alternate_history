@@ -28,8 +28,6 @@ SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in g
 
 [? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
-Internal dissent: [+ dissent_percent : dissent +]
-
 = Government
 
 President: [+ president +]
@@ -60,20 +58,6 @@ Others: [+ other_r +]%
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
-= Economics
-
-Inflation: [+ inflation_2 +]%
-
-[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
-
-Economic growth: [+ economic_growth_2 +]%
-
-
-
-# = Public Opinion
-
-@politics
-
 = Inter-party Relations
 
 
@@ -81,30 +65,69 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Conservative Peoples Party"<C>!</span>!}: [+ c_relation : relationships +]
 
-{!<span class="tooltip-text" title="Radikale Venstre">B</span>!}: [+ b_relation : relationships +]
+{!<span class="tooltip-text" title="Radikale Venstre (lit.'the Radical Left)">B</span>!}: [+ b_relation : relationships +]
 
 {!<span class="tooltip-text" title="Socialist Peoples Party">SF</span>!}: [+ sf_relation : relationships +]
 
 {!<span class="tooltip-text" title="Communist Party of Denmark">DKP</span>!}: [+ dkp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Venstre-Socialisterne">VS</span>!}: [+ vs_relation : relationships +]
+{!<span class="tooltip-text" title="Venstre-Socialisterne (lit. 'the Left-Socialists')">VS</span>!}: [+ vs_relation : relationships +]
 
-{!<span class="tooltip-text" title="Retsforbundet">RFb</span>!}: [+ rfb_relation : relationships +]
+{!<span class="tooltip-text" title="Retsforbundet (lit. 'the Justice League')">RFb</span>!}: [+ rfb_relation : relationships +]
 
-{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]
+{!<span class="tooltip-text" title="Kristeligt Folkeparti (lit. 'Christian Peoples Party')">KF</span>!}: [+ KF_relation : relationships +]
 
-= Internal Factions of the SPD
+[? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+# = Public Opinion
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+@politics
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+= Party Indicators
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+Health of our media: [+ mediahealth : mediahealth +]
+
+= Party Factions
+
+Ovarall internal dissent: [+ dissent_percent : dissent +]
+
+{!<span class="tooltip-text" title="The Left is mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+
+{!<span class="tooltip-text" title="The Left-Workerists is made up of the more left leaning members of the labor movement, they want to decisively shift the balance of class-power in Denmark but are flexible as to how to do it.">Left-Workerists</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+
+{!<span class="tooltip-text" title="The Technocrats are academic pragmatists through and through, they seek to strenghten the welfare state and grow our economy by entering government and are less concerned with ideological purity.">Technocrats</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+
+{!<span class="tooltip-text" title="the Right-Workerists is made up of the more right leaning members of the labor movement, their goal is economic reform, homeownership and benefits for organized workers.">Right-Workerists</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
+#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+
+#Reichsbanner Militarization: [+ rb_militancy : militancy +]
+
+#{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+
+#RFB Militarization: [+ rfb_militancy : militancy +]
+
+#{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+
+#Stahlhelm Militarization: [+ sh_militancy : militancy +]
+
+#{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+
+#SA Militarization: [+ sa_militancy : militancy +]
+
+#= Official military/paramilitaries
+
+#Reichswehr: [+ reichswehr_strength +] thousand troops.
+
+#Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
+
+#Prussian police: [+ prussian_police_strength +] thousand members.
+
+#Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
+
+#[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
 @paramilitaries
 on-arrival: {!
@@ -151,6 +174,16 @@ Prussian police: [+ prussian_police_strength +] thousand members.
 Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
 
 [? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+
+= Indicators
+
+Inflation: [+ inflation_2 +]%
+
+Impact of globalization = [+ globalization +]
+
+[? if black_thursday_seen = 0 : Unemployment: [+ unemployed_2 +]% ?]
+
+Economic growth: [+ economic_growth_2 +]%
 
 @polls
 on-arrival: {!

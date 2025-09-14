@@ -110,7 +110,7 @@ Q.moderate_plan_adopted = 0;
 
 // inter-party relations
 Q.b_relation = 35;
-Q.sf_relation = 65;
+Q.sf_relation = 75;
 Q.v_relation = 35;
 Q.c_relation = 30;
 Q.vs_relation = 30;
