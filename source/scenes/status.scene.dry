@@ -114,7 +114,7 @@ Overall party-strength: [+ efc +]
 
 LO Relations: [+ labor_relations : labor_relations +] 
 
-Union Density: [+ union_density : union_density +]
+Union Density: [+ union_density +]%
 
 Cooperative Health: [+ cooperativehealth : cooperativehealth +]
 
