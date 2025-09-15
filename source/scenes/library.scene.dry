@@ -316,7 +316,7 @@ Dissent: [+ technocrat_dissent : dissent +]
 
 Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy against the far right and left. [? if spd_prussia : They are dominant in the state government of Prussia. ?]
 
-Strength: [+ right_worker_strength : strength +]
+Strength: [+ reformist_strength : strength +]
 
 Dissent: [+ right_worker_dissent : dissent +]
 
