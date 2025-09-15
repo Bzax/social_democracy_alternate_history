@@ -300,7 +300,7 @@ Dissent: [+ left_dissent : dissent +]
 
 Centrists in the SPD are followers of the doctrine of orthodox Marxism as expounded by Karl Kautsky and later Rudolf Hilferding. They seek a middle course between reform and revolution, while defending the democratic state.
 
-Strength: [+ center_strength : strength +]
+Strength: [+ left_worker_strength : strength +]
 
 Dissent: [+ left_worker_dissent : dissent +]
 
@@ -316,7 +316,7 @@ Dissent: [+ technocrat_dissent : dissent +]
 
 Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy against the far right and left. [? if spd_prussia : They are dominant in the state government of Prussia. ?]
 
-Strength: [+ reformist_strength : strength +]
+Strength: [+ right_worker_strength : strength +]
 
 Dissent: [+ right_worker_dissent : dissent +]
 

@@ -387,7 +387,7 @@ is-card: true
 card-image: img/portraits/SeveringCarl.jpg
 tags: reformist_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: severing_advisor = 1; n_advisors += 1; right_worker_strength += 5
 go-to: advisor_menu
 
 Carl Severing is now an advisor.
@@ -399,7 +399,7 @@ is-card: true
 card-image: img/portraits/BraunOtto.jpg
 tags: reformist_advisor
 view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: braun_advisor = 1; n_advisors += 1; right_worker_strength += 5
 go-to: advisor_menu
 
 Otto Braun is now an advisor.
@@ -410,7 +410,7 @@ subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organiz
 is-card: true
 card-image: img/portraits/JuchaczMarie.jpg
 view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: juchacz_advisor = 1; n_advisors += 1; right_worker_strength += 5
 go-to: advisor_menu
 tags: reformist_advisor
 

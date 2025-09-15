@@ -17,9 +17,9 @@ Wladimir Woytinsky is a Russian Menshevik in exile, and the chief economist of t
 @plan
 title: Adopt the WTB-plan!
 subtitle: Convincing the rest of the party to support the WTB-plan.
-choose-if: advisor_action_timer <= 0 and wtb_adopted == 0 and wtb_support >= 3 and black_thursday_seen and (not historical_mode or ((technocrat_strength >= center_strength) and (technocrat_strength >= left_strength) and (technocrat_strength >= reformist_strength)))
+choose-if: advisor_action_timer <= 0 and wtb_adopted == 0 and wtb_support >= 3 and black_thursday_seen and (not historical_mode or ((technocrat_strength >= left_worker_strength) and (technocrat_strength >= left_strength) and (technocrat_strength >= right_worker_strength)))
 on-arrival: advisor_action_timer = 6;
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?][? if wtb_adopted > 0 : We have already adopted the WTB-Plan. ?][? if wtb_support < 3 : There is not enough support for the WTB-Plan. ?][? if (technocrat_strength < center_strength or technocrat_strength < left_strength or technocrat_strength < reformist_strength) and historical_mode : The labor faction is not strong enough. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?][? if wtb_adopted > 0 : We have already adopted the WTB-Plan. ?][? if wtb_support < 3 : There is not enough support for the WTB-Plan. ?][? if (technocrat_strength < left_worker_strength or technocrat_strength < left_strength or technocrat_strength < right_worker_strength) and historical_mode : The labor faction is not strong enough. ?]
 go-to: crisis_program.plan_adopted
 
 @carry_out_policy

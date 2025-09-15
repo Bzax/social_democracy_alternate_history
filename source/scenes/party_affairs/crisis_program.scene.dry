@@ -27,7 +27,7 @@ Meanwhile, moderates and reformists draw up proposals for a limited plan of job 
 
 @support_centrist
 subtitle: Let the depression play itself out.
-on-arrival: center_strength += 5; left_worker_dissent -= 5; technocrat_dissent += 10; wtb_support -= 1; left_dissent += 10;
+on-arrival: left_worker_strength += 5; left_worker_dissent -= 5; technocrat_dissent += 10; wtb_support -= 1; left_dissent += 10;
 
 Woytinsky and the trade unions vehemently criticize the centrists for their policy. The workers are starving; are we going to callously abandon them and side with bourgeois austerity? On the other hand, the centrists criticize Woytinsky for promising the workers false hope; their position is that nothing can be done to alleviate the depression. They also speak of the fear of another round of hyperinflation that may result from deficit spending.
 
@@ -37,7 +37,7 @@ Our policy course is currently that nothing can be done to alleviate the depress
 @support_labor
 subtitle: Call for increased public works and fiscal stimulus.
 unavailable-subtitle: The Labor faction is not strong enough.
-choose-if: historical_mode == 0 or (technocrat_strength >= left_strength and technocrat_strength >= center_strength and technocrat_strength >= reformist_strength)
+choose-if: historical_mode == 0 or (technocrat_strength >= left_strength and technocrat_strength >= left_worker_strength and technocrat_strength >= right_worker_strength)
 on-arrival: left_worker_dissent += 10; left_dissent += 5; technocrat_strength += 5; wtb_support += 1;
 go-to: plan_adopted if wtb_support >= 3; plan_support if wtb_support < 3
 
@@ -48,14 +48,14 @@ Our support of the WTB plan alienates the orthodox Marxists of the Centrist fact
 We have not yet convinced the party to formally adopt the plan. More work needs to be done.
 
 @plan_adopted
-on-arrival: wtb_adopted = 1; technocrat_dissent -= 15; right_worker_dissent -= 10; technocrat_strength += 10; center_strength -= 10; left_worker_dissent += 20; left_dissent += 5; economic_plan = 1
+on-arrival: wtb_adopted = 1; technocrat_dissent -= 15; right_worker_dissent -= 10; technocrat_strength += 10; left_worker_strength -= 10; left_worker_dissent += 20; left_dissent += 5; economic_plan = 1
 
 With our hard work, we have finally convinced the majority of the party to adopt the WTB plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?][? if spd_in_government = 0 : We should emphasize the plan in our electoral propaganda. ?]
 
 @support_left
 subtitle: Call for mass nationalizations and the transformation of the economy.
 unavailable-subtitle: The Left faction is not strong enough.
-choose-if: historical_mode == 0 or (left_strength >= technocrat_strength and left_strength >= center_strength and left_strength >= reformist_strength)
+choose-if: historical_mode == 0 or (left_strength >= technocrat_strength and left_strength >= left_worker_strength and left_strength >= right_worker_strength)
 on-arrival: left_strength += 10; right_worker_dissent += 5; technocrat_dissent += 5; nationalization_support += 2
 go-to: support_left_progress if nationalization_support < 3; adopt_left if nationalization_support >= 3
 
@@ -73,8 +73,8 @@ With our hard work, we have convinced the majority of the party to adopt the soc
 @support_moderate
 subtitle: Call for a limited program of job creation without deficit spending.
 unavailable-subtitle: The Reformist faction is not strong enough.
-choose-if: historical_mode == 0 or (reformist_strength >= left_strength and reformist_strength >= center_strength and reformist_strength >= technocrat_strength)
-on-arrival: moderate_plan_support += 1; reformist_strength += 8; right_worker_dissent -= 5; left_dissent += 6; technocrat_dissent += 5
+choose-if: historical_mode == 0 or (right_worker_strength >= left_strength and right_worker_strength >= left_worker_strength and right_worker_strength >= technocrat_strength)
+on-arrival: moderate_plan_support += 1; right_worker_strength += 8; right_worker_dissent -= 5; left_dissent += 6; technocrat_dissent += 5
 go-to: adopt_moderate if moderate_plan_support >= 2; support_moderate_progress if moderate_plan_support < 2
 
 @support_moderate_progress
@@ -84,7 +84,7 @@ We attempt to convince the party to support a moderate program of job creation w
 We have not yet adopted the plan. More work needs to be done.
 
 @adopt_moderate
-on-arrival: reformist_strength += 10; right_worker_dissent -= 10; left_dissent += 8; technocrat_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; z_relation += 5;
+on-arrival: right_worker_strength += 10; right_worker_dissent -= 10; left_dissent += 8; technocrat_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; z_relation += 5;
 
 With our hard work, we have convinced the majority of the party to adopt the moderate job creation plan! [? if spd_in_government == 1 : We can begin implementing the plan as soon as possible, as long as we have the Economic or Finance ministries. ?]
 

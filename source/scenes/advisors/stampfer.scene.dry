@@ -45,7 +45,7 @@ on-arrival: left_dissent -= 8; left_strength += 8
 Vorwärts prints editorials in support of Left positions.
 
 @support_center
-on-arrival: left_worker_dissent -= 8; center_strength += 8
+on-arrival: left_worker_dissent -= 8; left_worker_strength += 8
 
 Vorwärts prints editorials in support of centrist positions.
 
@@ -55,7 +55,7 @@ on-arrival: technocrat_dissent -= 8; technocrat_strength += 8
 Vorwärts prints editorials in support of the policies of the trade unions.
 
 @support_reform
-on-arrival: right_worker_dissent -= 8; reformist_strength += 8;
+on-arrival: right_worker_dissent -= 8; right_worker_strength += 8;
 
 Vorwärts prints editorials in support of the reformist policies.
 

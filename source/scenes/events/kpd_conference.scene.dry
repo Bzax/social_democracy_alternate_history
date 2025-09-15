@@ -18,8 +18,8 @@ After our discussion with the Soviets, we are inclined to believe that Stalin is
 
 @conciliator_success
 title: The Conciliators are the new leadership of the KPD.
-choose-if: (levi_advisor or rosenfeld_advisor) and (left_strength >= reformist_strength) and (kpd_relation >= 50) 
-unavailable-subtitle: [?  if not levi_advisor and not rosenfeld_advisor: Our party leadership is not left-wing enough. ?] [? if left_strength < reformist_strength: The Comintern doubts our commitment to socialism. ?]
+choose-if: (levi_advisor or rosenfeld_advisor) and (left_strength >= right_worker_strength) and (kpd_relation >= 50) 
+unavailable-subtitle: [?  if not levi_advisor and not rosenfeld_advisor: Our party leadership is not left-wing enough. ?] [? if left_strength < right_worker_strength: The Comintern doubts our commitment to socialism. ?]
 on-arrival: kpd_party_leader = "Conciliators"; communist_coalition += 3; kpd_relation += 10*(1-dissent); left_strength += 5; left_dissent -= 8
 achievement: versohnler
 
