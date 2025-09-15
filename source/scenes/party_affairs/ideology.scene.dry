@@ -4,18 +4,18 @@ is-card: true
 tags: party_affairs
 view-if: ideology_timer = 0
 on-arrival: month_actions += 1; old_ideology = ideology; ideology_timer = 18
-card-image: img/arbeiterbew.jpg
+card-image: img/Marx2.jpg
 max-visits: 3
 #subtitle: Setting the party's ideological direction.
 
 = Questions of Ideology
 
-The SPD is torn between many different ideological currents. What should be our primary ideological guidance for now?
+[? if centenary = 0 : As a result of our upcomming centenarry, debate over how to best advance our movement has hummed in every chapter.  ?]
 
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
-- @class_struggle: Class struggle and preparing the proletariat for the revolution are our primary goals.
-- @centrist: The Center Marxism of Karl Kautsky remains the best way to resolve our internal contradictions.
+- @class_struggle: Allying with the left, leaving NATO, and abolishing capitalism are our primary goals.
+- @centrist: Even if the goal remains socialism, we still have a responsibility towards the workers we claim to represent.
 - @labor: We should work with the trade unions to improve the lives of workers.
 - @reform: Following Eduard Bernstein, we should work for ethical socialism, strengthen democracy, and expand the party's electorate.
 - @easy_discard

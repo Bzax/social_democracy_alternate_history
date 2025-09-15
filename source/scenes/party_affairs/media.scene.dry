@@ -58,7 +58,7 @@ title: Let us launch our radio station
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-view-if: radio > 0 and radio <= 3 and resources >=2
+view-if: radio = 0 and radio <= 3 and resources >=2
 on-arrival: radio += 1; resources -= 2
 
 After much deliberation we are now ready to launch our radio station! Together with a coalition of trade unions we have decided on the following name and schema...

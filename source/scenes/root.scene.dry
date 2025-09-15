@@ -60,16 +60,16 @@ Q.globalization = 0.1;
 Q.labor_relations = 1
 
 // factions
-Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
+Q.factions = ['left', 'left_worker', 'technocrat', 'right_worker'];
 // should this be normalized to 100%?
-Q.left_strength = 15;
-Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
+Q.left_strength = 25;
+Q.left_dissent = 30;
+Q.left_worker_strength = 30;
+Q.left_worker_dissent = 0;
+Q.technocrat_strength = 25;
+Q.technocrat_dissent = 5;
+Q.right_worker_strength = 25;
+Q.right_worker_dissent = 5;
 Q.neorevisionist_strength = 5;
 Q.neorevisionist_dissent = 10;
 
