@@ -53,7 +53,7 @@ Reichstag composition:
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+[? if spd_in_government == 1 : Budget: [+ budget +] ?]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
@@ -80,7 +80,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @politics
 on-arrival: {!
-Q.a_members_disp = Math.round(Q.a_members);
+Q.a_members_disp = Math.round(a_members);
 !}
 
 = Party 
@@ -109,7 +109,7 @@ Overall party-strength: [+ efc +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
-= Broader
+= Broader Movement
 
 LO Relations: [+ labor_relations +] 
 
