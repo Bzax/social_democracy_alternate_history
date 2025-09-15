@@ -1,7 +1,7 @@
 title: Civil War
 audio: music/communist/A_las_barricadas.ogg
 on-arrival: {!
-Q.rb_strength = Math.round(Q.rb_strength);
+Q.a_members = Math.round(Q.a_members);
 Q.sh_strength = Math.round(Q.sh_strength);
 Q.sa_strength = Math.round(Q.sa_strength);
 // re-calculate dissent, in case we transitioned from, say, the KPD support that raised reformist dissent.
@@ -22,7 +22,7 @@ Q.civil_war_seen = 1;
 // our allies
 Q.total_power = 0;
 // TODO:  lower reichsbanner strength if the party's popularity is very low.
-Q.rb_power = Q.rb_strength*Q.rb_militancy;
+Q.rb_power = Q.a_members*Q.rb_militancy;
 if (Q.dissent > 0.15) {
     Q.rb_power *= (1 - Q.dissent/1.5);
 }
@@ -91,7 +91,7 @@ Our enemies are the nationalist Stahlhelm, with [+ sh_strength +] thousand troop
 
 [? if chancellor_party == "KPD" or president == "Thälmann" : The KPD's paramilitary, the RFB, is leading the battle, and we are their co-combatants. ?]
 
-On our side, we have the Reichsbanner, at [+ rb_strength +] thousand members. [? if dissent > 0.15 and dissent <= 0.25: It is somewhat weakened by dissent within the party, and some members choose not to fight. ?][? if dissent > 0.25 and dissent < 0.5: It is weakened by dissent within the party, and many members choose not to fight. ?][? if dissent >= 0.5: It is heavily weakened by dissent within the party, and a substantial portion of members choose not to fight. ?]
+On our side, we have the Reichsbanner, at [+ a_members +] thousand members. [? if dissent > 0.15 and dissent <= 0.25: It is somewhat weakened by dissent within the party, and some members choose not to fight. ?][? if dissent > 0.25 and dissent < 0.5: It is weakened by dissent within the party, and many members choose not to fight. ?][? if dissent >= 0.5: It is heavily weakened by dissent within the party, and a substantial portion of members choose not to fight. ?]
 
 [? if rb_militancy < 0.25 : Unfortunately, the Reichsbanner are poorly trained and equipped, and will not be able to stand against our more militarized opponents. ?][? if rb_militancy >= 0.25 and rb_militancy < 0.5 : We have spent some resources training and equipping the Reichsbanner. Let us hope our people can persist. ?][? if rb_militancy >= 0.5 : We have spent quite a great deal of resources on turning the Reichsbanner into a fighting force. Let us hope that they survive. ?]
 

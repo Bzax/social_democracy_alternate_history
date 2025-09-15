@@ -101,7 +101,7 @@ Ovarall internal dissent: [+ dissent_percent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
-#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
 #Reichsbanner Militarization: [+ rb_militancy : militancy +]
 
@@ -131,8 +131,8 @@ Ovarall internal dissent: [+ dissent_percent : dissent +]
 
 @paramilitaries
 on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
+if (Q.a_members) {
+    Q.a_members_2 = Q.a_members.toFixed(1);
 }
 if (Q.rfb_strength) {
     Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
@@ -147,7 +147,7 @@ if (Q.sa_strength) {
 
 = Socio-Economics
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
 Reichsbanner Militarization: [+ rb_militancy : militancy +]
 

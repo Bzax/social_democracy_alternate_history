@@ -1,8 +1,8 @@
 
-(..9) dead
-(10..29) terminal
-(30..49) sickly
-(40..59) ailing
-(60..79) improving
-(80..99) healthy
-(99..) vigorous
+(..20) dead
+(20..34) terminal
+(35..49) sickly
+(50..64) ailing
+(65..79) improving
+(80..94) healthy
+(94..) vigorous
