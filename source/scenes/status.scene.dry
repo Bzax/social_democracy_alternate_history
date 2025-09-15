@@ -86,7 +86,7 @@ on-arrival: {!
 Q.a_members_disp = Math.round(Q.a_members);
 !}
 
-= Party Indicators
+= Party 
 
 Membership: [+ a_members_disp +].000
 
@@ -98,9 +98,9 @@ Size of our bureucracy: [+ a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-Overall party-strength: [+ Q.efc +]
+Overall party-strength: [+ efc +]
 
-= Party Factions
+= Factions
 
 {!<span class="tooltip-text" title="'Social-Democratic Society' (Socialdemocratic Society) is a faction of our party mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
@@ -111,6 +111,16 @@ Overall party-strength: [+ Q.efc +]
 {!<span class="tooltip-text" title="the Right-Workerists is made up of the more right leaning members of the labor movement, their goal is economic reform, homeownership and benefits for organized workers.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+
+= Broader movement
+
+LO Relations: [+ labor_relations +] 
+
+Union Density: [+ union_density]%
+
+Cooperative Health: [+ cooperativehealth +]
+
+
 
 #{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 

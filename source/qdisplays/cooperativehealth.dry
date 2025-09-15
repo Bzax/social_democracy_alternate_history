@@ -1,0 +1,5 @@
+
+(..0.7) <span style="color: darkred;">broken</span>
+(0.7..0.9) <span style="color: darkorange;">dysfunctional</span>
+(0.9..1.1) <span style="color: darkyellow;">average</span>
+(1.1..1.3) <span style="color: darkgreen;">thriving</span>

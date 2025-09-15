@@ -56,8 +56,10 @@ Q.mediahealth = 50
 // globalization
 Q.globalization = 0.1;
 
-//labor relations
+//broader movement
 Q.labor_relations = 1
+Q.union_density = 86
+Q.cooperativehealth = 1 
 
 // factions
 Q.factions = ['left', 'left_worker', 'technocrat', 'right_worker'];

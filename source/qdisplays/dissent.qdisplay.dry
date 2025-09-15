@@ -2,7 +2,7 @@
 # party faction dissent
 
 (..4.999) <span style="color: green;">miniscule</span>
-(4.999..14.999) <span style="color: black;">comradely</span>
-(14.999..30.999) <span style="color: orange;">substantial</span>
+(4.999..14.999) <span style="color: darkyellow;">comradely</span>
+(14.999..30.999) <span style="color: darkorange;">substantial</span>
 (30.999..49.999) <span style="color: red;">debilitating</span>
 (49.999..) <span style="color: darkred;">paralyzing</span> 
