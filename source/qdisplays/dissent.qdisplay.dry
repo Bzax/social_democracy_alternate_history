@@ -1,8 +1,8 @@
 
 # party faction dissent
 
-(..4.999) <span style="color: green;">United and ready</span>
-(4.999..14.999) <span style="color: lightgreen;">Practising comradely debate</span>
-(14.999..30.999) <span style="color: yellow;">infighting</span>
-(30.999..49.999) <span style="color: orange;">infighting</span>
-(49.999..) <span style="color: red;">Tearing itself apart</span> 
+(..4.999) <span style="color: green;">miniscule</span>
+(4.999..14.999) <span style="color: yellow;">comradely</span>
+(14.999..30.999) <span style="color: orange;">substantial</span>
+(30.999..49.999) <span style="color: red;">debilitating</span>
+(49.999..) <span style="color: darkred;">paralyzing</span> 
