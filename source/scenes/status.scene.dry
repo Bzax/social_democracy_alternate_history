@@ -98,11 +98,11 @@ Size of our bureucracy: [+ a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-Overall party-strength: [+ efc +]
+Overall party-strength: [+ Q.efc +]
 
 = Party Factions
 
-{!<span class="tooltip-text" title="The Left is mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="'Social-Democratic Society' (Socialdemocratic Society) is a faction of our party mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
 {!<span class="tooltip-text" title="The Left-Workerists is made up of the more left leaning members of the labor movement, they want to decisively shift the balance of class-power in Denmark but are flexible as to how to do it.">Left-Workerists</span>!} strength: [+ left_worker_strength : strength +], dissent: [+ left_worker_dissent : dissent +]
 

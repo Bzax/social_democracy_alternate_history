@@ -41,7 +41,7 @@ go-to: main_rally
 The Reichsbanner has successfully protected our rally against the SA! Our meeting can go ahead as usual.
 
 @rb_protect_lose
-on-arrival: workers_nsdap += 3; a_members -= 50
+on-arrival: workers_nsdap += 3; a_members -= 5
 
 Unfortunately, the Reichsbanner was not able to hold back the SA mob. The Nazis have won this show of strength.
 

@@ -46,7 +46,7 @@ This has been an important function of our media historically, and it has succes
 @radio
 title: Why not fund a radio station?
 subtitle: We will investigate this along with our allies in the labor movement
-choose-if: radiolegal = 1
+choose-if: radiolegal = 0
 unavailable-subtitle: this would be illegal as DR currently has a state monopoly on radio broadcasting
 view-if: radio = 0
 on-arrival: radio += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); technocrat_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
@@ -58,7 +58,7 @@ title: Let us launch our radio station
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-view-if: radio = 0 and radio <= 3 and resources >=2
+view-if: radio >= 0 and radio <= 3 and resources >=2
 on-arrival: radio += 1; resources -= 2
 
 After much deliberation we are now ready to launch our radio station! Together with a coalition of trade unions we have decided on the following name and schema...

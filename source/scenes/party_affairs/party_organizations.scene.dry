@@ -52,7 +52,7 @@ Our political party is little without its members, those who tirelessly work to 
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; a_members += 100*efc; reichsbanner_timer = 0; funded_reichsbanner += 1
+on-arrival: resources -= 1; a_members += 2*efc; reichsbanner_timer = 0; funded_reichsbanner += 1
 
 We have organized a recruitment drive among our traditional audiences. [? if dissent > 0.5 : Due to many of our members feeling alienated, this was met with mixed successes ?]
 
@@ -60,7 +60,7 @@ We have organized a recruitment drive among our traditional audiences. [? if dis
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; a_members += 25; a_activity += 0.06; young_socialists += 1; left_strength += 5; left_dissent -= 5; right_worker_dissent += 3
+on-arrival: resources -= 1; a_members += 1; a_activity += 0.06; young_socialists += 1; left_strength += 5; left_dissent -= 5; right_worker_dissent += 3
 
 DSU appreciates our funding and quickly puts most of it to use in a flashy campaign. Towns all over the country are painted red with posters, even if some of our more moderate comrades slightly squirm at their demands.
 
