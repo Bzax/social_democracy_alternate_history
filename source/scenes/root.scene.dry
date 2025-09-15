@@ -52,7 +52,7 @@ Q.dissent_percent = 5;
 Q.efc = 1
 Q.a_activity = 1
 Q.members
-Q.a_bureau = 0.0.25
+Q.a_bureau = 0.025
 
 // globalization
 Q.globalization = 0.1;

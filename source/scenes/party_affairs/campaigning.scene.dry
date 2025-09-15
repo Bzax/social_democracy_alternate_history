@@ -33,7 +33,7 @@ By focussing the campaign on traditional socialist issues, while expanding our w
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: public_prole_a += 4*efc; public_homeowner_a += 3*efc; a_members + 100
+on-arrival: public_prole_a += 4*efc; public_homeowner_a += 3*efc; a_members += 100
 
 By focussing the campaign on strenghtening the welfare state, we have increased our campaigning among the workers of the public sector. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
@@ -41,7 +41,7 @@ By focussing the campaign on strenghtening the welfare state, we have increased 
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: prole_a += 6*(1-globalization)*efc; homeowner += 3*efc; a_members + 100
+on-arrival: prole_a += 6*(1-globalization)*efc; homeowner += 3*efc; a_members += 100
 
 By focussing our campaign on the labour struggle, we have increased our campaigning among the workers of the private sector.
 
