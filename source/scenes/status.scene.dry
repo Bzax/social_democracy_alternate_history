@@ -85,7 +85,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Party Indicators
 
-The effectiveness of our party: [+ efc +]
+The effectiveness of our party:
 
 Party membership: 
 Level of activity:
