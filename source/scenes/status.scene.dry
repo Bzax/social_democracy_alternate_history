@@ -81,8 +81,43 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
+on-arrival: {!
+Q.a_members_disp = Math.round(Q.a_members);
+!}
 
-=pien
+= Party 
+
+Membership: [+ a_members_disp +].000
+
+Level of activity: [+ a_activity +]
+
+Faction dissent: [+ dissent_percent : dissent_percent +]
+
+Size of our bureucracy: [+ a_bureau +]
+
+Health of our media: [+ mediahealth : mediahealth +]
+
+Overall party-strength: [+ efc +]
+
+= Factions
+
+{!<span class="tooltip-text" title="'Social-Democratic Society' (Socialdemocratic Society) is a faction of our party mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+
+{!<span class="tooltip-text" title="The Left-Workerists is made up of the more left leaning members of the labor movement, they want to decisively shift the balance of class-power in Denmark but are flexible as to how to do it.">Left-Workerists</span>!} strength: [+ left_worker_strength : strength +], dissent: [+ left_worker_dissent : dissent +]
+
+{!<span class="tooltip-text" title="The Technocrats are academic pragmatists through and through, they seek to strengthen the welfare state and grow our economy by entering government and are less concerned with ideological purity.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
+
+{!<span class="tooltip-text" title="the Right-Workerists is made up of the more right leaning members of the labor movement, their goal is economic reform, homeownership and benefits for organized workers.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
+
+[? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+
+= Broader Movement
+
+LO Relations: [+ labor_relations +] 
+
+Union Density: [+ union_density +]
+
+Cooperative Health: [+ cooperativehealth +]
 
 #{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
