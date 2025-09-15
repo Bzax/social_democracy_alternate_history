@@ -106,8 +106,7 @@ if (Q.dissent < 0) {
 }
 
 // re-calculate party effectiveness.
-var total_efficiency = ((Q.a_members/150.000)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
-Q.efc = total_efficiency
+Q.efc = ((Q.a_members/151.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
 
 // 1. update dates
 if (Q.month_actions >= 1) {
@@ -472,6 +471,7 @@ if (Q.month_actions >= 1) {
         }
     }
 }
+
 Q.has_event = 0;
 // check if there are any cards in #event, and then go to main if not.
 var scene = this.game.scenes['post_event.events_choice'];

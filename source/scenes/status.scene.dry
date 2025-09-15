@@ -85,7 +85,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Party Indicators
 
-Membership: [+ a_members +]
+Membership: [+ a_members +]00
 
 Level of activity: [+ a_activity +]
 
