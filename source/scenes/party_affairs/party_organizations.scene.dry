@@ -4,7 +4,7 @@ is-card: true
 tags: party_affairs
 view-if: party_organizations_timer <= 0
 on-arrival: month_actions += 1; party_organizations_timer = 6;
-card-image: img/Mann_der_Arbeit.jpg
+card-image: img/organ.jpg
 max-visits: 5
 #subtitle: Outside of electoral politics, the SPD runs a social world onto itself.
 
@@ -12,12 +12,12 @@ max-visits: 5
 
 In addition to being a political party, the SPD is a social world onto itself, with a vast array of associated organizations which serve the social needs of their members from cradle to grave.
 
-- @newspapers: Fund more newspapers and journalists.
-- @welfare: Fund more mutual aid and welfare programs.
-- @culture: Fund sports leagues, educational, and cultural programs.
-- @rb: Fund the Reichsbanner, our self-defense organization.
+- @newspapers: Attempt to boost our [+ mediahealth +] media.
+- @welfare: Organize fundraisers for our most troubled trade unions.
+- @culture: Fund our local chapters in an attempt to boost activity.
+- @rb: Organize a recruitment drive to attract new members.
 - @youth: We have the reputation of being a party for old men. Support the youth organizations.
-- @nothing: Do not increase funding for any program.
+- @nothing: Do not increase funding for any of this.
 - @easy_discard
 
 @newspapers
@@ -34,7 +34,7 @@ go-to: media
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; workers_aid += 1; unemployed_spd += 5*(1 - dissent);
+on-arrival: resources -= 1; workers_aid += 1; unemployed_a += 5*(1 - dissent);
 
 We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : In an age of economic crisis, this will be helpful for improving our standing among the unemployed. ?]
 

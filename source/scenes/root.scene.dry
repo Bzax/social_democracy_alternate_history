@@ -7,7 +7,7 @@ set-bg: img/Background-train.jpg
 new-page: true
 go-to: start_menu_2
 
-= Social Democracy: An Alternate History
+= Red Zenit: An Alternate History
 
 @start_menu_2
 
@@ -42,9 +42,11 @@ Q.resources = 2;
 Q.dues = 2;
 
 // the state of the party
-// overall dissent reduces every increase in party support.
 Q.dissent = 0.05;
 Q.dissent_percent = 5;
+
+// overall effectiveness reduces every increase in party support. Especially in electoral campaigns.
+Q.efc = 0.75
 
 // globalization
 Q.globalization = 0.1;
