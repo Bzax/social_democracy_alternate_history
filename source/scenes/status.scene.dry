@@ -94,7 +94,7 @@ Level of activity: [+ a_activity : a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent +]
 
-Size of our bureucracy: [+ a_bureau : a_bureau +]
+Size of our bureucracy: [+ a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
