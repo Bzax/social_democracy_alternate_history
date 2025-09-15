@@ -41,6 +41,9 @@ Q.resources = 2;
 // party dues
 Q.dues = 2;
 
+// media health is a measure of how succesfull our media is
+Q.mediahealth = 50
+
 // the dissent of the party
 Q.dissent = 0.05;
 Q.dissent_percent = 5;
@@ -48,16 +51,14 @@ Q.dissent_percent = 5;
 // overall effectiveness reduces many actions of our party. Especially in electoral campaigns.
 Q.efc = 1
 Q.a_activity = 1
+Q.members
+Q.a_bureau = 0.0.25
 
 // globalization
 Q.globalization = 0.1;
 
 //labor relations
 Q.labor_relations = 1
-
-
-// media health is a measure of how succesfull our media is
-Q.mediahealth = 50
 
 // factions
 Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
@@ -684,15 +685,15 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
-audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
+audio: shuffle music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= Early Summer, 1971
+= Late Summer, 1970
 
-It is a glorious time for Danish democracy. Since the downfall of German Nazism, our labor movement won decisive victories and the economy is reaching unfathomable heights. In foreign policy, the big question remains whether to join the European community but we have otherwise sided decisively with the western powers.
+It is a bright time for Danish democracy. As our time-honered party nears its centenary, our movement is reaching unfathomable heights. Almost every single worker in Denmark is now organized, and since the evil years of german occupation, we have been able to leverage our political strength in the construction of the welfare state. In foreign policy, the big question remains whether to join the European community but we have otherwise sided decisively with NATO and the western powers.
 
-Now, the task of Social Democracy is to prepare for the next election. The center-bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
-*Perhaps the next parliament will have a socialist majority?*
+Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
+*Perhaps the next parliament will again bring a workers majority?*
 
 

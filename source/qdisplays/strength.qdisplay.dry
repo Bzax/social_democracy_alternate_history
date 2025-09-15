@@ -1,7 +1,7 @@
 
 # faction strength
 
-(0..10) weak
+(0..10) fringe
 (10..25) moderate
 (25..40) strong
 (40..60) very strong

@@ -104,6 +104,9 @@ if (Q.dissent < 0) {
     Q.dissent = 0.95;
 }
 
+// re-calculate party effectiveness.
+efc = ((a_members/150.000)*a_activity)*(1-dissent) + a_bureau + (mediahealth/400)
+
 // 1. update dates
 if (Q.month_actions >= 1) {
     Q.time += 1;
@@ -301,9 +304,9 @@ if (Q.month_actions >= 1) {
     }
 
     ////////////////////////// annual support changes
-    if (Q.year == 1929) {
-        Q.unemployed += 3/12;
-        Q.inflation -= 1/12;
+    if (Q.year == 1972) {
+        Q.unemployed -= 1/12;
+        Q.inflation += 1/12;
         // increase NSDAP vote share
         Q.new_middle_nsdap += 10/12;
         Q.old_middle_nsdap += 10/12;
