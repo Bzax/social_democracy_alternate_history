@@ -165,7 +165,7 @@ We have successfully signed a Concordat between Germany and the Roman Catholic C
 @support_austria
 title: Diplomatically support Austrian democracy against the Dollfuß dictatorship.
 view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: sdapo_strength += 1; left_dissent -= 3; center_dissent -= 3
+on-arrival: sdapo_strength += 1; left_dissent -= 3; left_worker_dissent -= 3
 
 We provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Time will tell if it will be enough.
 
@@ -174,7 +174,7 @@ title: Provide material support to Austrian democracy against the Dollfuß dicta
 subtitle: -1 budget
 choose-if: budget >= 1
 view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; center_dissent -= 6
+on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; left_worker_dissent -= 6
 
 In public, we provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Privately, we provide financial and various forms of "support" to our comrades in Austria in their struggle against dictatorship.
 

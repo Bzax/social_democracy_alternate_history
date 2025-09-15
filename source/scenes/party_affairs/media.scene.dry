@@ -49,7 +49,7 @@ subtitle: We will investigate this along with our allies in the labor movement
 choose-if: radiolegal = 1
 unavailable-subtitle: this would be illegal as DR currently has a state monopoly on radio broadcasting
 view-if: radio = 0
-on-arrival: radio += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); technocrat_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
 
 Since the end of DR's media monopoly various trade unions have already experimented with local channels with mixed sucess, perhaps what they need is name recognition? We will call some meetings.
 

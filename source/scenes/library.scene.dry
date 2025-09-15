@@ -302,15 +302,15 @@ Centrists in the SPD are followers of the doctrine of orthodox Marxism as expoun
 
 Strength: [+ center_strength : strength +]
 
-Dissent: [+ center_dissent : dissent +]
+Dissent: [+ left_worker_dissent : dissent +]
 
 **Labor**
 
 Many SPD members are also part of the ADGB, the federation of free trade unions. Their goal is economic reform and benefits for organized workers.
 
-Strength: [+ labor_strength : strength +]
+Strength: [+ technocrat_strength : strength +]
 
-Dissent: [+ labor_dissent : dissent +]
+Dissent: [+ technocrat_dissent : dissent +]
 
 **Reformists**
 
@@ -318,7 +318,7 @@ Reformists are pragmatic participants in government, and seek to expand the welf
 
 Strength: [+ reformist_strength : strength +]
 
-Dissent: [+ reformist_dissent : dissent +]
+Dissent: [+ right_worker_dissent : dissent +]
 
 @neorevisionists
 go-to: menu
