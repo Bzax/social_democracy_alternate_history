@@ -88,7 +88,7 @@ Resources available: [+ resources +]
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activityfix +]
+Level of activity: [+ a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent_percent +]
 
