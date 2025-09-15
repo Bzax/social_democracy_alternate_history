@@ -90,11 +90,11 @@ Q.a_members_disp = Math.round(Q.a_members);
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activity +]
+Level of activity: [+ a_activity : a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent +]
 
-Size of our bureucracy: [+ a_bureau +]
+Size of our bureucracy: [+ a_bureau : a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
@@ -114,12 +114,11 @@ Overall party-strength: [+ efc +]
 
 = Broader movement
 
-LO Relations: [+ labor_relations +] 
+LO Relations: [+ labor_relations : labor_relations +] 
 
-Union Density: [+ union_density]%
+Union Density: [+ union_density : union_density +]%
 
-Cooperative Health: [+ cooperativehealth +]
-
+Cooperative Health: [+ cooperativehealth : cooperativehealth +]
 
 
 #{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand

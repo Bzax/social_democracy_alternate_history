@@ -1,0 +1,9 @@
+
+(..5) arctic
+(5..14.9) freezing
+(14.9..29.9) frosty
+(29.9..39.9) cool
+(39.9..54.9) lukewarm
+(54.9..64.9) warming
+(64.9..74.9) warm
+(74.9..) eager

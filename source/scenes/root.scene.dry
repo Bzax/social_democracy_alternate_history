@@ -57,7 +57,7 @@ Q.mediahealth = 50
 Q.globalization = 0.1;
 
 //broader movement
-Q.labor_relations = 1
+Q.labor_relations = 80
 Q.union_density = 86
 Q.cooperativehealth = 1 
 
