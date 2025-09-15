@@ -37,11 +37,12 @@ for (var c of Q.classes) {
         Q[c + '_' + party + '_display'] = Math.round(100*Q[c+'_'+party]/class_votes);
     }
 }
+
 // Advance globalization each month
 Q.globalization += 0.0025; // adjust the increment as needed
 
 // decline media health each month
-Q.mediahealth -= 1; // adjust the increment as needed
+Q.mediahealth -= 0.5; // adjust the increment as needed
 
 // calculate support for each of the parties
 var total_support = 0; 
@@ -105,7 +106,8 @@ if (Q.dissent < 0) {
 }
 
 // re-calculate party effectiveness.
-efc = ((a_members/150.000)*a_activity)*(1-dissent) + a_bureau + (mediahealth/400)
+var total_efficiency = ((Q.a_members/150.000)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
+Q.efc = total_efficiency
 
 // 1. update dates
 if (Q.month_actions >= 1) {

@@ -42,17 +42,16 @@ Q.resources = 2;
 Q.dues = 2;
 
 // media health is a measure of how succesfull our media is
-Q.mediahealth = 50
 
 // the dissent of the party
 Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
-// overall effectiveness reduces many actions of our party. Especially in electoral campaigns.
-Q.efc = 1
+// Party indicators
+Q.efc = 0.5
 Q.a_activity = 1
-Q.members
 Q.a_bureau = 0.025
+Q.mediahealth = 50
 
 // globalization
 Q.globalization = 0.1;
@@ -147,7 +146,7 @@ Q.prussian_government = "SPD";
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.a_members = 2000;
+Q.a_members = 151.5;
 Q.rb_militancy = 0.01;
 Q.women_in_rb = 0;
 Q.rb_banned = 0;
