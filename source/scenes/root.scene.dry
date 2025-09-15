@@ -685,15 +685,17 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
-audio: shuffle music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
+audio: shuffle music/1970_1973/Når_jeg_ser_et_rødt_flag_smælde(instrumental).mp3 music/1928_1930/MarekWeber.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = Late Summer, 1970
 
-It is a bright time for Danish democracy. As our time-honered party nears its centenary, our movement is reaching unfathomable heights. Almost every single worker in Denmark is now organized, and since the evil years of german occupation, we have been able to leverage our political strength in the construction of the welfare state. In foreign policy, the big question remains whether to join the European community but we have otherwise sided decisively with NATO and the western powers.
+It is a bright time for Danish democracy. As our time-honered party nears its centenary, its movement is reaching unfathomable heights. Nearly all workers in Denmark are now organized, and since the evil years of German occupation our economy has soared. Politically, even if capitalism still stands mostly intact, we have been able to leverage our strength towards constructing a 'welfare state'. 
+
+In foreign policy, the big question remains whether to join the European community but we have otherwise sided decisively with NATO and the western powers.
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
-*Perhaps the next parliament will again bring a workers majority?*
+Perhaps the next parliament will have a workers majority?
 
 

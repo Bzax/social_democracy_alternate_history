@@ -61,9 +61,9 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 = Inter-party Relations
 
 
-{!<span class="tooltip-text" title="Venstre">Z</span>!}: [+ v_relation : relationships +]
+{!<span class="tooltip-text" title="Venstre">V</span>!}: [+ v_relation : relationships +]
 
-{!<span class="tooltip-text" title="Conservative Peoples Party"<C>!</span>!}: [+ c_relation : relationships +]
+{!<span class="tooltip-text" title="Conservative Peoples Party">C</span>!}: [+ c_relation : relationships +]
 
 {!<span class="tooltip-text" title="Radikale Venstre (lit.'the Radical Left)">B</span>!}: [+ b_relation : relationships +]
 
@@ -84,12 +84,15 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 @politics
 
 = Party Indicators
+The effectiveness of our party: [+ efc : efc +]
 
+Party membership: [+ a_members : a_members +]
+Level of activity: [+ a_activity : a_activity +]
+Size of our bureucracy: [+ a_bureau : a_bureau +]
 Health of our media: [+ mediahealth : mediahealth +]
+Ovarall faction dissent is [+ dissent_percent : dissent +]
 
 = Party Factions
-
-Ovarall internal dissent: [+ dissent_percent : dissent +]
 
 {!<span class="tooltip-text" title="The Left is mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
