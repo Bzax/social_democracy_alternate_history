@@ -87,8 +87,8 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 The effectiveness of our party: [+ efc +]
 
-Party membership: [+ a_members +]
-Level of activity: [+ a_activity +]
+Party membership: 
+Level of activity:
 Size of our bureucracy: [+ a_bureau +]
 Health of our media: [+ mediahealth : mediahealth +]
 
