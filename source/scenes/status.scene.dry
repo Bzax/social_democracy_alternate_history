@@ -82,10 +82,12 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 # = Public Opinion
 
 @politics
-
+on-arrival: {!
+Q.pro_republic_disp = Math.round(Q.a_members);
+!}
 = Party Indicators
 
-Membership: [+ a_members +]00
+Membership: [+ a_members +].000
 
 Level of activity: [+ a_activity +]
 
