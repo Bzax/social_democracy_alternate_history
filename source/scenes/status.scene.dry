@@ -59,7 +59,6 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Inter-party Relations
 
-
 {!<span class="tooltip-text" title="Venstre">V</span>!}: [+ v_relation : relationships +]
 
 {!<span class="tooltip-text" title="Conservative Peoples Party">C</span>!}: [+ c_relation : relationships +]
@@ -88,6 +87,8 @@ Q.a_members_disp = Math.round(Q.a_members);
 Membership: [+ a_members_disp +].000
 
 Level of activity: [+ a_activity +]
+
+Faction dissent: [+ dissent : dissent_percent +]
 
 = Internal Factions of the SPD
 
