@@ -91,8 +91,6 @@ Level of activity: [+ a_activity : a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent_percent +]
 
-Size of our bureucracy: [+ a_bureau +]
-
 = Internal Factions of the SPD
 
 {!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
