@@ -86,9 +86,13 @@ Q.a_members_disp = Math.round(Q.a_members);
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activity +]
+Level of activity: [+ a_activity : a_activity +]
 
-Faction dissent: [+ dissent : dissent_percent +]
+Internal dissent: [+ dissent_percent : dissent +]
+
+Health of our media: [+ mediahealth : mediahealth +]
+
+Overall party-strength: [+ efc +]
 
 = Internal Factions of the SPD
 
