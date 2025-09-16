@@ -86,6 +86,8 @@ Q.a_members_disp = Math.round(a_members);
 
 Membership: [+ a_members_disp +].000
 
+Level of activity: [+ a_activity +]
+
 = Internal Factions of the SPD
 
 {!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
