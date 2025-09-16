@@ -79,8 +79,13 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 [? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
 @politics
+on-arrival: {!
+Q.a_members_disp = Math.round(a_members);
+!}
+
 
 = Party 
+Membership: [+ a_members_disp +].000
 
 @paramilitaries
 on-arrival: {!
