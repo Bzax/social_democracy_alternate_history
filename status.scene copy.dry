@@ -86,17 +86,17 @@ Q.a_members_disp = Math.round(a_members);
 
 = Party 
 
-Membership: [+ a_members_disp +].000
+#Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activity +]
+#Level of activity: [+ a_activity +]
 
-Faction dissent: [+ dissent_percent : dissent_percent +]
+#Faction dissent: [+ dissent_percent : dissent_percent +]
 
-Size of our bureucracy: [+ a_bureau +]
+#Size of our bureucracy: [+ a_bureau +]
 
-Health of our media: [+ mediahealth : mediahealth +]
+#Health of our media: [+ mediahealth : mediahealth +]
 
-Overall party-strength: [+ efc +]
+#Overall party-strength: [+ efc +]
 
 = Factions
 
