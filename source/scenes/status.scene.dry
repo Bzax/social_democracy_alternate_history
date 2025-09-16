@@ -87,7 +87,7 @@ Q.a_members_disp = Math.round(Q.a_members);
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activity : a_activity +]
+Level of activity: [+ a_activity +]
 
 = Internal Factions of the SPD
 
