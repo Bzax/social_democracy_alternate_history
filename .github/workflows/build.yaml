@@ -1,27 +1,20 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -30,20 +23,60 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: setup node
+
+      # If you actually need Node for the build, keep these. Otherwise you can remove.
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - name: Install
-        run: npm install
-      - name: Build game
-        run: npm run dendrynexus make-html -- --pretty
-      - name: Copy game.json to output
-        run: cp out/game.json out/html/
-      - name: Upload artifact
+          node-version: 18
+
+      # If your repo has package.json with deps for the build, keep this. Otherwise remove.
+      - name: Install deps (optional)
+        if: hashFiles('package.json') != ''
+        run: npm ci
+
+      # Build your game. Choose ONE of these two:
+      # A) If you have an npm script "build": "dendrynexus make-html --pretty"
+      - name: Build (npm script)
+        if: contains(steps.check_pkg.outputs.has_build, 'true')
+        run: npm run build
+        shell: bash
+        continue-on-error: false
+
+      # B) Otherwise, call the CLI directly via npx:
+      - name: Build (npx dendrynexus)
+        if: always()
+        run: npx dendrynexus make-html --pretty
+        shell: bash
+
+      # Sanity: ensure index exists
+      - name: Check output exists
+        run: test -f out/html/index.html && echo "Found out/html/index.html"
+
+      # Stamp a visible build marker and cache-bust asset URLs in index.html
+      - name: Stamp build & cache-bust
+        run: |
+          VERSION=$(date +%s)
+          echo "<!-- BUILD: $GITHUB_RUN_ID / $VERSION -->" >> out/html/index.html
+          sed -i "s#game.css#game.css?v=${VERSION}#g" out/html/index.html
+          sed -i "s#d3.v7.min.js#d3.v7.min.js?v=${VERSION}#g" out/html/index.html
+          sed -i "s#d3-parliament.js#d3-parliament.js?v=${VERSION}#g" out/html/index.html
+          sed -i "s#d3-linegraph.js#d3-linegraph.js?v=${VERSION}#g" out/html/index.html
+          sed -i "s#game.js#game.js?v=${VERSION}#g" out/html/index.html
+
+      # (Optional) list the files we’re about to deploy
+      - name: List output
+        run: |
+          echo "---- out/html ----"
+          ls -lah out/html
+          echo "---- index head ----"
+          sed -n '1,120p' out/html/index.html
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'out/html'
+          path: out/html
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
