@@ -78,34 +78,45 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 [? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
+
 @politics
+on-arrival: {!
+Q.a_members_disp = Math.round(a_members);
+!}
 
-= Inter-party Relations
+= Party 
 
+Membership: [+ a_members_disp +].000
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+Level of activity: [+ a_activity +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+Faction dissent: [+ dissent_percent : dissent_percent +]
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
+Size of our bureucracy: [+ a_bureau +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+Health of our media: [+ mediahealth : mediahealth +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+Overall party-strength: [+ efc +]
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+= Factions
 
-= Internal Factions of the SPD
+{!<span class="tooltip-text" title="'Social-Democratic Society' (Socialdemocratic Society) is a faction of our party mostly made up of our younger members, who are interested in radical, transformative policies, social justice, international solidarity, as well as cooperation with other socialist parties.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left-Workerists is made up of the more left leaning members of the labor movement, they want to decisively shift the balance of class-power in Denmark but are flexible as to how to do it.">Left-Workerists</span>!} strength: [+ left_worker_strength : strength +], dissent: [+ left_worker_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="The Technocrats are academic pragmatists through and through, they seek to strengthen the welfare state and grow our economy by entering government and are less concerned with ideological purity.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
-
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="the Right-Workerists is made up of the more right leaning members of the labor movement, their goal is economic reform, homeownership and benefits for organized workers.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+
+= Broader Movement
+
+LO Relations: [+ labor_relations +] 
+
+Union Density: [+ union_density +]
+
+Cooperative Health: [+ cooperativehealth +]
 
 @paramilitaries
 on-arrival: {!
