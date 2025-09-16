@@ -90,10 +90,6 @@ Level of activity: [+ a_activity : a_activity +]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
-Health of our media: [+ mediahealth : mediahealth +]
-
-Overall party-strength: [+ efc +]
-
 = Internal Factions of the SPD
 
 {!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
