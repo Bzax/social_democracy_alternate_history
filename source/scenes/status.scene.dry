@@ -83,9 +83,10 @@ on-arrival: {!
 Q.a_members_disp = Math.round(a_members);
 !}
 
+= Party
 
-= Party 
 Membership: [+ a_members_disp +].000
+Level of activity: [+ a_activity +]
 
 @paramilitaries
 on-arrival: {!
