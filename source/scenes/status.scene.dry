@@ -82,16 +82,6 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Party 
 
-Membership: [+ a_members_disp +].000
-
-Level of activity: [+ a_activity : a_activity +]
-
-Faction dissent: [+ dissent_percent : dissent_percent +]
-
-Health of our media: [+ mediahealth : mediahealth +]
-
-Overall party-strength: [+ efc +]
-
 @paramilitaries
 on-arrival: {!
 if (Q.a_members) {
