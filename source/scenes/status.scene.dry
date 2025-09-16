@@ -78,7 +78,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 [? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
-@politics
+@politics1
 on-arrival: {!
 Q.a_members_disp = Math.round((Q.a_members || 0));
 Q.a_activity = Q.a_activity || 0;
@@ -92,6 +92,10 @@ Membership: [+ a_members_disp +].000
 Level of activity: [+ a_activity : a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent_percent +]
+
+Health of our media: [+ mediahealth : mediahealth +]
+
+Overall party-strength: [+ efc +]
 
 @paramilitaries
 on-arrival: {!
