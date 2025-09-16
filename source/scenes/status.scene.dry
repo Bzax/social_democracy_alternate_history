@@ -85,7 +85,11 @@ Q.a_members_disp = Math.round(a_members);
 
 = Party 
 
-ZZZ_LOCAL_BUILD_01
+Membership: [+ a_members_disp +].000
+
+Level of activity: [+ a_activity : a_activity +]
+
+Faction dissent: [+ dissent_percent : dissent_percent +]
 
 @paramilitaries
 on-arrival: {!
