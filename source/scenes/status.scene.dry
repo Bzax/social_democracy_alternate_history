@@ -78,7 +78,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 [? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
-@politics
+@politics1
 on-arrival: {!
 Q.a_members_disp = Math.round(a_members);
 !}
@@ -87,7 +87,11 @@ Q.a_members_disp = Math.round(a_members);
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: [+ a_activity +]
+Level of activity: [+ a_activity : a_activity +]
+
+Faction dissent: [+ dissent_percent : dissent_percent +]
+
+Size of our bureucracy: [+ a_bureau +]
 
 = Internal Factions of the SPD
 
