@@ -88,11 +88,11 @@ Membership: [+ a_members_disp +].000
 
 Level of activity: [+ a_activity : a_activity +]
 
-Faction dissent: [+ dissent +]
+Internal dissent: [+ dissent +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-Overall party-strength: [+ efc : efc+]
+Overall party-strength: [+ efc +]
 
 = Internal Factions of the SPD
 
