@@ -87,7 +87,13 @@ Q.a_members_disp = Math.round(a_members);
 
 Membership: [+ a_members_disp +].000
 
-Level of activity:
+Level of activity: [+ a_activity : a_activity +]
+
+Faction dissent: [+ dissent_percent : dissent_percent +]
+
+Health of our media: [+ mediahealth : mediahealth +]
+
+Overall party-strength: [+ efc +]
 
 Faction dissent:
 
