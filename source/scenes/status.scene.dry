@@ -80,14 +80,16 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @politics
 on-arrival: {!
-Q.a_members_disp = Math.round(a_members);
+Q.a_members_disp = Math.round((Q.a_members || 0));
+Q.a_activity = Q.a_activity || 0;
+Q.dissent_percent = Q.dissent_percent || 0;
 !}
 
 = Party 
 
 Membership: [+ a_members_disp +].000
 
-Level of activity: 
+Level of activity: [+ a_activity : a_activity +]
 
 Faction dissent: [+ dissent_percent : dissent_percent +]
 
