@@ -1,4 +1,4 @@
-title: Reichstag Elections
+title: Folketing Elections
 new-page: true
 tags: event
 priority: -1
@@ -13,9 +13,9 @@ face-image: img/Rothe_Wahlen_1903.jpg
 
 = Elections, [+ month : month +] [+ year +]
 
-The Reichstag elections are to be held now.
+After an exhausting election campaign, the elections have been held and the votes are counted.
 
-- @election_algorithm: May we do our best...
+- @election_algorithm: We hold our breath...
 - @cancel_elections
 
 @cancel_elections
