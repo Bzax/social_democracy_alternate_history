@@ -30,7 +30,7 @@ freiheit_und_arbeit.jpg: Ganss [Verl, Unknown authorUnknown authorHeedt &. Engli
 
 international.jpg: ---. Français :  Drapeau Genevois de l’Association Internationale Des Travailleurs. 1 Jan. 1864. https://bge-geneve.ch/iconographie/oeuvre/vg-1131317, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Drapeau_genevois_de_l%27Association_Internationale_des_travailleurs.png. Public Domain
 
-sapd.jpg: Giannisfl. Das Logo von SAP. 25 Dec. 2022. https://imgur.com/gallery/bQejNsc, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sozialistische_Arbeiterpartei_Deutschlands-01.svg. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+cd.jpg: Giannisfl. Das Logo von SAP. 25 Dec. 2022. https://imgur.com/gallery/bQejNsc, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sozialistische_Arbeiterpartei_Deutschlands-01.svg. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
 
 spartakus.jpg: Leipzig, Verlag J. J. Weber in. Deutsch:  Barrikade Während Des Spartakusaufstandes. 12 Jan. 1919. Illustrirte Zeitung, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Spartakusaufstand_Barrikaden.jpg. Public Domain
 

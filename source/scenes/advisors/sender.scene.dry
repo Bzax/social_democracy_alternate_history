@@ -33,7 +33,7 @@ on-arrival: womens_rights += 1; workers_spd += 3*(1-dissent); new_middle_spd += 
 
 Sender's message is popular among young women working in the service sector, and we have recruited many white-collar employees.
 
-[? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
+[? if a_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
 @against_toleration
 title: Against toleration

@@ -33,7 +33,7 @@ Are we sure that we wish to do this? The vast majority of the party is against t
 @accept_2
 title: Accept Schleicher's schemes.
 subtitle: We will support the suspension of the Reichstag.
-on-arrival: schleicher_support = spd_r; workers_spd -= 3; new_middle_spd -= 3; right_worker_dissent += 20; left_dissent += 30; left_worker_dissent += 30; neorevisionist_dissent += 25; pro_republic -= 10; schleicher_support += z_r if z_relation >= 50; schleicher_support += other_r + dvp_r if dvp_relation >= 30; schleicher_support += dnvp_r if kpd_relation <= 10 and left_strength + left_worker_strength < technocrat_strength; technocrat_dissent -= 10
+on-arrival: schleicher_support = a_r; workers_spd -= 3; new_middle_spd -= 3; right_worker_dissent += 20; left_dissent += 30; left_worker_dissent += 30; neorevisionist_dissent += 25; pro_republic -= 10; schleicher_support += z_r if z_relation >= 50; schleicher_support += other_r + dvp_r if dvp_relation >= 30; schleicher_support += dnvp_r if kpd_relation <= 10 and left_strength + left_worker_strength < technocrat_strength; technocrat_dissent -= 10
 go-to: schleicher_success if schleicher_support >= 50; schleicher_failed if schleicher_support < 50
 
 # There isn't enough resolution in this game to create conditions for when the DNVP would support Schleicher. It's possible that SPD support for Schleicher would push Hugenberg to ally with Hitler.

@@ -36,8 +36,8 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
-[? if Z_formed and sapd_r > 0: Z: [+ sapd_r +]% ?]
+{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ a_r +]%
+[? if Z_formed and cd_r > 0: Z: [+ cd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
 {!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
