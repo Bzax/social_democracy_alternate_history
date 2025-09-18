@@ -331,10 +331,10 @@ As with many other major changes, there are a number of bugs introduced here...
 - Changes to KPD coalition events if a constructive VONC reform is passed.
 
 
-v0.17 - Conciliators and the CD
+v0.17 - Conciliators and the SAPD
 
 Major changes:
-- The CD is introduced as a new party that receives Reichstag seats when both the Left and Center resign.
+- The SAPD is introduced as a new party that receives Reichstag seats when both the Left and Center resign.
 - Internal manipulations of the KPD - scheming can allow the Conciliator faction to take over the KPD, making the party more friendly to the SPD and coalitions. This is a chain of events beginning with the Wittorf Affair, a scandal involving Ernst Thälmann of the KPD, as well as foreign relations with the Soviet Union.
 - New achievements: Versöhnler - have the conciliators take over the KPD; Große Volksfront - form a Popular Front with both Joos as Zentrum leader and the Conciliators as the KPD leaders; Katholischer Sozialismus - have over 50% support from Catholics.
 - Added two new pieces of music.
@@ -359,7 +359,7 @@ Changes:
 - Threshold for seeing the Wittorf Affair slightly decreased
 - Fixed bug where foreign affairs option for the Wittorf Affair could only be seen in 1929.
 - Displaying KPD coalition dissent when the KPD is in the coalition.
-- More CD vote share displays in the polls.
+- More SAPD vote share displays in the polls.
 
 v0.18 - Event images, mod loader
 

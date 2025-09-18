@@ -248,8 +248,8 @@ Q.new_middle_qol = 100;
 Q.classes = ['prole', 'homeowner', 'public_prole', 'public_homeowner','pettyb', 'rural', 'unemployed', 'capitalist'];
 Q.parties = ['a', 'v', 'c', 'b', 'z', 'dkp', 'sf', 'vs','rfb','kf','others'];
 
-// TODO: add 'cd' later on
-Q.cd_formed = 0;
+// TODO: add 'sapd' later on
+Q.sapd_formed = 0;
 
 // Support for party by social group (source:  'Vælgerundersøgelsen 1971', 'vælgerundersøgelsen 1975', 'statistisk årsbog 1970' (calculations can be downloaded from the credits), 'Socialdemokratiets vælgertilslutning', s.181-82)
 // they don't have to sum to 100 since the electoral calculations will be normalized.
@@ -351,7 +351,7 @@ Q.capitalist_others = 0;
 
 
 // Current Folketing composition
-// % of folketing in Jan 1968
+// % of Reichstag in Jan 1928
 // source: wikipedia
 // note: these are the exact election results, i may have to change it so that it instead corresponds to the folketing composition
 // They did not have a CDU/CSU-style relationship.
@@ -380,9 +380,9 @@ Q.old_rfb_r = 0;
 Q.old_kf_r = 0;
 Q.old_others_r = 0;
 
-// cd isn't formed yet, but it may be formed
-Q.cd_r = 0;
-Q.old_cd_r = 0;
+// sapd isn't formed yet, but it may be formed
+Q.sapd_r = 0;
+Q.old_sapd_r = 0;
 
 // for changing the DDP's name to the DStP
 Q.ddp_name = "DDP";

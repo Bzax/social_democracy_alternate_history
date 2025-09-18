@@ -191,7 +191,7 @@ Q.catholics_dnvp = 5;
 Q.catholics_nsdap = 10;
 Q.catholics_other = 5;
 
-Q.a_r = 25;
+Q.spd_r = 25;
 Q.kpd_r = 10;
 Q.z_r = 15;
 Q.ddp_r = 10;
@@ -273,7 +273,7 @@ Q.catholics_dnvp = 5;
 Q.catholics_nsdap = 10;
 Q.catholics_other = 5;
 
-Q.a_r = 25;
+Q.spd_r = 25;
 Q.kpd_r = 10;
 Q.z_r = 15;
 Q.ddp_r = 10;
@@ -288,7 +288,7 @@ set-jump: post_election
 @post_election
 on-arrival: {!
 // set congress proportion to votes
-Q.a_r = Q.spd_votes;
+Q.spd_r = Q.spd_votes;
 Q.z_r = Q.z_votes;
 Q.kpd_r = Q.kpd_votes;
 Q.ddp_r = Q.ddp_votes;
@@ -299,26 +299,26 @@ Q.other_r = Q.other_votes;
 
 // The largest party can only be the NSDAP or the SPD.
 Q.largest_party = 'SPD';
-if (Q.nsdap_r >= Q.a_r && Q.nsdap_r >= Q.kpd_r) {
+if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r) {
     Q.largest_party = 'NSDAP';
 }
-if (Q.kpd_r >= Q.a_r && Q.kpd_r >= Q.nsdap_r) {
+if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
     Q.largest_party = 'KPD';
 }
 
 // coalitions
-Q.weimar_coalition = Q.a_r + Q.ddp_r + Q.z_r - 3;
-Q.grand_coalition = Q.a_r + Q.ddp_r + Q.z_r + Q.dvp_r;
+Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3;
+Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
 Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.a_r + Q.kpd_r;
+Q.left_coalition = Q.spd_r + Q.kpd_r;
 // this is an absurd concept lol
-Q.united_front_coalition = Q.a_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3;
+Q.united_front_coalition = Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3;
 Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r;
 // aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = Q.a_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
+Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 !}
 
 The electoral system is essentially proportional, with the proportion of Reichstag seats roughly equal to the proportion of votes.
@@ -326,7 +326,7 @@ The electoral system is essentially proportional, with the proportion of Reichst
 **Election results:**
 
 # 1928: 30, 1930: 25, 1932: 22
-SPD: [+ a_r +]
+SPD: [+ spd_r +]
 
 # 1928: 15, 1930: 15, 1932: 
 Z + BVP: [+ z_r +]

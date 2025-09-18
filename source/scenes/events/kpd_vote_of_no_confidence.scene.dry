@@ -1,7 +1,7 @@
 title: The KPD calls a vote of no confidence against the current government!
 subtitle: We have angered the KPD too much...
 new-page: true
-view-if: spd_in_government = 1 and ((in_popular_front = 1 and kpd_coalition_dissent >= 3) or (in_left_front = 1 and kpd_coalition_dissent >= 4)) and a_r < 50 and not constructive_vonc
+view-if: spd_in_government = 1 and ((in_popular_front = 1 and kpd_coalition_dissent >= 3) or (in_left_front = 1 and kpd_coalition_dissent >= 4)) and spd_r < 50 and not constructive_vonc
 tags: event
 go-to: menu
 

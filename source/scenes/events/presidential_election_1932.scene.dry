@@ -13,7 +13,7 @@ face-image: img/hindenburg_election.jpg
 @pres_election
 
 The presidential election is coming up soon. [? if spd_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if hitler_deported==0 : The Nazis will run Hitler, while the KPD will run Thälmann. A victory for Hitler would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if hitler_deported==1 : Since Hitler has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Hitler, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the KPD will run Ernst Thälmann. ?]
-[? if cd_formed: The CD, our former leftists, are supporting Thälmann of the KPD, and will likely share an endorsement with the Communists. ?]
+[? if sapd_formed: The SAPD, our former leftists, are supporting Thälmann of the KPD, and will likely share an endorsement with the Communists. ?]
 
 # if hitler is deported, who would nsdap run? Duesterberg? or Goering?
 # Goering runs, essentially as a proxy for Hitler, who is now stateless.
@@ -193,13 +193,13 @@ if (Q.braun_campaign) {
     }
     if (Q.kpd_support_braun) {
         Q.braun_votes += Q.kpd_normalized;
-        if (Q.cd_formed && Q.cd_votes) {
-            Q.braun_votes += Q.cd_normalized;
+        if (Q.sapd_formed && Q.sapd_votes) {
+            Q.braun_votes += Q.sapd_normalized;
         }
     } else {
         Q.thalmann_votes += Q.kpd_normalized;
-        if (Q.cd_formed && Q.cd_votes) {
-            Q.thalmann_votes += Q.cd_normalized;
+        if (Q.sapd_formed && Q.sapd_votes) {
+            Q.thalmann_votes += Q.sapd_normalized;
         }
     }
     if (Q.dvp_support_braun) {
