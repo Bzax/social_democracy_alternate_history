@@ -79,20 +79,20 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @politics
 on-arrival: {!
-Q.a_members_disp = Math.round(Q.a_members);
+Q.a_members_disp = Math.round(Q.a_members * 10) / 10;
 !}
 
 = Party
 
-Membership: [+ a_members_disp +].000
+Membership: [+ a_members_disp +]00
 
 Level of activity: [+ a_activity : a_activity +]
 
-Internal dissent: [+ dissent +]
+Internal dissent: [+ dissent : dissent+]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-Overall party-strength: [+ efc +]
+Overall party-strength: [+ efc : efc +]
 
 = Internal Factions of the SPD
 
