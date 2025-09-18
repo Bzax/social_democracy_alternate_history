@@ -335,21 +335,28 @@ Dissent: [+ neorevisionist_dissent : dissent +]
 @figures
 title: Figures and Charts
 go-to: menu
-on-arrival: z_minus_bvp_r = z_r - 3;
 on-display: {!
 data = [
     {
-        "id": "kpd",
-        "legend": "KPD",
-        "name": "KPD",
-        "seats": Q.kpd_r*5,
+        "id": "dkp",
+        "legend": "DKP",
+        "name": "DKP",
+        "seats": Q.kpd_r*2,
     }];
-if (Q.sapd_formed && Q.sapd_r) {
+if (Q.z_formed && Q.z_r) {
     data.push({
-            "id": "sapd",
-            "legend": "SAPD",
-            "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*5),
+            "id": "z",
+            "legend": "Z",
+            "name": "Z",
+            "seats": Math.round(Q.z_r*2),
+            });
+}
+if (Q.cd_formed && Q.cd_r) {
+    data.push({
+            "id": "cd",
+            "legend": "CD",
+            "name": "CD",
+            "seats": Math.round(Q.cd_r*2),
             });
 }
 data = data.concat([
@@ -357,49 +364,55 @@ data = data.concat([
         "id": "spd",
         "legend": "SPD",
         "name": "SPD",
-        "seats": Q.spd_r*5,
+        "seats": Q.spd_r*2,
     },
     {
-        "id": "ddp",
-        "legend": "DDP",
-        "name": "DDP",
-        "seats": Q.ddp_r*5,
+        "id": "b",
+        "legend": "B",
+        "name": "B",
+        "seats": Q.b_r*2,
     },
     {
         "id": "z",
-        "legend": "Center",
-        "name": "Center",
-        "seats": (Q.z_r - 3)*5,
+        "legend": "Z",
+        "name": "Z",
+        "seats": Q.z_r*2,
     },
     {
-        "id": "bvp",
-        "legend": "BVP",
-        "name": "BVP",
-        "seats": 3*5,
+        "id": "c",
+        "legend": "C",
+        "name": "C",
+        "seats": Q.c_r*2,
     },
     {
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Q.dvp_r*5,
+        "id": "sf",
+        "legend": "SF",
+        "name": "SF",
+        "seats": Q.sf_r*2,
     },
     {
-        "id": "other",
-        "legend": "Other",
-        "name": "Other",
-        "seats": Q.other_r*5,
+        "id": "kf",
+        "legend": "KF",
+        "name": "KF",
+        "seats": Q.kf_r*2,
     },
     {
-        "id": "dnvp",
-        "legend": "DNVP",
-        "name": "DNVP",
-        "seats": Q.dnvp_r*5,
+        "id": "cd",
+        "legend": "CD",
+        "name": "CD",
+        "seats": Q.cd_r*2,
     },
     {
-        "id": "nsdap",
-        "legend": "NSDAP",
-        "name": "NSDAP",
-        "seats": Q.nsdap_r*5,
+        "id": "rfb",
+        "legend": "RFB",
+        "name": "RFB",
+        "seats": Q.rfb_r*2,
+    },
+    {
+        "id": "vs",
+        "legend": "VS",
+        "name": "VS",
+        "seats": Q.vs_r*2,
     },
 ]);
 if (d3 && window) {
