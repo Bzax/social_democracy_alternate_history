@@ -413,7 +413,7 @@ data = data.concat([
         "legend": "VS",
         "name": "VS",
         "seats": Q.vs_r*2,
-    },
+    }
 ]);
 if (d3 && window) {
     // get screen width

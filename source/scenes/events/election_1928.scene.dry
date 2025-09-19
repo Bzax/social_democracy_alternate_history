@@ -260,7 +260,7 @@ data = data.concat([
         "legend": "VS",
         "name": "VS",
         "seats": Q.vs_r*2,
-    },
+    }
 ]);
 
 if (window && d3) {
