@@ -94,15 +94,15 @@ Health of our media: [+ mediahealth : mediahealth +]
 
 Overall strenght of party-machinery: [+ efc : efc +]
 
-= Internal Factions of the SPD
+= Internal Factions of our party
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.">Left-Workerists</span>!} strength: [+ left_worker_strength : strength +], dissent: [+ left_worker_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
 
 @paramilitaries
 on-arrival: {!
@@ -199,7 +199,7 @@ Others: [+ others_votes +]%
 
 Private-Sector Proletarians: A: [+ prole_a_display +]%, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
 
-Homeowners: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
+Private-Sector Homeowners: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
 
 Public-Sector Proletarians: A: [+ public_prole_a_display +]%, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
 
