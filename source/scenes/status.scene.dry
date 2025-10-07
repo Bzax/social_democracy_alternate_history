@@ -84,7 +84,7 @@ Q.a_members_disp = Math.round(Q.a_members * 10) / 10;
 
 = Party
 
-Membership: [+ a_members_disp +]00
+Membership: ([+ a_members_disp +] * 10) / 10
 
 Level of activity: [+ a_activity : a_activity +]
 

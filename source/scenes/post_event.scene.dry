@@ -41,6 +41,9 @@ for (var c of Q.classes) {
 // Advance globalization each month
 Q.globalization += 0.0025; // adjust the increment as needed
 
+// decline membership  each month
+Q.a_members -= 0.4; // adjust the increment as needed
+
 // decline media health each month
 Q.mediahealth -= 0.5; // adjust the increment as needed
 
