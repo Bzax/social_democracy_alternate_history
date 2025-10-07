@@ -48,7 +48,7 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // Party indicators
-Q.efc = 0.5
+Q.efc = 0.8
 Q.a_activity = 1
 Q.a_bureau = 0.025
 Q.mediahealth = 50
@@ -686,13 +686,14 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @1928_main
-audio: shuffle music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
+audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Vinden-suser-i-tarnet.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = Late Summer, 1970
 
-It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has soared and as Danish social-democracy nears its centenary, almost every worker now stands organized. Politically, we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy, the big question remains whether to join the European community but we have otherwise sided decisively with NATO and the western powers.
+It is a bright time for Danish democracy. As Danish social-democracy nears its centenary, our movement is the strongest its ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy whether to integrate into the European Community remains the burning question.
+
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
 Perhaps the next parliament will have a workers majority?
 
