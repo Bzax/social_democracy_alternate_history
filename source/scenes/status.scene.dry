@@ -122,45 +122,49 @@ if (Q.sa_strength) {
 
 = Socio-Economics
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
+Unemployment: [+ unemployed_2 +]%
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Homeownership = 41%
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+Size of public sector = 31% of the workforce
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+#Reichsbanner Militarization: [+ rb_militancy : militancy +]
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+#{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+#RFB Militarization: [+ rfb_militancy : militancy +]
 
-SA Militarization: [+ sa_militancy : militancy +]
+#{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
 
-= Official military/paramilitaries
+#Stahlhelm Militarization: [+ sh_militancy : militancy +]
 
-Reichswehr: [+ reichswehr_strength +] thousand troops.
+#{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
 
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
+#SA Militarization: [+ sa_militancy : militancy +]
 
-Prussian police: [+ prussian_police_strength +] thousand members.
+#= Official military/paramilitaries
 
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
+#Reichswehr: [+ reichswehr_strength +] thousand troops.
 
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+#Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
 
-= Indicators
+#Prussian police: [+ prussian_police_strength +] thousand members.
+
+#Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
+
+#[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+
+= Other Economic Indicators
+
+Economic growth: [+ economic_growth_2 +]%
 
 Inflation: [+ inflation_2 +]%
-
-Unemployment: [+ unemployed_2 +]%
 
 [? if black_thursday_seen = 0 : Unemployment: [+ unemployed_2 +]% ?]
 
 Impact of globalization = [+ globalization +]
-
-Economic growth: [+ economic_growth_2 +]%
 
 @polls
 on-arrival: {!
