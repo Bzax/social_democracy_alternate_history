@@ -79,12 +79,12 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @politics
 on-arrival: {!
-Q.a_members_disp = Math.round(Q.a_members * 10) / 10;
+Q.a_members_disp = Q.a_members.toFixed(1);
 !}
 
 = Party
 
-Membership: Math.round([+ a_members_disp +] * 10) / 10
+Membership: [+ a_members_disp +]00
 
 Level of activity: [+ a_activity : a_activity +]
 
