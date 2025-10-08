@@ -80,22 +80,28 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 @politics
 on-arrival: {!
 Q.a_members_disp = Q.a_members.toFixed(2);
-Q.a_memberdecline_disp = Q.a_memberdecline.toFixed(3);
+Q.a_memberdecline_disp = -(Q.a_memberdecline*1000).toFixed(0);
 !}
 
 = Quick Overview
 
 Overall strength of party-machine: [+ efc : efc +]
 
-= Membership of our party
+= Membership
 
-Membership: [+ a_members_disp +]0
+Membership count: [+ a_members_disp +]0
 
-{!<span class="tooltip-text" title="Our membership has been declining for more than a decade at this point. Most of this decline can be explained by older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">Monthly membership development</span>!}: [+ a_memberdecline_disp +]
+{!<span class="tooltip-text" title="Our membership has been declining for more than a decade at this point. Most of this decline can be explained by older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">Development since last month</span>!}: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
-= Internal Factions of our party
+= Apparatus
+
+Bureaucracy: [+ a_bureau : a_bureau +]
+
+Health of our media: [+ mediahealth : mediahealth +]
+
+= Internal Factions
 
 Internal dissent: [+ dissent : dissent+]
 
@@ -106,12 +112,6 @@ Internal dissent: [+ dissent : dissent+]
 {!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
 
 {!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
-
-= Apparatus
-
-Size of bureaucracy = [+ a_bureau : a_bureau +]
-
-Health of our media: [+ mediahealth : mediahealth +]
 
 @paramilitaries
 on-arrival: {!
