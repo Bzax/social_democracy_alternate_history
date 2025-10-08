@@ -80,11 +80,12 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 @politics
 on-arrival: {!
 Q.a_members_disp = Q.a_members.toFixed(2);
+Q.a_memberdecline_disp = Q.a_memberdecline.toFixed(3);
 !}
 
 = Party
 
-Membership: [+ a_members_disp +]0
+{!<span class="tooltip-text" title="Our membership has been nosediving for more than a decade at this point. Currently we lose [+ a_memberdecline_disp + ] members each month, most of these are due to older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">Membership:</span>!}: [+ a_members_disp +]0
 
 Level of activity: [+ a_activity : a_activity +]
 
