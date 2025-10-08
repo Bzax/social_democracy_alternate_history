@@ -148,7 +148,7 @@ Q.prussian_government = "SPD";
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.a_members = 151.5;
+Q.a_members = 177.5;
 Q.rb_militancy = 0.01;
 Q.women_in_rb = 0;
 Q.rb_banned = 0;
