@@ -91,7 +91,7 @@ Overall strength of party-machine: [+ efc : efc +]
 
 Membership count: [+ a_members_disp +]0
 
-{!<span class="tooltip-text" title="Our membership has been declining for more than a decade at this point. Most of this decline can be explained by older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">Development since last month</span>!}: [+ a_memberdecline_disp +]
+{!<span class="tooltip-text" title="Our membership has been declining for more than a decade at this point. Most of this decline can be explained by older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">last six weeks</span>!}: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
@@ -103,7 +103,7 @@ Health of our media: [+ mediahealth : mediahealth +]
 
 = Internal Factions
 
-Internal dissent: [+ dissent : dissent+]
+Overall dissent: [+ dissent : dissent+]
 
 {!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
