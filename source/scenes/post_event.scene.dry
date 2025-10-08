@@ -110,7 +110,7 @@ Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.media
 
 // decline membership  each month
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
-Q.a_memberdecline = 1/efc
+Q.a_memberdecline = 2-Q.efc
 
 // 1. update dates
 if (Q.month_actions >= 1) {
