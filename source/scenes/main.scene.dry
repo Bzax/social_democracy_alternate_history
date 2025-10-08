@@ -14,7 +14,6 @@ max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1971 and month = 1 : Q.next_election_year = 1971; Q.next_election_month = 3; Q.next_election_time = 2; The current bourgeois government has fallen. The next elections are slated for May of this year. ?]
 
 - @party
 - @govt
