@@ -91,7 +91,7 @@ Overall strength of party-machine: [+ efc : efc +]
 
 Membership count: [+ a_members_disp +]0
 
-{!<span class="tooltip-text" title="Our membership has been declining for more than a decade at this point. Most of this decline can be explained by older members dying, but by improving the overall effectiveness of our party, we may also attract new members.">last six weeks</span>!}: [+ a_memberdecline_disp +]
+last six weeks: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
