@@ -16,7 +16,8 @@ Internal oppotunism among the bourgious parties has led to the current governmen
 on-arrival: {! 
 next_election_year = year; 
 next_election_month = month + 1; 
-dendryUI.audioQueue = []
+dendryUI.audioQueue = [];
+Q.valg = 1;
 !}
 
 Newspapers wipe their front pages. Electeds and local chapters eagerly call meetings. In every workplace and corner store, the future of our country again becomes an open question. Election season is upon us and our entire movement is electrified.
