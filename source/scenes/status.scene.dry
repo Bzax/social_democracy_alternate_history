@@ -91,7 +91,7 @@ Overall strength of party-machine: [+ efc : efc +]
 
 Membership count: [+ a_members_disp +]0
 
-last six weeks: [+ a_memberdecline_disp +]
+Last six weeks: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
@@ -101,7 +101,7 @@ Bureaucracy: [+ a_bureau : a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-= Internal Factions
+= Party Factions
 
 Overall dissent: [+ dissent : dissent+]
 
@@ -112,6 +112,13 @@ Overall dissent: [+ dissent : dissent+]
 {!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
 
 {!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
+
+= Broader movement
+
+LO-Relations: eager
+
+Health of the cooperatives: [+ cooperativehealth : cooperativehealth +]
+
 
 @paramilitaries
 on-arrival: {!
