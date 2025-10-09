@@ -105,13 +105,13 @@ Health of our media: [+ mediahealth : mediahealth +]
 
 Overall dissent: [+ dissent : dissent+]
 
-{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength +]%, dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.">Left-Workerists</span>!} strength: [+ left_worker_strength : strength +], dissent: [+ left_worker_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.">Left-Workerists</span>!} strength: [+ left_worker_strength +]%, dissent: [+ left_worker_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength : strength +], dissent: [+ technocrat_dissent : dissent +]
+{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength +]%, dissent: [+ technocrat_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength : strength +], dissent: [+ right_worker_dissent : dissent +]
+{!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength +]%, dissent: [+ right_worker_dissent : dissent +]
 
 = Broader movement
 
