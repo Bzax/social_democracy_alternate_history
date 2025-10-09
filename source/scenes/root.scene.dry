@@ -24,7 +24,7 @@ Q.started = 1;
 Q.time = 1;
 Q.year = 1970;
 Q.month = 5;
-[? if valg:, Week [+ week +]?];
+[? if valg = 1, Week [+ week +]?];
 // how many actions have been taken this month?
 Q.month_actions = 0;
 
@@ -647,6 +647,7 @@ Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
 !}
+
 set-bg: img/Background-train.jpg
 new-page: true
 
