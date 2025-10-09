@@ -91,7 +91,7 @@ Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 
 Overall strength of party-machine: [+ efc : efc +]
 
-**Membership**
+_Membership_
 
 Membership count: [+ a_members_disp +]0
 
@@ -99,13 +99,13 @@ Last six weeks: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
-**Apparatus**
+_Apparatus_
 
 Bureaucracy: [+ a_bureau : a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-**Factions**
+_Factions_
 
 Overall dissent: [+ dissent : dissent+]
 
@@ -119,7 +119,7 @@ Overall dissent: [+ dissent : dissent+]
 
 = Broader movement
 
-LO-Relations: eager
+Union Relations: eager
 
 Health of the cooperatives: [+ cooperativehealth : cooperativehealth +]
 
