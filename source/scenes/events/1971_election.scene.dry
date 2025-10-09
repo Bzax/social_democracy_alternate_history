@@ -1,6 +1,6 @@
 title: The Bourgious-Center Government has fallen! 
 subtitle: Venstre seeks to exploit the ongoing budgetary debats...
-view-if: year = 1971 and month = 1
+view-if: year = 1971 and month = 5
 max-visits: 1
 tags: event
 new-page: true
@@ -13,6 +13,6 @@ Internal oppotunism among the bourgious parties has led to the current governmen
 - @allow: There's something in the air...
 
 @allow
-on-arrival: Q.next_election_year = 1971; Q.next_election_month = 2
+on-arrival: Q.next_election_year = 1971; Q.next_election_month = 6
 
 Newspapers wipe their front pages. Electeds and local chapters eagerly call meetings. In every workplace and grocery store, the future of our country again becomes an open question. Election season is upon us – Our entire movement is electrified.
