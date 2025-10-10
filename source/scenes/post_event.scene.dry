@@ -120,18 +120,17 @@ Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
 // 1. update dates
-if valg >= 1 {
+if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
+    Q.time += 1;
+    Q.month_actions = 0;
     Q.month += 1;
     if (Q.month >= 9) {
-        Q.year +=1;
-    }
-}
-if valg <= 0 {
-    Q.valg_time += 1;
-    Q.week += 1;
-    if (Q.week >= 7) {
-        Q.month +=1;
-        Q.week = 1;
+        Q.month = 1;
+        Q.year += 1;
+        Q.resources += Q.dues;
+        if (Q.dissent_percent < 5) {
+            Q.resources += 1;
+        }
     }
 }
 
