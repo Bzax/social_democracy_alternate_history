@@ -120,13 +120,13 @@ Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
 // 1. update dates
-if (Q.valg = 0) {
+if !Q.valg {
     Q.month += 1;
     if (Q.month >= 9) {
         Q.year +=1;
     }
 }
-if (Q.valg = 1) {
+if Q.valg {
     Q.valg_time += 1;
     Q.week += 1;
     if (Q.week >= 7) {
