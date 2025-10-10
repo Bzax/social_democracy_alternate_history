@@ -119,6 +119,9 @@ Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.media
 Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
+//trying to get dynamic valg to work
+Q.month_actions_checked = Q.month_actions;
+
 // 1. update dates
 if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
     Q.time += 1;
@@ -132,6 +135,10 @@ if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
             Q.resources += 1;
         }
     }
+}
+if (Q.valg && Q.month_actions >= 1 && Q.month_actions != Q.month_actions_checked) {
+    Q.valg_time += 1;
+    Q.week += 1;
 }
 
 // decrement timers
@@ -511,7 +518,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +] [? if valg <= 0:, Week [+ week +]?]
+= [+ month : month +] [+ year +] [? if valg:, Week [+ week +]?]
 
 @events_choice
 
