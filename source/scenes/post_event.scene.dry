@@ -136,9 +136,10 @@ if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
         }
     }
 }
-if (Q.valg && Q.month_actions >= 1 && Q.month_actions != Q.month_actions_checked) {
+if (Q.valg && Q.month_actions >= 1) {
     Q.valg_time += 1;
     Q.week += 1;
+    week += 1
 }
 
 // decrement timers
@@ -518,7 +519,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +] Week [+ week +]
+= [+ month : month +] [+ year +] [? if valg = 1 : *[+ week : week+] week of the election campaign* ?]
 
 @events_choice
 

@@ -88,7 +88,8 @@ Q.reformists_resigned = 0;
 Q.neorevisionism = 0;
 
 //valg
-Q.valg = 1
+valg = 0
+Q.electiondate = 0
 
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
@@ -648,7 +649,6 @@ Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
 !}
 
-set-bg: img/Background-train.jpg
 new-page: true
 
 > *"Honestly and brutally, there was nothing better we could have done."*
@@ -699,7 +699,7 @@ go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = Late Summer, 1970
 
-It is a bright time for Danish democracy n shit. As Danish social-democracy nears its centenary, our movement is the strongest its ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy whether to integrate into the European Community remains the burning question.
+It is a bright time for Danish democracy. As Danish social-democracy nears its centenary, our movement is the strongest its ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy whether to integrate into the European Community remains the burning question.
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
 Perhaps the next parliament will have a workers majority?

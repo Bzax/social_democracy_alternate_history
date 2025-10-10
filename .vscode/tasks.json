@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Dendry Project",
+            "type": "shell",
+            "command": "/Users/henry/.nvm/versions/node/v22.20.0/bin/dendrynexus",
+            "args": ["make-html", "--pretty"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

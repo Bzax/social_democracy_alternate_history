@@ -5,20 +5,19 @@ max-visits: 1
 tags: event
 new-page: true
 face-image: img/All_Quiet.jpg
+on-arrival: electiondate += 3; {! 
+dendryUI.audioPlaylist = []
+!}
+set-bg: img/election.jpg
+audio: music/1970_1973/Vinden-suser-i-tarnet.mp3
 
 = The Bourgious-Center Government has Fallen!
 
-Internal oppotunism among the bourgious parties has led to the current government losing its parliamentary majority, as is custom prime minister [+ chancellor +] has thus called new elections, they are to be held in 4 weeks.
+Internal disagreements with the bourgious parties has led to the current government losing its parliamentary majority, as is custom prime minister [+ chancellor +] has called new elections. Surprisingly, he has decided they will be held in only [+ electiondate +] weeks!
 
 - @allow: There's something in the air...
 
 @allow
-on-arrival: {! 
-next_election_year = year; 
-next_election_month = month + 1; 
-dendryUI.audioQueue = [];
-Q.valg = 1;
-Q.week = 1;
-!}
+on-arrival: valg = 1; week = 0; next_election_year = year; next_election_month = month; next_election_week = week + electiondate;
 
-Newspapers wipe their front pages. Electeds and local chapters eagerly call meetings. In every workplace and corner store, the future of our country again becomes an open question. Election season is upon us and our entire movement is electrified.
+Newspapers wipe their front pages as local chapters frantically call meetings. Election season is upon us, time slows as we enter week-by-week struggle.
