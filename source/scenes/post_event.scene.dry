@@ -120,13 +120,13 @@ Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
 // 1. update dates
-if !Q.valg {
+if valg >= 1 {
     Q.month += 1;
     if (Q.month >= 9) {
         Q.year +=1;
     }
 }
-if Q.valg {
+if valg <= 0 {
     Q.valg_time += 1;
     Q.week += 1;
     if (Q.week >= 7) {
@@ -512,7 +512,7 @@ if (typeof window !== "undefined" && window.generateBar) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +] [? if Q.valg = 1 : Week [+ week +]?]
+= [+ month : month +] [+ year +] [? if valg <= 0:, Week [+ week +]?]
 
 @events_choice
 
