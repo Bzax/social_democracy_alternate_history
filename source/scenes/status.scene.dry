@@ -87,23 +87,26 @@ Q.technocrat_strength_disp = Q.technocrat_strength.toFixed(0)
 Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 !}
 
-= The Party
+= **The Party**
 
 Overall strength of party-machine: [+ efc : efc +]
 
-*Membership*
+**Membership**
+
 Membership count: [+ a_members_disp +]0
 
 Last six weeks: [+ a_memberdecline_disp +]
 
 Level of activity: [+ a_activity : a_activity +]
 
-*Apparatus*
+**Apparatus**
+
 Bureaucracy: [+ a_bureau : a_bureau +]
 
 Health of our media: [+ mediahealth : mediahealth +]
 
-*Factions*
+**Factions**
+
 Overall dissent: [+ dissent : dissent+]
 
 {!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength_disp +]%, dissent: [+ left_dissent : dissent +]
