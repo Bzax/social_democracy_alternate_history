@@ -18,6 +18,6 @@ Internal disagreements with the bourgious parties has led to the current governm
 - @allow: There's something in the air...
 
 @allow
-on-arrival: valg = 1; week = 0; next_election_year = year; next_election_month = month; next_election_week = week + electiondate;
+on-arrival: valg = 1; week = 1; next_election_year = year; next_election_month = month; next_election_week = electiondate;
 
 Newspapers wipe their front pages as local chapters frantically call meetings. Election season is upon us, time slows as we enter week-by-week struggle.

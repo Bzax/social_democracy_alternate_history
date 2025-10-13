@@ -3,7 +3,8 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month and week >= next_election_week) or (year > next_election_year)
-on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4; valg = 0;
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4; valg = 0; week = 0;
+set-bg: img/Background-train.jpg
 set-jump: post_election_1928
 face-image: img/Rothe_Wahlen_1903.jpg
 
@@ -99,11 +100,12 @@ if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
 }
 
 // coalitions
-Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3;
-Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
-Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
+Q.arbejderflertal = Q.a_r + Q.sf_r + Q.dkp_r + Q.vs_r;
+Q.sr = Q.a_r + Q.b_r + rfb
+Q.srplus = Q.a_r + Q.b_r + sf + rfb
+Q.bourgeois_coalition = Q.v_r + Q.c_r + Q.b_r + Q.rfb_r;
+Q.right_coalition = Q.z_r + Q.b_r + Q.v_r + Q.other_r + b_r;
+Q.right_coalition = Q.z_r + Q.c_r + Q.kf_r + Q.others_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
 Q.left_coalition = Q.spd_r + Q.kpd_r + Q.sapd_r;
 // this is an absurd concept lol
@@ -288,7 +290,7 @@ go-to: coalition_menu
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SD:** {!</td><td>!} **[+ a_r +]%** {!</td><td>!} **[+ str_change_a +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **A:** {!</td><td>!} **[+ a_r +]%** {!</td><td>!} **[+ str_change_a +]** {!</td></tr>!}
 
 [? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_r +]% {!</td><td>!} [+ str_change_cd +] {!</td></tr>!} ?]
 
@@ -318,11 +320,13 @@ go-to: coalition_menu
 
 **Potential coalitions:**
 
-'Arbejderflertal' (SPD + SF + DKP + VS): [+ weimar_coalition +]%
+'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal +]%
 
-Old Coalition (SPD + B + SF): [+ grand_coalition +]%
+A + B + RFB: [+ sr +]%
 
-Bourgeois Coalition (Z + BVP + [+ ddp_name +] + DVP + Others): [+ bourgeois_coalition +]%
+A + B + SF + RFB: [+ srplus +]
+
+Bourgeois Coalition (Z + BVP + B + DVP + Others): [+ bourgeois_coalition +]%
 
 Right-wing Coalition (Z + BVP + DVP + Others + DNVP): [+ right_coalition +]%
 

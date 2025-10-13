@@ -1,5 +1,4 @@
 title: Next month
-set-bg: img/Background-train.jpg
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -17,6 +16,7 @@ max-cards: 3
 
 - @party
 - @govt
+- @elec
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -57,3 +57,11 @@ card-image: img/folketing.jpg
 is-deck: true
 
 - #govt_affairs
+
+@elec
+title: Election Campaign
+view-if: valg == 1
+card-image: img/valg.jpg
+is-deck: true
+
+- #election_campaign

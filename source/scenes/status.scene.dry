@@ -14,10 +14,7 @@ if (Q.economic_growth) {
 }
 !}
 
-= Status
-
-Resources available: [+ resources +]
-
+= **Status**
 
 Our position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
@@ -26,37 +23,9 @@ Our position: [? if spd_toleration : toleration ?][? if spd_in_government : in g
 
 [? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
-= Government
-
-Monarch: [+ president +]
-
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
-
-Reichstag composition:
-
-# 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
-[? if Z_formed and sapd_r > 0: Z: [+ sapd_r +]% ?]
-# 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
-# 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="'The Conservative Peoples Party' (Danish name: 'Det Konservative Folkeparti')">C</span>!}: [+ kpd_r +]%
-# 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="'Radical Left' (Danish name: 'Radikale Venstre', to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ ddp_r +]%
-# 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="Socialist Peoples Party (Danish name: 'Socialistisk Folkeparti')">SF</span>!}: [+ dvp_r +]%
-# 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dnvp_r +]%
-# 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="'Left Socialists' (Dansih Name: 'Venstresocialisterne'">VS</span>!}: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
-Others: [+ other_r +]%
-
 [? if spd_in_government == 1 : Budget: [+ budget +] ?]
 
-Next election: [+ next_election_month : month +] [+ next_election_year +]
-
-= Inter-party Relations
+= **Inter-party Relations**
 
 {!<span class="tooltip-text" title="Venstre">V</span>!}: [+ v_relation : relationships +]
 
@@ -76,10 +45,38 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 [? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
+= **Government**
+
+Prime Minister: [+ chancellor +] ([+ chancellor_party +])
+
+Monarch: [+ president +]
+
+Folketing composition:
+
+# 1928: 30, 1930: 25, 1932: 22
+{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
+[? if Z_formed and sapd_r > 0: Z: [+ sapd_r +]% ?]
+# 1928: 15, 1930: 15, 1932: 
+{!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
+# 1928: 10, 1930: 13
+{!<span class="tooltip-text" title="'The Conservative Peoples Party' (Danish name: 'Det Konservative Folkeparti')">C</span>!}: [+ kpd_r +]%
+# 1928: 5, 1930: 4 (as DstP)
+{!<span class="tooltip-text" title="'Radical Left' (Danish name: 'Radikale Venstre', to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ ddp_r +]%
+# 1928: 9, 1930: 5
+{!<span class="tooltip-text" title="Socialist Peoples Party (Danish name: 'Socialistisk Folkeparti')">SF</span>!}: [+ dvp_r +]%
+# 1928: 14, 1930: 7
+{!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dnvp_r +]%
+# 1928: 3, 1930: 18
+{!<span class="tooltip-text" title="'Left Socialists' (Dansih Name: 'Venstresocialisterne'">VS</span>!}: [+ nsdap_r +]%
+# 1928: 9, 1930: 10
+Others: [+ other_r +]%
+
+Next election: [+ next_election_month : month +] [+ next_election_year +]
+
 @politics
 on-arrival: {!
 Q.a_members_disp = Q.a_members.toFixed(2);
-Q.a_memberdecline_disp = -(Q.a_memberdecline*1000).toFixed(0);
+Q.a_memberdecline_disp = -(Q.membermonthly*1000).toFixed(0);
 Q.left_strength_disp = Q.left_strength.toFixed(0)
 Q.left_worker_strength_disp = Q.left_worker_strength.toFixed(0)
 Q.technocrat_strength_disp = Q.technocrat_strength.toFixed(0)
@@ -89,6 +86,8 @@ Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 = **The Party**
 
 Overall strength of party-machine: [+ efc : efc +]
+
+Resources available: [+ resources +]
 
 **Membership**
 
@@ -125,27 +124,18 @@ Health of the cooperatives: [+ cooperativehealth : cooperativehealth +]
 
 @paramilitaries
 on-arrival: {!
-if (Q.a_members) {
-    Q.a_members_2 = Q.a_members.toFixed(1);
-}
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
-}
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
-}
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
-}
+globalizationdisp = Q.globalization.toFixed(1);
 !}
 
-= Socio-Economics
+= **Socio-Economics**
+
+Homeownership: [+ homeownership +]
+
+Size of public sector: [+ Sizeofpublicsectordisp +]% of the employed workforce
+
+Urbanization rate: [+ Urbanizationratedisp +]%
 
 Unemployment: [+ unemployed_2 +]%
-
-Homeownership = 41%
-
-Size of public sector = 31% of the workforce
 
 #{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
@@ -175,15 +165,17 @@ Size of public sector = 31% of the workforce
 
 #[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
-= Other Economic Indicators
+= **Other Economic Indicators**
+
+GDP compared with late summer 1970 =  [+ gdpdisp +]
 
 Economic growth: [+ economic_growth_2 +]%
 
 Inflation: [+ inflation_2 +]%
 
-[? if black_thursday_seen = 0 : Unemployment: [+ unemployed_2 +]% ?]
+[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
 
-Impact of globalization = [+ globalization +]
+Impact of globalization = [+ globalizationdisp +]
 
 @polls
 on-arrival: {!
@@ -192,50 +184,34 @@ Q.nationalism_disp = Math.round(Q.nationalism);
 Q.socialism_disp = Math.round(Q.socialism);
 !}
 
-= Projected election results
+= **Most recent poll**
 
-(if the election were to be held now):
+Published by: [+ newspaper : newspaper +]
 
-Socialdemokratiet: [+ a_votes +]%
+*"If the election were to be held tomorrow who who would you vote for?"*
 
-[? if Z_formed: Z: [+ z_votes +]% ?]
+Socialdemokratiet: [+ a_votesdisp +]%
 
-Venstre: [+ v_votes +]%
+[? if Z_formed: Z: [+ z_votesdisp +]% ?]
 
-Konservative Folkeparti: [+ c_votes +]%
+Venstre: [+ v_votesdisp +]%
 
-Kristeligt Folkeparti: [+ kf_votes +]%
+Konservative Folkeparti: [+ c_votesdisp +]%
 
-DKP: [+ dkp_votes +]%
+Kristeligt Folkeparti: [+ kf_votesdisp +]%
 
-[? if not ddp_name: Radikale Venstre?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ b_votes +]%
+DKP: [+ dkp_votesdisp +]%
 
-Radikale Venstre: [+ b_votes +]%
+Radikale Venstre: [+ b_votesdisp +]%
 
-Socialistisk Folkeparti: [+ sf_votes +]%
+Socialistisk Folkeparti: [+ sf_votesdisp +]%
 
-Venstresocialisterne: [+ vs_votes +]%
+Venstresocialisterne: [+ vs_votesdisp +]%
 
-Retsforbundet: [+ rfb_votes +]%
+Retsforbundet: [+ rfb_votesdisp +]%
 
-Others: [+ others_votes +]%
+Others: [+ others_votesdisp +]%
 
-**Detailed results for each demographic**
+*other polling*
 
-Private-Sector Proletarians: A: [+ prole_a_display +]%, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
-
-Private-Sector Homeowners: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
-
-Public-Sector Proletarians: A: [+ public_prole_a_display +]%, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
-
-Public-Sector Homeowners: A: [+ public_homeowner_a_display +]%, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
-
-Petty Bourgeoisie: A: [+ pettyb_a_display +]%, V: [+ pettyb_v_display +]%, C: [+ pettyb_c_display +]%, B: [+ pettyb_b_display +]%, Z: [+ pettyb_z_display +]%, DKP: [+ pettyb_dkp_display +]%, SF: [+ pettyb_sf_display +]%, VS: [+ pettyb_vs_display +]%, RFB: [+ pettyb_rfb_display +]%, KF: [+ pettyb_kf_display +]%, Others: [+ pettyb_others_display +]%
-
-Rural: A: [+ rural_a_display +]%, V: [+ rural_v_display +]%, C: [+ rural_c_display +]%, B: [+ rural_b_display +]%, Z: [+ rural_z_display +]%, DKP: [+ rural_dkp_display +]%, SF: [+ rural_sf_display +]%, VS: [+ rural_vs_display +]%, RFB: [+ rural_rfb_display +]%, KF: [+ rural_kf_display +]%, Others: [+ rural_others_display +]%
-
-Unemployed: A: [+ unemployed_a_display +]%, V: [+ unemployed_v_display +]%, C: [+ unemployed_c_display +]%, B: [+ unemployed_b_display +]%, Z: [+ unemployed_z_display +]%, DKP: [+ unemployed_dkp_display +]%, SF: [+ unemployed_sf_display +]%, VS: [+ unemployed_vs_display +]%, RFB: [+ unemployed_rfb_display +]%, KF: [+ unemployed_kf_display +]%, Others: [+ unemployed_others_display +]%
-
-Capitalists: A: [+ capitalist_a_display +]%, V: [+ capitalist_v_display +]%, C: [+ capitalist_c_display +]%, B: [+ capitalist_b_display +]%, Z: [+ capitalist_z_display +]%, DKP: [+ capitalist_dkp_display +]%, SF: [+ capitalist_sf_display +]%, VS: [+ capitalist_vs_display +]%, RFB: [+ capitalist_rfb_display +]%, KF: [+ capitalist_kf_display +]%, Others: [+ capitalist_others_display +]%
-
-Support for the Republic: [+ pro_republic_disp +]%
+Support for NATO: [+ pro_republic_disp +]%

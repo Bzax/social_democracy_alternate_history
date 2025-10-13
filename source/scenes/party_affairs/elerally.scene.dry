@@ -1,0 +1,79 @@
+title: Electoral Rally
+new-page: true
+on-arrival: month_actions += 1
+max-visits: 36
+is-card: true
+card-image: img/arbejde.jpg
+frequency: 100
+tags: - #election_campaign
+
+= Campaigning
+
+Whether or not we are in an electoral campaign, the party is always trying to broaden its membership and voterbase. Who should we focus our campaign efforts on?
+
+- @workers: The proletarians, our traditional base.
+- @public: Public sector workers, who have felt neglected by us in the past.
+- @private: Private sector workers, the backbone of the workers movement.
+- @homeowners: The "new middle class" of homeowning workers.
+- @rural: The "old middle class" of small business owners and independent farmers.
+- @unemployed: The unemployed.
+- @youth: Students and the broader youth.
+- @root: We either don't want to or cannot campaign right now.
+- @easy_discard
+
+@workers
+subtitle: -2 resources
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: prole_a += 7*(1-globalization)*efc; public_prole_a += 5*efc; a_members += 0.5*efc; a_memberrise = 0.002*efc
+
+By focussing the campaign on traditional socialist issues, while expanding our work in the tenant movements, we have increased our campaigning among the proletarians. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
+
+@public
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: public_prole_a += 4*efc; public_homeowner_a += 3*efc; a_members += 0.3*efc
+
+By focussing the campaign on strenghtening the welfare state, we have increased our campaigning among the workers of the public sector. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
+
+@private
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: prole_a += 6*(1-globalization)*efc; homeowner += 3*efc*(1-globalization); a_members += 0.3*efc*(1-globalization)
+
+By focussing our campaign on the labour struggle, we have increased our campaigning among the workers of the private sector.
+
+@homeowners
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: homeowner_a += 6*(1-globalization); public_homeowner_a += 3*efc; a_members += 0.4*efc*(1-globalization)
+
+By doubling down on the protection of state mortgages and stable socialist leadership, we have increased our campaigning among the new middle class – the workers who own their homes. [? if socialism <= 49 and peoples_party == 0: The popular antipathy towards socialism among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?] [? if nationalism >= 51 and peoples_party == 0: The high levels of nationalism among this group make our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
+
+@rural
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: rural_a += 5*(1-globalization); rural_spd -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2
+
+By promising protection against banks and multinationals, we have increased our campaigning among the small businessowners in the city as well as countryside. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
+
+@unemployed
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: unemployed_a += 6*(1-globalization); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; a_members += 0.2*efc*(1-globalization); unemployed_spd += 3*(1-dissent) if welfare >= 2;
+
+By promising public works programs and stable socialist leadership, we have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
+
+@youth
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: unemployed_a += 4*(1.1-globalization); prole_a += 2; public_prole_a += 1; rural_a +=2
+
+By focussing on our comitment to international social justice, we have increased our campaigning among the youth.
+

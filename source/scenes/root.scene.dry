@@ -1,11 +1,11 @@
 title: Root Scene
 new-page: true
 go-to: post_event if started = 1; start_menu if started = 0
-set-bg: img/Background-train.jpg
 
 @start_menu
 new-page: true
 go-to: start_menu_2
+set-bg: img/Background-train.jpg
 
 = Red Zenit: An Alternate History
 
@@ -18,6 +18,7 @@ go-to: start_menu_2
 
 
 @start
+new-page: true
 on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
@@ -56,8 +57,15 @@ Q.mediahealth = 50
 Q.a_memberdecline = 1.3
 Q.a_memberrise = 0
 
+//Homeownership
+Q.homeownership = 41
+
+//GDP
+Q.gdp = 100
+
+
 // globalization
-Q.globalization = 0.1;
+Q.globalization = 0.0;
 
 //broader movement
 Q.labor_relations = 80
@@ -649,8 +657,6 @@ Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
 !}
 
-new-page: true
-
 > *"Honestly and brutally, there was nothing better we could have done."*
 
  - Anker Jørgensen, 2007
@@ -697,7 +703,7 @@ audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= Late Summer, 1970
+= **Late Summer 1970**
 
 It is a bright time for Danish democracy. As Danish social-democracy nears its centenary, our movement is the strongest its ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy whether to integrate into the European Community remains the burning question.
 

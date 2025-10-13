@@ -38,11 +38,28 @@ for (var c of Q.classes) {
     }
 }
 
-// Advance globalization each month
-Q.globalization += 0.0025; // adjust the increment as needed
+//random newspaper (for the poll)
+Q.newspaper = Math.random()
 
-// decline media health each month
-Q.mediahealth -= 0.5; // adjust the increment as needed
+//statistical uncertainty to polls
+// Add random uncertainty to polling results
+function addUncertainty(baseValue) {
+    const percentageDeviation = Math.random() * 0.1 - 0.05; // Random value between -0.05 and +0.05 (±5%)
+    return Math.max(0, Math.min(100, baseValue * (1 + percentageDeviation))); // Ensure result is between 0 and 100
+}
+
+Q.a_votesdisp = addUncertainty(Q.a_votes).toFixed(1);
+console.log("Q.a_votes:", Q.a_votes);
+Q.z_votesdisp = addUncertainty(Q.z_votes).toFixed(1);
+Q.v_votesdisp = addUncertainty(Q.v_votes).toFixed(1);
+Q.c_votesdisp = addUncertainty(Q.c_votes).toFixed(1);
+Q.kf_votesdisp = addUncertainty(Q.kf_votes).toFixed(1);
+Q.dkp_votesdisp = addUncertainty(Q.dkp_votes).toFixed(1);
+Q.b_votesdisp = addUncertainty(Q.b_votes).toFixed(1);
+Q.sf_votesdisp = addUncertainty(Q.sf_votes).toFixed(1);
+Q.vs_votesdisp = addUncertainty(Q.vs_votes).toFixed(1);
+Q.rfb_votesdisp = addUncertainty(Q.rfb_votes).toFixed(1);
+Q.others_votesdisp = addUncertainty(Q.others_votes).toFixed(1);
 
 // calculate support for each of the parties
 var total_support = 0; 
@@ -93,10 +110,10 @@ Q.right_worker_strength = 100*Q.right_worker_strength/total_strength;
 Q.neorevisionist_strength = 100*Q.neorevisionist_strength/total_strength;
 
 // slightly lower dissent each month.
-Q.left_dissent -=0.25
-Q.left_worker_dissent -=0.25
-Q.technocrat_dissent -=0.25
-Q.right_worker_dissent -=0.25
+Q.left_dissent -=0.15
+Q.left_worker_dissent -=0.15
+Q.technocrat_dissent -=0.15
+Q.right_worker_dissent -=0.15
 
 // re-calculate dissent.
 var total_dissent = Q.left_strength*Q.left_dissent + Q.left_worker_strength*Q.left_worker_dissent + Q.technocrat_strength*Q.technocrat_dissent + Q.right_worker_strength*Q.right_worker_dissent + Q.neorevisionist_strength*Q.neorevisionist_dissent;
@@ -115,9 +132,15 @@ if (Q.dissent < 0) {
 // re-calculate party effectiveness.
 Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
 
+//store last months members
+Q.previous_members = Q.a_members
+
 // decline membership  each month
 Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
+
+//get the monthly increase
+Q.membermonthly = Q.previous_members - Q.a_members
 
 //trying to get dynamic valg to work
 Q.month_actions_checked = Q.month_actions;
@@ -149,6 +172,19 @@ for (timer of Q.timers) {
    }
 }
 
+// Advance globalization each month
+Q.globalization += 0.0025; // adjust the increment as needed
+
+//Calculate new GDP
+const yearlyGrowthRate = Q.economic_growth / 100; // Convert to decimal
+const monthlyGrowthRate = Math.pow(1 + yearlyGrowthRate, 1 / 8) - 1;
+Q.gdp = Q.gdp * (1 + monthlyGrowthRate);
+//disp // makes t
+Q.gdpdisp = Q.gdp.toFixed(1)
+
+// decline media health each month
+Q.mediahealth -= 0.5; // adjust the increment as needed
+
 // append to historical party support records
 var party_support_results = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
@@ -176,6 +212,34 @@ if (Q.budget <= -5 && Q.inflation < 10) {
         Q.inflation -= 0.1;
     }
 }
+
+// public sector size
+Q.Sizeofpublicsector = (Q.public_prole + Q.public_homeowner) / (Q.public_prole + Q.public_homeowner + Q.homeowner + Q.prole + Q.rural + Q.pettyb) * 100
+Q.Sizeofpublicsectordisp = Q.Sizeofpublicsector.toFixed(1)
+
+//Urbanization
+Q.Urbanizationrate = 100-Q.rural*2
+Q.Urbanizationratedisp = Q.Urbanizationrate.toFixed(1)
+
+
+//Urbanization rural
+if (Q.economic_growth >= 1.5 && Q.economic_growth < 4) {
+    Q.rural -= 0.04;
+    Q.unemployed + 0.02;
+}
+if (Q.economic_growth >= 1.5 && Q.economic_growth < 4) {
+    Q.rural -= 0.02;
+    Q.unemployed + 0.01;
+}
+if (Q.economic_growth > -1 && Q.economic_growth < 0) {
+    Q.rural -= 0.02;
+    Q.unemployed + 0.01;
+}
+if (Q.economic_growth <= -1) {
+    Q.rural -= 0.04;
+    Q.unemployed + 0.02;
+}
+
 // deflation is bad
 if (Q.inflation < -0.5 && Q.inflation > -5 && Q.unemployed < 15) {
     Q.unemployed += 0.2;
@@ -519,7 +583,9 @@ if (typeof window !== "undefined" && window.generateBar) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [+ month : month +] [+ year +] [? if valg = 1 : *[+ week : week+] week of the election campaign* ?]
+= [? if valg != 1 : **[+ month : month +] [+ year +]** ?] [? if valg = 1 : **[+ week : week +] week of the campaign** ?]
+
+[? if valg = 1 : [+ month : month +] [+ year +]  ?]
 
 @events_choice
 
