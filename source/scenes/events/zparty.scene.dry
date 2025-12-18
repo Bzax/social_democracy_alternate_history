@@ -1,0 +1,20 @@
+title: Mogens Glistrup founds his own party
+subtitle: The 'Prgress Party' is formed
+view-if: year = 1973 and month == 5
+max-visits: 1
+tags: event
+face-image: img/glistrup3.jpg
+new-page: true
+
+= Mogens Glistrup founds his own party
+
+The by now universally known, and equally disgraced, jurist Mogens Glistrup has just announced the formation of his new political party, the 'progress party'. Glistrup promises this party will abolish the income tax, drastically reduce the public sector as well as the size of parliament.
+
+Political experts place little confidence in Glistrups ability to actually mobilize anyone to support his project, and treat the news more as an oddity than anything else.
+
+- @hopefully2: Perhaps some will be attracted to his anti-elitist rhetoric?
+
+@hopefully2
+on-arrival: z_formed += 1; socialism -= 6; homeowner_a -= 4; homeowner_z += 16; homeowner_c -= 6; homeowner_v -= 4; homeowner_b -= 2; public_homeowner_a -= 3; public_homeowner_z += 3; pettyb_a -= 2; pettyb_c -= 4; pettyb_v -= 4; pettyb_z += 10;
+
+Time will tell...

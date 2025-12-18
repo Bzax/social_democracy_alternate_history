@@ -36,7 +36,7 @@ on-arrival: pacifism += 1; nationalism -= 5 if pacifism >= 3; workers_spd += 5*(
 The Iron Front rallies against nationalism and war.
 
 @republic
-on-arrival: pro_republic += 5*(1-dissent); democratization += 1; workers_spd += 5*(1-dissent) if democratization >= 4; unemployed_spd += 4*(1-dissent) if democratization >= 4; new_middle_spd += 4*(1-dissent) if democratization >= 4
+on-arrival: socialism += 5*(1-dissent); democratization += 1; workers_spd += 5*(1-dissent) if democratization >= 4; unemployed_spd += 4*(1-dissent) if democratization >= 4; new_middle_spd += 4*(1-dissent) if democratization >= 4
 
 The Iron Front rallies in defense of the democratic republic and against dictatorship.
 
@@ -51,7 +51,7 @@ The WTB-Plan is the rallying point for the entire SPD and its affiliated organiz
 @antisemitism
 title: Rally against antisemitism and in defense of Jewish Germans.
 view-if: confronting_antisemitism > 1
-on-arrival: nationalism -= 4*(1-dissent); pro_republic += 3*(1-dissent); confronting_antisemitism += 1; workers_nsdap -= 4*(1-dissent); unemployed_nsdap -= 4*(1-dissent);
+on-arrival: nationalism -= 4*(1-dissent); socialism += 3*(1-dissent); confronting_antisemitism += 1; workers_nsdap -= 4*(1-dissent); unemployed_nsdap -= 4*(1-dissent);
 
 # TODO
 The Nazis and other far-right political movements are increasingly turning their hatred against the Jewish community of Germany. The Iron Front rallies in defense of individual Jews and the broader community against violence.

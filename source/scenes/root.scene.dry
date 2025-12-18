@@ -24,7 +24,7 @@ Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1970;
-Q.month = 5;
+Q.month = 4;
 Q.week = 0;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -99,6 +99,10 @@ Q.neorevisionism = 0;
 valg = 0
 Q.electiondate = 0
 
+//Setup
+
+z_formed = 0
+
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
 // nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
@@ -140,7 +144,6 @@ Q.vs_relation = 30;
 Q.dkp_relation = 45;
 Q.rfb_relation = 55;
 Q.kf_relation = 35;
-// DNVP and NSDAP are invariably hostile
 Q.Z_relation = 0;
 
 Q.kpd_leader = "Thälmann";
@@ -202,7 +205,7 @@ Q.nationalism = 60;
 // socialism vs capitalism
 Q.socialism = 40;
 // pro-republic vs anti-republic
-Q.pro_republic = 59;
+Q.socialism = 40;
 
 Q.emergency_rule = 0;
 
@@ -226,7 +229,7 @@ Q.capital_strike_progress = 0;
 
 Q.budget = 4;
 
-// Proportion of different families by socio-economic status of main incomeprovider
+// Proportion of different families by socio-economic / class status of main incomeprovider
 // source: 'Vælgerundersøgelsen 1971', 'vælgerundersøgelsen 1975', 'statistisk årsbog 1970' (my calculations can be downloaded from the credits)
 Q.prole = 25.5; // private sector proletarians (private sector workers renting their homes)
 Q.homeowner = 22.16; // private sector workers who own their homes
@@ -369,7 +372,6 @@ Q.capitalist_others = 0;
 // % of Reichstag in Jan 1928
 // source: wikipedia
 // note: these are the exact election results, i may have to change it so that it instead corresponds to the folketing composition
-// They did not have a CDU/CSU-style relationship.
 Q.a_r = 34.2;
 Q.v_r = 18.6;
 Q.c_r = 20.4;
@@ -396,8 +398,8 @@ Q.old_kf_r = 0;
 Q.old_others_r = 0;
 
 // sapd isn't formed yet, but it may be formed
-Q.sapd_r = 0;
-Q.old_sapd_r = 0;
+Q.z_r = 0;
+Q.z_r = 0;
 
 // for changing the DDP's name to the DStP
 Q.ddp_name = "DDP";
@@ -480,6 +482,8 @@ Q.unemployment_insurance_seen = 0;
 // unemployment insurance event is seen if the unemployment level is at least 4 more than the threshold...
 Q.unemployment_insurance_threshold = 10;
 Q.blutmai = 0;
+Q.ODsupport = 0; 
+Q.Thy_seen = 0;
 
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
@@ -703,11 +707,11 @@ audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= **Late Summer 1970**
+= **1970**
 
-It is a bright time for Danish democracy. As Danish social-democracy nears its centenary, our movement is the strongest its ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare, even as the question of capitalist ownership remains unsettled. In foreign policy whether to integrate into the European Community remains the burning question.
+It is a bright time for Danish democracy. As the workers movement nears its centenary, it is the strongest it has ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare. In foreign policy whether to integrate into the European Community remains the burning question.
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
-Perhaps the next parliament will have a workers majority?
+Perhaps the next folketing will have a workers majority?
 
 

@@ -1,0 +1,26 @@
+title: War erupts in the Middle East
+subtitle: An oil crisis takes shape...
+new-page: true
+on-arrival: black_thursday_seen = 1; workers_kpd += 5; workers_nsdap += 3; new_middle_nsdap += 4; old_middle_nsdap += 5; rural_nsdap += 5; unemployed_nsdap += 5; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
+tags: event
+view-if: year = 1973 and month == 6
+max-visits: 1
+face-image: img/israel.jpg
+
+= War erupts in the Middle East
+
+For the fourth time in less than 30 years the Israeli project seems to be violently rejected by its neighbors and the original palestinean inhabitants in the region, due to our history and shared socialdemocrati policies, our party has been deeply sympathetic to the zionist cause in the past. 
+
+The OPEC Cartel has decided to punish several western countries for their support of Israel, and unfortunately due to unwise comments made by prominent politicians, this also includes us. It is too early to tell what the international effects will be, but it will likely reinforce our balance-issues. As always, it is the capitalists' crisis, and the workers' burden.
+
+- @cap: It is the nature of capitalism...
+- @do_something: We must do something to stop the suffering...
+
+@cap
+
+Perhaps this is simply one of the periodic crises of capitalism. Perhaps this moment will simply pass.
+
+@do_something
+on-arrival: crisis_urgency += 1
+
+What can we do to staunch the workers' suffering? It is becoming a hotly debated question.

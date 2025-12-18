@@ -1,0 +1,20 @@
+title: An Outragous Provocateur!
+subtitle: Is resisting taxation comparable to resisting Nazis?
+view-if: year = 1971 and month == 1
+max-visits: 1
+tags: event
+face-image: img/glistrup.jpg
+new-page: true
+
+= An Outragous Provocateur!
+
+A hitherto unknown jurist by the name of 'Mogens Glistrup', has revealed on national TV that not only has he not paid taxes for a decade, but also that he thinks of this as a virtue! Truly abhorrent was his comment comparing tax evaders to the ressistance fighters who died to free our country from the scourge of Nazism. 
+
+His comments has led to widespread indignation, not only from good socialdemocrats and socialists, but from conservatives and liberal politicians as well.
+
+- @hopefully: Thankfully the outrage is universal
+
+@hopefully
+on-arrival: socialism -= 6; homeowner_a -= 4; public_homeowner_a -= 4; pettyb_a -= 2;
+
+...and this is the last we'll hear from him

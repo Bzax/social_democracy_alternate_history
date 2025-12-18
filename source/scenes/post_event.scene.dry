@@ -12,15 +12,14 @@ for (var c of Q.classes) {
     }
 }
 
-Q.pro_republic = Math.round(Q.pro_republic);
-Q.nationalism = Math.round(Q.nationalism);
 Q.socialism = Math.round(Q.socialism);
+Q.nationalism = Math.round(Q.nationalism);
 
-if (Q.pro_republic < 0) {
-    Q.pro_republic = 0;
+if (Q.socialism < 0) {
+    Q.socialism = 0;
 }
-if (Q.pro_republic >= 100) {
-    Q.pro_republic = 99;
+if (Q.socialism >= 100) {
+    Q.socialism = 99;
 }
 // re-calculate party support
 // calculate normalized class voting for the achievements
@@ -44,7 +43,7 @@ Q.newspaper = Math.random()
 //statistical uncertainty to polls
 // Add random uncertainty to polling results
 function addUncertainty(baseValue) {
-    const percentageDeviation = Math.random() * 0.1 - 0.05; // Random value between -0.05 and +0.05 (±5%)
+    const percentageDeviation = Math.random() * 0.025; // Random value between -0.02,5 and +0.0,25 (±2,5%)
     return Math.max(0, Math.min(100, baseValue * (1 + percentageDeviation))); // Ensure result is between 0 and 100
 }
 
@@ -136,10 +135,10 @@ Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.media
 Q.previous_members = Q.a_members
 
 // decline membership  each month
-Q.a_memberdecline = 0.3+(6*Q.dissent) - Q.a_memberrise
+Q.a_memberdecline = 0.3+(4*Q.dissent) - Q.a_memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
-//get the monthly increase
+//get the monthly change
 Q.membermonthly = Q.previous_members - Q.a_members
 
 //trying to get dynamic valg to work
@@ -284,13 +283,13 @@ if (Q.economic_growth >= 12) {
 
 //////////////////////////////// Education & Science support/economic changes
 if (Q.major_curriculum && Q.major_curriculum == "democratic") {
-    if (Q.pro_republic < 60) {
-        Q.pro_republic += 0.5;
+    if (Q.socialism < 60) {
+        Q.socialism += 0.5;
     } 
 }
 if (Q.minor_curriculum && Q.minor_curriculum == "democratic") {
-    if (Q.pro_republic < 60) {
-        Q.pro_republic += 0.3;
+    if (Q.socialism < 60) {
+        Q.socialism += 0.3;
     } 
 }
 // science bonus to economic growth
@@ -343,47 +342,47 @@ if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.spd_in_government) {
     Q.economic_expansion += Q.economic_growth/2;
 }
 /////////////////////////////// update opinions based on economy
-if (Q.unemployed > 15 && Q.pro_republic > 40) {
-    Q.pro_republic -= 1;
+if (Q.unemployed > 15 && Q.socialism > 40) {
+    Q.socialism -= 1;
 }
-if (Q.unemployed > 30 && Q.pro_republic > 20) {
-    Q.pro_republic -= 1;
+if (Q.unemployed > 30 && Q.socialism > 20) {
+    Q.socialism -= 1;
 }
-if (Q.inflation >= 8 && Q.pro_republic > 40) {
-    Q.pro_republic -= 1;
+if (Q.inflation >= 8 && Q.socialism > 40) {
+    Q.socialism -= 1;
 }
 
-///////////////////////////// change party support based on pro_republic
-// if pro_republic is less than the support of the Weimar coalition, reduce SPD support...
-if (Q.pro_republic < (Q.spd_votes + Q.ddp_votes + Q.z_votes - 3)) {
-    if (Q.new_middle_spd > 0) {
-        Q.new_middle_spd -= 5/12;
-        Q.new_middle_nsdap += 3/12;
+///////////////////////////// change party support based on socialism
+// if socialism is less than the support of the workers coalition, reduce left support...
+if (Q.socialism < (Q.a_votes + Q.sf_votes + Q.vs_votes + Q.dkp_votes)) {
+    if (Q.homeowner_a > 0) {
+        Q.homeowner_a -= 5/12;
+        Q.homeowner_z += 3/12;
     }
-    if (Q.old_middle_spd > 0) {
-        Q.old_middle_spd -= 5/12;
-        Q.old_middle_nsdap += 3/12;
+    if (Q.pettyb_a > 0) {
+        Q.pettyb_a -= 5/12;
+        Q.pettyb_z += 3/12;
     }
-    if (Q.rural_spd > 0) {
-        Q.rural_spd -= 5/12;
-        Q.rural_nsdap += 3/12;
+    if (Q.rural_a > 0) {
+        Q.rural_a -= 5/12;
+        Q.rural_z += 3/12;
     }
-    if (Q.workers_spd_normalized > 30) {
-        Q.workers_spd -= 4/12;
+    if (Q.prole_a > 40) {
+        Q.prole_a -= 4/12;
     }
-    if (Q.catholics_spd > 0) {
-        Q.catholics_spd -= 4/12;
+    if (Q.public_homeowner > 0) {
+        Q.public_homeowner_a -= 4/12;
     }
-    if (Q.unemployed_spd_normalized > 10) {
-        Q.unemployed_spd -= 4/12;
+    if (Q.unemployed_a > 10) {
+        Q.unemployed_a -= 4/12;
     }
-    if (Q.new_middle_ddp > 0) {
-        Q.new_middle_ddp -= 4/12;
-        Q.new_middle_nsdap += 3/12;
+    if (Q.prole_sf > 0) {
+        Q.prole_sf -= 2/12;
+        Q.prole_z += 2/12;
     }
-    if (Q.old_middle_ddp > 0) {
-        Q.old_middle_ddp -= 5/12;
-        Q.old_middle_nsdap += 4/12;
+    if (Q.homeowner_sf > 0) {
+        Q.homeowner_sf -= 5/12;
+        Q.homeowner_z += 4/12;
     }
     if (Q.rural_ddp > 0) {
         Q.rural_ddp -= 5/12;
@@ -537,7 +536,7 @@ if (Q.year == 1972) {
     }
 }
 // prevent forever support if the economy is bad
-if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.pro_republic <= 45 && Q.spd_in_government) {
+if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.socialism <= 45 && Q.spd_in_government) {
     if (Q.workers_spd_normalized > 40) {
         Q.workers_spd -= 6/12;
     }
@@ -583,9 +582,9 @@ if (typeof window !== "undefined" && window.generateBar) {
 !}
 go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
-= [? if valg != 1 : **[+ month : month +] [+ year +]** ?] [? if valg = 1 : **[+ week : week +] week of the campaign** ?]
+= [? if valg != 1 and has_event = 0: **[+ month : month +] [+ year +]** ?] [? if valg = 1 and has_event = 0: **[+ week : week +] week of the campaign** ?] [? if valg != 1 and has_event = 1: **Between [+ month - 1 : month +] and [+ month : month +]** ?] [? if valg = 1 and has_event = 1 : **Between [+ week - 1 : week +] and [+ week : week +] of the campaign** ?]
 
-[? if valg = 1 : [+ month : month +] [+ year +]  ?]
+[? if valg = 1 : ***The [+ year +]-election is gearing up...***  ?]
 
 @events_choice
 

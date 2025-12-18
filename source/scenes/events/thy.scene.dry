@@ -1,0 +1,32 @@
+title: A new 'society' takes shape in Jutland
+subtitle: Tens of thousands of young people flock to whatever it is...
+new-page: true
+on-arrival: Thy_seen = 1; homeowner_v += 1; prole_vs += 5; prole_dkp += 3; public_homeowner_c += 3; public_homeowner_v += 2
+tags: event
+view-if: year = 1970 and month = 5
+max-visits: 1
+face-image: img/Thy.jpg
+
+= A new 'society' takes shape in Jutland
+
+Earlier this year a small group of young radicals bought a patch of land in rural Jutland, with the intention of forming a new society based on anarchic ideas. 
+
+Over the summer 'Thylejren' has evolved into a true breeding ground for Danish counterculture, with tens of thousands thousands from all over the country flocking to participate in the concerts, the partying and the 'free love'. 
+
+Though the concerts and socialist lectures seem harmless enough, the prevelence of hashish, nudism and greasy hair has made Thylejren an easy target for the bourgeois press.
+
+What should be the position of our press?
+
+- @sympathetic: "In spite of problematic elements, the camp signals the democratic aspirations of our youth."
+- @condemnation: "These rascals make a mockery of the democracy we have fought so hard to win for them."
+
+@sympathetic
+on-arrival: socialism += 2; prole_a += 2*(1 - globalization); homeowner_a -= 3/efc*(0 + globalization); public_prole_a += 0; public_homeowner_a -= 3; left_dissent -= 4; left_strength += 5; technocrat_dissent += 2; right_worker_dissent += 6; mediahealth += 2
+
+Our sympathetic stance has led to a cautious opening towards us in the the youth movement, both inside and outside our party. However, for a handful of less culturally progressive workers, this coverage has been the final drop.
+
+@condemnation
+on-arrival: socialism -= 1; prole_a -= 1/efc*(0 + globalization); homeowner_a += 3*efc*(0 + globalization); public_prole_a += 0; public_homeowner_a += 3*efc; left_dissent += 4; left_strength -= 5; technocrat_dissent -= 2; right_worker_dissent -= 6; mediahealth += 6
+
+Though it irritates many young and radical of our party, our more mature members are relieved to see us joining the choir of uproar. Some worry we may have simply made the right wing talking points hegemonic, but they are probably nudists themselves.
+

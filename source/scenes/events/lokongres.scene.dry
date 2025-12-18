@@ -1,0 +1,43 @@
+title: LO hosts its 1971 congress
+new-page: true
+subtitle: The workers movement takes a radical turn
+tags: event
+view-if: year = 1971 and month = 3
+max-visits: 1
+face-image: img/kongres.jpg
+
+= LO hosts its 1971 congress
+
+Boasting more than a million members, LO is an organizational behemoth representing nearly half the national workforce. The congress is the highest body of LO and meets twice per decade, that alone makes it an anticipated event – but this time its even more so.
+
+The LO leadership has advanced the program of 'Økonomisk Demokrati' (Economic Democracy, 'ØD'). A plan to legally acquire a majority stake of every single business in Denmark over a period of 10 years. According to the union leaders, the policy of ØD represents the culmination of 100 years of struggle.
+
+Hands rise across the hall, a forest of consent. When they fall again, the verdict is clear: the program has carried, by an overwhelming majority.
+
+- @ODsupport: Naturally we back this decision of the workers movement.
+- @ODskeptic: In a surprising turn of events, our party leadership disavows ØD. 
+- @ODmore: Tell me more about this 'Økonomisk Demokrati'.
+
+@ODmore
+subtitle: Recommended for new players.
+
+The policy of ØD is basically a plan to finance the legal seizing the means of production, the scheme seeks to achieve this by taking 5 percent of the wage sum each year in order to simply buy up all the businesses in Denmark with more than 6 employees. Key to this is the fact that this 5% wage sum would be an additional 5% provided by the businesses themselves.
+
+The control of the stocks of these newly acquired businesses is then to be placed partly under the direct control of workers at the level of the individual firm and partly into a central fund. This central fund is to be jointly managed by a board appointed by the Danish folketing and the LO itself. 
+
+In this way the plan is to take the first decisive step out of capitalism in order to create a new democratic economy.
+
+- @ODsupport: Naturally we back this decision of the workers movement.
+- @ODskeptic: In a surprising turn of events, our party leadership disavows ØD. 
+
+@ODsupport
+on-arrival: ODsupport=1; socialism += 10; left_strength += 5; left_dissent -= 10; left_worker_strength += 5; left_worker_dissent -= 5; homeowner_a += 3; prole_a += 4; rural_a -= 4; capitalist_a -= 10; v_relation -= 20; c_relation -= 30; b_relation -= 10; labor_relations += 5;
+subtitle: Let the ruling classes tremble...
+
+The goal of socialism finally seems tangible, and within reach... We have a feeling this decision will be very important.
+
+@ODskeptic
+on-arrival: ODsupport=0; socialism += 2; left_strength -= 2; left_dissent += 15; left_worker_strength += 0; left_worker_dissent += 15; homeowner_a -= 5; homeowner_sf +=5; prole_sf += 7; prole_dkp += 3; prole_vs += 3; prole_prole_a -= 16; rural_a += 4; capitalist_a += 10; v_relation += 15; c_relation += 10; b_relation += 5; labor_relations -= 10;
+subtitle: This will greatly damage our relations with LO, though it may win us good will among other elements.
+
+Whether for strategic or ideological reasons, we have chosen to publicly disawow ØD. And while LO's leadership is aghast and much of our party disapproves, the bourgeois parties are very pleasantly surprised, which may open opportunities in the future. Let us hope this decision is right, it certainly feels important.

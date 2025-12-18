@@ -138,7 +138,7 @@ go-to: menu
 
 @public_opinion
 on-arrival: {!
-Q.pro_republic_disp = Math.round(Q.pro_republic);
+Q.socialism_disp = Math.round(Q.socialism);
 Q.nationalism_disp = Math.round(Q.nationalism);
 Q.socialism_disp = Math.round(Q.socialism);
 !}
@@ -152,7 +152,7 @@ set-jump: election_projections
 
 #Support for Nationalism: [+ nationalism +]%
 
-Support for the Republic: [+ pro_republic_disp +]%
+Support for the Republic: [+ socialism_disp +]%
 
 
 @election_projections

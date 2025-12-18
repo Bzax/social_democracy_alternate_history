@@ -1,0 +1,26 @@
+title: An EEC referendum?
+subtitle: Members of our party presents us with an opportunity
+view-if: year = 1972 and month == 1
+max-visits: 1
+tags: event
+face-image: img/ef.jpg
+new-page: true
+on-arrival: 
+
+= An EEC referendum?
+
+Some of the more moderate members of our parliamentary group have gotten assurance from the bourgious parties, that they would be willing to let the question of whether to join the European Community be decided at a public referendum. 
+
+Perhaps this would allow us to satisfy all factions of our party, but at the same time it would also bring the question of membership a very open one which could add unneeded insecurity in financial communities. The election would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the scheduled parliamentary elections</span>!}.
+
+- @yes_referendum: A referendum is a great idea, let the people decide
+- @no_referendum: We would rather decide ourselves
+
+@yes_referendum
+on-arrival: eu_referendum += 1; dissent -= 10;
+
+Let us hope this is the right decision...
+
+@no_referendum
+
+It is generally better to decide matters ourselves, let us hope this is the right decision...

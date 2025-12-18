@@ -43,7 +43,7 @@ Our position: [? if spd_toleration : toleration ?][? if spd_in_government : in g
 
 {!<span class="tooltip-text" title="Kristeligt Folkeparti (lit. 'Christian Peoples Party')">KF</span>!}: [+ KF_relation : relationships +]
 
-[? if z_formed > 0 :{!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
+[? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
 
 = **Government**
 
@@ -55,7 +55,7 @@ Folketing composition:
 
 # 1928: 30, 1930: 25, 1932: 22
 {!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
-[? if Z_formed and sapd_r > 0: Z: [+ sapd_r +]% ?]
+[? if z_formed and z_r > 0: Z: [+ z_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
 {!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
@@ -179,7 +179,7 @@ Impact of globalization = [+ globalizationdisp +]
 
 @polls
 on-arrival: {!
-Q.pro_republic_disp = Math.round(Q.pro_republic);
+Q.socialism_disp = Math.round(Q.socialism);
 Q.nationalism_disp = Math.round(Q.nationalism);
 Q.socialism_disp = Math.round(Q.socialism);
 !}
@@ -192,7 +192,7 @@ Published by: [+ newspaper : newspaper +]
 
 Socialdemokratiet: [+ a_votesdisp +]%
 
-[? if Z_formed: Z: [+ z_votesdisp +]% ?]
+[? if z_formed: Z: [+ z_votesdisp +]% ?]
 
 Venstre: [+ v_votesdisp +]%
 
@@ -214,4 +214,4 @@ Others: [+ others_votesdisp +]%
 
 *other polling*
 
-Support for NATO: [+ pro_republic_disp +]%
+Support for ØD: [+ socialism_disp +]%

@@ -40,7 +40,7 @@ As for the SPD, we could support a joint Weimar Coalition candidate or run our o
 Kurt Schumacher is an ambitious rising star in the party, and would be all too willing to run. He was a hero in the Great War, but his relatively young age might be relevant.
 [? if womens_rights >= 6 and family_law >= 2 and womens_work >= 2 and welfare > 0: Or, perhaps it is time for a woman to become president. Germany and the SPD have been leading on women's rights for years, and it is only fitting that we should elect the world's first female president. Perhaps Marie Juchacz could be seen as the "mother of the nation" for her work in social welfare. However, her divorce 28 years ago might make it difficult for the Catholics to support her. ?]
 
-[? if presidential_powers >= 1 and pro_republic >= 60 and pacifism >= 3: Since Germany has been largely democratized and presidential powers reduced, we can also support another non-traditional political figure, someone from the cultural, scientific, or literary spheres. They will perhaps be the symbol of a new Germany that has moved beyond its past. ?]
+[? if presidential_powers >= 1 and socialism >= 60 and pacifism >= 3: Since Germany has been largely democratized and presidential powers reduced, we can also support another non-traditional political figure, someone from the cultural, scientific, or literary spheres. They will perhaps be the symbol of a new Germany that has moved beyond its past. ?]
 # if Otto Braun ran last time: he can only run if he controls Prussia. Otherwise, it's Kurt Schumacher.
 
 # options: 
@@ -145,7 +145,7 @@ go-to: r1_menu
 We have nominated Marie Juchacz as our presidential candidate, the first woman ever to be nominated for this position!
 
 @cultural_figure
-view-if: presidential_powers >= 1 and pro_republic >= 60 and pacifism >= 3
+view-if: presidential_powers >= 1 and socialism >= 60 and pacifism >= 3
 subtitle: The next president should be a symbol of the new Germany...
 
 Since the presidency has been made a largely ceremonial figure by our reforms, we might set a precedent by nominating a nonpartisan pro-democracy figure from the cultural, scientific, or literary worlds. There are many potential candidates...
@@ -229,7 +229,7 @@ We implore the Center Party to support [+ spd_candidate +] as a unity candidate 
 # convincing Z to support an SPD candidate
 @convince_z_spd
 title: Convince the Center Party to support [+ spd_candidate +].
-choose-if: spd_votes >= z_votes
+choose-if: a_votes >= z_votes
 unavailable-subtitle: [? if spd_votes < z_votes: The Center knows that they are more popular than us; they do not see a reason to support our candidate. ?]
 view-if: (spd_candidate = "Braun" or spd_candidate = "Schumacher" or spd_candidate = "Juchacz" or is_cultural_candidate) and z_candidate != spd_candidate
 on-arrival: {!
@@ -665,7 +665,7 @@ Do we realize that this means civil war, against the full force of the state?
 @defeat_democratic
 on-arrival: {!
 Q.pro_democracy_votes = Q.spd_votes + Q.ddp_votes + Q.z_votes - (Q.sa_strength*Q.sa_militancy/10) + (Q.a_members*Q.rb_militancy/10);
-if (Q.pro_republic >= 60) {
+if (Q.socialism >= 60) {
     Q.pro_democracy_votes += Q.kpd_votes;
     Q.pro_democracy_votes += Q.dvp_votes;
 }

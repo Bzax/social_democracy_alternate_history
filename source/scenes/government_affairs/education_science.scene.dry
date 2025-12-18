@@ -10,9 +10,9 @@ tags: govt_affairs, cabinet
 # options:
 # - fund research (basic science research at the KWI, medical research, applied and industrial research to benefit Germany's economy)
 # - change the educational curriculum (only once per 3 years) - will have a "major" and "minor" option:
-# - democratic education - focus on critical thinking and democratic values rather than authoritarian teaching. (+ democratization, pro_republic)
+# - democratic education - focus on critical thinking and democratic values rather than authoritarian teaching. (+ democratization, socialism)
 # - scientific education - focus on the sciences, mathematics, and technical skills (+ NMC, science)
-# - humanistic education - focus on literature, history, and philosophy. (+ NMC, pro_republic if democratization is high)
+# - humanistic education - focus on literature, history, and philosophy. (+ NMC, socialism if democratization is high)
 # - traditional education (reduces relations with DDP)
 
 # - increase educational opportunities for working-class families.
@@ -130,7 +130,7 @@ The SPD, [+ ddp_name +], DVP, and KPD vote in favor of secular education, overco
 title: Increase educational opportunities for the working class by funding public high schools.
 subtitle: -1 budget
 choose-if: budget >= 1
-on-arrival: budget -= 1; public_hs += 1; workers_spd += 6*(1-dissent); unemployed_spd += 3*(1-dissent); prussian_police_loyalty += 0.04; education_science += 0.5; unemployed -= 0.2; economic_growth += 0.2; pro_republic += 4*(1-dissent);
+on-arrival: budget -= 1; public_hs += 1; workers_spd += 6*(1-dissent); unemployed_spd += 3*(1-dissent); prussian_police_loyalty += 0.04; education_science += 0.5; unemployed -= 0.2; economic_growth += 0.2; socialism += 4*(1-dissent);
 max-visits: 3
 
 # this makes the bureaucracy more proletarian
@@ -167,7 +167,7 @@ What should be the major focus of our new curriculum?
 @dem_major
 title: Democratic curriculum
 subtitle: Critical thinking, democratic citizenship, and collaboration
-on-arrival: curriculum_timer = 50; major_curriculum = "democratic"; pro_republic += 5*(1-dissent); workers_spd += 3*(1-dissent); democratization += 1; z_relation -= 3; dvp_relation -= 5; coalition_dissent += 1 if in_grand_coalition; pacifism += 1; education_science += 0.3
+on-arrival: curriculum_timer = 50; major_curriculum = "democratic"; socialism += 5*(1-dissent); workers_spd += 3*(1-dissent); democratization += 1; z_relation -= 3; dvp_relation -= 5; coalition_dissent += 1 if in_grand_coalition; pacifism += 1; education_science += 0.3
 go-to: curriculum_minor
 
 We should teach students how to be citizens of a democratic republic, by teaching them to critically evaluate politics and current events, to exercise their rights and to respect the rights of other citizens. Traditionalists of all stripes are critical of this curriculum.
@@ -200,7 +200,7 @@ Education should be focused on providing a useful hands-on education, and teach 
 @trad_major
 title: Traditional curriculum
 subtitle: Classics, discipline, and nationalism
-on-arrival: curriculum_timer = 50; major_curriculum = "traditional"; dvp_relation += 5*(1-dissent); z_relation += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); pacifism -= 1 if pacifism > 0; pro_republic -= 5; education_science += 0.2
+on-arrival: curriculum_timer = 50; major_curriculum = "traditional"; dvp_relation += 5*(1-dissent); z_relation += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); pacifism -= 1 if pacifism > 0; socialism -= 5; education_science += 0.2
 go-to: curriculum_minor
 
 The traditional curriculum had a focus on ancient history and language (particularly Latin and Greek), as well as rigid discipline and some level of militarism.
@@ -220,7 +220,7 @@ And what should be a secondary focus of the curriculum?
 title: Democratic curriculum
 subtitle: Critical thinking, democratic citizenship, and collaboration
 view-if: major_curriculum != "democratic"
-on-arrival: minor_curriculum = "democratic"; pro_republic += 3*(1-dissent); workers_spd += 2*(1-dissent); democratization += 1; z_relation -= 2; dvp_relation -= 3;
+on-arrival: minor_curriculum = "democratic"; socialism += 3*(1-dissent); workers_spd += 2*(1-dissent); democratization += 1; z_relation -= 2; dvp_relation -= 3;
 
 We should teach students how to be citizens of a democratic republic, by teaching them to critically evaluate politics and current events, to exercise their rights and to respect the rights of other citizens. Traditionalists of all stripes are critical of this curriculum.
 
@@ -253,7 +253,7 @@ Education should be focused on providing a useful hands-on education, and teach 
 title: Traditional curriculum
 subtitle: Classics, discipline, and nationalism
 view-if: major_curriculum != "traditional"
-on-arrival: minor_curriculum = "traditional"; dvp_relation += 2*(1-dissent); z_relation += 2*(1-dissent); old_middle_spd += 2*(1-dissent); rural_spd += 2*(1-dissent); pro_republic -= 3
+on-arrival: minor_curriculum = "traditional"; dvp_relation += 2*(1-dissent); z_relation += 2*(1-dissent); old_middle_spd += 2*(1-dissent); rural_spd += 2*(1-dissent); socialism -= 3
 
 The traditional curriculum had a focus on ancient history and language (particularly Latin and Greek), as well as rigid discipline.
 

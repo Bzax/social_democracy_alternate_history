@@ -3,7 +3,7 @@ subtitle: Germany's industries are idling...
 view-if: (capital_strike_progress >= 10 or budget <= -5) and spd_in_government
 new-page: true
 max-visits: 1
-on-arrival: unemployed += 5; workers_spd*= 0.7; new_middle_spd -= 15; old_middle_spd -= 15; unemployed_spd*=0.7; rural_spd -= 15; pro_republic -= 15; capital_strike_seen = 1; z_relation -= 10; dvp_relation -= 10; workers_nsdap += 8; unemployed_nsdap += 10; new_middle_nsdap += 15; old_middle_nsdap += 15; rural_nsdap += 15; economic_growth -= 4;
+on-arrival: unemployed += 5; workers_spd*= 0.7; new_middle_spd -= 15; old_middle_spd -= 15; unemployed_spd*=0.7; rural_spd -= 15; socialism -= 15; capital_strike_seen = 1; z_relation -= 10; dvp_relation -= 10; workers_nsdap += 8; unemployed_nsdap += 10; new_middle_nsdap += 15; old_middle_nsdap += 15; rural_nsdap += 15; economic_growth -= 4;
 tags: event
 
 = Capital Strike
@@ -41,7 +41,7 @@ title: Launch a propaganda campaign blaming the capitalists for the crisis.
 subtitle: -1 resources
 choose-if: (radio >= 2 or commercialized_media >= 3) and resources >= 1
 unavailable-subtitle: [? if radio < 2 and commercialized_media < 3 : We have not built up our media enough. ?] [? if resources < 1: We do not have enough resources. ?]
-on-arrival: workers_spd += 7*(1-dissent); new_middle_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); pro_republic += 5*(1-dissent); resources -= 1
+on-arrival: workers_spd += 7*(1-dissent); new_middle_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); socialism += 5*(1-dissent); resources -= 1
 
 We launch a counter-propaganda campaign to blame the economic crisis on the capitalists, using all of our media channels to do so. Because of our existing media framework, this is moderately successful in directing popular criticisms towards the capitalists and away from us.
 
