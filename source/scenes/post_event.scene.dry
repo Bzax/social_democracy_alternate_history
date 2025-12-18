@@ -584,7 +584,7 @@ go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0
 
 = [? if valg != 1 and has_event = 0: **[+ month : month +] [+ year +]** ?] [? if valg = 1 and has_event = 0: **[+ week : week +] week of the campaign** ?] [? if valg != 1 and has_event = 1: **Between [+ month - 1 : month +] and [+ month : month +]** ?] [? if valg = 1 and has_event = 1 : **Between [+ week - 1 : week +] and [+ week : week +] of the campaign** ?]
 
-[? if valg = 1 : ***The [+ year +]-election is gearing up...***  ?]
+[? if valg = 1 : The [+ year +]-election is gearing up...  ?]
 
 @events_choice
 
