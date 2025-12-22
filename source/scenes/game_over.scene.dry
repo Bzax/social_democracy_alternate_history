@@ -89,7 +89,7 @@ if (Q.workers_spd_normalized >= 40 && Q.new_middle_spd_normalized >= 40 && Q.old
     this.achieve('grosse_volkspartei');
 }
 // Räterepublik - begin the transformation to a socialist economy.
-if (Q.spd_in_government && ((Q.nationalization_progress >= 2 && Q.economic_democracy >= 3) || (Q.nationalization_progress >= 1 && Q.economic_democracy >= 4))) {
+if (Q.a_in_government && ((Q.nationalization_progress >= 2 && Q.economic_democracy >= 3) || (Q.nationalization_progress >= 1 && Q.economic_democracy >= 4))) {
     this.achieve('raterepublik');
 }
 // Polykrise - survive both a fascist coup and a capital strike.
@@ -224,7 +224,7 @@ Albert Einstein, possibly the most famous scientist in the world, has been elect
 
 @spd_victorious
 title: SPD still in government
-view-if: spd_in_government == 1 and chancellor_party == "SPD" and total_defeat == 0 and long_war == 0
+view-if: a_in_government == 1 and chancellor_party == "SPD" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 

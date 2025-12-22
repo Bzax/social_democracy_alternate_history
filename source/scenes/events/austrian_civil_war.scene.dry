@@ -55,7 +55,7 @@ The SPD raises its resources to provide arms and volunteers for the SDAPÖ.
 
 @support_sdapo_govt
 title: The Foreign Ministry will support the democratic Austrian forces.
-view-if: spd_in_government and foreign_minister_party = "SPD"
+view-if: a_in_government and foreign_minister_party = "SPD"
 on-arrival: sdapo_strength += 1
 go-to: sdapo_victory if sdapo_strength >= 6; long_war_2 if sdapo_strength < 6
 
@@ -63,7 +63,7 @@ We provide diplomatic and some financial and material support to the SDAPÖ forc
 
 @force_peace
 title: Can we bring the sides together for a peace?
-view-if: spd_in_government and foreign_minister_party = "SPD" and sdapo_strength = 5
+view-if: a_in_government and foreign_minister_party = "SPD" and sdapo_strength = 5
 on-arrival: austria_peace = 1; socialism += 3; coup_progress -= 1
 achievement: arbeiter_von_wien
 

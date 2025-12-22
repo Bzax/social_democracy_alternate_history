@@ -543,10 +543,10 @@ table {
     stroke-width: 1.5px;
 }
 .seat.b {
-    fill: #8B0000;
+    fill: #865fac;
 }
 .seat.z {
-    fill: #DCCA4A;
+    fill: #fafe7a;
 }
 .seat.c {
     fill: #0d9340;
@@ -564,10 +564,19 @@ table {
     fill: #1f3f96;
 }
 .seat.rfb {
-    fill: #865fac;
+    fill: #4e4e94;
 }
 .seat.cd {
     fill: #4B0082;
+}
+.seat.kf {
+    fill: #fff4b4;
+}
+.seat.greenland {
+    fill: #818589;
+}
+.seat.faroe {
+    fill: #818589;
 }
 
 .tooltip-text {

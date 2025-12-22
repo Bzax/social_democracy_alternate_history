@@ -33,9 +33,13 @@ if (Q.advisor_action_timer <= 0) {
 !}
 max-cards: 4
 
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
+#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card. Below is shown a list of NEWS NEWS NEWS
 
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+
+[? if year = 1971 and month = 2 : The Norwegian labor party have won their national elections, Trygve Bratteli will be the new prme minister ?]
+
+[? if year = 1972 and month = 5 and norway_eu != 1 : After a slim victory for the "no" side, the Norwegians have turned down the offer to join the EEC. The norwegian labor prime minister has resigned, and the christian democrat Lars Korvald will instead take the reigns. ?]
 
 - @party
 - @govt

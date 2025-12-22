@@ -8,61 +8,216 @@ card-image: img/internationale.jpg
 max-visits: 4
 #subtitle: Building ties with our fraternal socialist parties.
 
-At the Labor and Socialist International, we can forge contacts with our fraternal socialist parties in Europe and across the world.
+Under the capacity of our party, we can conduct international politics and foster relations in a more informal and confidential manner.
 
-- @fr_uk: Build relationships with the French SFIO and British Labour Party to move their governments in Germany's favor.
-- @austria: Learn organization and street fighting from the Austrian SDAPÖ.
-- @scandi: Learn the path of economics and reform from the Scandinavian social democrats.
-- @comintern: Forget the second international - embed a spy in the Comintern's conference.
-- @america: Contact the Socialist party of America.
-- @return: We do not need international contacts at the moment.
+- @soviet_meeting
+- @america
+- @nordic
+- @uk
+- @vietnam_seek
+- @vietnam_official
+- @return
 - @easy_discard
 - @cancel_advisor_action
 
-@fr_uk
+@nordic
+title: Place additional funding for [? if month >= 4 : next years ?] [? if month <= 4 : the upcoming ?] summer camp with our Nordic sister parties.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 1; right_worker_strength += 5; pacifism += 1; moderate_plan_support += 1
+on-arrival: resources -= 1; panscandinavianism += 1; right_worker_strength += 2; left_strength += 2; member += 2*efc; a_activity += 0.02; 
 
-The socialists of France and Britain can influence their governments to be friendlier towards Germany. Hopefully they will reduce our reparations burden.
+The annual summer camp hosted with our nordic sister parties are one of the yearly highlights, promoting relations and ideas of scandinavianism. By placing additional funds we have assured this remains the case while promoting. 
 
-@austria
-subtitle: -1 resources [? if austrian_parliament_seen and not austrian_civil_war_seen: - We will also help the Austrians oppose their dictatorship. ?]
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-audio: shuffle music/communist/workers_of_vienna_normalized.mp3
-on-arrival: left_strength += 5; radicalization += 1; rb_militancy += 0.03; resources -= 1; austria_relation += 1; sdapo_strength += 1 if austrian_parliament_seen = 1
-
-Our Reichsbanner can learn much in paramilitary organization and training from the Austrian Republikanischer Schutzbund (Republican Protection Units), the paramilitary branch of the Austrian social democrats.
-
-[? if austrian_parliament_seen and not austrian_civil_war_seen: We are also helping the Austrian Social Democratic Worker's Party build up their resources in preparation for a future struggle, legally and illegally. ?]
-
-
-@scandi
+@vietnam_seek
+title: Seek out informal contacts with the Vietnamese Communist Party, investigating the possibility of further relations.
+view-if: vietnam_relations == 0
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: right_worker_strength += 8; wtb_support += 1; resources -= 1; moderate_plan_support += 1
+on-arrival: resources -= 1; vietnam_relations += 1; left_strength += 2;
 
-The programs of the Nordic socialists involve active government intervention in the economy. We can learn from their economic strategies, and how they moved beyond their working-class base to attract a broader set of constituents.
+It takes a few weeks, but through the North Vietnamese embassy in Stockholm we succeed in arranging a meeting representatives of the VCP. Though initially suspicious due to our membership of NATO, the meeting soon turns cordial as we assure them of our intentions. 
 
-@comintern
+Given their dire situation, the VCP assures us that they would appreciate any help we can provide, diplomatic or material. [? if a_in_government == 0 : Being out of government there is little more we can do at the moment, but i ?][? if a_in_government == 1 : I ?]n the future we will be able to expand on this relationship.
+
+
+@vietnam_official
+title: Establish official relations with the Vietnamese Communist Party, in a front to America. 
+view-if: vietnam_relations == 1
+choose-if: a_in_government == 1
+unavailable-subtitle: The Vietnamese Communist Party would rather wait until we are in government.
+on-arrival: vietnam_relations += 1; left_strength += 5; left_dissent -= 10; left_worker_dissent -= 7; left_strength += 5; right_worker_dissent += 8; member += 10*efc; a_activity += 0.02;
+
+The meeting is to take place inside the home of [[+ chancellor +]], the press is quick to swarms the entrance as the first handshakes are exchanged. Once inside, cautious smiles are exchanged as the order of business is laid out. 
+
+The hours pass and much is agreed upon. When the meeting concludes, the leader of the delegation stays around for evening coffee, he leaves in a hopeful mood.
+
+@uk
+title: Fly out to meet with the British labour party, attempting to gain an edge in trade.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition += 1 if comintern_seen == 0; comintern_seen += 1
+on-arrival: resources -= 1; UK_relations += 1; right_worker_strength += 2; technocrat_strength += 2; technocrat_dissent -= 7;
 
-The Stalinists of the KPD insists on calling us "social fascists", suggesting that we social democrats are as bad or worse than actual fascists. Needless to say, this is not good for our relationship with the Communists. By observing the Comintern, we can better understand the KPD, enabling us to potentially improve relations, or counter the KPD if it may come to that.
+Our delegates were able to identify a number of previously overlooked opportunities for cooperation. The meeting concludes successfully, with the groundwork being laid for more fruitful trade agreements in the future. [? if a_in_government == 0 : Being out of government there is little more we can do at the moment, but in the future, w ?][? if a_in_government == 1 : W ?]e should not let this opportunity go to waste. (you can settle actual trade agreements through the foreign ministry)
+
+
+@soviet_meeting
+title: Meet with the Soviet Ambassador
+
+What is the purpose of our visit?
+
+- @state_visit_planning: Propose a state visit in the near future
+- @relations_with_the_dkp: Behaviour of the Danish Communist Party
+- @warsaw_pact_assurances: Informal talks of possibility of security assurances against America
+- @return
+
+@state_visit_planning
+choose-if: a_in_government == 1
+unavailable-subtitle: We are not currently in government
+
+The ambassador seems surprisingly excited. Should the visit be conducted in the USSR or here in Denmark?
+
+- @herevisit: Here in Denmark
+- @sovietvisit: In the USSR
+
+@herevisit
+on-arrival: soviet_relations += 1; soviet_visitDK += 1;
+
+Our request slowly makes it way up a long and intricate chain of command. After a few days the soviet ambassador contacts us with good news, Brezhnev will arrive no later than [+ month + 1 : month +].
+
+@sovietvisit
+on-arrival: soviet_relations += 1; soviet_visitDK += 1;
+
+Our request slowly makes it way up a long and intricate chain of command. After a few days the soviet ambassador contacts us with good news, they are happy to receive us and will complete the preperations no later than [+ month + 1 : month +].
+
+@relations_with_the_dkp
+
+The ambassador insists that the Danish Communist Party is a wholly independent political entity.
+
+@warsaw_pact_assurances
+choose-if: nato_exit = 1
+unavailable-subtitle: This is out of the question
+
 
 @america
-subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1
+title: Call the American president
 
-The Socialist Party of America is tiny and has limited support. There is not much we can do for them, and conversely, not much they can do for us.
+A secretary picks up the phone, what is the purpose of our call?
 
-@reduce
+- @leak
+- @state_visit_planning_usa
+- @state_visit_planning_usa2
+- @greenland
+- @vietnam
 
-We do not need the international contacts at the moment.
+@leak
+title: leak information gathered about the vietnamese communist party.
+choose-if: vietnam_relations == 2
+unavailable-subtitle: we do not have any such information
+on-arrival: america_relations += 1;
+
+During our visit with the vietnamese delegation we were able to gather some small details that may be of use to the american war effort.
+
+@state_visit_planning_usa
+title: Propose a state visit in the near future
+view-if: a_in_government == 1
+on-arrival: america_relations += 1;
+
+The president appreciates the gesture and will stop by on his next European tour.
+
+@state_visit_planning_usa2
+title: Propose a state visit in the near future
+view-if: a_in_government == 0
+
+An awkward silence emerges after the president notes that we are not in government. The call ends.
+
+@greenland
+title: The security situation in Greenland
+
+What specifically do we want to discuss?
+
+- @militarycooperation
+- @militarycooperation2
+- @leavegreenland
+- @americaninvasion
+- @americaninvasion2
+
+@americaninvasion
+title: The American invasion
+view-if: a_in_government == 0
+choose-if: american_invasion == 1
+unavailable-subtitle: This has not occured
+
+An awkward silence emerges after the president notes that we are not in government and are in no position to discuss this topic. The call ends.
+
+@americaninvasion2
+title: The American invasion.
+view-if: a_in_government == 1
+choose-if: american_invasion == 1
+unavailable-subtitle: This has not occured
+
+We are assured that there is nothing to discuss.
+
+@leavegreenland
+title: We want to investigate the possibility of future american withdrawal.
+
+We are assured that this is completely out of the question.
+
+@militarycooperation
+title: How we can increase future military cooperation
+view-if: a_in_government == 0
+
+The American president is eager to discuss the topic. He looks forward to our coming election, if we are up for it he even offers to assist to this end. 
+
+Do we accept?
+
+- @yesyesyes
+- @nonono
+
+@yesyesyes
+title: Yes.
+on-arrival: resources += 1; 
+subtitle: We gain 1 ressource.
+
+The American president assures us that the arrangements will be made, and he looks forward to our election. The call ends.
+
+@nonono
+title: No.
+
+The call ends.
+
+@militarycooperation2
+title: How we can increase future military cooperation.
+view-if: a_in_government == 1
+
+The American president is eager to discuss the topic.
+
+@vietnam
+title: The conduct of the Vietnam war
+
+The American president is not amused to discuss the topic.
+
+- @offertojoinwar: Offer to join the war.
+- @critizewar: Critisize the war effort.
+- @applaudthewar: Applaud the american war effort.
+
+
+@offertojoinwar
+on-arrival: america_relations += 1
+
+The American president is excited at this opportunity, he says he will further discuss this during his coming state visit. The call ends.
+
+@critizewar
+on-arrival: america_relations -= 1
+
+The american president is not amused. The call ends.
+
+
+@applaudthewar
+
+The american president is positively surprised. The call ends.
+
+
+

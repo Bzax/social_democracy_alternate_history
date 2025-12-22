@@ -15,6 +15,6 @@ His comments has led to widespread indignation, not only from good socialdemocra
 - @hopefully: Thankfully the outrage is universal
 
 @hopefully
-on-arrival: socialism -= 6; homeowner_a -= 4; public_homeowner_a -= 4; pettyb_a -= 2;
+on-arrival: glistrup_seen = 1; socialism -= 6; homeowner_a -= 4; public_homeowner_a -= 4; pettyb_a -= 2;
 
 ...and this is the last we'll hear from him

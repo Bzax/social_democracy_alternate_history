@@ -1,11 +1,12 @@
 title: War erupts in the Middle East
 subtitle: An oil crisis takes shape...
 new-page: true
-on-arrival: black_thursday_seen = 1; workers_kpd += 5; workers_nsdap += 3; new_middle_nsdap += 4; old_middle_nsdap += 5; rural_nsdap += 5; unemployed_nsdap += 5; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
+on-arrival: black_thursday_seen = 1; rigidity -=25; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
 tags: event
 view-if: year = 1973 and month == 6
 max-visits: 1
 face-image: img/israel.jpg
+audio: music/1973_1979/Velkommen.mp3
 
 = War erupts in the Middle East
 
@@ -17,10 +18,12 @@ The OPEC Cartel has decided to punish several western countries for their suppor
 - @do_something: We must do something to stop the suffering...
 
 @cap
+audio: clear shuffle music/1973_1979/Enhedsfrontsang 1973_1979/internationale.mp3 1973_1979/Plutonium.mp3 1973_1979/StempåDKP.mp3 1973_1979/HopeComputer.mp3 1973_1979/Stormsangen.mp3 1973_1979/Økonomiskdemokrati.mp3 
 
 Perhaps this is simply one of the periodic crises of capitalism. Perhaps this moment will simply pass.
 
 @do_something
 on-arrival: crisis_urgency += 1
+audio: clear shuffle music/1973_1979/Enhedsfrontsang 1973_1979/internationale.mp3 1973_1979/Plutonium.mp3 1973_1979/StempåDKP.mp3 1973_1979/HopeComputer.mp3 1973_1979/Stormsangen.mp3 1973_1979/Økonomiskdemokrati.mp3 
 
 What can we do to staunch the workers' suffering? It is becoming a hotly debated question.

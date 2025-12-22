@@ -4,7 +4,7 @@ tags: event
 on-arrival: panzerkreuzer_b_seen = 1
 new-page: true
 face-image: img/panzerkreuzer.jpg
-view-if: panzerkreuzer_b_seen = 0 and year = 1931 and month >= 2 and (spd_in_government = 1 or spd_toleration = 1)
+view-if: panzerkreuzer_b_seen = 0 and year = 1931 and month >= 2 and (a_in_government = 1 or spd_toleration = 1)
 
 = Panzerkreuzer B
 

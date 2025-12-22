@@ -128,8 +128,6 @@ if (Q.dissent < 0) {
     Q.dissent = 0.95;
 }
 
-// re-calculate party effectiveness.
-Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
 
 //store last months members
 Q.previous_members = Q.a_members
@@ -143,6 +141,9 @@ Q.membermonthly = Q.previous_members - Q.a_members
 
 //trying to get dynamic valg to work
 Q.month_actions_checked = Q.month_actions;
+
+// re-calculate party effectiveness.
+Q.efc = ((Q.a_members/177.5)*Q.a_activity)*(1-Q.dissent) + Q.a_bureau + (Q.mediahealth/400)
 
 // 1. update dates
 if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
@@ -336,9 +337,9 @@ if (Q.economic_growth < 0) {
         Q.economic_expansion += Q.economic_growth;
     }
 }
-if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.spd_in_government) {
+if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.a_in_government) {
     Q.economic_expansion += Q.economic_growth;
-} else if (Q.economic_growth > 0 && Q.spd_in_government) {
+} else if (Q.economic_growth > 0 && Q.a_in_government) {
     Q.economic_expansion += Q.economic_growth/2;
 }
 /////////////////////////////// update opinions based on economy
@@ -391,13 +392,13 @@ if (Q.socialism < (Q.a_votes + Q.sf_votes + Q.vs_votes + Q.dkp_votes)) {
 }
 
 ////////////////////////// annual support changes
-if (Q.year == 1972) {
+if (Q.year == 1971) {
     Q.unemployed -= 1/12;
     Q.inflation += 1/12;
     // increase NSDAP vote share
-    Q.new_middle_nsdap += 10/12;
-    Q.old_middle_nsdap += 10/12;
-    Q.new_middle_ddp -= 5/12;
+    Q.homeowner_a += 10/12;
+    Q.prole_a += 10/12;
+    Q.public_homeowner -= 5/12;
     Q.new_middle_dvp -= 5/12;
     Q.workers_kpd += 5/12;
     Q.sa_strength += 50/12;
@@ -530,13 +531,13 @@ if (Q.year == 1972) {
         Q.unemployed_nsdap += 2/12;
         Q.old_middle_nsdap += 2/12;
         Q.new_middle_nsdap += 2/12;
-        if (Q.spd_in_government) {
+        if (Q.a_in_government) {
             Q.workers_spd -= 4/12;
         }
     }
 }
 // prevent forever support if the economy is bad
-if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.socialism <= 45 && Q.spd_in_government) {
+if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.socialism <= 45 && Q.a_in_government) {
     if (Q.workers_spd_normalized > 40) {
         Q.workers_spd -= 6/12;
     }

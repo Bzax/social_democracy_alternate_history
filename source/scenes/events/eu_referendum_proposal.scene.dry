@@ -1,6 +1,6 @@
 title: An EEC referendum?
 subtitle: Members of our party presents us with an opportunity
-view-if: year = 1972 and month == 1
+view-if: year = 1971 and month == 1
 max-visits: 1
 tags: event
 face-image: img/ef.jpg

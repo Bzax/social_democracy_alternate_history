@@ -116,13 +116,14 @@ Q.capitalist_rfb = 15.1;
 Q.capitalist_kf = 0;
 Q.capitalist_others = 0;
 !}
+
 go-to: election_algorithm
 
 The electoral system is essentially proportional, with the proportion of Reichstag seats roughly equal to the proportion of votes.
  
 **Election results:**
 
-{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+{!<svg id="parliament" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}

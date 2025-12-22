@@ -20,7 +20,7 @@ Finally, a court has made a decision in the Weltbühne case, sentencing the edit
 
 @drop_case
 choose-if: justice_minister_party = "SPD"
-view-if: spd_in_government
+view-if: a_in_government
 unavailable-subtitle: We do not control the Justice Ministry.
 on-arrival: west_relation += 1; east_relation += 1; reparations_negotiation += 1; pacifism += 1
 

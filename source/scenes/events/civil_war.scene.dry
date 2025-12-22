@@ -35,7 +35,7 @@ if (Q.reichswehr_loyalty < 0) {
     Q.reichswehr_loyalty = 0;
 }
 Q.loyal_reichswehr_power = Q.reichswehr_strength*Q.reichswehr_militancy*Q.reichswehr_loyalty;
-if (Q.spd_in_government && Q.chancellor_party == "SPD") {
+if (Q.a_in_government && Q.chancellor_party == "SPD") {
     Q.total_power += Q.loyal_reichswehr_power;
 } else {
     Q.total_power += Q.loyal_reichswehr_power/4;

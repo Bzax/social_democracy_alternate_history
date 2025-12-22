@@ -24,7 +24,7 @@ Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1970;
-Q.month = 4;
+Q.month = 2;
 Q.week = 0;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -36,7 +36,7 @@ Q.historical_mode = 0;
 Q.old_demographics = 0;
 // use decimals for reichstag seats
 // TODO: not yet implemented
-Q.use_decimals = 0;
+Q.use_decimals = 1;
 
 // party resources
 Q.resources = 2;
@@ -205,7 +205,11 @@ Q.nationalism = 60;
 // socialism vs capitalism
 Q.socialism = 40;
 // pro-republic vs anti-republic
-Q.socialism = 40;
+Q.rigidity = 80
+
+// international situations
+Q.norway_eu = 0
+
 
 Q.emergency_rule = 0;
 
@@ -417,7 +421,7 @@ Q.president = "Frederik IX";
 // starting chancellor: Hilmar Baunsgaard
 Q.chancellor = "Baunsgaard";
 Q.chancellor_party = 'B';
-Q.spd_in_government = 0;
+Q.a_in_government = 0;
 Q.b_in_government = 1;
 Q.ddp_in_government = 0;
 Q.dvp_in_government = 1;
@@ -479,6 +483,7 @@ Q.panzerkreuzer_seen = 0;
 Q.panzerkreuzer_funded = 0;
 Q.panzerkreuzer_failed = 0;
 Q.unemployment_insurance_seen = 0;
+Q.glistrup_seen = 0;
 // unemployment insurance event is seen if the unemployment level is at least 4 more than the threshold...
 Q.unemployment_insurance_threshold = 10;
 Q.blutmai = 0;
@@ -702,16 +707,16 @@ this.state.disableSaves = true;
 !}
 go-to: 1928_main
 
+// In foreign policy whether to integrate into the European Community remains the burning question. But we have otherwise sided decisively with NATO, and the western powers.
+
 @1928_main
-audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Vinden-suser-i-tarnet.mp3
+audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Lil_Johnnys_Mund.mp3 music/1970_1973/Victor_og_socialdemokratiet.mp3 music/1970_1973/trille-ham-gud.mp3 music/1970_1973/hejsoster.mp3 music/1970_1973/hejsoster.mp3
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = **1970**
 
-It is a bright time for Danish democracy. As the workers movement nears its centenary, it is the strongest it has ever been. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare. In foreign policy whether to integrate into the European Community remains the burning question.
+It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare. As the workers movement nears its centenary, it is the strongest it has ever been. 
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
 Perhaps the next folketing will have a workers majority?
-
-

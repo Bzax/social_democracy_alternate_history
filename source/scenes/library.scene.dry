@@ -61,7 +61,7 @@ go-to: menu
 **1926**: A referendum on the expropriation of the princes, supported by the SPD and KPD, fails.
 
 @curr_gov
-go-to: cabinet if spd_in_government; menu if not spd_in_government
+go-to: cabinet if a_in_government; menu if not a_in_government
 
 = Current Government
 
@@ -89,12 +89,12 @@ NSDAP: [+ nsdap_r +]%
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+SPD position: [? if spd_toleration : toleration ?][? if a_in_government : in government - ?][? if spd_toleration == 0 and a_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
+[? if in_weimar_coalition and a_in_government: Weimar Coalition ?][? if in_grand_coalition and a_in_government: Grand Coalition ?][? if in_popular_front and a_in_government: Popular Front ?][? if in_left_front and a_in_government: Left Front ?][? if in_spd_majority and a_in_government: SPD majority ?][? if in_minority_government and a_in_government: minority government ?][? if in_emergency_government and a_in_government: emergency government ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if a_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if a_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 @cabinet
 go-to: menu
