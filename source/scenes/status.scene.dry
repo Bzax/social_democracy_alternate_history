@@ -129,13 +129,13 @@ globalizationdisp = Q.globalization.toFixed(1);
 
 = **Socio-Economics**
 
-Homeownership: [+ homeownership +]
+Homeownership Rate:<br> [+ homeownership +]%
 
-Size of public sector: [+ Sizeofpublicsectordisp +]% of the employed workforce
+Size of Public Sector:<br> [+ Sizeofpublicsectordisp +]% of our workforce.
 
-Urbanization rate: [+ Urbanizationratedisp +]%
+Urbanization Rate:<br> [+ Urbanizationratedisp +]% 
 
-Unemployment: [+ unemployed_2 +]%
+Unemployment Rate:<br> [+ unemployed_2 +]%
 
 #{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
 
@@ -165,17 +165,19 @@ Unemployment: [+ unemployed_2 +]%
 
 #[? if a_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
-= **Other Economic Indicators**
+= **Macroeconomic Indicators**
 
-GDP compared with late summer 1970 =  [+ gdpdisp +]
+GDP Growth ([+ year +], Projected):<br>[+ economic_growth_2 +]%
 
-Economic growth: [+ economic_growth_2 +]%
+Total Growth Since 1969:<br>[+ gdpdisp +]%
 
-Inflation: [+ inflation_2 +]%
+Balance of Payments:<br>-2.3% of GDP
+
+Inflation:<br> [+ inflation_2 +]%
 
 [? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
 
-Impact of globalization = [+ globalizationdisp +]
+Impact of globalization:<br> [+ globalizationdisp : globalization +]
 
 @polls
 on-arrival: {!

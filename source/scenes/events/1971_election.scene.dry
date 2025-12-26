@@ -1,19 +1,19 @@
-title: The Bourgious-Center Government has fallen! 
-subtitle: Venstre seeks to exploit the ongoing budgetary debats...
-view-if: year = 1970 and month = 5
+title: Baunsgaard calls election! 
+subtitle: Radikale venstre seeks to exploit the ongoing budgetary debates...
+view-if: year = 1971 and month = 5
 max-visits: 1
 tags: event
 new-page: true
-face-image: img/All_Quiet.jpg
+face-image: img/Baunsgaard.jpg
 on-arrival: electiondate += 3; {! 
 dendryUI.audioPlaylist = []
 !}
-set-bg: img/election.jpg
+set-bg: img/election2.jpg
 audio: music/1970_1973/Vinden-suser-i-tarnet.mp3
 
-= The Bourgious-Center Government has Fallen!
+= Baunsgaard calls election!
 
-Internal disagreements with the bourgious parties has led to the current government losing its parliamentary majority, as is custom prime minister [+ chancellor +] has called new elections. Surprisingly, he has decided they will be held in only [+ electiondate +] weeks!
+Internal disagreements among the bourgious parties has led prime minister [+ chancellor +] to call new elections. Baunsgaard hopes to strengthen his mandate, and surprisingly he has decided the elections will be held in only [+ electiondate +] weeks!
 
 - @allow: There's something in the air...
 

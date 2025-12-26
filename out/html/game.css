@@ -1,18 +1,51 @@
+@font-face {
+  font-family: "Futura";
+  src:
+    url("fonts/OnlineWebFonts_COM_80035cfa439263df9ff1cd172d722542/Futura LT W04 Medium/Futura LT W04 Medium.woff2") format("woff2"),
+    url("fonts/OnlineWebFonts_COM_80035cfa439263df9ff1cd172d722542/Futura LT W04 Medium/Futura LT W04 Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* If you later add a real bold file, replace src URLs here. Until then, browsers will synthesize bold. */
+@font-face {
+  font-family: "Futura";
+  src:
+    url("fonts/Futura Bold/futura-bold-webfont.woff2") format("woff2"),
+    url("fonts/Futura Bold/futura-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Use the old light cut specifically for italics. */
+@font-face {
+  font-family: "Futura";
+  src:
+    url("fonts/Futura/futura-light.woff2") format("woff2"),
+    url("fonts/Futura/futura-light.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
 body {
-  --bg-color: #f3f3e3;
+  --bg-color: #f7f7f7;
   --border-color: #000;
-  --content-bg-color: #f3f3f3;
-  --text-color: #431;
-  --link-color: #900;
+  --content-bg-color: #e7e7e7;
+  --text-color: rgb(0, 0, 0);
+  --link-color: rgb(165, 0, 0);
   --link-hover-color: rgba(0, 0, 0, 0.05);
   --unavailable-bg-color: rgba(0, 0, 0, 0.1);
   --unavailable-color: #999;
-  --tab-bg-color: #dedede;
-  --tab-color: #ddd;
+  --tab-bg-color: #c6c6c6;
+  --tab-color: #c6c6c6;
   --tab-hover-color: #ececec;
-  --card-border-color: #ccc; 
+  --card-border-color: #ffffff; 
   --card-bg-color: #ddd; 
-  font-family: "Minion Pro", Georgia, serif;
+  font-family: "Futura", Georgia, serif;
+  font-weight: 500;
   background-color: var(--bg-color);
   padding: 0;
   line-height: 155%;
@@ -101,6 +134,10 @@ header h2:before {
 }
 #content h1:first-child {
   margin-top: 0.5em;
+}
+#content h1,
+#content h1:first-child {
+  font-weight: 700;
 }
 #content h1 {
   margin: 2em 0 1em 0;
@@ -228,9 +265,10 @@ blockquote + blockquote.attribution {
     margin-right: -0.6em;
 }
 .tab_button {
-    font-family: "Minion Pro", Georgia, serif;
+    font-family: "futura", "Minion Pro", Georgia, serif;
     background-color: var(--tab-color);
     color: var(--text-color);
+    font-weight: 300;
     /*float: left;*/
     border: none;
     outline: none;
@@ -569,17 +607,32 @@ table {
 .seat.cd {
     fill: #4B0082;
 }
-.seat.kf {
-    fill: #fff4b4;
-}
-.seat.greenland {
-    fill: #818589;
-}
-.seat.faroe {
+.seat.northatlantic {
     fill: #818589;
 }
 
 .tooltip-text {
-    text-decoration: underline;
-    text-decoration-style: dotted;
+  color: #255794;
+  cursor: help;
+  user-select: none;    
+}
+
+/* Optional: make highlight slightly different on hover */
+.tooltip-text:hover {
+  text-decoration: underline;
+}
+
+/* Ensure bold markup renders bold with the bundled Futura Bold face */
+strong, b {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* Italics use the light cut */
+em, i {
+  font-style: italic;
+  font-weight: 300;
 }

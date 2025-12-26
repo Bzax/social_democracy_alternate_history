@@ -133,11 +133,14 @@ if (Q.dissent < 0) {
 Q.previous_members = Q.a_members
 
 // decline membership  each month
-Q.a_memberdecline = 0.3+(4*Q.dissent) - Q.a_memberrise
+Q.a_memberdecline = 0.3+(4*Q.dissent) - Q.memberrise
 Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 
 //get the monthly change
 Q.membermonthly = Q.previous_members - Q.a_members
+
+//reset memberrise
+Q.memberrise = 0
 
 //trying to get dynamic valg to work
 Q.month_actions_checked = Q.month_actions;

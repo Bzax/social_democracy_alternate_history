@@ -8,7 +8,7 @@ card-image: img/internationale.jpg
 max-visits: 4
 #subtitle: Building ties with our fraternal socialist parties.
 
-Under the capacity of our party, we can conduct international politics and foster relations in a more informal and confidential manner.
+Within the capacity of our party, we can conduct international politics and foster relations in a more informal and confidential manner.
 
 - @soviet_meeting
 - @america
@@ -64,7 +64,7 @@ Our delegates were able to identify a number of previously overlooked opportunit
 
 
 @soviet_meeting
-title: Meet with the Soviet Ambassador
+title: Meet with the Soviet Ambassador.
 
 What is the purpose of our visit?
 
@@ -102,7 +102,7 @@ unavailable-subtitle: This is out of the question
 
 
 @america
-title: Call the American president
+title: Call the American president.
 
 A secretary picks up the phone, what is the purpose of our call?
 
@@ -121,20 +121,20 @@ on-arrival: america_relations += 1;
 During our visit with the vietnamese delegation we were able to gather some small details that may be of use to the american war effort.
 
 @state_visit_planning_usa
-title: Propose a state visit in the near future
+title: Propose a state visit in the near future.
 view-if: a_in_government == 1
 on-arrival: america_relations += 1;
 
 The president appreciates the gesture and will stop by on his next European tour.
 
 @state_visit_planning_usa2
-title: Propose a state visit in the near future
+title: Propose a state visit in the near future.
 view-if: a_in_government == 0
 
 An awkward silence emerges after the president notes that we are not in government. The call ends.
 
 @greenland
-title: The security situation in Greenland
+title: The security situation in Greenland.
 
 What specifically do we want to discuss?
 
@@ -145,7 +145,7 @@ What specifically do we want to discuss?
 - @americaninvasion2
 
 @americaninvasion
-title: The American invasion
+title: The American invasion.
 view-if: a_in_government == 0
 choose-if: american_invasion == 1
 unavailable-subtitle: This has not occured
@@ -166,7 +166,7 @@ title: We want to investigate the possibility of future american withdrawal.
 We are assured that this is completely out of the question.
 
 @militarycooperation
-title: How we can increase future military cooperation
+title: How we can increase future military cooperation.
 view-if: a_in_government == 0
 
 The American president is eager to discuss the topic. He looks forward to our coming election, if we are up for it he even offers to assist to this end. 
@@ -195,7 +195,7 @@ view-if: a_in_government == 1
 The American president is eager to discuss the topic.
 
 @vietnam
-title: The conduct of the Vietnam war
+title: The conduct of the Vietnam war.
 
 The American president is not amused to discuss the topic.
 

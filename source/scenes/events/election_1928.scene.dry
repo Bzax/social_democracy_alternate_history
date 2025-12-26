@@ -66,18 +66,142 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
     }
 }
 
-
-// get change arrows and signs
-
-
-// The largest party can only be the NSDAP or the SPD.
-Q.largest_party = 'SPD';
-if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r) {
-    Q.largest_party = 'NSDAP';
+// Preserve vote shares separately so we can display votes and compute % change from votes
+for (var party of Q.parties) {
+    Q[party + '_vote'] = Number(Q[party + '_votes'] || 0);
+    Q[party + '_vote_disp'] = Q.use_decimals ? Q[party + '_vote'].toFixed(1) : Q[party + '_vote'];
 }
 
-if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
-    Q.largest_party = 'KPD';
+// Compute vote-change strings using vote shares (NOT seat-normalized shares)
+for (var party of Q.parties) {
+    var oldVote = Number(Q['old_' + party + '_vote'] || Q['old_' + party + '_r'] || 0);
+    // if old_*_vote doesn't exist yet, fall back to old_*_r to avoid crashes
+    Q['old_' + party + '_vote'] = oldVote;
+
+    var dv = Number(Q[party + '_vote'] || 0) - oldVote;
+    var sgn = dv > 0 ? '+' : '';
+    Q['change_' + party + '_vote'] = dv;
+    Q['str_change_' + party] = sgn + (Q.use_decimals ? dv.toFixed(1) : dv);
+}
+
+// --- Build seat shares separately from vote shares ---
+for (var party of Q.parties) {
+    Q[party + '_seat_share'] = Number(Q[party + '_vote'] || 0);
+}
+
+// Seat threshold rule (Folketing): parties must have >= 2% to receive seats.
+// Also exclude northatlantic from the proportional seat normalization.
+var seat_party_sum = 0;
+for (var party of Q.parties) {
+    // northatlantic are handled separately (fixed mandates).
+    if (party === 'northatlantic') {
+        Q[party + '_seat_share'] = 0;
+        continue;
+    }
+
+    if (Number(Q[party + '_seat_share'] || 0) < 2) {
+        Q[party + '_seat_share'] = 0;
+    }
+    seat_party_sum += Number(Q[party + '_seat_share'] || 0);
+}
+
+// Renormalize seat shares after applying the 2% rule so represented parties sum to 100.
+if (seat_party_sum > 0) {
+    for (var party of Q.parties) {
+        if (party === 'northatlantic') continue;
+        if (Number(Q[party + '_seat_share'] || 0) <= 0) {
+            Q[party + '_seat_share'] = 0;
+        } else if (Q.use_decimals) {
+            Q[party + '_seat_share'] = Math.round(Q[party + '_seat_share'] * 1000 / seat_party_sum) / 10;
+        } else {
+            Q[party + '_seat_share'] = Math.round(Q[party + '_seat_share'] * 100 / seat_party_sum);
+        }
+    }
+}
+
+// --- Integer seat allocation (Folketing): 179 total = 175 proportional + 4 North Atlantic fixed.
+var TOTAL_SEATS = 179;
+var NORTH_ATLANTIC_SEATS = 4;
+var PROP_SEATS = TOTAL_SEATS - NORTH_ATLANTIC_SEATS;
+
+for (var party of Q.parties) {
+    Q[party + '_seats_int'] = 0;
+}
+
+var eligible = [];
+var sumShares = 0;
+for (var party of Q.parties) {
+    if (party === 'northatlantic') continue;
+    var share = Number(Q[party + '_seat_share'] || 0);
+    if (share > 0) {
+        eligible.push(party);
+        sumShares += share;
+    }
+}
+
+if (eligible.length > 0 && sumShares > 0) {
+    var remainders = [];
+    var assigned = 0;
+
+    for (var party of eligible) {
+        var share = Number(Q[party + '_seat_share'] || 0);
+        var exact = (share / sumShares) * PROP_SEATS;
+        var base = Math.floor(exact);
+        var rem = exact - base;
+
+        Q[party + '_seats_int'] = base;
+        assigned += base;
+        remainders.push({ party: party, rem: rem });
+    }
+
+    var remaining = PROP_SEATS - assigned;
+    remainders.sort(function(a, b) { return b.rem - a.rem; });
+    for (var i = 0; i < remaining; i++) {
+        Q[remainders[i % remainders.length].party + '_seats_int'] += 1;
+    }
+}
+
+Q['northatlantic_seats_int'] = NORTH_ATLANTIC_SEATS;
+
+// ...existing code...
+!}
+on-display: {! 
+// Integer seat lookup (computed in on-arrival)
+var seatsCount = function(p) {
+    return Number(Q[p + '_seats_int'] || 0);
+};
+
+// Use integer seats for the parliament chart.
+data = [];
+
+// DKP
+if (seatsCount('dkp') >= 1) {
+    data.push({ "id":"dkp", "legend":"DKP", "name":"DKP", "seats": seatsCount('dkp') });
+}
+
+// CD (if formed)
+if (Q.cd_formed && seatsCount('cd') >= 1) {
+    data.push({ "id":"cd", "legend":"CD", "name":"CD", "seats": seatsCount('cd') });
+}
+
+// VS / SF / A / RFB / B / V / C / KF
+if (seatsCount('vs') >= 1)  data.push({ "id":"vs",  "legend":"VS",  "name":"VS",  "seats": seatsCount('vs')  });
+if (seatsCount('sf') >= 1)  data.push({ "id":"sf",  "legend":"SF",  "name":"SF",  "seats": seatsCount('sf')  });
+if (seatsCount('a')  >= 1)  data.push({ "id":"a",   "legend":"A",   "name":"A",   "seats": seatsCount('a')   });
+if (seatsCount('rfb')>= 1)  data.push({ "id":"rfb", "legend":"RFB", "name":"RFB", "seats": seatsCount('rfb') });
+if (seatsCount('b')  >= 1)  data.push({ "id":"b",   "legend":"B",   "name":"B",   "seats": seatsCount('b')   });
+if (seatsCount('v')  >= 1)  data.push({ "id":"v",   "legend":"V",   "name":"V",   "seats": seatsCount('v')   });
+if (seatsCount('c')  >= 1)  data.push({ "id":"c",   "legend":"C",   "name":"C",   "seats": seatsCount('c')   });
+if (seatsCount('kf') >= 1)  data.push({ "id":"kf",  "legend":"KF",  "name":"KF",  "seats": seatsCount('kf')  });
+
+// North Atlantic fixed mandates always included
+if (seatsCount('northatlantic') > 0) {
+    data.push({ "id":"northatlantic", "legend":"North Atlantic", "name":"North Atlantic", "seats": seatsCount('northatlantic') });
+}
+
+// Z (if formed)
+if (Q.z_formed && seatsCount('z') >= 1) {
+    data.push({ "id":"z", "legend":"Z", "name":"Z", "seats": seatsCount('z') });
 }
 
 // coalitions
@@ -90,167 +214,6 @@ Q.right_coalition = Q.z_r + Q.b_r + Q.v_r + Q.other_r + b_r;
 Q.right_coalition = Q.z_r + Q.c_r + Q.kf_r + Q.others_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
 Q.left_coalition = Q.spd_r + Q.kpd_r + Q.sapd_r;
-// this is an absurd concept lol
-Q.popular_front_coalition = Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
-Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r + Q.dnvp_r;
-// aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
-Q.hitler_right_coalition = Q.z_r + Q.dnvp_r + Q.nsdap_r;
-// Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
-Q.progressive_coalition = Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r;
-console.log(data)
-
-if (Q.kpd_relation >= 30) {
-    Q.weimar_coalition += Q.sapd_r;
-}
-
-Q.leverage = Q.spd_r;
-
-Q.grand_coalition_failed = 0;
-// Reset government and ministers... Based on Brüning's 1930 govt
-Q.coalition_dissent = 0;
-Q.kpd_coalition_dissent = 0;
-Q.a_in_government = 0;
-Q.in_weimar_coalition = 0;
-Q.in_grand_coalition = 0;
-Q.in_left_front = 0;
-Q.in_popular_front = 0;
-Q.in_emergency_government = 0;
-Q.in_minority_government = 0;
-Q.in_unity_government = 0;
-Q.spd_toleration = 0;
-Q.spd_caretaker = 0;
-Q.foreign_minister_party = 'DVP';
-Q.interior_minister_party = 'Z';
-Q.justice_minister_party = 'I';
-Q.labor_minister_party = 'Z';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = Q.ddp_name;
-Q.finance_minister_party = 'DVP';
-Q.agriculture_minister_party = 'Z';
-
-// reset KPD goals
-Q.kpd_goals_seen = 0;
-Q.kpd_ultimatum_seen = 0;
-Q.welfare_goal = 0;
-Q.agriculture_goal = 0;
-Q.economy_goal = 0;
-Q.finance_goal = 0;
-Q.labor_goal = 0;
-Q.foreign_goal = 0;
-Q.interior_goal = 0;
-Q.reichswehr_goal = 0;
-
-Q.welfare_goal_completed = 0;
-Q.agriculture_goal_completed = 0;
-Q.economy_goal_completed = 0;
-Q.finance_goal_completed = 0;
-Q.labor_goal_completed = 0;
-Q.foreign_goal_completed = 0;
-Q.interior_goal_completed = 0;
-Q.reichswehr_goal_completed = 0;
-
-Q.strike_term_seen = 0;
-
-// understanding the enemy
-if (Q.nsdap_r >= 15) {
-    Q.understanding_enemy_timer = 2;
-}
-
-var election_result = {'date': new Date(Q.year, Q.month - 1)};
-for (var party of Q.parties) {
-    election_result[party] = Q[party + '_r'];
-}
-Q.election_records.push(election_result);
-!}
-on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
-on-display: {!
-data = [
-    {
-        "id": "dkp",
-        "legend": "DKP",
-        "name": "DKP",
-        "seats": Q.dkp_r*1.75,
-    }];
-if (Q.cd_formed && Q.cd_r) {
-    data.push({
-            "id": "cd",
-            "legend": "CD",
-            "name": "CD",
-            "seats": Math.round(Q.cd_r*1.75),
-            });
-}
-data = data.concat([
-    {
-        "id": "vs",
-        "legend": "VS",
-        "name": "VS",
-        "seats": Q.vs_r*1.75,
-    },
-    {
-        "id": "sf",
-        "legend": "SF",
-        "name": "SF",
-        "seats": Q.sf_r*1.75,
-    },
-    {
-        "id": "a",
-        "legend": "A",
-        "name": "a",
-        "seats": Q.a_r*1.75,
-    },
-    {
-        "id": "rfb",
-        "legend": "RFB",
-        "name": "RFB",
-        "seats": Q.rfb_r*1.75,
-    },
-    {
-        "id": "b",
-        "legend": "B",
-        "name": "B",
-        "seats": Q.b_r*1.75,
-    },
-    {
-        "id": "v",
-        "legend": "V",
-        "name": "V",
-        "seats": Q.v_r*1.75,
-    },
-    {
-        "id": "c",
-        "legend": "C",
-        "name": "C",
-        "seats": Q.c_r*1.75,
-    },
-    {
-        "id": "kf",
-        "legend": "KF",
-        "name": "KF",
-        "seats": Q.kf_r*1.75,
-    },
-        {
-        "id": "greenland",
-        "legend": "Greenland",
-        "name": "Greenland",
-        "seats": 2,
-    },
-    {
-        "id": "faroe",
-        "legend": "Faroe",
-        "name": "Faroe",
-        "seats": 2,
-    }
-]);
-if (Q.z_formed && Q.z_r) {
-    data.push({
-            "id": "z",
-            "legend": "Z",
-            "name": "Z",
-            "seats": Math.round(Q.z_r*1.75),
-            });
-}
 
 if (window && d3) {
     var width = 500; 
@@ -276,42 +239,36 @@ go-to: coalition_menu
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!} 
-{!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
-{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **A:** {!</td><td>!} **[+ a_r +]%** {!</td><td>!} **[+ str_change_a +]** {!</td></tr>!}
+{!<tr><td>Party</td><td>Vote share</td><td>% Change</td><td>Seats</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **A:** {!</td><td>!} **[+ a_vote_disp +]%** {!</td><td>!} **[+ str_change_a +]** {!</td><td>!} **[+ a_seats_int +]** {!</td></tr>!}
 
-[? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_r +]% {!</td><td>!} [+ str_change_cd +] {!</td></tr>!} ?]
+[? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +]% {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#ee80fa'> </div> !} SF: {!</td><td>!} [+ sf_r +]% {!</td><td>!} [+ str_change_sf +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#ee80fa'> </div> !} SF: {!</td><td>!} [+ sf_vote_disp +]% {!</td><td>!} [+ str_change_sf +] {!</td><td>!} [+ sf_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} DKP: {!</td><td>!} [+ dkp_r +]% {!</td><td>!} [+ str_change_dkp +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} DKP: {!</td><td>!} [+ dkp_vote_disp +]% {!</td><td>!} [+ str_change_dkp +] {!</td><td>!} [+ dkp_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#e26969'> </div> !} VS: {!</td><td>!} [+ vs_r +]% {!</td><td>!} [+ str_change_vs +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#e26969'> </div> !} VS: {!</td><td>!} [+ vs_vote_disp +]% {!</td><td>!} [+ str_change_vs +] {!</td><td>!} [+ vs_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#4e4e94'> </div> !} RFb: {!</td><td>!} [+ rfb_r +]% {!</td><td>!} [+ str_change_rfb +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#4e4e94'> </div> !} RFb: {!</td><td>!} [+ rfb_vote_disp +]% {!</td><td>!} [+ str_change_rfb +] {!</td><td>!} [+ rfb_seats_int +] {!</td></tr>!}
 
-[? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_r +]% {!</td><td>!} [+ str_change_cd +] {!</td></tr>!} ?]
+{!<tr><td><div class="box" style='background-color:#865fac'> </div> !} B: {!</td><td>!} [+ b_vote_disp +]% {!</td><td>!} [+ str_change_b +] {!</td><td>!} [+ b_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#865fac'> </div> !} B: {!</td><td>!} [+ b_r +]% {!</td><td>!} [+ str_change_b +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} V: {!</td><td>!} [+ v_vote_disp +]% {!</td><td>!} 0 {!</td><td>!} [+ v_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} V: {!</td><td>!} [+ v_r +]% {!</td><td>!} 0 {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0d9340'> </div> !} C: {!</td><td>!} [+ c_vote_disp +]% {!</td><td>!} [+ str_change_c +] {!</td><td>!} [+ c_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0d9340'> </div> !} C: {!</td><td>!} [+ c_r +]% {!</td><td>!} [+ str_change_c +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#1f3f96'> </div> !} KF: {!</td><td>!} [+ kf_vote_disp +]% {!</td><td>!} [+ str_change_kf +] {!</td><td>!} [+ kf_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#1f3f96'> </div> !} KF: {!</td><td>!} [+ kf_r +]% {!</td><td>!} [+ str_change_kf +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#bdbdbd'> </div> !} North Atlantic: {!</td><td>!} n/a {!</td><td>!} n/a {!</td><td>!} 4 {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#fffafa'> </div> !} Greenlandic Mandates: {!</td><td>!} 1.12%% {!</td><td>!} 0 {!</td></tr>!}
+[? if z_formed : {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Z: {!</td><td>!} [+ z_vote_disp +]% {!</td><td>!} [+ str_change_z +] {!</td><td>!} [+ z_seats_int +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#f0ffff'> </div> !} Faroese Mandates: {!</td><td>!} 1.12%% {!</td><td>!} 0 {!</td></tr>!}
-
-[? if z_formed : {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Z: {!</td><td>!} [+ z_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!} ?]
-
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_vote_disp +] % {!</td><td>!} [+ str_change_other +] {!</td><td>!} [+ other_seats_int +] {!</td></tr>!}
 
 {!</table>!}
 
 **Potential coalitions:**
-
-'Arbejderflertal'(A + SF): [+ arbejderflertal +]%
 
 Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]%
 
@@ -507,7 +464,7 @@ With great reluctance, President [+ president +] appoints [+ chancellor +] as ch
 
 Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the KPD, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
 
-In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the KPD from taking power. We are forced to be on the same side as the KPD, whether we want to or not.
+In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined the Stahlhelm to stop the KPD from taking power. We are forced to be on the same side as the KPD, whether we want to or not.
 
 - @civil_war
 
@@ -1040,7 +997,7 @@ Q.new_middle_ddp -= 5;
 Q.old_middle_ddp -= 10;
 Q.rural_dnvp -= 5;
 Q.workers_nsdap += 5;
-Q.old_middle_nsdap += 6;
+Q.old.middle_nsdap += 6;
 Q.new_middle_nsdap += 6;
 Q.rural_nsdap += 6;
 Q.unemployed_nsdap += 5;
@@ -1059,7 +1016,7 @@ if (Q.socialism < 36) {
     Q.rural_spd -= 5;
     Q.catholics_spd -= 3;
     Q.workers_nsdap += 8;
-    Q.old_middle_nsdap += 8;
+    Q.old.middle_nsdap += 8;
     Q.new_middle_nsdap += 8;
     Q.rural_nsdap += 8;
     Q.unemployed_nsdap += 8;   

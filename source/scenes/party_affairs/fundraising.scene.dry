@@ -1,13 +1,13 @@
-title: Fundraising
+title: Party Dues
 new-page: true
 view-if: fundraising_timer <= 0 and (not historical_mode)
 on-arrival: fundraising_timer = 6; month_actions += 1
 frequency: 300
 is-card: true
-card-image: img/poster_2.jpg
+card-image: img/10kr.jpg
 tags: party_affairs
 
-= Fundraising
+= Party Dues
 
 For better or for worse, the party cannot exist without money.
 
@@ -30,10 +30,28 @@ Our current members appreciate this, but no one decides to join a party because 
 
 @increase
 subtitle: [+ dues + 1 +] resources gained. [? if unemployed >= 15 : Given the present economic situation, this may be painful. ?][? if dues >= 4 : Dues are already rather high; increasing them might reduce our membership. ?]
-on-arrival: dues += 1; resources += dues; workers_spd -= 3; unemployed_spd -= 3; workers_spd -= 10 if unemployed >= 15; unemployed_spd -= 10 if unemployed >= 15; workers_spd -= 3*dues if dues >= 5; unemployed_spd -= 3*dues if dues >= 5
+on-arrival: {!
+  Q.dues += 1;
+  Q.resources += Q.dues;
+
+  // If you only defined Q.addsupport (no global alias), use Q.addsupport(...) here.
+  // If you made a global window.addsupport alias, addsupport(...) is fine.
+  (Q.addsupport ? Q.addsupport : addsupport)('tenant_workers', 'a', -3);
+  Q.unemployed_a -= 3;
+
+  if (Q.unemployed >= 7) {
+    (Q.addsupport ? Q.addsupport : addsupport)('workers', 'a', -5);
+    Q.unemployed_a -= 10;
+  }
+
+  if (Q.dues >= 5) {
+    (Q.addsupport ? Q.addsupport : addsupport)('workers', 'a', -3 * Q.dues);
+    Q.unemployed_a -= 3 * Q.dues;
+  }
+!}
 view-if: dues <= 4
 
 Our members grumble at this, and some of the less committed members leave. But now, we have access to additional resources. 
 
-[? if unemployed >= 15 : Because of the presently high unemployment, our members are feeling the extra burden hard. ?]
+[? if unemployed >= 8 : Because of the presently high unemployment, our members are feeling the extra burden hard. Many leave ?]
 
