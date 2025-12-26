@@ -421,12 +421,13 @@ Q.president = "Frederik IX";
 // starting chancellor: Hilmar Baunsgaard
 Q.chancellor = "Baunsgaard";
 Q.chancellor_party = 'B';
+Q.chairman = "Jens Otto Kragh"
 Q.a_in_government = 0;
 Q.b_in_government = 1;
 Q.ddp_in_government = 0;
-Q.dvp_in_government = 1;
-Q.dnvp_in_government = 1;
-Q.kpd_in_government = 0;
+Q.v_in_government = 1;
+Q.c_in_government = 1;
+Q.sf_in_government = 0;
 Q.nsdap_in_government = 0;
 
 Q.in_right_coalition = 0;
@@ -714,9 +715,9 @@ audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= **1970**
+= **Spring 1970**
 
-It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has entered a golden age and politically we have been able to realize basic social welfare. As the workers movement nears its centenary, it is the strongest it has ever been. 
+It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has entered a golden age and the workers movement is the strongest its ever been. Our party nears its {!<span class="tooltip-text" title="The International Labour Association of Denmark was founded in 1871.">centenary</span>!}, with high hopes for the future.
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
 Perhaps the next folketing will have a workers majority?
