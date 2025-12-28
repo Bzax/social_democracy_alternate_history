@@ -56,7 +56,7 @@ is-deck: true
 
 @govt
 title: Government Affairs
-view-if: time >= 6
+view-if: a_in_government = 1
 card-image: img/folketing.jpg
 is-deck: true
 

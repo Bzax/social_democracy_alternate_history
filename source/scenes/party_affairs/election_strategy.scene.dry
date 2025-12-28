@@ -4,7 +4,7 @@ view-if: year <= 1972 and enemies_timer <= 0
 on-arrival: month_actions += 1; enemies_timer = 18
 max-visits: 3
 is-card: true
-card-image: img/poster_1.png
+card-image: img/election_strategy.jpg
 tags: party_affairs
 
 = Election Strategy
@@ -13,16 +13,16 @@ In our media and campaign materials, who should we consider as our main opponent
 
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
-- @anti_dem: The populist parties of the far right and left - the DKP, Venstre, and Conservatives.
-- @Z_enemy: Mogens Glistrup
-- @dkp: The left.
 - @bourgeois: The bourgeois parties - Venstre and the Conservatives.
+- @anti_dem: The populist parties of the far right and left - the DKP, VS[? if z_formed: , Z ?] [? if cd_formed: , CD ?] and KF.
+- @Z_enemy: Mogens Glistrup.
+- @dkp: The left – SF, DKP and VS.
 - @easy_discard
 
 @anti_dem
 on-arrival: enemies = "anti-democratic parties"; technocrat_strength += 6; right_worker_strength_strength += 6; left_dissent += 8; prole_dkp -= 0.8; prole_vs -= 0.8; prole_sf -= 2; homeowner_dkp -= 0.8; homeowner_vs -= 0.8; homeowner_sf -= 2; dkp_relation -= 10; vs_relation -= 10; sf_relation -= 10
 
-Attacking the far right and left is popular among all but the left wing of our party, who would prefer to be fighting the bourgeois parties. This might also hamper our ability to reconcile with the KPD in the future.
+Attacking the populists is popular among all but the left wing of our party, who would prefer to be fighting the bourgeois parties. This damages our relations with SF, and might also hamper our ability to reconcile with the other left wing parties in the future.
 
 @Z_enemy
 on-arrival: enemies = "NSDAP"; neorevisionist_strength += 5; nazi_urgency += 1; workers_nsdap -= 4;
@@ -33,7 +33,7 @@ view-if: glistrup_seen = 1
 @dkp
 on-arrival: enemies = "KPD"; right_worker_strength += 5; left_dissent += 8; right_worker_dissent -= 5; kpd_relation -= 15; dvp_relation += 5; z_relation += 5; workers_kpd -= 4;
 
-Attacking the left is supported by the right of out party, and wins us some measure of approval among the bourgeois parties. However, If we are to reconcile with the KPD, this may not be the best choice.
+Attacking the left is supported by the right of out party, and wins us some measure of approval among the bourgeois parties. However, if we aim to govern with their consent in the future, this may not be the best choice.
 
 @bourgeois
 on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; dvp_relation -= 5; z_relation -= 5; kpd_relation += 5; right_worker_dissent += 8; workers_z -= 3; coalition_dissent += 1

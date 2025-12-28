@@ -136,19 +136,20 @@ Q.moderate_plan_adopted = 0;
 // organizations
 
 // inter-party relations
-Q.b_relation = 35;
-Q.sf_relation = 75;
-Q.v_relation = 35;
+Q.b_relation = 40;
+Q.sf_relation = 60;
+Q.v_relation = 33;
 Q.c_relation = 30;
-Q.vs_relation = 30;
-Q.dkp_relation = 45;
+Q.vs_relation = 40;
+Q.dkp_relation = 46;
 Q.rfb_relation = 55;
-Q.kf_relation = 35;
+Q.kf_relation = 40;
 Q.Z_relation = 0;
+Q.cd_relation = 30;
 
-Q.kpd_leader = "Thälmann";
+Q.sf_leader = "Oemann";
 // alternative is the Conciliators as party leader
-Q.kpd_party_leader = "Thälmann";
+Q.sf_party_leader = "Oemann";
 Q.z_leader = "Brüning";
 // party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
 Q.z_party_leader = "Marx";
@@ -452,6 +453,8 @@ Q.old_rfb_r = 0;
 Q.old_kf_r = 0;
 Q.old_others_r = 0;
 
+
+
 // sapd isn't formed yet, but it may be formed
 Q.z_r = 0;
 Q.z_r = 0;
@@ -676,12 +679,12 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
+Q.wels_advisor = 0; // Otto Wels
+Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 Q.crispien_advisor = 0; // Arthur Crispien
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+Q.hilferding_advisor = 0; // Rudolf Hilferding
 
 // left advisors
 Q.sender_advisor = 0; // Toni Sender

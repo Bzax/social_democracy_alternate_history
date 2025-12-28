@@ -189,31 +189,18 @@ if (seatsCount('vs') >= 1)  data.push({ "id":"vs",  "legend":"VS",  "name":"VS",
 if (seatsCount('sf') >= 1)  data.push({ "id":"sf",  "legend":"SF",  "name":"SF",  "seats": seatsCount('sf')  });
 if (seatsCount('a')  >= 1)  data.push({ "id":"a",   "legend":"A",   "name":"A",   "seats": seatsCount('a')   });
 if (seatsCount('rfb')>= 1)  data.push({ "id":"rfb", "legend":"RFB", "name":"RFB", "seats": seatsCount('rfb') });
+if (seatsCount('northatlantic') > 0) {
+    data.push({ "id":"northatlantic", "legend":"North Atlantic", "name":"North Atlantic", "seats": seatsCount('northatlantic') });
+}
 if (seatsCount('b')  >= 1)  data.push({ "id":"b",   "legend":"B",   "name":"B",   "seats": seatsCount('b')   });
 if (seatsCount('v')  >= 1)  data.push({ "id":"v",   "legend":"V",   "name":"V",   "seats": seatsCount('v')   });
 if (seatsCount('c')  >= 1)  data.push({ "id":"c",   "legend":"C",   "name":"C",   "seats": seatsCount('c')   });
 if (seatsCount('kf') >= 1)  data.push({ "id":"kf",  "legend":"KF",  "name":"KF",  "seats": seatsCount('kf')  });
 
-// North Atlantic fixed mandates always included
-if (seatsCount('northatlantic') > 0) {
-    data.push({ "id":"northatlantic", "legend":"North Atlantic", "name":"North Atlantic", "seats": seatsCount('northatlantic') });
-}
-
 // Z (if formed)
 if (Q.z_formed && seatsCount('z') >= 1) {
     data.push({ "id":"z", "legend":"Z", "name":"Z", "seats": seatsCount('z') });
 }
-
-// coalitions
-Q.arbejderflertal = Q.a_r + Q.sf_r;
-Q.arbejderflertal_plus = Q.a_r + Q.sf_r + Q.dkp_r + Q.vs_r;
-Q.sr = Q.a_r + Q.b_r + Q.rfb_r;
-Q.srplus = Q.a_r + Q.b_r + Q.sf_r + Q.rfb_r
-Q.bourgeois_coalition = Q.v_r + Q.c_r + Q.b_r + Q.rfb_r;
-Q.right_coalition = Q.z_r + Q.b_r + Q.v_r + Q.other_r + b_r;
-Q.right_coalition = Q.z_r + Q.c_r + Q.kf_r + Q.others_r;
-Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.spd_r + Q.kpd_r + Q.sapd_r;
 
 if (window && d3) {
     var width = 500; 
@@ -231,10 +218,38 @@ if (window && d3) {
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
 }
-!}
-go-to: coalition_menu
 
-= The new Folketing
+// coalitions (seat counts)
+// Workerist
+Q.arbejderflertal = seatsCount('a') + seatsCount('sf');
+Q.arbejderflertal_plus = seatsCount('a') + seatsCount('sf') + seatsCount('dkp') + seatsCount('vs');
+Q.sr = seatsCount('a') + seatsCount('b');
+Q.trekant = seatsCount('a') + seatsCount('b') + seatsCount('rfb');
+Q.srsf = seatsCount('a') + seatsCount('b') + seatsCount('sf');
+Q.rasf_plus = seatsCount('a') + seatsCount('b') + seatsCount('sf') + seatsCount('rfb');
+// Centrist
+Q.roedkloever = seatsCount('kf') + seatsCount('a') + seatsCount('cd') + seatsCount('b');
+Q.sv = seatsCount('a') + seatsCount('v');
+Q.sk = seatsCount('a') + seatsCount('c');
+//bourgious
+Q.vkr = seatsCount('b') + seatsCount('v') + seatsCount('c') + seatsCount('kf');
+Q.vkr_irl = seatsCount('b') + seatsCount('v') + seatsCount('c') + seatsCount('kf') + seatsCount('z') + seatsCount('cd');
+Q.vcqm = seatsCount('kf') + seatsCount('v') + seatsCount('c') + seatsCount('cd');
+Q.vcqm_irl = seatsCount('kf') + seatsCount('v') + seatsCount('c') + seatsCount('cd') + seatsCount('z');
+Q.z = seatsCount('z') + seatsCount('kf') + seatsCount('cd');
+Q.anti_democratic_coalition = seatsCount('z') + seatsCount('vs') + seatsCount('dkp');
+// Makes it so that the seatcounts can be used as conditionals (Dendry can't call JS functions like seatsCount())
+Q.has_dkp = seatsCount('dkp') > 1 ? 1 : 0;
+Q.has_vs  = seatsCount('vs')  > 1 ? 1 : 0;
+Q.has_rfb = seatsCount('rfb') > 0 ? 1 : 0;
+Q.has_kf  = seatsCount('kf')  > 0 ? 1 : 0;
+// leverage
+Q.leverage = seatsCount('a')/1.79
+!}
+
+= The New Folketing
+
+{!<div class="centered-note"><em>90 seats needed for a majority</em></div>!}
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
@@ -254,40 +269,82 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#865fac'> </div> !} B: {!</td><td>!} [+ b_vote_disp +]% {!</td><td>!} [+ str_change_b +] {!</td><td>!} [+ b_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} V: {!</td><td>!} [+ v_vote_disp +]% {!</td><td>!} 0 {!</td><td>!} [+ v_seats_int +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} V: {!</td><td>!} [+ v_vote_disp +]% {!</td><td>!} [+ str_change_v +] {!</td><td>!} [+ v_seats_int +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#0d9340'> </div> !} C: {!</td><td>!} [+ c_vote_disp +]% {!</td><td>!} [+ str_change_c +] {!</td><td>!} [+ c_seats_int +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#1f3f96'> </div> !} KF: {!</td><td>!} [+ kf_vote_disp +]% {!</td><td>!} [+ str_change_kf +] {!</td><td>!} [+ kf_seats_int +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#bdbdbd'> </div> !} North Atlantic: {!</td><td>!} n/a {!</td><td>!} n/a {!</td><td>!} 4 {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#818589'> </div> !} {!<span class="tooltip-text" title="Since the constitution of 1953 both Greenland and the Faroe Islands have been guaranteed to seats in the Folketing.">NAM</span>!}: {!</td><td>!} n/a {!</td><td>!} n/a {!</td><td>!} 4 {!</td></tr>!}
 
 [? if z_formed : {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Z: {!</td><td>!} [+ z_vote_disp +]% {!</td><td>!} [+ str_change_z +] {!</td><td>!} [+ z_seats_int +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_vote_disp +] % {!</td><td>!} [+ str_change_other +] {!</td><td>!} [+ other_seats_int +] {!</td></tr>!}
+[? if cd_formed : {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +] % {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
 
 {!</table>!}
 
-**Potential coalitions:**
+- @whatmajority: What does the math look like?
 
-Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]%
+@whatmajority
+go-to: coalition_menu
 
-A + B + RFB: [+ sr +]%
+**Potential Majorities:**
 
-A + B + SF + RFB: [+ srplus +]
+Arbejderflertal: [+ arbejderflertal +]/90
 
-Bourgeois Coalition (Z + BVP + B + DVP + Others): [+ bourgeois_coalition +]%
+[? if has_dkp_any or has_vs_any :
+Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]/90
+?]
 
-Right-wing Coalition (Z + BVP + DVP + Others + DNVP): [+ right_coalition +]%
+A + B + SF: [+ srsf +]/90
 
-[? if nazi_urgency <= 1 and nsdap_r >= 15 : The rapid rise in NSDAP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
+A + B: [+ sr +]/90
 
-[? if anti_democratic_coalition >= 50 : Together, the anti-democratic KPD, DNVP, and NSDAP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if has_rfb :
+Revive the 'trekant' (A + B + RFB): [+ trekant +]/90
+?]
+
+[? if cd_formed and has_kf :
+Rødkløver (KF + A + CD + B): [+ roedkloever +]/90
+?]
+
+Bourgeois (B + V + C + KF): [+ vkr +]/90
+
+[? if z_formed and (not cd_formed) :
+Bourgeois + Z (B + V + C + KF + Z): [+ vkr_irl +]/90
+?]
+
+[? if z_formed and cd_formed :
+Bourgeois + Z + CD (B + V + C + KF + Z + CD): [+ vkr_irl +]/90
+?]
+
+[? if cd_formed :
+VCQM: [+ vcqm +]/90
+?]
+
+[? if cd_formed and z_formed :
+VCQM + Z: [+ vcqm_irl +]/90
+?]
+
+[? if z_formed and (not cd_formed) :
+Z-bloc (Z + KF): [+ z +]/90
+?]
+
+[? if z_formed and cd_formed :
+Z-bloc (Z + KF + CD): [+ z +]/90
+?]
+
+
+[? if z_urgency <= 1 and z_r >= 10 : The rapid rise in Z votes is extremely worrying. Many had believed that the party was a fluke; now, some of us consider it to be the greatest threat to social-democracy. ?]
+
+[? if anti_democratic_coalition >= 87 : Together, the anti-establishment Z, DKP and VS have a majority in the Folketing. A stable governing majority will be almost impossible. ?]
+
+[? if (arbejderflertal_plus >= 87) and (arbejderflertal <= 87) : There is a majority available to us, but it would have to include some questionable elements. ?]
 
 There are some potential coalition arrangements.
 
 @coalition_menu
-on-arrival: {! 
+on-departure: {! 
 dendryUI.audioPlaylist = []
 !}
 audio: music/1970_1973/Victor_og_socialdemokratiet.mp3
@@ -303,23 +360,102 @@ audio: music/1970_1973/Victor_og_socialdemokratiet.mp3
 - @left_coalition
 - @arbejderflertal
 - @right_coalition
+- @unorthodox: Perhaps we should think outside the box?
+
+@unorthodox
+
+Technically these coalitions could work?
+
+A + V: [+ sv +]/90
+
+A + C: [+ sk +]/90
+
+[? if (not cd_formed) and has_kf :
+Rødkløver (KF + A + B): [+ roedkloever +]/90
+?]
+
+- @arbejderflertal
+- @no_majority
 
 # TODO: black-brown coalition
 
 
 @arbejderflertal
 title: Utilize the workers majority.
-subtitle: A + SF [? if kapd_formed: + SAPD ?]([+ arbejderflertal +]%)
-unavailable-subtitle: A + SF ([+ arbejderflertal +]%) - [? if ((sf_relation < 65 and kpd_party_leader == "Thälmann") or (sf_relation < 45 and kpd_party_leader == "Conciliators")): We do not have good enough relations with SF. ?]
-view-if: arbejderflertal >= 35
-choose-if: ((sf_relation >= 65))
+subtitle: A + SF [? if kapd_formed: + SAPD ?]([+ arbejderflertal +]/90 Seats) [? if arbejderflertal <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
+unavailable-subtitle: A + SF ([+ arbejderflertal +]%) [? if ((sf_relation < 45 and sf_party_leader == "Petersen") or (sf_relation < 45 and sf_party_leader == "Oemann")): – We do not have good enough relations with SF. ?]
+view-if: arbejderflertal >= 65
+choose-if: (( arbejderflertal >= 86)) and (sf_relation >= 45)
 
-Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
+A government supported by SF seems to be the best way for us to implement our program, but politically it could be explosive. {!<span class="tooltip-text" title="At the 1966 party conference, chairman Jens Otto Kragh declared this to be the case.">Perhaps the era of great compromises truly is behind us?</span>!}
 
-The far-right might attempt a coup, if such a coalition were formed.
+- @workersyes: Perhaps it is.
+- @coalition_menu: Perhaps it is not.
 
+@workersyes
+
+As before the conservative press would be up in arms, and this would do much to [? if (c_relation >= 40): further ?] alienate the bourgeois parties. Our more moderate comrades would also be more than a little sceptical at this arrangement.
+
+- @arbejderflertal_nona: Enter negotiations with SF.
+- @arbejderflertal_na: First we must negotiate with the North Atlantic representatives.
 - @popular_front_2: Form the Popular Front!
 - @great_popular_front: Form the Popular Front!
+- @coalition_menu: Actually, let us not do this.
+
+@arbejderflertal_na
+subtitle: We hope this is the correct choice.
+view-if: (arbejderflertal <= 89)
+
+**Negotiations with the North Atlantic Mandates**
+
+The North Atlantic electeds agree to support us (this is WIP).
+
+- @workersburning: Turn to deal with SF.
+- @coalition_menu: On second thought, the mandate is too weak.
+
+@arbejderflertal_nona
+subtitle: We hope this is the correct choice.
+unavailable-subtitle: SF and A does not have a majority outright. It needs the support of [? if (arbejderflertal == 86) : all ?] [? if (arbejderflertal != 86) : some ?] of the North Atlantic Mandates.
+choose-if: (arbejderflertal >= 90)
+
+**Negotiations with SF**
+
+The leaders of SF seem [? if (sf_relation >= 60): very enthusiastic ?] [? if (sf_relation <= 60): open ?]. SF will not on principle vote against a government led by us. 
+
+- @workersburning: The burning question now arises.
+
+@workersburning
+
+Under what form should our cooperation with SF take place?
+
+- @workersgoverment: SF must take share in the burden of government.
+- @workerscabinet: We should revive the 'red cabinet'.
+- @workersinformal: We should keep cooperation informal.
+
+@workersgoverment
+subtitle: In the past SF themselves have been opposed to this.
+unavailable-subtitle: Our relations with SF are not high enough.
+on-arrival: a_in_government = 1; in_left_front = 1; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 5; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+choose-if: (sf_relation >= 60)
+
+[? if (sf_relation <= 70): After much deliberation, SF agrees to enter government with us. ?][? if (sf_relation >= 70): Their leadership seems excited and are quick to share their visions with us.?]
+
+- @ministries: Who this will benefit is an open question.
+
+@workerscabinet
+subtitle: SF will not enter government, but an inter-party council will be set up to discuss the direction of government.
+unavailable-subtitle: Our relations with SF are not high enough.
+choose-if: (sf_relation >= 55)
+on-arrival: a_in_government = 1; leverage += 30; redcabinet = 1; in_left_front = 1; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 10; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+
+- @ministries: We will prepare an all Socialdemocratic minority government.
+
+@workersinformal
+on-arrival: a_in_government = 1; leverage += 30; in_left_front = 1; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 0; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+
+Our experiences from previous arrangements have led us to this decision.
+
+- @ministries: We will prepare an all Socialdemocratic minority government.
 
 @popular_front_2
 view-if: z_party_leader != "Joos" or kpd_party_leader != "Conciliators"
@@ -1217,7 +1353,7 @@ We are seen as responsible for the failure to form a government, and many of our
 
 @ministries
 
-We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the KPD. ?] [? if in_left_front and reichswehr_minister_party == "KPD" : If the KPD controls the Reichswehr Ministry, the army will most likely revolt. ?]
+We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to SF. ?]
 
 - #mins_1928
 - #drop_mins_1928

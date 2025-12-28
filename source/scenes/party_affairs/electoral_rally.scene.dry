@@ -3,13 +3,13 @@ new-page: true
 on-arrival: month_actions += 1
 max-visits: 36
 is-card: true
-card-image: img/arbejde.jpg
+card-image: img/Rothe_Wahlen_1903.jpg
 frequency: 100
 tags: - #election_campaign
 
-= Campaigning
+= Electoral Rally
 
-Whether or not we are in an electoral campaign, the party is always trying to broaden its membership and voterbase. Who should we focus our campaign efforts on?
+As Election day inches closer. We have a couple of huge rallies lined up, what social groups should we target?
 
 - @workers: The proletarians, our traditional base.
 - @public: Public sector workers, who have felt neglected by us in the past.
@@ -49,7 +49,7 @@ By focussing our campaign on the labour struggle, we have increased our campaign
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: homeowner_a += 6*(1-globalization); public_homeowner_a += 3*efc; memberrise += 0.4*efc*(1-globalization)
+on-arrival: homeowner_a += 20*(1-globalization); public_homeowner_a += 20*efc; memberrise += 0.4*efc*(1-globalization)
 
 By doubling down on the protection of state mortgages and stable socialist leadership, we have increased our campaigning among the new middle class – the workers who own their homes. [? if socialism <= 49 and peoples_party == 0: The popular antipathy towards socialism among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?] [? if nationalism >= 51 and peoples_party == 0: The high levels of nationalism among this group make our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
 
