@@ -1,67 +1,114 @@
 title: Inter-Party Relationships
 new-page: true
-view-if: year <= 1932 and inter_party_relationships_timer <= 0
+view-if: year >= 1970
 tags: party_affairs
 is-card: true
 on-arrival: month_actions += 1; inter_party_relationships_timer = 6;
-card-image: img/interparty.jpg
+card-image: img/firklover.jpg
 max-visits: 12
 #subtitle: Building relations with the other political parties of Germany.
 
 = Inter-Party Relationships
 
-Unlike our Norwegian and Swedish comrades, we've never had the luxury of an independent electoral majority. Because of this we need the support of other parties, recently, our parliamentary support have consisted of the workers majority together with the socialist peoples party, but other parliamentary arrangements could be possible. We can reach out and build additional connections with the socialists, or perhaps reach across the aisle?
+Unlike our Norwegian and Swedish comrades, we've never had the luxury of an independent electoral majority, because of this weve historically needed the support of other parties.
 
-- @liberals: Expand ties with the centrist parties.
-- @bourgious: Work towards repairing relations with the bourgious parties.
-- @kpd: Carefully attempt to woo the smaller left wing parties.
-- @spd_alone: The SPD can stand alone for now.
+- @liberals: Expand ties with Radikale Venstre.
+- @bourgious: Attempt to repair relations with the bourgious parties.
+- @sfrelation: Arrange a meeting with SF.
+- @dkp: Approach the DKP.
+- @spd_alone: We can stand alone for now.
 - @easy_discard
 
 
-@kpd
+@sfrelation
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; kpd_inter_party_seen += 1
-go-to: kpd_blutmai if blutmai = 1; kpd_1 if blutmai = 0 and kpd_coalition_success = 0 and (kpd_relation < 40 or kpd_rectifed_history = 1); kpd_rectification_of_history if kpd_relation >= 40 and kpd_rectifed_history = 0; kpd_2 if kpd_coalition_success = 1 and kpd_rectified_history = 1
+on-arrival: resources -= 1; SF_inter_party_seen += 1
+go-to: sf_rectification_of_history if ideology = "left"; dkp_1 if ideology != "left" and dkp_coalition_success = 0 and (dkp_relation < 40 or dkp_rectifed_history = 1); dkp_rectification_of_history if dkp_relation >= 40 and dkp_rectifed_history = 0; dkp_2 if dkp_coalition_success = 1 and dkp_rectified_history = 1
 
-@kpd_1
-on-arrival: SF_relation += 8; DKP_relation += 4; VS_relation += 3; left_coalition += 1 if kpd_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 2; dvp_relation -= 3
+@sf_1
+on-arrival: sf_relation += 5; DKP_relation += 2; VS_relation += 1; left_coalition += 1 if dkp_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 2; dvp_relation -= 3
 
-The leadership of the 'peoples socialists' act stoic, but cant quite hide their excitement of our overtures. As for the smaller parties, some connections are made at the grassroots level.
+Possibilities of future governing arrangements were discussed, but nothing final was decided upon. The SF leadership act stoic, but can't quite hide their excitement at our overtures. 
 
-@kpd_rectification_of_history
+[? if centenary = 0 : [+ sf_leader +] congratulates us on our upcoming centenary. ?]
 
-One stumbling block for our relations with the KPD is our history of conflict, dating back to 1918 and 1919. The KPD is especially contemptuous of Gustav Noske, the SPD "bloodhound" who reportedly ordered the violent suppression of the Spartacist uprising and other KPD revolts. They also blame us for the deaths of Rosa Luxemburg and Karl Liebknecht, two SPD-turned-KPD leaders who were killed during the suppression of the uprising.
+Over the coming weeks, their members of paliament seem more talkative in the canteen.
 
-For further improvements in KPD relations, it might be necessary to expel Noske, and hold some sort of commemoration for Luxemburg and Liebknecht.
+@sf_rectification_of_history
 
-- @yes_history: Yes, we must apologize for our past actions.
-- @no_history: No, we have no need to apologize.
+The experience of the first [? if sf_failure = 1 : and second?] workers majorities have left a bitter taste in the mouth of many in our party. Perhaps by working out the causes of past failings together, we can help overcome mutual mistrust and reluctance. 
+
+SF leaders now propose that parliamentarians from both parties should coauthor an official joint evaluation, identifying strategic mistakes made by both parties. 
+
+Such a move could pave the way for further cooperation in the future.
+
+- @sf_yes_history: A nice idea, lets do it.
+- @sf_no_history: This is not in our interest.
+
+@sf_yes_history
+on-arrival: right_worker_dissent += 5; right_worker_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; sf_rectified_history = 1; v_relation -= 3; c_relation -= 3; kf_relation -= 2; sf_relation += 8; prole_a += 4*efc; socialism += 2*efc; homeowner_a += 2*efc; public_homeowner_a += 2*efc; public_prole_a += 2*efc; pettyb_a -= 3*efc; prole_sf += 4; homeowner_sf += 2; public_homeowner_sf += 1; public_prole_sf += 3; pettyb_sf += 1
+subtitle: This will displease our Right-Workerists who see past failings as inevitable.
+
+The press release paints our past failings as fundamentally due to mutual mistrust, not any irreconcilable ideological differences.
+
+The white paper concludes that mutual mistrust should be combatted by more, not less, coordination in the future.
+
+@sf_no_history
+subtitle: We can revisit this in the future.
+on-arrival: sf_relation -= 3
+
+The SF leaders are dissapointed, but make sure to assure us that its an open offer.
+
+
+@dkp
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; dkp_inter_party_seen += 1
+go-to: dkp_rectification_of_history if ideology = "left"; dkp_1 if ideology != "left" and dkp_coalition_success = 0 and (dkp_relation < 40 or dkp_rectifed_history = 1); dkp_rectification_of_history if dkp_relation >= 40 and dkp_rectifed_history = 0; dkp_2 if dkp_coalition_success = 1 and dkp_rectified_history = 1
+
+@dkp_1
+on-arrival: dkp_relation += 6; sf_relation -= 1; vs_relation -= 1; left_coalition += 1 if dkp_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 2; dvp_relation -= 3
+
+In secret we meet with [+ dkp_leader +], the leader of the danish communists, we agree with him that some joint events can take place at the grassroots level. 
+
+Not much else is decided for now.
+
+@dkp_rectification_of_history
+
+The biggest stumbling block for our relations with the DKP have historically been their geopolitical support for the Soviet Union, as such most previous contacts have had to be held in secret. But our recent ideological shift against NATO have led to a warming of relations, as such the DKP uses the meeting to invite us to co-host an upcoming peace demonstration.
+
+Under all circumstances – it would be necessary to make our relations public if we want to seek any further improvements in KPD relations.
+
+- @yes_history: Yes, we will join them in the demonstration.
+- @no_history: No, we politely decline for now.
 
 @yes_history
-on-arrival: right_worker_dissent += 12; right_worker_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; kpd_rectified_history = 1; z_relation -= 6; dvp_relation -= 6; ddp_relation -= 4; kpd_relation += 8*(1-dissent); coalition_dissent += 1
+on-arrival: right_worker_dissent += 12; right_worker_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; dkp_rectified_history = 1; v_relation -= 6; c_relation -= 6; kf_relation -= 4; dkp_relation += 8; prole_a += 4*efc; socialism += 2*efc; homeowner_a -= 4*efc; public_homeowner_a -= 4*efc; public_prole_a += 2*efc; pettyb_a -= 6*efc; prole_dkp += 4; homeowner_dkp += 2; public_homeowner_dkp += 1; public_prole_dkp += 3; pettyb_dkp += 1
+subtitle: This will displease the Technocrats and outrage our Right-Workerists.
 
-As part of normalizing relations with the KPD, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
+While the demonstration themselves proove a big success, attracting an impressive crowd in Copenhagen, tensions within our party erupt in its wake. [? if cd_formed = 0 : Erhard Jakobsen, unofficial leader of the Right-Workerists, give a highly publizised interview condemning the current course of our party and reiterating his own personal support for NATO. ?][? if cd_formed = 1 : Erhard Jakobsen, leader of the 'Center-Democrats' (and traitor to our course), gives a highly publizised interview condemning the current 'ultra-leftist' course of our party and reiterating his own personal support for NATO. ?]
 
-This leads to tensions with the moderates and reformists within our party, and criticism from the conservative and liberal parties.
+In the newspapers, leaders from the conservatives and Venstre likewise stumble over each other to condemn the demonstration.
 
 @no_history
-on-arrival: kpd_relation -= 3
+on-arrival: dkp_relation -= 2
+subtitle: We can revisit this in the future.
 
-We have no need to apologize for the actions of Ebert and Noske; it is the Communists' fault for launching a violent insurrection.
+Now is not the right time. The Communists are dissapointed at this.
 
 
-@kpd_2
-on-arrival: kpd_relation += 8*(1 - dissent); communist_coalition += 1 if kpd_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 3; dvp_relation -= 3
+@dkp_2
+on-arrival: dkp_relation += 8*(1 - dissent); communist_coalition += 1 if dkp_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 3; dvp_relation -= 3
 
-After the success of the coalition government with the KPD, they are much more amenable to us.
+After the experience of the government supported by the KPD, they are much more amenable to us.
 
-@kpd_blutmai
-on-arrival: kpd_relation += 3*(1 - dissent); right_worker_dissent += 1
+@dkp_blutmai
+on-arrival: dkp_relation += 3*(1 - dissent); right_worker_dissent += 1
 
-After the events of Blütmai, reconciling with the Communists is difficult, if not impossible. Nevertheless, we must try.
+After our rapproachment with America, reconciling with the Communists is difficult, nevertheless, we try our best.
 
 @bourgious
 subtitle: -1 resources

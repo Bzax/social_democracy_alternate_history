@@ -183,7 +183,7 @@ Impact of globalization:<br> [+ globalizationdisp : globalization +]
 on-arrival: {!
 Q.socialism_disp = Math.round(Q.socialism);
 Q.nationalism_disp = Math.round(Q.nationalism);
-Q.socialism_disp = Math.round(Q.socialism);
+Q.rigidity_disp = Math.round(Q.rigidity);
 !}
 
 = **Most recent poll**

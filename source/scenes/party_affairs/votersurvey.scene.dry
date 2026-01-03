@@ -27,9 +27,9 @@ After a few weeks, the results of the survey are in...
 *S U R V E Y _ 
 R E S U L T S*
 
-**Private-Sector workers who rent their homes**: *A: [+ prole_a_display +]%*, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
+**Private-Sector workers who rent their homes**: A: [+ prole_a_display +]%, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
 
-**Private-Sector workers who own their homes**: *A: [+ homeowner_a_display +]%*, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
+**Private-Sector workers who own their homes**: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
 
 @publicworkers
 
@@ -38,9 +38,9 @@ After a few weeks, the results of the survey are in...
 *S U R V E Y _ 
 R E S U L T S*
 
-**Public-Sector workers who rent their homes**: *A: [+ public_prole_a_display +]%*, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
+**Public-Sector workers who rent their homes**: A: [+ public_prole_a_display +]%, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
 
-**Public-Sector workers who own their homes**: *A: [+ public_homeowner_a_display +]%*, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
+**Public-Sector workers who own their homes**: A: [+ public_homeowner_a_display +]%, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
 
 @homeowners
 
@@ -49,9 +49,9 @@ After  weeks, the results of the survey are in...
 *S U R V E Y _ 
 R E S U L T S*
 
-**Homeowning workers who are employed in the Private-Sector**: *A: [+ homeowner_a_display +]%*, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
+**Homeowning workers who are employed in the Private-Sector**: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
 
-**Homeowning workers who are employed in the Public-Sector**: *A: [+ public_homeowner_a_display +]%*, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
+**Homeowning workers who are employed in the Public-Sector**: A: [+ public_homeowner_a_display +]%, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
 
 @proletarians
 
@@ -60,9 +60,9 @@ After a few weeks, the results of the survey are in...
 *S U R V E Y _ 
 R E S U L T S*
 
-**Tenant workers who are employed in the Private-Sector**: *A: [+ prole_a_display +]%*, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
+**Tenant workers who are employed in the Private-Sector**: A: [+ prole_a_display +]%, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
 
-**Tenant workers who are employed in the Public-Sector**: *A: [+ public_prole_a_display +]%*, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
+**Tenant workers who are employed in the Public-Sector**: A: [+ public_prole_a_display +]%, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
 
 @capitalists
 subtitle: The left sees little reason for this.
@@ -100,13 +100,13 @@ The workers can no longer be said to consist of a single social unit (if this wa
 *S U R V E Y _ 
 R E S U L T S*
 
-**Private-Sector workers who rent their homes**: *A: [+ prole_a_display +]%*, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
+**Private-Sector workers who rent their homes**: A: [+ prole_a_display +]%, V: [+ prole_v_display +]%, C: [+ prole_c_display +]%, B: [+ prole_b_display +]%, Z: [+ prole_z_display +]%, DKP: [+ prole_dkp_display +]%, SF: [+ prole_sf_display +]%, VS: [+ prole_vs_display +]%, RFB: [+ prole_rfb_display +]%, KF: [+ prole_kf_display +]%, Others: [+ prole_others_display +]%
 
-**Private-Sector workers who own their homes**: *A: [+ homeowner_a_display +]%*, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
+**Private-Sector workers who own their homes**: A: [+ homeowner_a_display +]%, V: [+ homeowner_v_display +]%, C: [+ homeowner_c_display +]%, B: [+ homeowner_b_display +]%, Z: [+ homeowner_z_display +]%, DKP: [+ homeowner_dkp_display +]%, SF: [+ homeowner_sf_display +]%, VS: [+ homeowner_vs_display +]%, RFB: [+ homeowner_rfb_display +]%, KF: [+ homeowner_kf_display +]%, Others: [+ homeowner_others_display +]%
 
-**Public-Sector workers who rent their homes**: *A: [+ public_prole_a_display +]%*, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
+**Public-Sector workers who rent their homes**: A: [+ public_prole_a_display +]%, V: [+ public_prole_v_display +]%, C: [+ public_prole_c_display +]%, B: [+ public_prole_b_display +]%, Z: [+ public_prole_z_display +]%, DKP: [+ public_prole_dkp_display +]%, SF: [+ public_prole_sf_display +]%, VS: [+ public_prole_vs_display +]%, RFB: [+ public_prole_rfb_display +]%, KF: [+ public_prole_kf_display +]%, Others: [+ public_prole_others_display +]%
 
-**Public-Sector workers who own their homes**: *A: [+ public_homeowner_a_display +]%*, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
+**Public-Sector workers who own their homes**: A: [+ public_homeowner_a_display +]%, V: [+ public_homeowner_v_display +]%, C: [+ public_homeowner_c_display +]%, B: [+ public_homeowner_b_display +]%, Z: [+ public_homeowner_z_display +]%, DKP: [+ public_homeowner_dkp_display +]%, SF: [+ public_homeowner_sf_display +]%, VS: [+ public_homeowner_vs_display +]%, RFB: [+ public_homeowner_rfb_display +]%, KF: [+ public_homeowner_kf_display +]%, Others: [+ public_homeowner_others_display +]%
 
 - @surveycapitalists: What about the other classes?
 
@@ -117,12 +117,12 @@ While working class families now make up a comfortable majority of our populatio
 *S U R V E Y _ 
 R E S U L T S*
 
-**Small business owners**: *A: [+ pettyb_a_display +]%*, V: [+ pettyb_v_display +]%, C: [+ pettyb_c_display +]%, B: [+ pettyb_b_display +]%, Z: [+ pettyb_z_display +]%, DKP: [+ pettyb_dkp_display +]%, SF: [+ pettyb_sf_display +]%, VS: [+ pettyb_vs_display +]%, RFB: [+ pettyb_rfb_display +]%, KF: [+ pettyb_kf_display +]%, Others: [+ pettyb_others_display +]%
+**Small business owners**: A: [+ pettyb_a_display +]%, V: [+ pettyb_v_display +]%, C: [+ pettyb_c_display +]%, B: [+ pettyb_b_display +]%, Z: [+ pettyb_z_display +]%, DKP: [+ pettyb_dkp_display +]%, SF: [+ pettyb_sf_display +]%, VS: [+ pettyb_vs_display +]%, RFB: [+ pettyb_rfb_display +]%, KF: [+ pettyb_kf_display +]%, Others: [+ pettyb_others_display +]%
 
-**Rural Gårdmænd (Yeoman farmers)**: *A: [+ rural_a_display +]%*, V: [+ rural_v_display +]%, C: [+ rural_c_display +]%, B: [+ rural_b_display +]%, Z: [+ rural_z_display +]%, DKP: [+ rural_dkp_display +]%, SF: [+ rural_sf_display +]%, VS: [+ rural_vs_display +]%, RFB: [+ rural_rfb_display +]%, KF: [+ rural_kf_display +]%, Others: [+ rural_others_display +]%
+**Rural Gårdmænd (Yeoman farmers)**: A: [+ rural_a_display +]%, V: [+ rural_v_display +]%, C: [+ rural_c_display +]%, B: [+ rural_b_display +]%, Z: [+ rural_z_display +]%, DKP: [+ rural_dkp_display +]%, SF: [+ rural_sf_display +]%, VS: [+ rural_vs_display +]%, RFB: [+ rural_rfb_display +]%, KF: [+ rural_kf_display +]%, Others: [+ rural_others_display +]%
 
-**Unemployed**: *A: [+ unemployed_a_display +]%*, V: [+ unemployed_v_display +]%, C: [+ unemployed_c_display +]%, B: [+ unemployed_b_display +]%, Z: [+ unemployed_z_display +]%, DKP: [+ unemployed_dkp_display +]%, SF: [+ unemployed_sf_display +]%, VS: [+ unemployed_vs_display +]%, RFB: [+ unemployed_rfb_display +]%, KF: [+ unemployed_kf_display +]%, Others: [+ unemployed_others_display +]%
+**Unemployed**: A: [+ unemployed_a_display +]%, V: [+ unemployed_v_display +]%, C: [+ unemployed_c_display +]%, B: [+ unemployed_b_display +]%, Z: [+ unemployed_z_display +]%, DKP: [+ unemployed_dkp_display +]%, SF: [+ unemployed_sf_display +]%, VS: [+ unemployed_vs_display +]%, RFB: [+ unemployed_rfb_display +]%, KF: [+ unemployed_kf_display +]%, Others: [+ unemployed_others_display +]%
 
-**Capitalists**: *A: [+ capitalist_a_display +]%*, V: [+ capitalist_v_display +]%, C: [+ capitalist_c_display +]%, B: [+ capitalist_b_display +]%, Z: [+ capitalist_z_display +]%, DKP: [+ capitalist_dkp_display +]%, SF: [+ capitalist_sf_display +]%, VS: [+ capitalist_vs_display +]%, RFB: [+ capitalist_rfb_display +]%, KF: [+ capitalist_kf_display +]%, Others: [+ capitalist_others_display +]%
+**Capitalists**: A: [+ capitalist_a_display +]%, V: [+ capitalist_v_display +]%, C: [+ capitalist_c_display +]%, B: [+ capitalist_b_display +]%, Z: [+ capitalist_z_display +]%, DKP: [+ capitalist_dkp_display +]%, SF: [+ capitalist_sf_display +]%, VS: [+ capitalist_vs_display +]%, RFB: [+ capitalist_rfb_display +]%, KF: [+ capitalist_kf_display +]%, Others: [+ capitalist_others_display +]%
 
 Debate over the meaning of these results are quick to consume our party leadership, but we nonetheless make sure to give our compliments to the polling company.

@@ -1,0 +1,65 @@
+title: Government Negotiations
+new-page: true
+on-arrival: month_actions += 1
+max-visits: 36
+is-card: true
+card-image: img/aof.jpg
+frequency: 100
+tags: - #election_campaign
+
+= Government Negotiations
+
+With the election approachings, now is the final time to improve our standing with the other parties.
+
+- @who_approach: who should we approach?
+
+
+@who_approach
+
+[? if poll_arbejderflertal >= 46 : The workers majority currently looks likely, with the latest polls having us at [+ poll_arbejderflertal +]% perhaps we should approach SF? ?]
+
+[? if poll_arbejderflertal >= 46 and poll_sr >= 46 : In addition... ?] 
+
+[? if poll_sr >= 46 : We may be able to form a coalition with Radikale Venstre if the polls hold, currently it looks like around [+ poll_sr +]% of voters would support either one of our parties. Should we act on it? ?]
+
+We could also simply conserve our energy, and attend to other matters.
+
+
+- @SFapproach: We should approach SF.
+- @bourgious_coop: What would the bourgious parties say if we were to...
+- @root: We either don't want to or cannot campaign right now.
+- @easy_discard
+
+@SFapproach
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: sf_relation >= 50
+view-if: poll_arbejderflertal >= 45
+unavailable-subtitle: SF are completely disinterested in talks.
+on-arrival: sf_relation += 10
+
+@bourgious_coop
+choose-if: v_relation >= 40 or c_relation >= 40
+unavailable-subtitle: Relations are too low – They would say no.
+
+Perhaps we could utilize the internal rivalry between Venstre and the Conservatives to form a coalition across the aisle. Some believe, such a coalition may be able to secure lasting [? if black_thursday_seen = 0 : gains? ?][? if black_thursday_seen = 1 : deal with the current crisis? ?]
+
+[? if poll_sv >= 45 : We may be able to form a coalition with Venstre if the polls hold, currently it looks like around [+ poll_sv +]% of voters would support either one of our parties. Should we act on it? ?]
+
+[? if poll_sc >= 45 : We may be able to form a coalition with the conservatices if the polls hold, currently it looks like around [+ poll_sc +]% of voters would support either one of our parties. Should we act on it? ?]
+
+- @sv_negotiation: Let us approach Venstre.
+- @sc_negotiation: Let us approach the Conservatives.
+
+@sv_negotiation
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: v_relation >= 50
+view-if: poll_sv >= 45
+unavailable-subtitle: V are completely disinterested in talks.
+on-arrival: v_relation += 10
+
+@sc_negotiation
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: c_relation >= 50
+view-if: poll_sc >= 45
+unavailable-subtitle: C are completely disinterested in talks.
+on-arrival: c_relation += 10

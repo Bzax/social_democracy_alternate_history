@@ -147,9 +147,10 @@ Q.kf_relation = 40;
 Q.Z_relation = 0;
 Q.cd_relation = 30;
 
-Q.sf_leader = "Oemann";
+Q.sf_leader = "Sigurd Ømann";
 // alternative is the Conciliators as party leader
-Q.sf_party_leader = "Oemann";
+Q.sf_party_leader = "Sigurd Ømann";
+Q.dkp_leader = "knud Jespersen";
 Q.z_leader = "Brüning";
 // party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
 Q.z_party_leader = "Marx";
@@ -205,7 +206,7 @@ Q.reichswehr_loyalty = 0.2;
 Q.nationalism = 60;
 // socialism vs capitalism
 Q.socialism = 40;
-// pro-republic vs anti-republic
+// abstract political rigidity, should represent movement away from established parties? Or at least just how petrified the politics are.
 Q.rigidity = 80
 
 // international situations

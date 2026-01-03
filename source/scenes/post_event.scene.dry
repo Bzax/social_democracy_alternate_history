@@ -47,18 +47,18 @@ function addUncertainty(baseValue) {
     return Math.max(0, Math.min(100, baseValue * (1 + percentageDeviation))); // Ensure result is between 0 and 100
 }
 
-Q.a_votesdisp = addUncertainty(Q.a_votes).toFixed(1);
+Q.a_votesdisp = Number(addUncertainty(Q.a_votes).toFixed(1));
 console.log("Q.a_votes:", Q.a_votes);
-Q.z_votesdisp = addUncertainty(Q.z_votes).toFixed(1);
-Q.v_votesdisp = addUncertainty(Q.v_votes).toFixed(1);
-Q.c_votesdisp = addUncertainty(Q.c_votes).toFixed(1);
-Q.kf_votesdisp = addUncertainty(Q.kf_votes).toFixed(1);
-Q.dkp_votesdisp = addUncertainty(Q.dkp_votes).toFixed(1);
-Q.b_votesdisp = addUncertainty(Q.b_votes).toFixed(1);
-Q.sf_votesdisp = addUncertainty(Q.sf_votes).toFixed(1);
-Q.vs_votesdisp = addUncertainty(Q.vs_votes).toFixed(1);
-Q.rfb_votesdisp = addUncertainty(Q.rfb_votes).toFixed(1);
-Q.others_votesdisp = addUncertainty(Q.others_votes).toFixed(1);
+Q.z_votesdisp = Number(addUncertainty(Q.z_votes).toFixed(1));
+Q.v_votesdisp = Number(addUncertainty(Q.v_votes).toFixed(1));
+Q.c_votesdisp = Number(addUncertainty(Q.c_votes).toFixed(1));
+Q.kf_votesdisp = Number(addUncertainty(Q.kf_votes).toFixed(1));
+Q.dkp_votesdisp = Number(addUncertainty(Q.dkp_votes).toFixed(1));
+Q.b_votesdisp = Number(addUncertainty(Q.b_votes).toFixed(1));
+Q.sf_votesdisp = Number(addUncertainty(Q.sf_votes).toFixed(1));
+Q.vs_votesdisp = Number(addUncertainty(Q.vs_votes).toFixed(1));
+Q.rfb_votesdisp = Number(addUncertainty(Q.rfb_votes).toFixed(1));
+Q.others_votesdisp = Number(addUncertainty(Q.others_votes).toFixed(1));
 
 // calculate support for each of the parties
 var total_support = 0; 
@@ -80,6 +80,25 @@ for (var party of Q.parties) {
     Q[party+'_votes'] = Math.round(Q[party+'_normalized']*100);
     Q[party+'_votes_display'] = Math.round(Q[party+'_normalized']*100);
 }
+
+// coalitions (use Q.* names)
+Q.poll_arbejderflertal = Q.a_votesdisp + Q.sf_votesdisp;
+Q.poll_arbejderflertal_plus = Q.a_votesdisp + Q.sf_votesdisp + Q.dkp_votesdisp + Q.vs_votesdisp;
+Q.poll_sr = Q.a_votesdisp + Q.b_votesdisp;
+Q.poll_trekant = Q.a_votesdisp + Q.b_votesdisp + Q.rfb_votesdisp;
+Q.poll_srsf = Q.a_votesdisp + Q.b_votesdisp + Q.sf_votesdisp;
+Q.poll_rasf_plus = Q.a_votesdisp + Q.b_votesdisp + Q.sf_votesdisp + Q.rfb_votesdisp;
+// Centrist
+Q.poll_roedkloever = Q.kf_votesdisp + Q.a_votesdisp + Q.cd_votesdisp + Q.b_votesdisp;
+Q.poll_sv = Q.a_votesdisp + Q.v_votesdisp;
+Q.poll_sc = Q.a_votesdisp + Q.c_votesdisp;
+//bourgeois
+Q.poll_vkr = Q.b_votesdisp + Q.v_votesdisp + Q.c_votesdisp + Q.kf_votesdisp;
+Q.poll_vkr_irl = Q.b_votesdisp + Q.v_votesdisp + Q.c_votesdisp + Q.kf_votesdisp + Q.z_votesdisp + Q.cd_votesdisp;
+Q.poll_vcqm = Q.kf_votesdisp + Q.v_votesdisp + Q.c_votesdisp + Q.cd_votesdisp;
+Q.poll_vcqm_irl = Q.kf_votesdisp + Q.v_votesdisp + Q.c_votesdisp + Q.cd_votesdisp + Q.z_votesdisp;
+Q.poll_z = Q.z_votesdisp + Q.kf_votesdisp + Q.cd_votesdisp;
+Q.poll_anti_democratic_coalition = Q.z_votesdisp + Q.vs_votesdisp + Q.dkp_votesdisp;
 
 
 // set faction strength/dissent to 0

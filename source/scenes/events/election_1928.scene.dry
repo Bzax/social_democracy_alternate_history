@@ -292,9 +292,7 @@ go-to: coalition_menu
 
 Arbejderflertal: [+ arbejderflertal +]/90
 
-[? if has_dkp_any or has_vs_any :
-Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]/90
-?]
+[? if has_dkp_any or has_vs_any : Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]/90 ?]
 
 A + B + SF: [+ srsf +]/90
 
@@ -356,8 +354,8 @@ audio: music/1970_1973/Victor_og_socialdemokratiet.mp3
 - @unity_government
 - @far_right_coalition
 - @no_majority
-- @brauns_dilemma
-- @left_coalition
+- @sr
+- @broad_arbejderflertal
 - @arbejderflertal
 - @right_coalition
 - @unorthodox: Perhaps we should think outside the box?
@@ -375,15 +373,163 @@ Rødkløver (KF + A + B): [+ roedkloever +]/90
 ?]
 
 - @arbejderflertal
+- @sr
 - @no_majority
 
 # TODO: black-brown coalition
+
+@sr
+title: Revive the AB Government.
+subtitle: A + B ([+ sr +]/90 Seats) [? if sr <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
+unavailable-subtitle: A + B ([+ sr +]/90 Seats) [? if b_relation <= 45 : – We do not have good enough relations with SF. ?]
+view-if: sr >= 65
+choose-if: (( sr >= 86)) and (b_relation >= 45)
+
+A government with Radikale Venstre has served us well {!<span class="tooltip-text" title="From 1913-1966, a total of 13 governments was built on such a majority.">in the past</span>!}, even if our left claims it lead to the tempo of reforms stagnating.
+
+- @sryes: Enter negotiations
+- @coalition_menu: actually on second thought...
+
+@sryes
+
+Given our rapproachment with Radikale Venstre, this is considered the least controversial choice by many. Even if our left is dissapointed. [? if arbejderflertal <= 89 : but with the current results such a government would be dependant on the North Atlantic representatives. Which is always at least a little unpopular.?]
+
+- @sr_burning: But should we let them into government?
+- @sr_na: First we must negotiate with the North Atlantic representatives.
+
+@sr_na
+subtitle: We hope this is the correct choice.
+view-if: (arbejderflertal <= 89)
+on_arrival: na_mandate = 1
+
+**Negotiations with the North Atlantic Mandates**
+
+The North Atlantic electeds agree to support us (this is WIP).
+
+- @sr_burning: Turn to deal with SF.
+- @sr_break_up: On second thought, the mandate is too weak. Break off the negotiations.
+
+@sr_break_up
+on-arrival: b_relation -= 4
+
+The leadership of B is quite offended, but we hope this was the right call.
+
+- @coalition_menu: what are our other options?
+
+@sr_burning
+choose-if: arbejderflertal >= 90 or na_mandate = 1
+unavailable-subtitle: A and B does not have a majority outright. It needs the support of [? if (sr == 86) : all ?] [? if (sr != 86) : some ?] of the North Atlantic Mandates.
+
+Under what form should our cooperation with Radikale Venstre take place?
+
+- @sr_government: Radikale Venstre should join us in government.
+- @sr_informal: We should pursue a socialdemocratic minority government.
+
+
+@sr_government
+subtitle: Radikale would appreciate this
+unavailable-subtitle: Our relations with SF are not high enough.
+on-arrival: a_in_government = 1; in_sr = 1; chancellor = "Kragh"; chancellor_party = "A"; b_relation += 8; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+choose-if: (b_relation >= 50)
+
+[? if (b_relation <= 70): After some performative deliberation, B agrees to enter government with us. ?][? if (b_relation >= 70): Their leadership seems excited and are quick to share their visions of government with us.?]
+
+- @ministries: Who this will benefit is an open question.
+
+@sr_informal
+subtitle: B will not enter government.
+on-arrival: a_in_government = 1; b_relation -= 5; leverage += 50; redcabinet = 1; in_left_front = 1; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 10; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+
+Radikale Venstre is not happy with our choice, but nonetheless they agree. 
+
+@broad_arbejderflertal
+title: Is a broad socialist coalition possible?
+subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ broad_arbejderflertal +]/90 Seats) [? if broad_arbejderflertal <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
+unavailable-subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ broad_arbejderflertal +]/90 Seats). [? if dkp_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
+view-if: broad_arbejderflertal >= 86
+choose-if: (dkp_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40)) and vs_relation >= 50
+
+There are enough votes for a broad socialist coalition, if such a thing was actually possible.
+
+The bourgious will be in absolute uproar, if such a coalition were formed.
+
+- @left_coalition_impossible: This is impossible.
+- @left_coalition_possible: This could be possible.
+
+@left_coalition_impossible
+go-to: coalition_menu
+
+...Unfortunately this is impossible.
+
+
+@left_coalition_possible
+
+The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
+
+- @thalmann_chancellor: Appoint Thälmann as chancellor.
+- @left_coalition_resources
+- @left_coalition_relations
+- @coalition_menu: Try a different governing arrangement.
+
+@thalmann_chancellor
+choose-if: president == "Braun" and right_worker_strength + neorevisionist_strength < left_strength
+unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if right_worker_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
+on-arrival: chancellor = "Thälmann"; chancellor_party = "KPD"; kpd_relation = 80; in_left_front = 1; a_in_government = 1 
+
+With great reluctance, President [+ president +] appoints [+ chancellor +] as chancellor.
+
+Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the KPD, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
+
+In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined the Stahlhelm to stop the KPD from taking power. We are forced to be on the same side as the KPD, whether we want to or not.
+
+- @civil_war
+
+
+@left_coalition_resources
+title: Use our resources to smooth things over.
+unavailable-subtitle: Required: 3 resources
+subtitle: -3 resources
+choose-if: resources >= 3
+on-arrival: resources -= 3
+go-to: left_coalition_success
+
+@left_coalition_relations
+title: Convince the KPD to accept democracy.
+unavailable-subtitle: Our relationships with the KPD are not good enough.
+choose-if: kpd_relation >= 60 or kpd_party_leader == "Conciliators"
+go-to: left_coalition_success
+
+
+@left_coalition_success
+on-arrival: a_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; coup_progress += 3; capital_strike_progress += 2; in_popular_front = 0; in_grand_coalition = 0; in_weimar_coalition = 0; kpd_relation += 10
+go-to: left_coalition_civil_war if coup_progress >= 10; left_coalition_no_civil_war if coup_progress < 10
+achievement: einheitsfront
+
+Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the SPD, KPD, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the SPD, but was acceptable to the left due to his previous membership in the left-wing anti-war USPD.
+
+# just raise the coup limit, don't immediately go to civil war
+
+@left_coalition_no_civil_war
+on-arrival: kpd_goals_seen = 0; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD"; reichswehr_loyalty -= 0.05
+
+In response to the KPD's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that our government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
+
+The KPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
+
+Whatever their reasoning is, the SPD has control over the ministries of government.
+
+@left_coalition_civil_war
+on-arrival: reichswehr_loyalty += 0.1
+
+In response to the KPD's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
+
+- @civil_war: A civil war, then.
 
 
 @arbejderflertal
 title: Utilize the workers majority.
 subtitle: A + SF [? if kapd_formed: + SAPD ?]([+ arbejderflertal +]/90 Seats) [? if arbejderflertal <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
-unavailable-subtitle: A + SF ([+ arbejderflertal +]%) [? if ((sf_relation < 45 and sf_party_leader == "Petersen") or (sf_relation < 45 and sf_party_leader == "Oemann")): – We do not have good enough relations with SF. ?]
+unavailable-subtitle: A + SF ([+ arbejderflertal +]/90 seats) [? if ((sf_relation < 45 and sf_party_leader == "Petersen") or (sf_relation < 45 and sf_party_leader == "Ømann")): – We do not have good enough relations with SF. ?]
 view-if: arbejderflertal >= 65
 choose-if: (( arbejderflertal >= 86)) and (sf_relation >= 45)
 
@@ -398,8 +544,6 @@ As before the conservative press would be up in arms, and this would do much to 
 
 - @arbejderflertal_nona: Enter negotiations with SF.
 - @arbejderflertal_na: First we must negotiate with the North Atlantic representatives.
-- @popular_front_2: Form the Popular Front!
-- @great_popular_front: Form the Popular Front!
 - @coalition_menu: Actually, let us not do this.
 
 @arbejderflertal_na
@@ -560,92 +704,6 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 - @emergency_braun: We will form an emergency government with Braun's support.
 - @new_elections: We will have new elections.
 - @far_right_win: Let the Nazis form their government.
-
-
-@left_coalition
-title: Is a United Left coalition possible?
-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
-unavailable-subtitle: SPD + KPD [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if kpd_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
-view-if: left_coalition >= 50
-choose-if: (kpd_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40)) and communist_coalition >= 3
-
-There are enough votes for a SPD + KPD coalition government, if such a thing were actually possible.
-
-The far-right might attempt a coup, if such a coalition were formed.
-
-- @left_coalition_impossible: This is impossible.
-- @left_coalition_possible: This could be possible.
-
-@left_coalition_impossible
-go-to: coalition_menu
-
-A far left coalition is impossible.
-
-
-@left_coalition_possible
-
-The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
-
-- @thalmann_chancellor: Appoint Thälmann as chancellor.
-- @left_coalition_resources
-- @left_coalition_relations
-- @coalition_menu: Try a different governing arrangement.
-
-@thalmann_chancellor
-choose-if: president == "Braun" and right_worker_strength + neorevisionist_strength < left_strength
-unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if right_worker_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
-on-arrival: chancellor = "Thälmann"; chancellor_party = "KPD"; kpd_relation = 80; in_left_front = 1; a_in_government = 1 
-
-With great reluctance, President [+ president +] appoints [+ chancellor +] as chancellor.
-
-Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the KPD, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
-
-In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined the Stahlhelm to stop the KPD from taking power. We are forced to be on the same side as the KPD, whether we want to or not.
-
-- @civil_war
-
-
-@left_coalition_resources
-title: Use our resources to smooth things over.
-unavailable-subtitle: Required: 3 resources
-subtitle: -3 resources
-choose-if: resources >= 3
-on-arrival: resources -= 3
-go-to: left_coalition_success
-
-@left_coalition_relations
-title: Convince the KPD to accept democracy.
-unavailable-subtitle: Our relationships with the KPD are not good enough.
-choose-if: kpd_relation >= 60 or kpd_party_leader == "Conciliators"
-go-to: left_coalition_success
-
-
-@left_coalition_success
-on-arrival: a_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"; chancellor_party = "SPD"; coup_progress += 3; capital_strike_progress += 2; in_popular_front = 0; in_grand_coalition = 0; in_weimar_coalition = 0; kpd_relation += 10
-go-to: left_coalition_civil_war if coup_progress >= 10; left_coalition_no_civil_war if coup_progress < 10
-achievement: einheitsfront
-
-Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the SPD, KPD, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the SPD, but was acceptable to the left due to his previous membership in the left-wing anti-war USPD.
-
-# just raise the coup limit, don't immediately go to civil war
-
-@left_coalition_no_civil_war
-on-arrival: kpd_goals_seen = 0; foreign_minister_party = "SPD"; interior_minister_party = "SPD"; justice_minister_party = "SPD"; labor_minister_party = "SPD"; reichswehr_minister_party = "SPD"; economic_minister_party = "SPD"; finance_minister_party = "SPD"; agriculture_minister_party = "SPD"; reichswehr_loyalty -= 0.05
-
-In response to the KPD's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that our government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
-
-The KPD has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
-
-Whatever their reasoning is, the SPD has control over the ministries of government.
-
-@left_coalition_civil_war
-on-arrival: reichswehr_loyalty += 0.1
-
-In response to the KPD's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
-
-- @civil_war: A civil war, then.
-
-
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
@@ -896,7 +954,6 @@ President Braun faces a dilemma. He desperately desires a socialist or at least 
 - @emergency_braun: We will form an emergency government with Braun's support.
 - @new_elections: We will have new elections.
 - @new_grand_coalition
-- @left_coalition
 - @far_right_coalition
 
 

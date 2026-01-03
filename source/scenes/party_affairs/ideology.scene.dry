@@ -10,14 +10,16 @@ max-visits: 3
 
 = Questions of Ideology
 
-[? if centenary = 0 : As a result of our upcomming centenarry, debate over how to best advance our movement has hummed in every chapter.  ?]
+[? if centenary = 0 : As a result of our upcomming centenary, debate have hummed in every chapter. ?] 
+
+Now the question approaches: what line should our internal material adopt? 
 
 [? if ideology != 0 : We have previously chosen a [+ ideology +] ideology. Changing it will likely have drawbacks. ?]
 
-- @class_struggle: Allying with the left, leaving NATO, and abolishing capitalism are our primary goals.
-- @centrist: Even if the goal remains socialism, we still have a responsibility towards the workers we claim to represent.
-- @labor: We should work with the trade unions to improve the lives of workers.
-- @reform: Following Eduard Bernstein, we should work for ethical socialism, strengthen democracy, and expand the party's electorate.
+- @class_struggle: Allying with the left, leaving NATO, and abolishing capitalism are our ultimate goals.
+- @left_workerist: Even if the goal remains socialism, we have a responsibility towards the workers we claim to represent.
+- @technocrats: Low unemployment and sustainable gains should be our priorities.
+- @reform: We should seal the material gains of the working class by cooperating with all sensible parties.
 - @easy_discard
 
 @class_struggle
@@ -27,31 +29,34 @@ if (Q.ideology && Q.ideology != "left") {
 }
 !}
 go-to: changed if changed = 1
-on-departure: ideology = "left"; left_strength += 10; communist_coalition += 1; left_dissent -= 5; z_relation -= 3; dvp_relation -= 5; nationalization_support += 1; kpd_relation += 3
+subtitle: This will strengthen the 'SDS' faction of our party.
+on-departure: ideology = "left"; left_strength += 10; communist_coalition += 1; left_dissent -= 10; v_relation -= 3; c_relation -= 5; nationalization_support += 1; dkp_relation += 4; vs_relation += 3; right_worker_dissent += 8
 
-The radical left of the party supports a course of class struggle, and potentially a reconcilliation with the Communists.
+The radical left of the party supports a course of class struggle, and potentially a reconcilliation with the broader left.
 
-@centrist
+@left_workerist
 on-arrival: {!
 if (Q.ideology && Q.ideology != "centrist") {
     Q.changed = 1;
 }
 !}
 go-to: changed if changed = 1
+subtitle: This will strengthen the 'Left-Workerist' faction of our party.
 on-departure: ideology = "centrist"; left_worker_strength += 10; left_worker_dissent -= 10; left_dissent -= 5; right_worker_dissent -= 5
 
-The Center Marxists, represented by Kautsky and Hilferding, support a middle course of preparing for revolution while building up the consciousness of the working class.
+The Left Workerists, represented by Anker Jørgensen, support a middle course of preparing for socialism by building up the trust of the working class.
 
-@labor
+@technocrats
 on-arrival: {!
 if (Q.ideology && Q.ideology != "labor") {
     Q.changed = 1;
 }
 !}
+subtitle: This will strengthen the 'Technocrat' faction of our party.
 go-to: changed if changed = 1
-on-departure: ideology = "labor"; technocrat_strength += 10; wtb_support += 1; technocrat_dissent -= 5; kpd_relation -= 3
+on-departure: ideology = "labor"; technocrat_strength += 10; wtb_support += 1; technocrat_dissent -= 5; dkp_relation -= 3; vs_relation -= 3
 
-The labor wing of the party supports continued particpation in government in order to provide benefits to the workers, and the creation of public works programs for employment.
+The Technocrat wing of the party supports continued particpation in government in order to provide benefits to the workers, and the continuos planning and expansion of our economy.
 
 @reform
 on-arrival: {!
@@ -59,10 +64,11 @@ if (Q.ideology && Q.ideology != "reformist") {
     Q.changed = 1;
 }
 !}
+subtitle: This will strengthen the 'Right-Workerist' faction of our party.
 go-to: changed if changed = 1
-on-departure: ideology = "reformist"; right_worker_strength += 10; democratization += 1; right_worker_dissent -= 5; z_relation += 5; dvp_relation += 5; kpd_relation -= 8; moderate_plan_support += 1
+on-departure: ideology = "reformist"; right_worker_strength += 10; left_dissent += 8; democratization += 1; right_worker_dissent -= 5; v_relation += 5; c_relation += 5; sf_relation -= 8; dkp_relation -= 8; vs_relation -= 8; moderate_plan_support += 1
 
-The reformist wing of the party seeks to preserve the Republic and the democratic system of government, and is most supportive of coalitions with the other pro-democracy parties.
+The Right-Workerist wing of the party seek to preserve the economic gains of the new middle class and our atlanticist foreign policy, they are most supportive of cross-class coalitions with the traditional parties.
 
 @changed
 on-arrival: left_dissent += 5; left_worker_dissent += 5; technocrat_dissent += 5; right_worker_dissent += 5

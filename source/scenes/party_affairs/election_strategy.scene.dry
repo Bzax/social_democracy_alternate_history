@@ -1,6 +1,6 @@
 title: Election Strategy
 new-page: true
-view-if: year <= 1972 and enemies_timer <= 0
+view-if: next_election_time <= 5 and enemies_timer <= 0
 on-arrival: month_actions += 1; enemies_timer = 18
 max-visits: 3
 is-card: true
@@ -9,12 +9,12 @@ tags: party_affairs
 
 = Election Strategy
 
-In our media and campaign materials, who should we consider as our main opponents?
+New elections are now at most 6 months, away and preperations have already begun, in our media and campaign materials, who should we consider as our main opponents?
 
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
 - @bourgeois: The bourgeois parties - Venstre and the Conservatives.
-- @anti_dem: The populist parties of the far right and left - the DKP, VS[? if z_formed: , Z ?] [? if cd_formed: , CD ?] and KF.
+- @anti_dem: The populist parties of right and left - the DKP, VS [? if z_formed = 1 : , Z ?] and KF.
 - @Z_enemy: Mogens Glistrup.
 - @dkp: The left – SF, DKP and VS.
 - @easy_discard
