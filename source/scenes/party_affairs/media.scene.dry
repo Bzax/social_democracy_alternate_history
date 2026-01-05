@@ -4,14 +4,14 @@ is-card: true
 tags: party_affairs
 view-if: media_timer <= 0
 on-arrival: month_actions += 1; media_timer += 6;
-card-image: img/aktuelt.jpg
+card-image: img/aktuelt2.jpg
 #subtitle: Setting the direction for our newspapers and radio.
 
 = Media 
 
 In spite of the best work of our journalists, our media empire has seen better days. Nonetheless, we can still take a variety of actions...
 
-Current media health: [+ mediahealth : mediahealth +]
+*Current media health: [+ mediahealth : mediahealth +]*
 
 - @commercial
 - @investigative
@@ -27,6 +27,8 @@ title: Make our newspapers more commercialized by broadening their appeal beyond
 subtitle: This might upset some purists, but it may bring in funds and perhaps expose the middle class to socialist views.
 on-arrival: resources += 1; commercialized_media += 1; pettyb_a += 3; homeowner_a += 3*(1-globalization); public_homeowner_a += 3*(1-globalization); left_dissent += 10; left_worker_dissent += 5; mediahealth += 4
 
+*Current media health: [+ mediahealth : mediahealth +]*
+
 Our commercialized newspapers are able to bring in more funds. However, the left and some of the labor factions express their displeasure.
 
 @investigative
@@ -34,12 +36,16 @@ title: We will advance the class struggle by focusing on investigative journalis
 subtitle: This may alienate moderates, but perhaps returning to our roots is the answer?
 on-arrival: investigative_media += 1; prole_a += 7*(1 - globalization); homeowner_a += 4*(1 - globalization); public_prole_a += 5; public_homeowner_a += 1; technocrat_dissent += 8; right_worker_dissent += 5; mediahealth += 10
 
+*Current media health: [+ mediahealth : mediahealth +]*
+
 Our journalists are quick to heed the call, for better or for worse wider society quickly takes notice.
 
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
-subtitle: There will be space for all factions to air their views.
+subtitle: There will be space for all factions to air their views, reducing dissent.
 on-arrival: left_worker_dissent -= 4; right_worker_dissent -= 3; technocrat_dissent -= 8; left_dissent -= 8
+
+*Current media health: [+ mediahealth : mediahealth +]*
 
 This has been an important function of our media historically, and it has successfully paved over many tensions in our party. However, not all comrades are equally interested.
 
@@ -49,7 +55,7 @@ subtitle: We will investigate this along with our allies in the labor movement
 choose-if: radiolegal = 1
 unavailable-subtitle: This would be illegal as DR currently has a state monopoly on all radio broadcasting, but whose to say this wont change in the future?
 view-if: radio = 0
-on-arrival: radio += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1 - dissent); workers_spd += 2*(1 - dissent); technocrat_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; socialism += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; new_middle_spd += 4*efc; old_middle_spd += 3*efc; workers_spd += 2*efc; technocrat_dissent += 5; socialism += 3*efc; nationalism -= 3*efc if pacifism > 1; socialism += 3*efc if democratization > 1
 
 Since the end of DR's media monopoly various trade unions have already experimented with local channels with mixed sucess, perhaps what they need is name recognition? We will call some meetings.
 

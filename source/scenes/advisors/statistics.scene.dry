@@ -1,0 +1,187 @@
+title: Statistics
+is-pinned-card: true
+tags: advisor, centrist
+card-image: img/statist.jpg
+view-if: statistics = 1
+new-page: true
+on-display: {!
+
+Q.linegraph_start_year = 1970;
+
+if (d3 && window) {
+    // get screen width
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+    }
+    
+    // Election history (Danish parties)
+    var lines = d3.linegraph(false, false,
+            Q.parties,
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#a0a0a0', 'z': '#DCCA4A', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+    lines.width(width).height(400);
+
+    if (Q.election_records && Q.election_records.length > 0) {
+        d3.select("#election_history").datum(Q.election_records).call(lines);
+    }
+    //document.getElementById('election_history').innerHTML = svg.outerHTML;
+
+    // party support records should not have so many ticks
+    if (!Q.historical_mode || Q.game_over) {
+        var lines_2 = d3.linegraph(true, true,
+            Q.parties,
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#4B0082', 'z': '#fafe7a', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+        lines_2.width(width).height(400);
+        d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
+    }
+}
+!}
+
+= **Party support over time**
+
+The Monthly newspaper polls only tell us so much, but long term trends are still interesting.
+
+{!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
+
+- @election_historystat: Historical election results.
+
+@election_historystat
+on-display: {!
+Q.linegraph_start_year = 1945;
+
+data = [
+    {
+        "id": "dkp",
+        "legend": "DKP",
+        "name": "DKP",
+        "seats": Q.dkp_r*5,
+    }];
+if (Q.z_formed && Q.z_r) {
+    data.push({
+            "id": "z",
+            "legend": "Z",
+            "name": "Z",
+            "seats": Math.round(Q.z_r*5),
+            });
+}
+if (Q.cd_formed && Q.cd_r) {
+    data.push({
+            "id": "cd",
+            "legend": "CD",
+            "name": "CD",
+            "seats": Math.round(Q.cd_r*5),
+            });
+}
+data = data.concat([
+    {
+        "id": "a",
+        "legend": "Socialdemokratiet",
+        "name": "A",
+        "seats": Q.a_r*5,
+    },
+    {
+        "id": "b",
+        "legend": "B",
+        "name": "B",
+        "seats": Q.b_r*5,
+    },
+    {
+        "id": "c",
+        "legend": "C",
+        "name": "C",
+        "seats": Q.c_r*5,
+    },
+    {
+        "id": "sf",
+        "legend": "SF",
+        "name": "SF",
+        "seats": Q.sf_r*5,
+    },
+    {
+        "id": "kf",
+        "legend": "KF",
+        "name": "KF",
+        "seats": Q.kf_r*5,
+    },
+    {
+        "id": "rfb",
+        "legend": "RFB",
+        "name": "RFB",
+        "seats": Q.rfb_r*5,
+    },
+    {
+        "id": "vs",
+        "legend": "VS",
+        "name": "VS",
+        "seats": Q.vs_r*5,
+    }
+]);
+if (d3 && window) {
+    // get screen width
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+
+        document.getElementById("folketing").style.height = screenWidth/2 + "px";
+    }
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+
+    // draw into folketing svg (was #reichstag)
+    d3.select("#folketing").datum(data).call(parliament);
+
+    // Election history (Danish parties)
+    var lines = d3.linegraph(false, false,
+            Q.parties,
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#a0a0a0', 'z': '#DCCA4A', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+    lines.width(width).height(400);
+
+    if (Q.election_records && Q.election_records.length > 0) {
+        d3.select("#election_history").datum(Q.election_records).call(lines);
+    }
+    //document.getElementById('election_history').innerHTML = svg.outerHTML;
+
+    // party support records should not have so many ticks
+    if (!Q.historical_mode || Q.game_over) {
+        var lines_2 = d3.linegraph(true, true,
+            Q.parties,
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#4B0082', 'z': '#fafe7a', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+        lines_2.width(width).height(400);
+        d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
+    }
+
+    // economic stats
+    var minInflation = d3.min(Q.economic_records, d => d.inflation);
+    var maxUnemployment = d3.max(Q.economic_records, d => d.unemployment);
+    var lines_3 = d3.linegraph(true, true, ['inflation', 'unemployment'],
+            {'inflation': '#0000FF', 'unemployment': '#FF0000'},
+            {'inflation': 'Inflation', 'unemployment': 'Unemployment'},
+            maxUnemployment + 5, minInflation - 5, 21);
+    lines_3.width(width).height(300);
+    d3.select("#economic_history").datum(Q.economic_records).call(lines_3);
+}
+!}
+
+= **Election history**
+
+[? if year >= 1971 and month < 5 : No new elections yet. ?]
+
+{!<svg id="election_history" style="width: 500px; height: 400px;"> </svg>!}
+
+= **Economic history**
+
+{!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
+# TODO: maybe add textual histories too? some accessibility stuff as well...

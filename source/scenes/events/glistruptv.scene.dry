@@ -12,9 +12,9 @@ A jurist by the name of 'Mogens Glistrup', has revealed on national TV that not 
 
 His comments has led to widespread indignation, not only from good socialdemocrats, but also from conservatives and liberal politicians.
 
-- @hopefully: Thankfully the outrage is universal
+- @hopefully: Thankfully the outrage is universal.
 
 @hopefully
-on-arrival: glistrup_seen = 1; socialism -= 6; homeowner_a -= 4; public_homeowner_a -= 4; pettyb_a -= 2;
+on-arrival: glistrup_seen = 1; socialism -= 6; homeowner_a -= 5; public_homeowner_a -= 5; pettyb_a -= 2;
 
-...and this is the last we'll hear from him
+...and this is the last we'll hear from him.

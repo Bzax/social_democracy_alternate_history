@@ -13,7 +13,7 @@ The Reichsbanner has become increasingly militarized as of late, with ever-great
 - @keep_them: Can we convince them that a militant Reichsbanner is necessary for defending the Republic?
 
 @let_go
-on-arrival: a_members *= 0.9; z_relation -= 5; ddp_relation -= 5; rb_exit = 1; left_strength += 5*(1-dissent)
+on-arrival: a_members *= 0.9; z_relation -= 5; ddp_relation -= 5; rb_exit = 1; left_strength += 5*efc
 
 We have judged that the Reichsbanner's militancy is more important than maintaining a coalition with the Center Party and [+ ddp_name +]. The Reichsbanner members affiliated with these parties leave, while the left of the SPD is strengthened.
 

@@ -70,6 +70,6 @@ title: Cooperation with the KPD
 subtitle: Could we build closer ties with the KPD?
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; left_strength += 2; kpd_relation += 4*(1-dissent); right_worker_dissent += 2
+on-arrival: advisor_action_timer = 6; left_strength += 2; kpd_relation += 4*efc; right_worker_dissent += 2
 
 Stampfer works towards closer ties with the KPD through our media.

@@ -41,7 +41,7 @@ unavailable-subtitle: This can only happen with a budget surplus.
 go-to: urge_success if dvp_relation >= 30 and z_relation >= 40; urge_failure if dvp_relation < 30 or z_relation < 40
 
 @urge_success
-on-arrival: welfare += 1; budget -= 1; workers_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); z_relation -= 3; dvp_relation -= 3; right_worker_dissent -= 5; left_worker_dissent -= 5; technocrat_dissent -= 5;
+on-arrival: welfare += 1; budget -= 1; workers_spd += 5*efc; unemployed_spd += 5*efc; z_relation -= 3; dvp_relation -= 3; right_worker_dissent -= 5; left_worker_dissent -= 5; technocrat_dissent -= 5;
 
 We have successfully urged the coalition parties to increase social spending! Unfortunately, the center-right parties increasingly see us as a nuisance, and might not wish to continue these negotiations.
 
@@ -53,7 +53,7 @@ Unfortunately, our negotiations have met with failure. The center-right parties 
 
 @improve_relations
 title: Improve relations with the parties of the coalition.
-on-arrival: z_relation += 5*(1-dissent); dvp_relation += 4*(1-dissent); left_dissent += 5;
+on-arrival: z_relation += 5*efc; dvp_relation += 4*efc; left_dissent += 5;
 
 We have increased our level of contact and discussions with the parties of the coalition, primarily the Center Party and DVP.
 

@@ -408,8 +408,8 @@ div.blank-card {
   position: absolute;
   visibility: hidden;
   width: 150px;
-  max-width: 200px;
-  font-size: 0.9em;
+  max-width: 180px;
+  font-size: 0.8em;
   z-index: 2;
   padding: 0.2em;
   border: 1px solid var(--border-color);
@@ -613,13 +613,51 @@ table {
 }
 
 .tooltip-text {
-  color: #255794;
+  /* good blue! #255794; */
+  color: #000000;
   cursor: help;
-  user-select: none;    
+  text-decoration: dotted underline;
+  user-select: none;
+  position: relative; /* anchor */
+}
+
+/* New tooltip box (reads from data-tooltip, which we'll auto-fill from title) */
+.tooltip-text[data-tooltip]::after {
+  content: attr(data-tooltip);
+  white-space: pre-line; /* \n becomes line breaks */
+  display: none;
+
+  position: absolute;
+  left: 0;
+  top: 1.8em;
+  z-index: 9999;
+
+  /* similar styling to your existing UI */
+  background-color: var(--content-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+
+  /* smaller text */
+  font-size: 0.82em;
+  line-height: 1.25;
+
+  padding: 0.35em 0.5em;
+  border-radius: 4px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+
+  width: max-content;
+  max-width: 170px;
+  pointer-events: none;
+}
+
+.tooltip-text[data-tooltip]:hover::after,
+.tooltip-text[data-tooltip]:focus::after {
+  display: block;
 }
 
 /* Optional: make highlight slightly different on hover */
 .tooltip-text:hover {
+  color: #255794;
   text-decoration: underline;
 }
 

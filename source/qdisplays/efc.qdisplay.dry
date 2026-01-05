@@ -2,7 +2,8 @@
 (..0.6) <span style="color: darkred;">Kaput!</span>
 (0.6..0.79) <span style="color: darkred;">broken</span>
 (0.8..0.9) <span style="color: darkorange;">dysfunctional</span>
-(0.9..1.1) <span style="color: darkorange;">average</span>
-(1.1..1.19) <span style="color: darkgreen;">well-oiled</span>
-(1.2..) <span style="color: seagreen;">turbocharged</span>
+(0.9..1.1) <span style="color: darkorange;">sputtering</span>
+(1.100001..1.25) <span style="color: darkgreen;">running</span>
+(1.250001..1.39) <span style="color: darkgreen;">well-oiled</span>
+(1.4..) <span style="color: seagreen;">turbocharged</span>
 

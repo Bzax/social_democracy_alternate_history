@@ -66,7 +66,7 @@ The Reichsbanner number at [+ a_members +] thousand; many are in Berlin to count
 
 
 @fight_2_win
-on-arrival: coup_progress = 0; sa_strength *= 0.7; sh_strength *= 0.7; a_members *= 0.9; workers_nsdap -= 12*(1-dissent); unemployed_nsdap -= 10*(1-dissent); new_middle_nsdap -= 6*(1-dissent); workers_spd += 8*(1-dissent); unemployed_spd += 6*(1-dissent); socialism += 15
+on-arrival: coup_progress = 0; sa_strength *= 0.7; sh_strength *= 0.7; a_members *= 0.9; workers_nsdap -= 12*efc; unemployed_nsdap -= 10*efc; new_middle_nsdap -= 6*efc; workers_spd += 8*efc; unemployed_spd += 6*efc; socialism += 15
 achievement: drei_pfeile
 
 Our forces confront the fascists, and somehow, the fascists retreat! They were overwhelmed by our display of strength, and have chosen to slink away. The attempted coup is over, at least for now.
@@ -74,7 +74,7 @@ Our forces confront the fascists, and somehow, the fascists retreat! They were o
 The show of force has reinvigorated support for the republic and for the SPD, and has weakened the fascists.
 
 @fight_2_win_2
-on-arrival: coup_progress = 0; socialism += 5; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 2*(1-dissent); new_middle_nsdap -= 2*(1-dissent); a_members *= 0.9; sa_strength *= 0.9; sh_strength *= 0.9
+on-arrival: coup_progress = 0; socialism += 5; workers_nsdap -= 2*efc; unemployed_nsdap -= 2*efc; new_middle_nsdap -= 2*efc; a_members *= 0.9; sa_strength *= 0.9; sh_strength *= 0.9
 
 # if march on Berlin has already been seen
 

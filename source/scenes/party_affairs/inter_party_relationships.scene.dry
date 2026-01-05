@@ -101,12 +101,12 @@ Now is not the right time. The Communists are dissapointed at this.
 
 
 @dkp_2
-on-arrival: dkp_relation += 8*(1 - dissent); communist_coalition += 1 if dkp_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 3; dvp_relation -= 3
+on-arrival: dkp_relation += 8*efc; communist_coalition += 1 if dkp_inter_party_seen <= 1; right_worker_dissent += 2; z_relation -= 3; dvp_relation -= 3
 
 After the experience of the government supported by the KPD, they are much more amenable to us.
 
 @dkp_blutmai
-on-arrival: dkp_relation += 3*(1 - dissent); right_worker_dissent += 1
+on-arrival: dkp_relation += 3*efc; right_worker_dissent += 1
 
 After our rapproachment with America, reconciling with the Communists is difficult, nevertheless, we try our best.
 
@@ -118,17 +118,17 @@ on-arrival: resources -= 1; z_relation += 2 if z_party_leader == "Joos"
 go-to: center_op if b_in_government = 1 and a_in_government = 0 and chancellor != "Brüning"; center_coalition if a_in_government = 1 and b_in_government = 1; center_bruning if chancellor = "Brüning"
 
 @center_op
-on-arrival: z_relation += 5*(1 - dissent)
+on-arrival: z_relation += 5*efc
 
 We are currently in opposition to the bourgeois government, but that does not preclude the general building of feelings of good will.
 
 @center_coalition
-on-arrival: z_relation += 8*(1 - dissent)
+on-arrival: z_relation += 8*efc
 
 We are currently coalition partners with them, so improving relations comes naturally.
 
 @center_bruning
-on-arrival: z_relation += 5*(1 - dissent)
+on-arrival: z_relation += 5*efc
 
 The Brüning semi-autocratic regime makes building friendly relations difficult, but not impossible.
 
@@ -147,7 +147,7 @@ on-arrival: b_relation += 5*(1 - globalization)
 We are currently in opposition to the bourgeois government, but that does not preclude the general building of feelings of good will.
 
 @liberal_coalition
-on-arrival: z_relation += 8*(1 - dissent)
+on-arrival: z_relation += 8*efc
 
 We are currently coalition partners with them, so improving relations comes naturally.
 

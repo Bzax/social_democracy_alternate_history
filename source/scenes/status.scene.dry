@@ -14,7 +14,9 @@ if (Q.economic_growth) {
 }
 !}
 
-= **Status**
+= **Politics**
+
+Date: [? if valg != 1 and has_event = 0: [+ month : month +] [+ year +] ?] [? if valg = 1 and has_event = 0:[+ week : week +] week of the campaign ?] [? if valg != 1 and has_event = 1: Between [+ month - 1 : month +] and [+ month : month +] ?] [? if valg = 1 and has_event = 1 : End of [+ week - 1 : week +] week of the campaign ?] <br>Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 Our position: [? if spd_toleration : toleration ?][? if a_in_government : in government - ?][? if spd_toleration == 0 and a_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and a_in_government: Weimar Coalition ?][? if in_grand_coalition and a_in_government: Grand Coalition ?][? if in_popular_front and a_in_government: Popular Front ?][? if in_left_front and a_in_government: Left Front ?][? if in_spd_majority and a_in_government: SPD majority ?][? if in_minority_government and a_in_government: minority government ?][? if in_emergency_government and a_in_government: emergency government ?]
@@ -25,29 +27,30 @@ Our position: [? if spd_toleration : toleration ?][? if a_in_government : in gov
 
 [? if a_in_government == 1 : Budget: [+ budget +] ?]
 
-= **Inter-party Relations**
+**Inter-party Relations**<br>{!<span class="tooltip-text" title="Socialdemokratiet \n(lit. 'The Socialdemocracy'). \n\nIdeology: \nSee factions, under the 'Party' tab.">A</span>!}: This is you!
 
-{!<span class="tooltip-text" title="Venstre">V</span>!}: [+ v_relation : relationships +]
+{!<span class="tooltip-text" title="Venstre \n(lit.'Left')\n\nIdeology: \nLiberalism, Agrarianism, Business Interests, Social-Liberalism (factions).">V</span>!}: [+ v_relation : relationships +]
 
-{!<span class="tooltip-text" title="Conservative Peoples Party">C</span>!}: [+ c_relation : relationships +]
+{!<span class="tooltip-text" title="Konservativt Folkeparti \n(lit. 'Conservative Peoples Party').\n\nIdeology: \nConservatism, Business Interests, National Conservatism (factions), Social Conservatism (factions).">C</span>!}: [+ c_relation : relationships +]
 
-{!<span class="tooltip-text" title="Radikale Venstre (lit.'the Radical Left)">B</span>!}: [+ b_relation : relationships +]
+#based on the program from 1977 https://digitalesamlinger.kb.dk/pamphlets/dasmaa/2008/feb/partiprogrammer/object18197/da/#kbOSD-0=page:2
+{!<span class="tooltip-text" title="Radikale Venstre \n(lit.'The Radical Left').\n\nIdeology: \nSocial-liberalism, Anti-Militarism, Liberal Socialism (factions), Georgism (factions).">B</span>!}: [+ b_relation : relationships +]
 
-{!<span class="tooltip-text" title="Socialist Peoples Party">SF</span>!}: [+ sf_relation : relationships +]
+{!<span class="tooltip-text" title="Socialistisk Folkeparti \n(lit. 'Socialist Peoples Party').\n\nIdeology: \nMarxism, Revolutionary Reformism, Catalyst-Theory, Anti-Imperialism, Anti-Atlanticism, New Left (factions).">SF</span>!}: [+ sf_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Denmark">DKP</span>!}: [+ dkp_relation : relationships +]
+{!<span class="tooltip-text" title="Danmarks Kommunistiske Parti \n(lit. 'Communist Party of Denmark')..\n\nIdeology: \nMarxism-Leninism, Communism, Anti-Imperialism, Anti-Atlanticism, Revolutionary Reformism (factions).">DKP</span>!}: [+ dkp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Venstre-Socialisterne (lit. 'the Left-Socialists')">VS</span>!}: [+ vs_relation : relationships +]
+{!<span class="tooltip-text" title="Venstre-Socialisterne \n(lit. 'the Left-Socialists').\n\nIdeology: \nMarxism, New-Left, Left-Communism, Revolutionary Socialism, Abstentionist (factions), Situationist (factions).">VS</span>!}: [+ vs_relation : relationships +]
 
-{!<span class="tooltip-text" title="Retsforbundet (lit. 'the Justice League')">RFb</span>!}: [+ rfb_relation : relationships +]
+{!<span class="tooltip-text" title="Retsforbundet \n(lit. 'the Justice League').\n\nIdeology: \nGeorgism, Social-Liberalism, Liberal Socialism (factions).">RFb</span>!}: [+ rfb_relation : relationships +]
 
-{!<span class="tooltip-text" title="Kristeligt Folkeparti (lit. 'Christian Peoples Party')">KF</span>!}: [+ KF_relation : relationships +]
+{!<span class="tooltip-text" title="Kristeligt Folkeparti \n(lit. 'Christian Peoples Party').\n\nIdeology: \nChristian Democracy, Opposition to Abortion, Cultural Conservatism.">KF</span>!}: [+ KF_relation : relationships +]
 
-[? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet">Z</span>!}: [+ z_relation : relationships +]?]
+[? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet \n(lit. 'The Progress Party').\n\nIdeology: \nLibertarianism, Right-Wing Populism.">Z</span>!}: [+ z_relation : relationships +]?]
 
-= **Government**
+[? if cd_formed > 0 : {!<span class="tooltip-text" title="Centrum-Demokraterne \n(lit. 'The Center Democrats').\n\nIdeology: \nWorkerism, Homeowner Interests, Car Owner Interests, Rindallism.">Z</span>!}: [+ z_relation : relationships +]?]
 
-Prime Minister: [+ chancellor +] ([+ chancellor_party +])
+**Government**<br>Prime Minister: [+ chancellor +] ([+ chancellor_party +])
 
 Monarch: [+ president +]
 
@@ -71,8 +74,6 @@ Folketing composition:
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
-Next election: [+ next_election_month : month +] [+ next_election_year +]
-
 @politics
 on-arrival: {!
 Q.a_members_disp = Q.a_members.toFixed(2);
@@ -85,41 +86,37 @@ Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 
 = **The Party**
 
-Overall strength of party-machine: [+ efc : efc +]
-
 Resources available: [+ resources +]
+
+{!<span class="tooltip-text" title="The strength of our party-machine is our most important metric – it acts as a multiplier for many actions we take. \n\nFirst and foremost it is a product of the size and activity of our membership. However, a strong proffesional bureaucracy and an effective media apparatus can partially compensate for a weaker membership.">Party-machine</span>!}: [+ efc : efc +]
+
+{!<span class="tooltip-text" title="A proffesional bureaucracy can help compensate for a weaker membership, however the professionalisation of our bureaucracy also discourages party activity.">Bureaucracy</span>!}: [+ a_bureau : a_bureau +]
 
 **Membership**
 
-Membership count: [+ a_members_disp +]0
+{!<span class="tooltip-text" title="Our membership count is negatively affected by our internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ a_members_disp +]0
 
 Last six weeks: [+ a_memberdecline_disp +]
 
-Level of activity: [+ a_activity : a_activity +]
+{!<span class="tooltip-text" title="The level of activity among our members is negatively affected by the proffesionalization of our bureaucracy and trends downwards over time. \nIt is positively affected by elections, party congresses as well as investment and reliance on from leadership. Our youth movement is especially active. ">Level of activity</span>!}: [+ a_activity : a_activity +]
 
-**Apparatus**
+**Factions**<br>Overall dissent: [+ dissent : dissent+]
 
-Bureaucracy: [+ a_bureau : a_bureau +]
+{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.\n\nIdeology: Democratic Socialism, Marxism, Anti-Atlanticism, New-Left, Modernism.">SDS</span>!} strength: [+ left_strength_disp +]%, <br>dissent: [+ left_dissent : dissent +]
 
-Health of our media: [+ mediahealth : mediahealth +]
+{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.\n\nIdeology: Democratic Socialism, Keynesianism, Reformist Marxism, Trade-Unionism.">Left-Workerists</span>!} strength: [+ left_worker_strength_disp +]%, <br>dissent: [+ left_worker_dissent : dissent +]
 
-**Factions**
+{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.\n\nIdeology: Democratic Socialism, Keynesianism, Pragmatism, Modernism.">Technocrats</span>!} strength: [+ technocrat_strength_disp +]%, <br>dissent: [+ technocrat_dissent : dissent +]
 
-Overall dissent: [+ dissent : dissent+]
-
-{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.">SDS</span>!} strength: [+ left_strength_disp +]%, dissent: [+ left_dissent : dissent +]
-
-{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.">Left-Workerists</span>!} strength: [+ left_worker_strength_disp +]%, dissent: [+ left_worker_dissent : dissent +]
-
-{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.">Technocrats</span>!} strength: [+ technocrat_strength_disp +]%, dissent: [+ technocrat_dissent : dissent +]
-
-{!<span class="tooltip-text" title="Right-Workerists are sceptical of the parties to our left, the youth movement and modernist culture. They seek to expand the welfare state, stregnthen our unions and protect the interests of homeowners.">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, dissent: [+ right_worker_dissent : dissent +]
+{!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]
 
 = **Broader movement**
 
-Union Relations: eager
+Health of workers media: [+ mediahealth : mediahealth +]
 
-Health of the cooperatives: [+ cooperativehealth : cooperativehealth +]
+Union Relations: [+ labor_relations : labor_relations +]
+
+Health of cooperatives: [+ cooperativehealth : cooperativehealth +]
 
 
 @paramilitaries
@@ -186,34 +183,32 @@ Q.nationalism_disp = Math.round(Q.nationalism);
 Q.rigidity_disp = Math.round(Q.rigidity);
 !}
 
-= **Most recent poll**
+= **Polls**
 
-Published by: [+ newspaper : newspaper +]
+**Most Recent Poll**<br>Published by: [+ newspaper : newspaper +]<br>*"If the election were to be held tomorrow who would you vote for?"*
 
-*"If the election were to be held tomorrow who who would you vote for?"*
+Socialdemokratiet: *[+ a_votesdisp +]%*
 
-Socialdemokratiet: [+ a_votesdisp +]%
+[? if z_formed: Z: *[+ z_votesdisp +]%* ?]
 
-[? if z_formed: Z: [+ z_votesdisp +]% ?]
+Venstre: *[+ v_votesdisp +]%*
 
-Venstre: [+ v_votesdisp +]%
+Konservative Folkeparti: *[+ c_votesdisp +]%*
 
-Konservative Folkeparti: [+ c_votesdisp +]%
+Kristeligt Folkeparti: *[+ kf_votesdisp +]%*
 
-Kristeligt Folkeparti: [+ kf_votesdisp +]%
+DKP: *[+ dkp_votesdisp +]%*
 
-DKP: [+ dkp_votesdisp +]%
+Radikale Venstre: *[+ b_votesdisp +]%*
 
-Radikale Venstre: [+ b_votesdisp +]%
+[? if cd_formed: CD: *[+ cd_votesdisp +]%* ?]
 
-Socialistisk Folkeparti: [+ sf_votesdisp +]%
+Socialistisk Folkeparti: *[+ sf_votesdisp +]%*
 
-Venstresocialisterne: [+ vs_votesdisp +]%
+Venstresocialisterne: *[+ vs_votesdisp +]%*
 
-Retsforbundet: [+ rfb_votesdisp +]%
+Retsforbundet: *[+ rfb_votesdisp +]%*
 
-Others: [+ others_votesdisp +]%
+Others: *[+ others_votesdisp +]%*
 
-*other polling*
-
-Support for ØD: [+ socialism_disp +]%
+**Other Polling**<br>Support for ØD: *[+ socialism_disp +]%*

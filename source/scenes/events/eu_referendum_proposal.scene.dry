@@ -9,14 +9,14 @@ on-arrival:
 
 = An EEC referendum?
 
-Should the {!<span class="tooltip-text" title="Our own stance towards EEC-membership is still undecided. Chairman [+ chairman +] and the technocrats have consistently advocated for our membership in the past, but all other factions are still on the fence.">European question</span>!} be decided at a public referendum? Some of our more moderate members have gotten assurances from the bourgeois parties that they would accept such a proposal, but only if we're the ones putting it forward.
+Should the {!<span class="tooltip-text" title="Our own stance towards EEC-membership is still undecided. Chairman Kragh, the right-workerists and the technocrats have consistently advocated for our membership in the past, but other factions remain more than a little sceptical.">European question</span>!} be decided at a public referendum? Some of our electeds have been assured by the bourgeois parties that as long as we're the ones putting it forward, that they would accept such a proposal.
 
-The referendum would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the scheduled parliamentary elections</span>!}.
+A hypothetical referendum would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the scheduled parliamentary elections</span>!}.
 
-[+ chairman +]
+How should we proceed? 
 
-- @yes_referendum: A referendum is a great idea, let the people decide
-- @no_referendum: We would rather decide ourselves
+- @yes_referendum: A referendum is a sensible idea, let the people decide.
+- @no_referendum: We would rather decide ourselves.
 
 @yes_referendum
 on-arrival: eu_referendum += 1; dissent -= 10;

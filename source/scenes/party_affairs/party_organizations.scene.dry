@@ -42,7 +42,7 @@ on-arrival: resources -= 1; workers_aid += 1; prole_a += 2*(efc); homeowner_a +=
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; cultural_organizations += 1; left_dissent -= 6; right_worker_dissent -= 6; technocrat_dissent -= 6; right_worker_dissent -= 6; a_activity += 0.02
+on-arrival: resources -= 1; cultural_organizations += 1; left_dissent -= 6; right_worker_dissent -= 6; technocrat_dissent -= 6; right_worker_dissent -= 6; a_activity += 2
 
 Our political party is little without its members, those who tirelessly work to keep our party-movement alive in song and action. However due to daily stresses and competition from the capitalist entertainment sector, only a small amount of our membership is active at any given point. By allocating more money to the budgets of local chapters, we may be able to do something to improve the situation.
 
@@ -60,7 +60,7 @@ We have organized a recruitment drive among our traditional audiences. [? if dis
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; memberrise += 1; a_activity += 0.06; young_socialists += 1; left_strength += 5; left_dissent -= 5; right_worker_dissent += 3
+on-arrival: resources -= 1; memberrise += 1; a_activity += 6; young_socialists += 1; left_strength += 5; left_dissent -= 5; right_worker_dissent += 3
 
 DSU appreciates our funding and quickly puts most of it to use in a flashy campaign. Towns all over the country are painted red with posters, even if some of our more moderate comrades slightly squirm at their demands.
 

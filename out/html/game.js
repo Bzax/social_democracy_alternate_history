@@ -254,3 +254,26 @@
   };
 
 }());
+(function () {
+  function upgrade(el) {
+    const raw = el.getAttribute("title");
+    if (raw == null) return;
+
+    // turn literal "\n" into real newlines
+    const text = String(raw).replace(/\\n/g, "\n");
+
+    el.setAttribute("data-tooltip", text);
+    el.removeAttribute("title"); // stop native tooltip
+  }
+
+  // Upgrade on hover/focus (works for dynamically added content)
+  document.addEventListener("mouseover", (e) => {
+    const el = e.target && e.target.closest ? e.target.closest(".tooltip-text[title]") : null;
+    if (el) upgrade(el);
+  }, true);
+
+  document.addEventListener("focusin", (e) => {
+    const el = e.target && e.target.closest ? e.target.closest(".tooltip-text[title]") : null;
+    if (el) upgrade(el);
+  }, true);
+})();

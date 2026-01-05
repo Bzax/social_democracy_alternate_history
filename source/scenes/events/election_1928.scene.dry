@@ -124,8 +124,9 @@ var TOTAL_SEATS = 179;
 var NORTH_ATLANTIC_SEATS = 4;
 var PROP_SEATS = TOTAL_SEATS - NORTH_ATLANTIC_SEATS;
 
+// Ensure seats_int exists for all parties
 for (var party of Q.parties) {
-    Q[party + '_seats_int'] = 0;
+  Q[party + '_seats_int'] = 0;
 }
 
 var eligible = [];
@@ -161,9 +162,7 @@ if (eligible.length > 0 && sumShares > 0) {
     }
 }
 
-Q['northatlantic_seats_int'] = NORTH_ATLANTIC_SEATS;
-
-// ...existing code...
+Q.northatlantic_seats_int = NORTH_ATLANTIC_SEATS;
 !}
 on-display: {! 
 // Integer seat lookup (computed in on-arrival)
@@ -243,8 +242,12 @@ Q.has_dkp = seatsCount('dkp') > 1 ? 1 : 0;
 Q.has_vs  = seatsCount('vs')  > 1 ? 1 : 0;
 Q.has_rfb = seatsCount('rfb') > 0 ? 1 : 0;
 Q.has_kf  = seatsCount('kf')  > 0 ? 1 : 0;
+
 // leverage
 Q.leverage = seatsCount('a')/1.79
+
+// election push
+Q.election_records.push(election_result);
 !}
 
 = The New Folketing
@@ -381,7 +384,7 @@ Rødkløver (KF + A + B): [+ roedkloever +]/90
 @sr
 title: Revive the AB Government.
 subtitle: A + B ([+ sr +]/90 Seats) [? if sr <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
-unavailable-subtitle: A + B ([+ sr +]/90 Seats) [? if b_relation <= 45 : – We do not have good enough relations with SF. ?]
+unavailable-subtitle: A + B ([+ sr +]/90 Seats) [? if sr <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?] [? if b_relation <= 45 : – We do not have good enough relations with Radikale Venstre. ?]
 view-if: sr >= 65
 choose-if: (( sr >= 86)) and (b_relation >= 45)
 
@@ -412,33 +415,36 @@ The North Atlantic electeds agree to support us (this is WIP).
 @sr_break_up
 on-arrival: b_relation -= 4
 
-The leadership of B is quite offended, but we hope this was the right call.
+The leadership of B is quite offended, but negotiations are called off. 
+
+We hope this was the right call.
 
 - @coalition_menu: what are our other options?
 
 @sr_burning
-choose-if: arbejderflertal >= 90 or na_mandate = 1
+choose-if: sr >= 90 or na_mandate = 1
 unavailable-subtitle: A and B does not have a majority outright. It needs the support of [? if (sr == 86) : all ?] [? if (sr != 86) : some ?] of the North Atlantic Mandates.
 
 Under what form should our cooperation with Radikale Venstre take place?
 
 - @sr_government: Radikale Venstre should join us in government.
 - @sr_informal: We should pursue a socialdemocratic minority government.
+- @sr_break_up: No actually lets not do any of this!
 
 
 @sr_government
 subtitle: Radikale would appreciate this
-unavailable-subtitle: Our relations with SF are not high enough.
 on-arrival: a_in_government = 1; in_sr = 1; chancellor = "Kragh"; chancellor_party = "A"; b_relation += 8; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
-choose-if: (b_relation >= 50)
 
 [? if (b_relation <= 70): After some performative deliberation, B agrees to enter government with us. ?][? if (b_relation >= 70): Their leadership seems excited and are quick to share their visions of government with us.?]
 
 - @ministries: Who this will benefit is an open question.
 
 @sr_informal
-subtitle: B will not enter government.
-on-arrival: a_in_government = 1; b_relation -= 5; leverage += 50; redcabinet = 1; in_left_front = 1; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 10; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+subtitle: B will simply be asked to support us in parliament.
+on-arrival: a_in_government = 1; b_relation -= 5; leverage += 50; redcabinet = 0; in_left_front = 0; chancellor = "Kragh"; chancellor_party = "A"; sf_relation += 10; coup_progress += 2; in_popular_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+unavailable-subtitle: B will simply be asked to support us in parliament. – Our relations with Radikale Venstre are not high enough.
+choose-if: b_relation >= 50
 
 Radikale Venstre is not happy with our choice, but nonetheless they agree. 
 

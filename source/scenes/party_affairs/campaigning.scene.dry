@@ -3,25 +3,34 @@ new-page: true
 on-arrival: month_actions += 1
 max-visits: 36
 is-card: true
-card-image: img/arbejde.jpg
+card-image: img/campaign3.jpg
 frequency: 100
 tags: party_affairs
 
 = Campaigning
 
-Whether or not we are in an electoral campaign, the party is always trying to broaden its membership and voterbase. Who should we focus our campaign efforts on?
+Whether or not we are in an electoral campaign, the party is constantly producing new flyers and handouts. Who should we focus our campaign efforts on?
 
-- @workers: The proletarians, our traditional base.
-- @public: Public sector workers, who have felt neglected by us in the past.
-- @private: Private sector workers, the backbone of the workers movement.
-- @homeowners: The "new middle class" of homeowning workers.
+- @workers: The working class, our traditional base.
 - @rural: The "old middle class" of small business owners and independent farmers.
 - @unemployed: The unemployed.
 - @youth: Students and the broader youth.
+- @capitalists: The property owning capitalist class.
 - @root: We either don't want to or cannot campaign right now.
 - @easy_discard
 
 @workers
+
+The workers can no longer be said to consist of a single social unit (if this was ever the case), the capitalist division of labour has created a series of sub-strata. 
+
+Who should we chiefly focus on?
+
+- @tenants: The workers who rent their homes.
+- @public: Public sector workers, who have felt neglected by us in the past.
+- @private: Private sector workers, the backbone of the workers movement.
+- @homeowners: The "new middle class" of homeowning workers.
+
+@tenants
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
@@ -57,7 +66,7 @@ By doubling down on the protection of state mortgages and stable socialist leade
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_a += 5*(1-globalization); rural_spd -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2
+on-arrival: rural_a += 5*(1-globalization); rural_spd -= 3*efc if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*efc if rural_policy >= 2
 
 By promising protection against banks and multinationals, we have increased our campaigning among the small businessowners in the city as well as countryside. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
 
@@ -65,7 +74,7 @@ By promising protection against banks and multinationals, we have increased our 
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_a += 6*(1-globalization); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_spd += 3*(1-dissent) if welfare >= 2;
+on-arrival: unemployed_a += 6*(1-globalization); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd += 6*efc if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_spd += 3*efc if welfare >= 2;
 
 By promising public works programs and stable socialist leadership, we have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
 
@@ -73,7 +82,16 @@ By promising public works programs and stable socialist leadership, we have incr
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_a += 4*(1.1-globalization); prole_a += 2; public_prole_a += 1; rural_a +=2
+on-arrival: unemployed_a += 4*(1-globalization); prole_a += 2; public_prole_a += 1; rural_a +=2
 
 By focussing on our comitment to international social justice, we have increased our campaigning among the youth.
 
+@capitalists
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: c_relation += 5; v_relation += 5; left_dissent += 15; left_worker_dissent += 8; right_worker_dissent += 2; technocrat_dissent += 5; capitalist_a += 10;
+
+The tiny class of capitalists constitutes barely 2% of society. By focussing our campaign on the superiority of private property relations and the ascession into the EEC, we can begin to repair relations with this social group.
+
+Given that fighting the interests of this class constitutes the core of our identity, much of our membership simply refuses to take part in this campaign. Nonetheless, we do notice the relations with some of the bourgeois parties improve.

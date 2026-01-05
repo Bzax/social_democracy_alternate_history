@@ -12,9 +12,83 @@ set-bg: img/Background-train.jpg
 @start_menu_2
 
 - @start: Start game
+- @Context: Premise
 - @election_simulation: Election simulation
 - @credits: Credits
 - @game_over.achievements
+
+@Context
+
+In '**Red Zenit: An alternative History**' you play as the Danish Social Democrats through the Oil Crisis and transition into late-modern politics. The game is called 'Red Zenit' because in real life the 1970s was the absolute peak of the Danish workers movement. As other historical classes faded, the unity of the workers movement became harder to maintain as internal contradictions was starting to cause division. The working class was now divided between property owners and tenants, as well as public/private workers. 
+
+Can you preserve mass politics while surviving the onslaught of neo-liberalism? Can you leverage the strength of the workers movement to build a socialist majority? 
+
+The aim is for the game to last quite a bit longer than the other ones in the socdem expanded universe (ideally it would last into the early 1990s), with broader demographic changes occuring as a consequence of the players choices while in government. But for now the aim is just to make the game work up until the irl earthquake election of december 1973 as a demo/proof of concept.
+
+- @historyroot: Political history of the Danish Workers Movement (before 1970).
+- @start_menu_2: Return
+
+@historyroot
+
+= History of Modern Denmark (and workers movement)
+
+**1848**: Amidst the civil war with German nationalists in Holstein and the broader revolutionary wave washing over Europe, the Danish King permits liberals to organize a constitutional assembly. Denmark adopts its June-Constititution the following year.
+
+**1866**: The relatively liberal June-constitution is abolished. The 'revised constitution' shrinks the upper house suffrage significantly, extremely strict property and wealth requirements are put in place. 
+
+**1871**: The International Workers Association in Denmark is formed by Louis Pio. Louis Pio and the original leadership are jailed soon thereafter suffering extremely rough conditions, eventually the Socialdemocrats grow to become the largest party in Denmark.
+
+**1885**: Disagreements between Venstre and Højre leads the Council-President to repeatedly dismiss the folketing, inaugurating the 'Estrup dictatorship'.
+
+**1899**: The 'September-agreement' is signed by the national workers and capital confederations, sometimes considered the constitution for the Danish labor market. It set the precedent of Danish unions and danish employers independently settling their scores, independently of state actions. Later the independent 'work-court' was set in place to set in place to settle disagreements between the employer and trade-union organizations. The Danish class-struggle became highly institutionalized, it paved the way for the near universal organization of the working class.
+
+**1913**: The first government reliant on socialdemocratic mandates is established. Radikale Venstre ('B'), a party at the time representing the rural proletariat and the urban intelligentsia became the ruling party.
+
+**1914**: The Great War begins. Denmark successfully stays neutral.
+
+**1915**: Denmark gains its first Democratic constitution: for the first time suffrage is expanded to include women and servants, as property and wealth requirements for the upper house too are abolished.
+
+**1918**: Denmark sees the biggest strikewaves in its history as inequality reaches its all time high. A turning point is reached, and Danish inequality begins to fall.
+
+**1919**: The Danish Communist party is founded.
+
+**March 1920**: The Danish king deposes the Socialdemocratic supported prime-minister and installs his own government. The Socialdemocrats consider it a coup d'etat in violation of the constitution and calls a general strike, the army is mobilised against them, the copenhagen municipal government sides with the deposed government. Under pressure from the labor movement the king ends up calling new elections.
+
+**July 1920**: Northern Schlesvig is reunited with Denmark as a result of the treaty of Versailles.
+
+**1924**: The first social-democratic government is formed, Thorvald Stauning becomes prime minister.
+
+**1930**: The World Crisis hits Denmark. Unemployment skyrockets, reaching 40% in some occupations.
+
+**1933**: The 'sociallov' is passed, guaranteeing Danish workers one week of paid vacation a year, recipients of welfare are likewise granted the right to vote for the first time.
+
+**1935**: In the elections to the folketing, the Socialdemocrats gain 46,1% of the vote. Its best results to date.
+
+**1940**: Denmark is invaded by Nazi-Germany. The four established parties, Venstre, Radikale Venstre, the Conservatives and the Social-Democrats – decide to align their economic, defense and foreign policy to Nazi-German interests. In exchange the Danish national institutions were preserved.
+
+**1941**: The 'kommunistlov' is passed, the Danish Communist Party is forcibly dissolved. Despite the Nazi-Germany only demanding 76 arrested, more than 300 communists are interned by Danish police. The now underground Danish Communist Party initiate the Danish resistance movement.
+
+**March 1943**: The only national elections held anywhere in Nazi-occupied Europe take place in Denmark.
+
+**August 1943**: The Communist organized 'August Rising' erupts, 17 Danish cities are shut down by general strikes and coordinated sabotage efforts. As a result Nazi-Germany demands martial law and the reintroduction of the death penalty, the government of national unity refuses. As a result the Danish policy of cooperation with the Nazis concludes, and an unelected purely administrative rule takes its place.
+
+**September 1943**: Nazi-Germany orders the deportation of the 8.000 Danish Jews to concentration camps, thanks to many administrative leaks and the simple fact that almost all Danish Jews lived in close proximity to the border of neutral Sweden. 7.500 Danish Jews successfully flee, 473 Jews are deported to the Theresienstadt Concentration camp.
+
+**1945**: Denmark is freed from Nazi-German occupation. Fearing eclipse from the Danish Communist Party, unification talks are initiated between the DKP and socialdemocrats. The talks Collapse. DKP gains 12,5% of the vote in the national elections later that year.
+
+**1950s**: The Danish economy takes off, the welfare state is slowly established through great reforms initiated by the Social-Democrats.
+
+**1953**: A new constitution abolishes the Danish upper house, the 'colony' status of Greenland and allows members of parliament to call referendums on laws by being able to gather 33% of the vote.
+
+**1956**: The Soviet invasion of Hungary leads the leader of the Communist Party of Denmark to found the 'Socialist Peoples Party' (SF). A party whose stated aim was to win a socialist majority and push the socialdemocrats left in order to abolish capitalism and ultimately create a neutral socialist Denmark.
+
+**1961**: A new Socialdemocratic party programme is adopted, replacing the former more orthodox program from 1913. The party now describes itself as 'Democratic Socialist', which it defines as "...the antithesis to capitalism and dictatorship".
+
+**1966**: For the first time, socialist parties gain a majority in the Danish parliament. The 'Red Cabinet' is formed as an inter-party coordinating body between the parties.
+
+**1967**: The left-wing of the Socialist Peoples Party breaks off, votes to overthrow the government and forms the 'Left-Socialists' (VS). A Center-Bourgious government is elected, lead by Hilmar Baunsgaard.
+
+- @start_menu_2: Return
 
 
 @start
@@ -51,10 +125,10 @@ Q.dissent_percent = 5;
 
 // Party indicators
 Q.efc = 0.8
-Q.a_activity = 1
-Q.a_bureau = 0.025
+Q.a_activity = 100
+Q.a_bureau = 25
 Q.mediahealth = 50
-Q.a_memberdecline = 1.3
+Q.membermonthly = 0.681
 Q.memberrise = 0
 
 //Homeownership
@@ -68,7 +142,7 @@ Q.gdp = 100
 Q.globalization = 0.0;
 
 //broader movement
-Q.labor_relations = 80
+Q.labor_relations = 68
 Q.union_density = 86
 Q.cooperativehealth = 1 
 
@@ -168,7 +242,7 @@ Q.prussian_government = "SPD";
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.a_members = 177.5;
+Q.a_members = 177.500;
 Q.rb_militancy = 0.01;
 Q.women_in_rb = 0;
 Q.rb_banned = 0;
@@ -464,7 +538,38 @@ Q.z_r = 0;
 Q.ddp_name = "DDP";
 
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
-Q.election_records = [];
+Q.election_records = [
+  // Post-war elections (Denmark proper — excluding Faroe & Greenland)
+
+  { date: "1945-10-30", a: 32.78, v: 23.38, c: 18.24, b: 8.15, sf: 0.00, dkp: 12.46, vs: 0.00, rfb: 1.88, kf: 3.11, others: 0.00, z: 0, cd: 0, northatlantic: 0 },
+  // 1945: Social Democrats 32.78, Venstre 23.38, Conservatives 18.24, DKP 12.46, Radikale 8.15, Retsforbundet 1.88, Dansk Samling (KF) 3.11. :contentReference[oaicite:1]{index=1}
+
+  { date: "1947-10-28", a: 40.02, v: 27.58, c: 12.44, b: 6.92, sf: 0.00, dkp: 6.77, vs: 0.00, rfb: 4.54, kf: 0.00, others: 1.73, z: 0, cd: 0, northatlantic: 0 },
+  // 1947: Social Democrats 40.02, Venstre 27.58, Conservatives 12.44, Radikale 6.92, DKP 6.77, Retsforbundet 4.54, Others ~1.73. :contentReference[oaicite:2]{index=2}
+
+  { date: "1950-09-05", a: 39.59, v: 21.33, c: 17.78, b: 8.18, sf: 0.00, dkp: 4.60, vs: 0.00, rfb: 8.22, kf: 0.00, others: 0.28, z: 0, cd: 0, northatlantic: 0 },
+  // 1950: Social Democrats 39.59, Venstre 21.33, Conservatives 17.78, Radikale 8.18, Justice Party 8.22, DKP 4.60. :contentReference[oaicite:3]{index=3}
+
+  { date: "1953-04-21", a: 40.39, v: 22.06, c: 17.31, b: 8.64, sf: 0.00, dkp: 4.78, vs: 0.00, rfb: 5.62, kf: 0.00, others: 0.20, z: 0, cd: 0, northatlantic: 0 },
+  // 1953: Social Democrats 40.39, Venstre 22.06, Conservatives 17.31, Radikale 8.64, Justice 5.62, DKP 4.78. :contentReference[oaicite:4]{index=4}
+
+  { date: "1957-05-14", a: 39.40, v: 25.06, c: 16.62, b: 7.78, sf: 0.00, dkp: 3.13, vs: 0.00, rfb: 5.31, kf: 0.00, others: 3.70, z: 0, cd: 0, northatlantic: 0 },
+  // 1957: Social Democrats 39.40, Venstre 25.06, Conservatives 16.62, Radikale 7.78, DKP 3.13, Justice & minors in others. :contentReference[oaicite:5]{index=5}
+
+  { date: "1960-11-15", a: 42.10, v: 21.05, c: 17.92, b: 5.80, sf: 6.14, dkp: 0.00, vs: 0.00, rfb: 0.00, kf: 0.00, others: 6.99, z: 0, cd: 0, northatlantic: 0 },
+  // 1960: Social Democrats 42.10, Venstre 21.05, Conservatives 17.92, SF 6.14, Radikale 5.80, Independent & Schleswig in others. :contentReference[oaicite:6]{index=6}
+
+  { date: "1964-09-22", a: 41.94, v: 20.82, c: 20.06, b: 5.31, sf: 5.76, dkp: 0.00, vs: 0.00, rfb: 0.00, kf: 0.00, others: 6.11, z: 0, cd: 0, northatlantic: 0 },
+  // 1964: Social Democrats ~41.94, Venstre 20.82, Conservatives 20.06, Radikale ~5.31, SF ~5.76. :contentReference[oaicite:7]{index=7}
+
+  { date: "1966-11-22", a: 38.26, v: 19.29, c: 18.68, b: 7.30, sf: 10.90, dkp: 0.00, vs: 0.00, rfb: 0.00, kf: 0.00, others: 5.57, z: 0, cd: 0, northatlantic: 0 },
+  // 1966: Social Democrats 38.26, Venstre 19.29, Conservatives 18.68, SF 10.90, Radikale 7.30, Liberal Centre & others in others. :contentReference[oaicite:8]{index=8}
+
+  { date: "1968-01-23", a: 34.15, v: 18.57, c: 20.35, b: 14.97, sf: 6.11, dkp: 0.00, vs: 2.00, rfb: 0.74, kf: 0.00, others: 3.11, z: 0, cd: 0, northatlantic: 0 },
+  // 1968: Social Democrats 34.15, Conservatives 20.35, Venstre 18.57, Radikale 14.97, SF 6.11, VS (Left Socialists) 2.00, RFB ~0.74, others. :contentReference[oaicite:9]{index=9}
+];
+
+
 // party support records for every month
 Q.party_support_records = [];
 // inflation and unemployment records
@@ -678,9 +783,36 @@ Q.sh_ban_timer = 0;
 Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 
+Q.a_votesdisp = 30.1
+
+Q.z_votesdisp = 0
+
+Q.v_votesdisp = 14.7
+
+Q.c_votesdisp = 15.3
+
+Q.kf_votesdisp = 2.2
+
+Q.dkp_votesdisp = 1.1
+
+Q.b_votesdisp = 17.1
+
+Q.cd_votesdisp = 0
+
+Q.sf_votesdisp = 7.1
+
+Q.vs_votesdisp = 1.6
+
+Q.rfb_votesdisp = 1.5
+
+// Pinned cards – Party bereaucracy?
+Q.statistics = 1;
+
+//linegraph start year
+Q.linegraph_start_year = 1970;
+
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 0; // Otto Wels
 Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
@@ -726,7 +858,9 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 
  - Anker Jørgensen, 2007
 
-This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a game, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
+
+This game was made as a total conversion mod of Automn Chens amazing 'Social Democracy: An alternative History' game which I'd also recommend you try out.
 
 For more information on the politics and government of Denmark during the period, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
 
