@@ -10,7 +10,7 @@ face-image: img/kongres.jpg
 
 Boasting more than a million members, LO is an organizational behemoth representing nearly half the national workforce. For the first time in half a decade, the congress assembles, the athmosphere is electric.
 
-The room goes quit as the chairman rises; "today will be historic". He and the rest of the central commitee has advanced the program of 'Økonomisk Demokrati' (Economic Democracy, 'ØD'). A plan to legally acquire 51% of every single business in Denmark over a period of 10 years. According to the union leaders, the policy of ØD represents the culmination of 100 years of struggle.
+The room goes quit as the chairman rises. He and the rest of the central commitee has advanced the program of 'Økonomisk Demokrati' (Economic Democracy, 'ØD'). A plan to legally acquire 51% of every single business in Denmark over a period of 10 years. According to the union leaders, the policy of ØD represents the culmination of 100 years of struggle.
 
 Hands rise across the hall, a forest of consent. When they fall again, the verdict is clear: the program has carried, by an overwhelming majority.
 
@@ -31,7 +31,7 @@ In this way the plan is to take the first decisive step out of capitalism in ord
 - @ODskeptic: In a surprising turn of events, our party leadership disavows ØD. 
 
 @ODsupport
-on-arrival: ODsupport=1; socialism += 10; left_strength += 5; left_dissent -= 10; left_worker_strength += 5; left_worker_dissent -= 5; homeowner_a += 3; prole_a += 4; rural_a -= 4; capitalist_a -= 10; v_relation -= 20; c_relation -= 30; b_relation -= 10; labor_relations += 5;
+on-arrival: oed_support = 1; socialism += 10; left_strength += 5; left_dissent -= 10; left_worker_strength += 5; left_worker_dissent -= 5; homeowner_a += 3; prole_a += 4; rural_a -= 4; capitalist_a -= 10; v_relation -= 20; c_relation -= 30; b_relation -= 10; labor_relations += 5;
 subtitle: Let the ruling classes tremble...
 
 The goal of socialism finally seems tangible, and within reach... We have a feeling this decision will be very important.

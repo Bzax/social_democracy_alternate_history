@@ -16,9 +16,11 @@ if (Q.economic_growth) {
 
 = **Politics**
 
-Date: [? if valg != 1 and has_event = 0: [+ month : month +] [+ year +] ?] [? if valg = 1 and has_event = 0:[+ week : week +] week of the campaign ?] [? if valg != 1 and has_event = 1: Between [+ month - 1 : month +] and [+ month : month +] ?] [? if valg = 1 and has_event = 1 : End of [+ week - 1 : week +] week of the campaign ?] <br>Next election: [+ next_election_month : month +] [+ next_election_year +]
+Date: [? if valg != 1 and has_event = 0: [+ month : month +] [+ year +] ?] [? if valg = 1 and has_event = 0:[+ week : week +] week of the campaign ?] [? if valg != 1 and has_event = 1: Between [+ month - 1 : month +] and [+ month : month +] ?] [? if valg = 1 and has_event = 1 : End of [+ week - 1 : week +] week of the campaign ?]
 
-Our position: [? if spd_toleration : toleration ?][? if a_in_government : in government - ?][? if spd_toleration == 0 and a_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
+Next election: No later than [+ next_election_month : month +] [+ next_election_year +]
+
+Current position: [? if spd_toleration : toleration ?][? if a_in_government : in government - ?][? if spd_toleration == 0 and a_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and a_in_government: Weimar Coalition ?][? if in_grand_coalition and a_in_government: Grand Coalition ?][? if in_popular_front and a_in_government: Popular Front ?][? if in_left_front and a_in_government: Left Front ?][? if in_spd_majority and a_in_government: SPD majority ?][? if in_minority_government and a_in_government: minority government ?][? if in_emergency_government and a_in_government: emergency government ?]
 
 [? if a_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
@@ -172,7 +174,7 @@ Balance of Payments:<br>-2.3% of GDP
 
 Inflation:<br> [+ inflation_2 +]%
 
-[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
+[? if oil_crisis_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
 
 Impact of globalization:<br> [+ globalizationdisp : globalization +]
 

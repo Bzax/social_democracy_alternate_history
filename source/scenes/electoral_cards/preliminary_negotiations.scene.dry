@@ -1,0 +1,189 @@
+title: Government Negotiations
+new-page: true
+on-arrival: month_actions += 1
+max-visits: 36
+is-card: true
+card-image: img/aof.jpg
+frequency: 100
+tags: - #election_campaign
+
+= Government Negotiations
+
+With the election approachings, now is the final time to improve our standing with the other parties.
+
+- @who_approach: who should we approach?
+
+
+@who_approach
+
+[? if poll_arbejderflertal >= 45 : The workers majority currently looks plausible, with the latest polls having us at [+ poll_arbejderflertal +]% perhaps we should approach SF? ?]
+
+[? if poll_arbejderflertal >= 45 and poll_sr >= 46 : In addition... ?] 
+
+[? if poll_sr >= 45 : We may be able to form a coalition with Radikale Venstre if the polls hold, currently it looks like around [+ poll_sr +]% of voters would support either one of our parties. Should we act on it? ?]
+
+[? if poll_arbejderflertal_plus >= 47 : A broad workers majority currently [? if poll_arbejderflertal >= 46 or poll_sr >= 46 : also ?] looks likely, with the latest polls having us at [+ poll_arbejderflertal_plus +]%.<br> However, a government based solely on such a coalition would be unpopular among many in our party. ?]
+
+We could also simply conserve our energy, and attend to other matters.
+
+
+- @SFapproach: We should approach SF.
+- @sr_coop: We should approach Radikale Venstre.
+- @bourgious_coop: What would the Venstre and Conservatives say if we were to...
+- @broad_left_approach: Let us approach the left.
+- @root: We either don't want to or cannot campaign right now.
+- @easy_discard
+
+@SFapproach
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: sf_relation >= 40
+view-if: poll_arbejderflertal >= 45
+unavailable-subtitle: SF are disinterested in talks.
+on-arrival: sf_relation += 10
+
+[? if vs_n_seen = 1 : SF are somewhat unsettled as we tell of our previous approach with their main competitors. ?]
+
+The SF leadership are satisfied with our approach, they asure us that a socialist coalition with them is the only way to fully implement our domestic policy aims.
+
+- @propose_government: They should join us in government.
+- @propose_cabinet: Propose to revive the red cabinet.
+- @propose_informal: We should go for a case-by-case partnership.
+
+@propose_government
+on-arrival: sf_relation += 10; sf_government_promise = 1
+choose-if: sf_relation >= 60
+unavailable-subtitle: SF would not accept this.
+
+The SF leadership would only accept this under certain conditions.
+
+The SF leadership proposes a joint election program.
+
+- @sf_election_program: We accept.
+- @sf_election_program_no: we cannot accept this.
+
+@propose_cabinet
+on-arrival: sf_relation += 10; sf_cabinet_promise = 1
+choose-if: sf_relation >= 60
+unavailable-subtitle: SF would not accept this.
+
+@propose_informal
+unavailable-subtitle: This goes against the findings of our joint programme – SF would not accept this.
+choose-if: sf_rectified_history > 1
+
+The SF leadership proposes a joint election program.
+
+- @sf_election_program: We accept.
+- @sf_election_program_no: we cannot accept this.
+
+@sf_election_program
+on-arrival: right_worker_dissent += 9; technocrat_dissent += 5; left_dissent -= 6; left_worker_dissent -= 4; sf_realation += 5; prole_a += 5; prole_sf += 7; homeowner_a += 4; homeowner_sf += 2; public_homeowner_a += 3; public_homeowner_sf += 4; public_prole_a += 4; public_prole_sf += 8; unemployed_a += 5; unemployed_sf += 5; c_relation -= 5; v_relation -= 5; b_relation -= 5
+
+
+@sf_election_program_no
+on-arrival: sf_realation -= 5
+
+SF express their dissapointment.
+
+@bourgious_coop
+choose-if: v_relation >= 40 or c_relation >= 40
+unavailable-subtitle: Relations are too low – They would say no.
+
+Perhaps we could utilize the internal rivalry between Venstre and the Conservatives to form a coalition across the aisle. Some believe, such a coalition may be able to secure lasting [? if oil_crisis_seen = 0 : gains? ?][? if oil_crisis_seen = 1 : deal with the current crisis? ?]
+
+[? if poll_sv >= 45 : We may be able to form a coalition with Venstre if the polls hold, currently it looks like around [+ poll_sv +]% of voters would support either one of our parties. Should we act on it? ?]
+
+[? if poll_sc >= 45 : We may be able to form a coalition with the conservatices if the polls hold, currently it looks like around [+ poll_sc +]% of voters would support either one of our parties. Should we act on it? ?]
+
+- @sv_negotiation: Let us approach Venstre.
+- @sc_negotiation: Let us approach the Conservatives.
+- @who_approach: Actually, let's not do this.
+
+@sv_negotiation
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: v_relation >= 50
+view-if: poll_sv >= 45
+unavailable-subtitle: V are disinterested in talks.
+on-arrival: v_relation += 10
+
+@sc_negotiation
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: c_relation >= 50
+view-if: poll_sc >= 45
+unavailable-subtitle: C are disinterested in talks.
+on-arrival: c_relation += 10
+
+@broad_left_approach
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: vs_relation >= 40 and (dkp_relation >= 40 and sf_relation >= 40)
+view-if: poll_arbejderflertal_plus >= 47
+unavailable-subtitle: The smaller left wing parties despise us too much.
+
+- @dkp_negotiation: Let us approach the communists.
+- @vs_negotiation: Let us approach the left-socialists.
+
+@vs_negotiation
+choose-if: vs_n_seen != 1
+unavailable-subtitle: We have already dealt with them.
+go-to: vs_negotiation2 if vs_relation > 60; vs_laugh if vs_relation < 60
+
+@vs_laugh
+on arrival: vs_relation += 3; vs_n_seen = 1
+
+The VS leadership are amused at our approach, they assure us that they *propably* wont vote against us.
+
+@vs_negotiation2
+on arrival: vs_relation += 6; vs_n_seen = 1
+
+VS express their willingness to support our government.
+
+- @dkp_negotiation: now for the communists...
+
+@dkp_negotiation
+choose-if: dkp_n_seen != 1
+unavailable-subtitle: We have already dealt with them.
+on arrival: dkp_relation += 6; dkp_n_seen = 1
+
+DKP appreciates our overtures, they assure us that they will not vote against us in domestic policies.
+
+- @vs_negotiation: now for the left-socialists...
+- @turn_sf: Now for SF.
+
+@turn_sf
+view-if: vs_n_seen = 1 and dkp_n_seen = 1
+go-to: SFapproach
+
+@sr_coop
+subtitle: This could improve our relationship ahead of the actual negotiations.
+choose-if: b_relation >= 40
+view-if: poll_sr >= 45
+unavailable-subtitle: B are completely disinterested in talks.
+
+Around a cramped table we meet with their leaders. 
+
+[? if chancellor_party = B : Before we get to make our case, B express that they are not looking to give up on their prime ministership, and that they will campaign to keep it with a bourgious majority. Nonetheless, if a bourgious majority is not maintained... ?]
+
+Smoke fills the room...
+
+- @b_coop_taxing: Perhaps we can compromise on our taxing policy?
+- @b_potential: ...Express our willingness to cooperate in such a scenario...
+- @b_no_potential: ...Then we will make use of our left majority!
+
+
+@b_coop_taxing
+view-if: chancellor_party != 'B'
+
+@b_potential
+view-if: chancellor_party = 'B'
+on-arrival: b_relation += 15; b_coop_promise = 1
+
+The B leaders are pleased to hear this. If the die are cast in our favour, they express their willingness to negotiate further.
+
+@b_no_potential
+go-to: who_approach
+on-arrival: b_relation -= 5; v_relation -= 5; c_relation -= 5; capitalists_a -= 1;
+
+In that case the B leadership sees no point in our meeting. 
+
+Soon afterwards we notice relations decrease with the bourgious parties.
+
+

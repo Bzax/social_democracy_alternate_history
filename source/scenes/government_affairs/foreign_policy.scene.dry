@@ -97,7 +97,7 @@ title: Form a customs union with Austria?
 subtitle: This will likely incur the wrath of France.
 unavailable-subtitle: This is superseded by the European Union.
 choose-if: eu = 0
-view-if: black_thursday_seen = 1 and customs_union = 0
+view-if: oil_crisis_seen = 1 and customs_union = 0
 
 The right has long desired closer ties with Austria, with the eventual goal of the merger of the two German-speaking countries. A customs union with Austria is the first step towards this goal. Additionally, many believe that a union with Austria would improve our current economic circumstances.
 
@@ -127,7 +127,7 @@ Negotiations procede smoothly for the most part. The Western powers are convince
 @reduce_reparations
 title: The Western Allies are finally willing to pause our reparations payments!
 subtitle: Our negotiations have been successful.
-view-if: reparations_negotiation >= 3 and black_thursday_seen == 1 and reparations > -2
+view-if: reparations_negotiation >= 3 and oil_crisis_seen == 1 and reparations > -2
 on-arrival: west_relation += 1; reparations = -2; budget += 2 if hoover_memorandum_seen == 0; budget += 1 if hoover_memorandum_seen == 1; coalition_dissent -= 1 if coalition_dissent > 0; workers_spd += 8*efc; old_middle_spd += 5*efc; new_middle_spd += 5*efc; rural_spd += 5*efc; coup_progress -= 2 if coup_progress > 2; economic_growth += 0.7; economic_growth += 0.5 if economic_growth < 0
 max-visits: 1
 
@@ -192,7 +192,7 @@ Forming a "United States of Europe" has long been part of the Social Democratic 
 @european_union_2
 title: We can sign a treaty to form a European Union!
 view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2
-on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*efc; new_middle_spd += 5*efc; old_middle_spd += 5*efc; rural_spd += 4*efc; catholics_spd += 4*efc; unemployed_spd += 4*efc; socialism += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
+on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*efc; new_middle_spd += 5*efc; old_middle_spd += 5*efc; rural_spd += 4*efc; catholics_spd += 4*efc; unemployed_a += 4*efc; socialism += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
 max-visits: 1
 achievement: eu
 

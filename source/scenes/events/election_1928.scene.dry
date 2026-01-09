@@ -358,14 +358,15 @@ audio: music/1970_1973/Victor_og_socialdemokratiet.mp3
 - @far_right_coalition
 - @no_majority
 - @sr
-- @broad_arbejderflertal
 - @arbejderflertal
 - @right_coalition
 - @unorthodox: Perhaps we should think outside the box?
 
 @unorthodox
 
-Technically these coalitions could work?
+To varying degrees these arrangements would cause uproar among certain party-factions, but perhaps they may be necessary or even desirable?
+
+Broad Arbejderflertal: [+ arbejderflertal_plus +]/90
 
 A + V: [+ sv +]/90
 
@@ -375,8 +376,7 @@ A + C: [+ sk +]/90
 Rødkløver (KF + A + B): [+ roedkloever +]/90
 ?]
 
-- @arbejderflertal
-- @sr
+- @broad_arbejderflertal
 - @no_majority
 
 # TODO: black-brown coalition
@@ -450,10 +450,10 @@ Radikale Venstre is not happy with our choice, but nonetheless they agree.
 
 @broad_arbejderflertal
 title: Is a broad socialist coalition possible?
-subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ broad_arbejderflertal +]/90 Seats) [? if broad_arbejderflertal <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
-unavailable-subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ broad_arbejderflertal +]/90 Seats). [? if dkp_relation < 50 : We do not have adequate relations with the KPD. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
-view-if: broad_arbejderflertal >= 86
-choose-if: (dkp_relation >= 50 or (kpd_party_leader == "Conciliators" and kpd_relation >= 40)) and vs_relation >= 50
+subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ arbejderflertal_plus +]/90 Seats) [? if arbejderflertal_plus <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
+unavailable-subtitle: A + SF [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ arbejderflertal_plus +]/90 Seats). [? if cs_relation < 50 : We do not have adequate relations with VS. ?] [? if dkp_relation < 50 : We do not have adequate relations with the DKP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
+view-if: arbejderflertal_plus >= 75
+choose-if: arbejderflertal_plus >= 86 and (dkp_relation >= 50 and vs_relation >= 50)
 
 There are enough votes for a broad socialist coalition, if such a thing was actually possible.
 
@@ -469,6 +469,7 @@ go-to: coalition_menu
 
 
 @left_coalition_possible
+on-arrival: right_worker_dissent += 12; technocrat_dissent += 7; left_worker_dissent += 3; v_relation -= 4; c_relation -= 6
 
 The KPD is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
 
@@ -1209,7 +1210,7 @@ if (Q.socialism < 36) {
     Q.z_relation -= 5;
     Q.dvp_relation -= 5;
     Q.workers_spd *= 0.85;
-    Q.unemployed_spd -= 2;
+    Q.unemployed_a -= 2;
     Q.new_middle_spd -= 5;
     Q.old_middle_spd -= 5;
     Q.rural_spd -= 5;

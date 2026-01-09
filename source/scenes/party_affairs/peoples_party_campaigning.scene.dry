@@ -31,13 +31,13 @@ As a people's party, we represent farmers and rural workers as well, and they ar
 
 @campaign_unemployed
 title: Campaign among the unemployed.
-on-arrival: unemployed_spd += 5*efc;
+on-arrival: unemployed_a += 5*efc;
 
 As a people's party, the urban poor are still a key part of our constituency.
 
 @campaign_women
 title: Campaign among women of all classes.
-on-arrival: workers_spd += 3*efc; new_middle_spd += 3*efc; old_middle_spd += 3*efc; rural_spd += 3*efc; unemployed_spd += 3*efc;
+on-arrival: workers_spd += 3*efc; new_middle_spd += 3*efc; old_middle_spd += 3*efc; rural_spd += 3*efc; unemployed_a += 3*efc;
 
 As a people's party, we represent women of all classes.
 

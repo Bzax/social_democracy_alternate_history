@@ -1,7 +1,7 @@
 title: Education & Science
 new-page: true
 is-card: true
-view-if: a_in_government and spd_prussia and chancellor_party = "SPD" and education_science_timer = 0 and (black_thursday_seen = 0 or return_to_normalcy = 1)
+view-if: a_in_government and spd_prussia and chancellor_party = "SPD" and education_science_timer = 0 and (oil_crisis_seen = 0 or return_to_normalcy = 1)
 on-arrival: education_science_timer += 9; month_actions += 1
 card-image: img/portraits/EinsteinAlbert.jpg
 go-to: ed_menu
@@ -130,7 +130,7 @@ The SPD, [+ ddp_name +], DVP, and KPD vote in favor of secular education, overco
 title: Increase educational opportunities for the working class by funding public high schools.
 subtitle: -1 budget
 choose-if: budget >= 1
-on-arrival: budget -= 1; public_hs += 1; workers_spd += 6*efc; unemployed_spd += 3*efc; prussian_police_loyalty += 0.04; education_science += 0.5; unemployed -= 0.2; economic_growth += 0.2; socialism += 4*efc;
+on-arrival: budget -= 1; public_hs += 1; workers_spd += 6*efc; unemployed_a += 3*efc; prussian_police_loyalty += 0.04; education_science += 0.5; unemployed -= 0.2; economic_growth += 0.2; socialism += 4*efc;
 max-visits: 3
 
 # this makes the bureaucracy more proletarian
@@ -191,7 +191,7 @@ Our educational curriculum should be focused on the humanities, including arts, 
 @vocational_major
 title: Vocational curriculum
 subtitle: Useful technical skills for future careers
-on-arrival: curriculum_timer = 50; major_curriculum = "vocational"; dvp_relation += 3*efc; ddp_relation += 3*efc; workers_spd += 4*efc; rural_spd += 2*efc; unemployed_spd += 3*efc; new_middle_spd -= 1; unemployed -= 0.1; education_science += 0.5
+on-arrival: curriculum_timer = 50; major_curriculum = "vocational"; dvp_relation += 3*efc; ddp_relation += 3*efc; workers_spd += 4*efc; rural_spd += 2*efc; unemployed_a += 3*efc; new_middle_spd -= 1; unemployed -= 0.1; education_science += 0.5
 go-to: curriculum_minor
 
 Education should be focused on providing a useful hands-on education, and teach the skills that will be most useful for students' future lives.
@@ -244,7 +244,7 @@ Our educational curriculum should be focused on the humanities, including arts, 
 title: Vocational curriculum
 subtitle: Useful technical skills for future careers
 view-if: major_curriculum != "vocational"
-on-arrival: minor_curriculum = "vocational"; education_science += 0.3; workers_spd += 3*efc; unemployed_spd += 2*efc;
+on-arrival: minor_curriculum = "vocational"; education_science += 0.3; workers_spd += 3*efc; unemployed_a += 2*efc;
 
 Education should be focused on providing a useful hands-on education, and teach the skills that will be most useful for students' future lives.
 

@@ -2,7 +2,7 @@ title: High Inflation
 subtitle: Workers are seeing their purchasing power decline.
 view-if: inflation >= 7 and high_inflation_timer = 0 and a_in_government
 new-page: true
-on-arrival: capital_strike_progress += 1; workers_spd -= 4; old_middle_spd -= 6; new_middle_spd -= 6; rural_spd -= 5; unemployed_spd -= 4; high_inflation_timer = 6; high_inflation_timer = 4 if inflation > 8; high_inflation_timer = 2 if inflation >= 10; socialism -= 5; old_middle_nsdap += 2; new_middle_nsdap += 2; rural_nsdap += 2
+on-arrival: capital_strike_progress += 1; workers_spd -= 4; old_middle_spd -= 6; new_middle_spd -= 6; rural_spd -= 5; unemployed_a -= 4; high_inflation_timer = 6; high_inflation_timer = 4 if inflation > 8; high_inflation_timer = 2 if inflation >= 10; socialism -= 5; old_middle_nsdap += 2; new_middle_nsdap += 2; rural_nsdap += 2
 tags: event
 
 = High Inflation
@@ -23,12 +23,12 @@ on-arrival: upper_tax_rates += 1; lower_tax_rates += 1; budget += 2; unemployed 
 Raising taxes is unpopular among everyone, but it might be what it takes to keep inflation under control.
 
 @welfare
-on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; unemployed += 1.5; new_middle_spd += 4*efc; old_middle_spd += 4*efc; workers_spd -= 5; unemployed_spd -= 5; inflation -= 1; left_dissent += 5; technocrat_dissent += 5; left_worker_dissent += 5; kpd_coalition_dissent += 1; economic_growth -= 0.4
+on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; unemployed += 1.5; new_middle_spd += 4*efc; old_middle_spd += 4*efc; workers_spd -= 5; unemployed_a -= 5; inflation -= 1; left_dissent += 5; technocrat_dissent += 5; left_worker_dissent += 5; kpd_coalition_dissent += 1; economic_growth -= 0.4
 
 Reducing the amount of government spending should reduce the inflation rate, according to classical economics. But it imposes pain upon the people who are suffering the most.
 
 @price_controls
-on-arrival: capital_strike_progress += 3; inflation -= 3; coalition_dissent += 1; unemployed += 1; old_middle_spd -= 4; new_middle_spd -= 3; rural_spd -= 5; workers_spd -= 2; unemployed_spd += 3; technocrat_dissent += 6; dvp_relation -= 6; z_relation -= 4; ddp_relation -= 4; economic_growth -= 0.4
+on-arrival: capital_strike_progress += 3; inflation -= 3; coalition_dissent += 1; unemployed += 1; old_middle_spd -= 4; new_middle_spd -= 3; rural_spd -= 5; workers_spd -= 2; unemployed_a += 3; technocrat_dissent += 6; dvp_relation -= 6; z_relation -= 4; ddp_relation -= 4; economic_growth -= 0.4
 
 Price controls are very unpopular with the bourgeoisie and their representatives, as well as rural producers, while wage controls hurt organized workers. However, the policies do stem the tide of inflation, at least somewhat.
 

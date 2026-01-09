@@ -1,7 +1,7 @@
 title: War erupts in the Middle East
 subtitle: An oil crisis takes shape...
 new-page: true
-on-arrival: black_thursday_seen = 1; rigidity -=25; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
+on-arrival: oil_crisis_seen = 1; rigidity -=25; unemployed += 2; budget -= 1 if budget > 0; dues -= 1 if dues > 2; inflation -= 1; economic_growth -= 1;
 tags: event
 view-if: year = 1973 and month == 6
 max-visits: 1

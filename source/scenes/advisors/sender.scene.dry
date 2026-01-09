@@ -50,7 +50,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 @crisis
 title: Addressing the economic crisis
 subtitle: Sender can help support a left-wing economic program.
-choose-if: advisor_action_timer <= 0 and nationalization_adopted == 0 and black_thursday_seen == 1 and nationalization_support <= 3
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?][? if nationalization_adopted > 0 : We have already adopted the Left plan. ?]
+choose-if: advisor_action_timer <= 0 and nationalization_adopted == 0 and oil_crisis_seen == 1 and nationalization_support <= 3
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if oil_crisis_seen == 0 : We are not currently in an economic crisis. ?][? if nationalization_adopted > 0 : We have already adopted the Left plan. ?]
 on-arrival: advisor_action_timer = 6;
 go-to: crisis_program.support_left

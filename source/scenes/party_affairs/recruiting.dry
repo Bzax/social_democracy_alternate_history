@@ -28,7 +28,7 @@ Our party membership is the life-force of our politics, but as the trade union m
 choose-if: resources >= rb_militarization_cost
 unavailable-subtitle: Not enough resources ([+ rb_militarization_cost +] needed).
 subtitle: -[+ rb_militarization_cost +] resources
-on-arrival: resources -= rb_militarization_cost; rb_investment += 1; memberrise += 0.4*efc*(1/1-globalization); rb_militancy += 0.05; left_strength += 2; left_dissent -= 2; right_worker_dissent += 5; spd_militancy += 0.05; workers_spd += 2*efc; unemployed_spd += 2*efc; z_relation -= 5 if historical_mode 
+on-arrival: resources -= rb_militarization_cost; rb_investment += 1; memberrise += 0.4*efc*(1/1-globalization); rb_militancy += 0.05; left_strength += 2; left_dissent -= 2; right_worker_dissent += 5; spd_militancy += 0.05; workers_spd += 2*efc; unemployed_a += 2*efc; z_relation -= 5 if historical_mode 
 
 Some in our party decry the increasing militarization of the Reichsbanner. They say it is emulating the right-wing nationalists or the communists, and risks alienating our allies in the centrist parties. On the other hand, more left-leaning radicals are being lured to our organizations, away from the communists.
 

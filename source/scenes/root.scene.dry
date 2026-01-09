@@ -211,10 +211,10 @@ Q.moderate_plan_adopted = 0;
 
 // inter-party relations
 Q.b_relation = 40;
-Q.sf_relation = 60;
+Q.sf_relation = 53;
 Q.v_relation = 33;
 Q.c_relation = 30;
-Q.vs_relation = 40;
+Q.vs_relation = 39;
 Q.dkp_relation = 46;
 Q.rfb_relation = 55;
 Q.kf_relation = 40;
@@ -224,7 +224,7 @@ Q.cd_relation = 30;
 Q.sf_leader = "Sigurd Ømann";
 // alternative is the Conciliators as party leader
 Q.sf_party_leader = "Sigurd Ømann";
-Q.dkp_leader = "knud Jespersen";
+Q.dkp_leader = "Knud Jespersen";
 Q.z_leader = "Brüning";
 // party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
 Q.z_party_leader = "Marx";
@@ -569,6 +569,9 @@ Q.election_records = [
   // 1968: Social Democrats 34.15, Conservatives 20.35, Venstre 18.57, Radikale 14.97, SF 6.11, VS (Left Socialists) 2.00, RFB ~0.74, others. :contentReference[oaicite:9]{index=9}
 ];
 
+//aesthetic
+Q.city = Math.random()
+Q.newspaper = Math.random()
 
 // party support records for every month
 Q.party_support_records = [];

@@ -65,7 +65,7 @@ By promising protection against banks and multinationals, we have increased our 
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; unemployed_a += 6*(1-globalization); resources -= 2; unemployed_spd -= 3 if welfare < 0; unemployed_spd += 6*efc if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_spd += 3*efc if welfare >= 2;
+on-arrival: resources -= 2; unemployed_a += 6*(1-globalization); resources -= 2; unemployed_a -= 3 if welfare < 0; unemployed_a += 6*efc if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_a += 3*efc if welfare >= 2;
 
 By promising public works programs and stable socialist leadership, we have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
 

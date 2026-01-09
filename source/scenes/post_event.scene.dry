@@ -37,8 +37,9 @@ for (var c of Q.classes) {
     }
 }
 
-//random newspaper (for the poll)
+//random aesthetic variables
 Q.newspaper = Math.random()
+Q.city = Math.random()
 
 //statistical uncertainty to polls
 // Add random uncertainty to polling results
@@ -567,8 +568,8 @@ if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.socialism <=
     if (Q.workers_spd_normalized > 40) {
         Q.workers_spd -= 6/12;
     }
-    if (Q.unemployed_spd_normalized > 20) {
-        Q.unemployed_spd -= 6/12;
+    if (Q.unemployed_a_normalized > 20) {
+        Q.unemployed_a -= 6/12;
     }
     if (Q.new_middle_spd_normalized > 20) {
         Q.new_middle_spd -= 6/12;

@@ -1,0 +1,50 @@
+title: Minister A.C. Normann implicated in deadly car crash.
+view-if: year == 1971 and valg == 1 and week >= 2
+frequency: 1000
+max-visits: 1
+on-arrival: {!
+addsupport('homeowning_workers','b', -2); addsupport('middle_class','b',-2); addsupport('middle_class','v',+2)
+!}
+tags: event
+new-page: true
+face-image: img/crash2.jpg
+
+= Minister A.C. Normann implicated in deadly car crash.
+
+On his way to work, minister of fisheries and elected from Radikale Venstre, A. C. Normann tragically crashed into a car in the opposite lane. The car that was hit contained four young people, two of which were killed on the spot. Normann himself only suffered relatively minor injuries and claims to not remember anything at all.
+
+Criticism has now begun to rain down on the 67 year old minister. It has been revealed that this was in fact his fourth serious car crash, as a result Hilmar Baunsgaard has already absolved him from his duties as minister. The whole debacle has heightened the national discussion on traffic safety and discussions are now in place as to whether or not he should be stripped of his {!<span class="tooltip-text" title="As is the case in certain other countries, elected parliamentarians in Denmark have immunity from the law. \nHowever, this can be removed by other parliamentarians.">parliamentary immunity</span>!}.
+
+- @campaing_public_safety: Seatbelts should be mandatory. Run a national campaign on public safety as part of the electoral campaign.
+- @jail_for_him: It is only right that Normann should see due process.
+- @muh_constitution: Even if the circumstances are tragic, immunity is his constitutional right.
+
+
+@campaing_public_safety
+on-arrival: resources -= 1; {!
+addsupport('homeowners_all','a',-0.5); addsupport('tenant_workers','a',+3); left_dissent -= 5; right_worker_dissent -= 5
+!}
+subtitle: Resources -1
+choose-if: resources > 1
+unavailable-subtitle: Resources -1 – Not enough resources.
+
+For the most part we are able to come off as sympathetic, a few voices still point out our opportunism.
+
+The question still remains of whether to strip Normann of his immunity?
+
+- @jail_for_him: It is only right that Normann should see due process.
+- @muh_constitution: Even if the circumstances are tragic, immunity is his constitutional right.
+
+
+@jail_for_him
+on-arrival: {!
+addsupport('tenant_workers','a',+2)
+!}
+
+Most see the reason in this. The results are expected in a few months time.
+
+@muh_constitution
+on-arrival: {! addsupport('everyone','a',-2); left_dissent += 10; left_worker_dissent += 10
+!}
+
+Few understand our reasoning.
