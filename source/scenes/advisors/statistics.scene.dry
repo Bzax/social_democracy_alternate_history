@@ -49,6 +49,7 @@ The Monthly newspaper polls only tell us so much, but long term trends are still
 {!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
 
 - @election_historystat: Historical election results.
+- @root: return.
 
 @election_historystat
 on-display: {!
