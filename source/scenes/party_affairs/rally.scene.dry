@@ -1,10 +1,10 @@
 title: Political Rally
 new-page: true
 is-card: true
-tags: party_affairs
 view-if: rally_timer <= 0
 on-arrival: month_actions += 1; rally_timer = 6
 card-image: img/campaign2.jpg
+tags: party_affairs
 go-to: main_rally; sa_disrupt if sa_strength > 180 and not sa_banned and not return_to_normalcy
 
 @sa_disrupt
@@ -92,7 +92,7 @@ on-arrival: prole_a += 3*efc; prole_a += 3*efc if welfare > 0; unemployed_a += 3
 The reformist message appeals to the organized workers, whose benefits are the accomplishments of social democracy. [? if welfare > 1 : Our achievements in expanding welfare have made this message more effective. ?]
 
 @democracy
-on-arrival: labor_relations += 4; democratization += 1; socialism += 2*efc; prole_a += 4*efc if democratization >= 3; unemployed_a += 3*efc if democratization >= 3; socialism += 4*efc if democratization >= 3; pettyb_a += 2*efc if democratization >= 3 
+on-arrival: lo_relations += 4; democratization += 1; socialism += 2*efc; prole_a += 4*efc if democratization >= 3; unemployed_a += 3*efc if democratization >= 3; socialism += 4*efc if democratization >= 3; pettyb_a += 2*efc if democratization >= 3 
 
 The rally takes place on the sidewalks of [+ city : city +].
 

@@ -1,23 +1,21 @@
-title: recruiting
+title: Recruitment Campaign
 new-page: true
 is-card: true
 tags: party_affairs
-view-if: reichsbanner_timer <= 0
-card-image: img/recruit.jpg
-on-arrival: month_actions += 1; reichsbanner_timer += 6; rb_militarization_cost = 2 if rb_militancy > 0.1 else rb_militarization_cost = 1; rb_militarization_cost = 3 if rb_militancy > 0.25
+view-if: year >= 1970
+card-image: img/aof2.jpg
+on-arrival: month_actions += 1; reichsbanner_timer += 8; rb_militarization_cost = 2 if rb_militancy > 0.1 else rb_militarization_cost = 1; rb_militarization_cost = 3 if rb_militancy > 0.25
 max-visits: 5
 #subtitle: Paramilitary organizing in defense of the republic.
 
 = Recruiting
 
-Our party membership is the life-force of our politics, but as the trade union memberships continued to soar after the war, our party membership has seen steady decline.
+Our party membership is the life-force of our politics. But as the trade union memberships soared following the liberation from Germany, the membership of our party has seen steady decline.
 
-[? if workers_spd < 46 or workers_spd < workers_nsdap or workers_spd < workers_kpd : The Reichsbanner is having a more difficult time recruiting, as the SPD is no longer the dominant party among the workers. Many of its members have left. ?]
-
-- @militant: Fund more military-style training and equipment for the Reichsbanner.
+- @militant: Let us fund a big campaign focussing on international issues.
 - @militant_2: Use our existing resources to support more training for the Reichsbanner.
-- @same: Keep the Reichsbanner as it is.
-- @cut_rb: Cut funding for the Reichsbanner.
+- @small_campaign: Run a small campaign.
+- @cut_rb: Cut funding for the recruitment offices.
 - @women_rb
 - @easy_discard
 - @cancel_advisor_action
@@ -25,12 +23,12 @@ Our party membership is the life-force of our politics, but as the trade union m
 #- Orient reichsbanner towards anti-fascism (only available if we have prioritized anti fascism)
 
 @militant
-choose-if: resources >= rb_militarization_cost
+choose-if: resources >= 2
 unavailable-subtitle: Not enough resources ([+ rb_militarization_cost +] needed).
-subtitle: -[+ rb_militarization_cost +] resources
-on-arrival: resources -= rb_militarization_cost; rb_investment += 1; memberrise += 0.4*efc*(1/1-globalization); rb_militancy += 0.05; left_strength += 2; left_dissent -= 2; right_worker_dissent += 5; spd_militancy += 0.05; workers_spd += 2*efc; unemployed_a += 2*efc; z_relation -= 5 if historical_mode 
+subtitle: - 2 resources
+on-arrival: resources -= 2; memberrise += 2*efc
 
-Some in our party decry the increasing militarization of the Reichsbanner. They say it is emulating the right-wing nationalists or the communists, and risks alienating our allies in the centrist parties. On the other hand, more left-leaning radicals are being lured to our organizations, away from the communists.
+We make a big campaign. 
 
 [? if historical_mode : The Center Party decries the militarization of the Reichsbanner, and its members are leaving the republican organization. ?]
 
@@ -42,9 +40,13 @@ on-arrival: rb_militancy += 0.02; funded_reichsbanner -= 1
 As we have already funded resources towards the Reichsbanner, we can invest in building up their militancy.
 
 
-@same
+@small_campaign
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources (1 needed).
+subtitle: - 1 resources
+on-arrival: resources -= 1; memberrise += 1*efc
 
-The Reichsbanner is already serving the purpose it needs to serve. There is no reason to change what already works.
+We run a small campaign among our union members, a few houndred are convinced.
 
 - @return: Continue...
 

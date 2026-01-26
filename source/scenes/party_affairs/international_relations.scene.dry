@@ -8,7 +8,9 @@ card-image: img/internationale.jpg
 max-visits: 4
 #subtitle: Building ties with our fraternal socialist parties.
 
-Within the capacity of our party, we can conduct international politics and foster relations in a more informal and confidential manner.
+= **International Relations**
+
+Within the capacity of our party, we can conduct international politics in a more informal and confidential manner.
 
 - @soviet_meeting
 - @america
@@ -21,13 +23,13 @@ Within the capacity of our party, we can conduct international politics and fost
 - @cancel_advisor_action
 
 @nordic
-title: Place additional funding for [? if month >= 4 : next years ?] [? if month <= 4 : the upcoming ?] summer camp with our Nordic sister parties.
+title: Propose a joint summer camp with our Nordic sister parties [? if month >= 4 : next ?] [? if month <= 4 : this ?] June.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; panscandinavianism += 1; right_worker_strength += 2; left_strength += 2; member += 2*efc; a_activity += 0.02; 
+on-arrival: resources -= 1; panscandinavianism += 1; right_worker_strength += 2; left_strength += 2; summercamp = 1
 
-The annual summer camp hosted with our nordic sister parties are one of the yearly highlights, promoting relations and ideas of scandinavianism. By placing additional funds we have assured this remains the case while promoting. 
+Though expensive, pan-scandinavian summer camps have previously been large successfull and have spread ideas of scandinavianism among our parties. Our younger members especially appreciates this.
 
 @vietnam_seek
 title: Seek out informal contacts with the Vietnamese Communist Party, investigating the possibility of further relations.

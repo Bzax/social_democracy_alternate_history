@@ -3,7 +3,7 @@ view-if: year == 1971 and valg == 1 and week >= 2
 frequency: 1000
 max-visits: 1
 on-arrival: {!
-addsupport('homeowning_workers','b', -2); addsupport('middle_class','b',-2); addsupport('middle_class','v',+2)
+Q.addsupport('homeowning_workers','b', -2); Q.addsupport('middle_class','b',-2); Q.addsupport('middle_class','v',+2)
 !}
 tags: event
 new-page: true
@@ -22,7 +22,7 @@ Criticism has now begun to rain down on the 67 year old minister. It has been re
 
 @campaing_public_safety
 on-arrival: resources -= 1; {!
-addsupport('homeowners_all','a',-0.5); addsupport('tenant_workers','a',+3); left_dissent -= 5; right_worker_dissent -= 5
+Q.addsupport('homeowners','a',-0.5); Q.addsupport('tenant_workers','a',+3); left_dissent -= 5; right_worker_dissent -= 5
 !}
 subtitle: Resources -1
 choose-if: resources > 1
@@ -38,13 +38,13 @@ The question still remains of whether to strip Normann of his immunity?
 
 @jail_for_him
 on-arrival: {!
-addsupport('tenant_workers','a',+2)
+Q.addsupport('tenant_workers','a',+2)
 !}
 
 Most see the reason in this. The results are expected in a few months time.
 
 @muh_constitution
-on-arrival: {! addsupport('everyone','a',-2); left_dissent += 10; left_worker_dissent += 10
+on-arrival: {! Q.addsupport('everyone','a',-2); left_dissent += 10; left_worker_dissent += 10
 !}
 
 Few understand our reasoning.

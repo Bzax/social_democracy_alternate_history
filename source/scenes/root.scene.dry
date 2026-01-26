@@ -4,12 +4,14 @@ go-to: post_event if started = 1; start_menu if started = 0
 
 @start_menu
 new-page: true
+audio: music/1970_1973/byen_vagner.mp3
+set-bg: img/sort.jpg
 go-to: start_menu_2
-set-bg: img/Background-train.jpg
 
 = Red Zenit: An Alternate History
 
 @start_menu_2
+audio: music/1970_1973/byen_vagner.mp3
 
 - @start: Start game
 - @Context: Premise
@@ -21,7 +23,7 @@ set-bg: img/Background-train.jpg
 
 In '**Red Zenit: An alternative History**' you play as the Danish Social Democrats through the Oil Crisis and transition into late-modern politics. The game is called 'Red Zenit' because in real life the 1970s was the absolute peak of the Danish workers movement. As other historical classes faded, the unity of the workers movement became harder to maintain as internal contradictions was starting to cause division. The working class was now divided between property owners and tenants, as well as public/private workers. 
 
-Can you preserve mass politics while surviving the onslaught of neo-liberalism? Can you leverage the strength of the workers movement to build a socialist majority? 
+Can you preserve mass politics while surviving the onslaught of neo-liberalism? Can you leverage the strength of the workers movement to build a socialist majority?
 
 The aim is for the game to last quite a bit longer than the other ones in the socdem expanded universe (ideally it would last into the early 1990s), with broader demographic changes occuring as a consequence of the players choices while in government. But for now the aim is just to make the game work up until the irl earthquake election of december 1973 as a demo/proof of concept.
 
@@ -131,32 +133,66 @@ Q.mediahealth = 50
 Q.membermonthly = 0.681
 Q.memberrise = 0
 
+
 //Homeownership
 Q.homeownership = 41.2
 
-//GDP
+//GDP and macroeconomics, source: https://data.worldbank.org/country/denmark
 Q.gdp = 100
+Q.exports = 27.2
+Q.imports = 30
+Q.capital_imports = 18.6
+Q.bop = - 2.8
+Q.competitiveness = 0
+
+// Worker wage percent of total, source: https:https://wid.world/share/#0/countrytimeseries/sdiinc_p90p100_z;sdiinc_p0p50_z;sptinc_p0p70_z/DK/2015/eu/k/p/yearly/s/false/15.5015/50/curve/false/1820/2024
+// https://www.statistikbanken.dk/statbank5a/Selectout/pivot.asp
+// Working families made up 70% of population but got 43% of income
+Q.worker_income = 43
+Q.non_worker_income = 57
+
+// Based on data 1995-2015 people save more in crisis: https://www.statbank.dk/statbank5a/Selectout/pivot.asp 
+// At most during this period they saved 9%, during periods of growth savings are sometimes quite negligeble. But if we count total expenditure including public expenditures, then the swings are much lower at 5,5% to -0,18%. i think this is the metric we have to use. due to the fact that the above inome measures pre tax income.
+// in all cases ill just make the worker savings rate 1.5% at the beginning, this seems reasonable. Im gonna turn the expenditure a bit up for workers and a bit down for capitalists in order to simulate keynes theory of aggregate demand.
+// Q.savings_rate = 6-(Q.economic_growth)
+// Q.worker_consumption = Q.worker_income * (1 - Q.savings_rate / 100)
+// Q.non_worker_consumption = Q.non_worker_income * (1 - Q.savings_rate / 100) - 0.10
+
+// Basically the danish percent of income spent on cosumption was stable at ± 5% of 75% during the entire period of the game. So we just disregard that ± 5% 25% of GDP as being a constant and dont bother with savings
+// Same concept with percent of consumption spent on imported goods, which was pretty stable at 11-12%, honestly we could make both vary as that +/- 5% mentioned above does seem pretty significant now, but anyways – source: https://www.statistikbanken.dk/statbank5a/Selectout/pivot.asp
+// Below is how it looks in the post event
+// Q.exports = Q.exports + Q.competitiveness
+// Q.imports =  Q.capital_imports + Q.import_investment + (Q.worker_consumption * 0.12) + (Q.non_worker_consumption * 0.12);
+// Q.import_investment = Q.economic_growth * 0.8
+// Q.domestic_consumption = (Q.worker_consumption * 0.88) + (Q.non_worker_consumption * 0.88);
 
 
 // globalization
-Q.globalization = 0.0;
+Q.globalization = Q.exports / 2;
 
 //broader movement
-Q.labor_relations = 68
+Q.lo_relations = 64
 Q.union_density = 86
+Q.dkf_relations = 68
 Q.cooperativehealth = 1 
+Q.next_ok = "OK71"
+
+// The economic council of the workers movement and the polls it can do
+Q.council_favours = 2
+Q.polls = 0
+Q.statistics = 0
 
 // factions
 Q.factions = ['left', 'left_worker', 'technocrat', 'right_worker'];
 // should this be normalized to 100%?
 Q.left_strength = 25;
-Q.left_dissent = 30;
+Q.left_dissent = 20;
 Q.left_worker_strength = 30;
-Q.left_worker_dissent = 0;
+Q.left_worker_dissent = 10;
 Q.technocrat_strength = 25;
-Q.technocrat_dissent = 5;
-Q.right_worker_strength = 25;
-Q.right_worker_dissent = 5;
+Q.technocrat_dissent = 2;
+Q.right_worker_strength = 20;
+Q.right_worker_dissent = 25;
 Q.neorevisionist_strength = 5;
 Q.neorevisionist_dissent = 10;
 
@@ -316,10 +352,12 @@ Q.homeowner = 22.16; // private sector workers who own their homes
 Q.public_prole = 11.5; // public sector proletarians
 Q.public_homeowner = 10.1; // public sector homeowners
 Q.pettyb = 11.6; // petty bourgeoise, small urban business owners, artisans and independent producers
-Q.rural = 13.2; // rural population, largely 'gårdmænd', rich capitalist independent farmers who by now have largely mechanized the 'husmænd' out of existence
+Q.rural = 13.2; // rural population, largely 'gårdmænd' families, capitalist and semi-capitalist independent farmers who by now have largely mechanized the 'husmænd' out of existence
 Q.capitalist = 4;
 // source: '60 år i tal – Danmark siden 2. verdenskrig', by 'Danmarks Statistik'
 Q.unemployed = 1.8;
+
+
 
 // unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
 
@@ -351,105 +389,106 @@ Q.sapd_formed = 0;
 
 // Support for party by social group (source:  'Vælgerundersøgelsen 1971', 'vælgerundersøgelsen 1975', 'statistisk årsbog 1970' (calculations can be downloaded from the credits), 'Socialdemokratiets vælgertilslutning', s.181-82)
 // they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.prole_a = 51.7;
-Q.prole_v = 10.0;
-Q.prole_c = 10.7;
-Q.prole_b = 7.2;
+// i added some extra points for the social democrats in order to align their results better with the IRL polling for september 1971 that i found. ( i should maybe find the earlier one)
+Q.prole_a = 51.7 * 1.106; // 51.7
+Q.prole_v = 10.0 * 0.965; // 10.0
+Q.prole_c = 10.7 * 1.082; // 10.7
+Q.prole_b = 7.2 * 0.718; // 7.2
 Q.prole_z = 0;
 Q.prole_dkp = 1.7;
-Q.prole_sf = 10.3;
-Q.prole_vs = 2.4;
+Q.prole_sf = 10.3 * 1.000; // 10.3
+Q.prole_vs = 2.4 * 4.000; // 2.4
 Q.prole_rfb = 1.4;
 Q.prole_kf = 1.2;
 Q.prole_others = 0.1;
 Q.prole_northatlantic = 0;
 
-Q.homeowner_a = 36.2;
-Q.homeowner_v = 13.8;
-Q.homeowner_c = 17.1;
-Q.homeowner_b = 15.8;
+Q.homeowner_a = 46.2 * 1.106; // 46.2
+Q.homeowner_v = 13.8 * 0.965; // 13.8
+Q.homeowner_c = 17.1 * 1.082; // 17.1
+Q.homeowner_b = 15.8 * 0.718; // 15.8
 Q.homeowner_z = 0;
 Q.homeowner_dkp = 1.3;
-Q.homeowner_sf = 9.3;
-Q.homeowner_vs = 1.8;
+Q.homeowner_sf = 9.3 * 1.000; // 9.3
+Q.homeowner_vs = 1.8 * 4.000; // 1.8
 Q.homeowner_rfb = 1.8;
 Q.homeowner_kf = 1.3;
 Q.homeowner_others = 0.5;
 Q.homeowner_northatlantic = 0;
 
-Q.public_prole_a = 44.3;
-Q.public_prole_v = 7.3;
-Q.public_prole_c = 18;
-Q.public_prole_b = 15;
+Q.public_prole_a = 44.3 * 1.106; // 44.3
+Q.public_prole_v = 7.3 * 0.965; // 7.3
+Q.public_prole_c = 18 * 1.082; // 18
+Q.public_prole_b = 15 * 0.718; // 15
 Q.public_prole_z = 0;
 Q.public_prole_dkp = 1.7;
-Q.public_prole_sf = 10.9;
-Q.public_prole_vs = 0.9;
+Q.public_prole_sf = 10.9 * 1.000; // 10.9
+Q.public_prole_vs = 0.9 * 4.000; // 0.9
 Q.public_prole_rfb = 1.4;
 Q.public_prole_kf = 1.3;
 Q.public_prole_others = 0.5;
 Q.public_prole_northatlantic = 0;
 
-Q.public_homeowner_a = 29.1;
-Q.public_homeowner_v = 13.7;
-Q.public_homeowner_c = 20.3;
-Q.public_homeowner_b = 23.9;
+Q.public_homeowner_a = 29.1 * 1.106; // 29.1
+Q.public_homeowner_v = 13.7 * 0.965; // 13.7
+Q.public_homeowner_c = 20.3 * 1.082; // 20.3
+Q.public_homeowner_b = 23.9 * 0.718; // 23.9
 Q.public_homeowner_z = 0;
 Q.public_homeowner_dkp = 0.9;
-Q.public_homeowner_sf = 8.1;
-Q.public_homeowner_vs = 0.9;
+Q.public_homeowner_sf = 8.1 * 1.000; // 8.1
+Q.public_homeowner_vs = 0.9 * 4.000; // 0.9
 Q.public_homeowner_rfb = 2.4;
 Q.public_homeowner_kf = 5.4;
 Q.public_homeowner_others = 0.0;
 Q.public_homeowner_northatlantic = 0;
 
-Q.rural_a = 9.5;
-Q.rural_v = 45.4;
-Q.rural_c = 6;
-Q.rural_b= 24.1;
+Q.rural_a = 9.5 * 1.106; // 9.5
+Q.rural_v = 45.4 * 0.965; // 45.4
+Q.rural_c = 6 * 1.082; // 6
+Q.rural_b= 24.1 * 0.718; // 24.1
 Q.rural_z = 0;
 Q.rural_dkp = 0;
-Q.rural_sf = 4.3;
-Q.rural_vs = 0;
+Q.rural_sf = 4.3 * 1.000; // 4.3
+Q.rural_vs = 0 * 4.000; // 0
 Q.rural_rfb = 0;
 Q.rural_kf = 2.9;
 Q.rural_others = 7.7;
 Q.rural_northatlantic = 0;
 
-Q.pettyb_a = 9.5;
-Q.pettyb_v = 23.3;
-Q.pettyb_c = 34.9;
-Q.pettyb_b = 24.1;
+Q.pettyb_a = 9.5 * 1.106; // 9.5
+Q.pettyb_v = 23.3 * 0.965; // 23.3
+Q.pettyb_c = 34.9 * 1.082; // 34.9
+Q.pettyb_b = 24.1 * 0.718; // 24.1
 Q.pettyb_z = 0;
 Q.pettyb_dkp = 0;
-Q.pettyb_sf = 4.3;
-Q.pettyb_vs = 0;
+Q.pettyb_sf = 4.3 * 1.000; // 4.3
+Q.pettyb_vs = 0 * 4.000; // 0
 Q.pettyb_rfb = 0;
 Q.pettyb_kf = 4.3;
 Q.pettyb_others = 0;
 Q.pettyb_northatlantic = 0;
 
-Q.unemployed_a = 40;
-Q.unemployed_v = 20;
-Q.unemployed_c = 0;
-Q.unemployed_b = 40;
+Q.unemployed_a = 40 * 1.106; // 40
+Q.unemployed_v = 20 * 0.965; // 20
+Q.unemployed_c = 0 * 1.082; // 0
+Q.unemployed_b = 40 * 0.718; // 40
 Q.unemployed_z = 0;
 Q.unemployed_dkp = 0;
-Q.unemployed_sf = 0;
-Q.unemployed_vs = 0;
+Q.unemployed_sf = 0 * 1.000; // 0
+Q.unemployed_vs = 0 * 4.000; // 0
 Q.unemployed_rfb = 0;
 Q.unemployed_kf = 0;
 Q.unemployed_others = 0;
 Q.unemployed_northatlantic = 0;
 
-Q.capitalist_a = 3.8;
-Q.capitalist_v = 7.5;
-Q.capitalist_c = 39.6;
-Q.capitalist_b = 30.2;
+Q.capitalist_a = 3.8 * 1.106; // 3.8
+Q.capitalist_v = 7.5 * 0.965; // 7.5
+Q.capitalist_c = 39.6 * 1.082; // 39.6
+Q.capitalist_b = 30.2 * 0.718; // 30.2
 Q.capitalist_z = 0;
 Q.capitalist_dkp = 0;
-Q.capitalist_sf = 0;
-Q.capitalist_vs = 0;
+Q.capitalist_sf = 0 * 1.000; // 0
+Q.capitalist_vs = 0 * 4.000; // 0
 Q.capitalist_rfb = 15.1;
 Q.capitalist_kf = 0;
 Q.capitalist_others = 0;
@@ -464,7 +503,7 @@ Q.classGroups = {
   tenant_workers: ['prole', 'public_prole'],
   private_workers: ['homeowner', 'prole'],
   public_workers: ['public_prole', 'public_homeowner'],
-  homeowners_all: ['homeowner', 'public_homeowner', 'pettyb', 'rural', 'capitalist'],
+  homeowners: ['homeowner', 'public_homeowner', 'pettyb', 'rural', 'capitalist'],
   middle_class: ['pettyb', 'rural'],
   workers: ['prole', 'homeowner', 'public_prole', 'public_homeowner'],
   everyone: ['prole','homeowner','public_prole','public_homeowner','pettyb','rural','unemployed','capitalist']
@@ -472,7 +511,7 @@ Q.classGroups = {
 
 /**
  * Add support delta to a party among one class-group.
- * Example: addsupport('homeowners','a', +2)
+ * Example: Q.addsupport('homeowners','a', +2)
  */
 Q.addsupport = function(groupKey, party, delta) {
   var group = Q.classGroups[groupKey];
@@ -575,6 +614,19 @@ Q.newspaper = Math.random()
 
 // party support records for every month
 Q.party_support_records = [];
+
+
+// class party support records for every month
+Q.prole_support_records = [];
+Q.homeowner_support_records = [];
+Q.public_prole_support_records = [];
+Q.public_homeowner_support_records = [];
+Q.pettyb_support_records = [];
+Q.rural_support_records = [];
+Q.unemployed_support_records = [];
+Q.capitalist_support_records = [];
+
+
 // inflation and unemployment records
 Q.economic_records = [];
 
@@ -653,6 +705,7 @@ Q.unemployment_insurance_threshold = 10;
 Q.blutmai = 0;
 Q.ODsupport = 0; 
 Q.Thy_seen = 0;
+Q.council_seen = 0;
 
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
@@ -718,7 +771,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally', 'reichsbanner',
             'shuffle_leadership', 'streetfighting', 'peoples_party',
-            'party_disunity',
+            'party_disunity', 'council', 'lo_relations',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
@@ -743,10 +796,13 @@ Q.ideology_timer = 0;
 Q.inter_party_relationships_timer = 0;
 Q.international_relations_timer = 0;
 Q.iron_front_timer = 0;
+Q.electoral_rally_timer = 0;
 Q.media_timer = 0;
 Q.enemies_timer = 0;
 Q.party_organizations_timer =  0;
 Q.rally_timer = 0;
+Q.lo_relations_timer = 0;
+Q.council_timer = 12;
 Q.reichsbanner_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
@@ -785,6 +841,7 @@ Q.sa_ban_timer = 0;
 Q.sh_ban_timer = 0;
 Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
+Q.summercamp = 0;
 
 Q.a_votesdisp = 30.1
 
@@ -809,7 +866,9 @@ Q.vs_votesdisp = 1.6
 Q.rfb_votesdisp = 1.5
 
 // Pinned cards – Party bereaucracy?
-Q.statistics = 1;
+Q.statistics_card = 1;
+Q.council_level = 0;
+Q.polling_efficiency = 0; 
 
 //linegraph start year
 Q.linegraph_start_year = 1970;
@@ -904,6 +963,7 @@ go-to: 1928_main
 
 @1928_main
 audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Lil_Johnnys_Mund.mp3 music/1970_1973/Victor_og_socialdemokratiet.mp3 music/1970_1973/trille-ham-gud.mp3 music/1970_1973/hejsoster.mp3 music/1970_1973/hejsoster.mp3
+set-bg: img/Background-train.jpg
 new-page: true
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 

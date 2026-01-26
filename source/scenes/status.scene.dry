@@ -72,9 +72,31 @@ Folketing composition:
 # 1928: 14, 1930: 7
 {!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dnvp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="'Left Socialists' (Dansih Name: 'Venstresocialisterne'">VS</span>!}: [+ nsdap_r +]%
+{!<span class="tooltip-text" title="'Left Socialists' (Danish Name: 'Venstresocialisterne')">VS</span>!}: [+ nsdap_r +]%
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
+
+@movement
+
+= **Broader movement**
+
+**LO**
+
+Relations with LO: [+ lo_relations : lo_relations +]
+
+Union Density: [+ union_density +]%
+
+**DKF**
+
+Relations with {!<span class="tooltip-text" title="Det Kooperative Fællesforbund (lit. 'The Cooperative Common Union') is a confederation of Danish workers cooperatives, it has traditionally been considered a third pillar of the workers movement.">DKF</span>!}: [+ dkf_relations : dkf_relations +]
+
+Health of cooperatives: [+ cooperativehealth : cooperativehealth +]
+
+**The Council**
+
+{!<span class="tooltip-text" title=" 'Arbejderbevægelsens Erhvervsråd' (lit. 'The Worker-Movements Economic Council') is a council of academics in service to the workers movement. It was established in 1936 as a joint venture of the DKF and LO.">The Council</span>!} owes us: [+ council_favours +] favours
+
+[? if council_level = 0 : It does not currently conduct voter surveys. ?][? if council_level != 0 : The statistical uncertainty of it¨s polls is currently ±[+ 12-polling_efficiency +]%. ?]
 
 @politics
 on-arrival: {!
@@ -94,6 +116,8 @@ Resources available: [+ resources +]
 
 {!<span class="tooltip-text" title="A proffesional bureaucracy can help compensate for a weaker membership, however the professionalisation of our bureaucracy also discourages party activity.">Bureaucracy</span>!}: [+ a_bureau : a_bureau +]
 
+Health of '{!<span class="tooltip-text" title="Our party runs and operates the newspaper 'Aktuelt'.">Aktuelt</span>!}': [+ mediahealth : mediahealth +]
+
 **Membership**
 
 {!<span class="tooltip-text" title="Our membership count is negatively affected by our internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ a_members_disp +]0
@@ -112,14 +136,6 @@ Last six weeks: [+ a_memberdecline_disp +]
 
 {!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]
 
-= **Broader movement**
-
-Health of workers media: [+ mediahealth : mediahealth +]
-
-Union Relations: [+ labor_relations : labor_relations +]
-
-Health of cooperatives: [+ cooperativehealth : cooperativehealth +]
-
 
 @paramilitaries
 on-arrival: {!
@@ -130,9 +146,9 @@ globalizationdisp = Q.globalization.toFixed(1);
 
 Homeownership Rate:<br> [+ homeownership +]%
 
-Size of Public Sector:<br> [+ Sizeofpublicsectordisp +]% of our workforce.
+Size of Public Sector:<br> [+ sizeofpublicsectordisp +]% of our workforce.
 
-Urbanization Rate:<br> [+ Urbanizationratedisp +]% 
+Urbanization Rate:<br> [+ urbanization_ratedisp +]% 
 
 Unemployment Rate:<br> [+ unemployed_2 +]%
 
@@ -166,11 +182,15 @@ Unemployment Rate:<br> [+ unemployed_2 +]%
 
 = **Macroeconomic Indicators**
 
-GDP Growth ([+ year +], Projected):<br>[+ economic_growth_2 +]%
+GDP Growth ([+ year +], Projected):<br>[+ economic_growth +]%
 
 Total Growth Since 1969:<br>[+ gdpdisp +]%
 
-Balance of Payments:<br>-2.3% of GDP
+Balance of Payments:<br>[+ bop +]% of GDP
+
+Exports:<br>[+ exports_disp +]% of GDP
+
+Imports:<br>[+ imports_disp +]% of GDP
 
 Inflation:<br> [+ inflation_2 +]%
 

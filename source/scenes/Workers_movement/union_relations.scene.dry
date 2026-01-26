@@ -1,0 +1,78 @@
+title: LO Relations
+new-page: true
+is-card: true
+view-if: lo_relations_timer <= 0
+max-visits: 36
+frequency: 300
+on-arrival: month_actions += 1; lo_relations_timer += 7;
+card-image: img/union3.jpg
+tags: workers_movement
+go-to: unionrelations; unionrelations2 if lo_relations < 50
+
+@unionrelations
+
+
+= **LO Relations**
+
+We are institutionally {!<span class="tooltip-text" title="Our party and the trade union confederation was born as twins, originally united in a single organisation. For practical reasons this unity was dissolved, nonetheless we still appoint two members to their central comittee, and they still appoint two to ours.">welded with LO</span>!}, giving us many opportunities to coordinate our strategy.
+
+- @transfer_funds: Transfer funds.
+- @promise_reform: Promise reform.
+- @discuss_ok71: Discuss the strategy ahead of OK71.
+- @discuss_next_election: Plan for the next election.
+- @easy_discard
+
+
+@transfer_funds
+on-arrival: resources -= 1; lo_relations += 7
+subtitle: -1 resources
+unavailable-subtitle: -1 resources
+
+The LO leadership appreciates this gesture, and promises to make it up to us.
+
+@promise_reform
+
+
+
+@discuss_ok71
+view-if: year >= 1970 or year == 1971 and month >= 2
+
+LO currently expects to win a fourth week of paid vacation in the next round of national negotiations.
+
+- @discourage: Make them moderate their demands in order to lighten the pressure on the economy.
+- @support_them: Indicate that we agree with their demands.
+- @really_support_them: We promise to mobilize our membership and run a campaign in support of the negotiations.
+- @encourage_more: Encourage them to up their demands and prepare for conflict.
+
+
+@discourage
+
+The Nazi SA has disrupted our rally! Their street troops are preventing us from meeting.
+
+
+@support_them
+
+The Nazi SA has disrupted our rally! Their street troops are preventing us from meeting.
+
+
+@really_support_them
+
+The Nazi SA has disrupted our rally! Their street troops are preventing us from meeting.
+
+
+@encourage_more
+
+The Nazi SA has disrupted our rally! Their street troops are preventing us from meeting.
+
+
+
+@discuss_next_election
+
+
+@unionrelations2
+
+At the moment our relations with the LO leadership are not good enough for them to want to costrategize with us.
+
+- @transfer_funds: Transfer funds.
+- @promise_reform: Promise reform.
+- @easy_discard

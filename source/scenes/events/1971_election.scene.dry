@@ -5,7 +5,7 @@ max-visits: 1
 tags: event
 new-page: true
 face-image: img/Baunsgaard.jpg
-on-arrival: electiondate += 3; {! 
+on-arrival: electiondate += 3; electoral_rally_timer += 2; {! 
 dendryUI.audioPlaylist = []
 !}
 set-bg: img/election2.jpg
@@ -18,6 +18,6 @@ Internal disagreements among the bourgious parties has led prime minister [+ cha
 - @allow: There's something in the air...
 
 @allow
-on-arrival: valg = 1; week = 1; next_election_year = year; next_election_month = month; next_election_week = electiondate; homeowner_b += 5; public_prole_b += 4; public_homeowner_b += 10; homeowner_b += 6; rural_b += 5
+on-arrival: valg = 1; week = 1; next_election_year = year; next_election_month = month; next_election_week = electiondate; homeowner_b += 5; homeowner_c -= 5; public_prole_b += 2; public_homeowner_b += 5; homeowner_b += 6; rural_b += 5; prole_vs -= 6; public_prole_vs -= 6; homeowner_vs -= 6; public_homeowner_vs -= 6; public_prole_sf += 2; public_prole_a += 2*efc; prole_a += 1*efc; prole_sf += 2*efc
 
 Newspapers wipe their front pages as local chapters frantically call meetings. Election season is upon us, time slows as we enter week-by-week struggle.

@@ -31,13 +31,13 @@ In this way the plan is to take the first decisive step out of capitalism in ord
 - @ODskeptic: In a surprising turn of events, our party leadership disavows ØD. 
 
 @ODsupport
-on-arrival: oed_support = 1; socialism += 10; left_strength += 5; left_dissent -= 10; left_worker_strength += 5; left_worker_dissent -= 5; homeowner_a += 3; prole_a += 4; rural_a -= 4; capitalist_a -= 10; v_relation -= 20; c_relation -= 30; b_relation -= 10; labor_relations += 5;
+on-arrival: oed_support = 1; socialism += 10; left_strength += 5; left_dissent -= 10; left_worker_strength += 5; left_worker_dissent -= 5; homeowner_a += 3; prole_a += 4; rural_a -= 4; capitalist_a -= 10; v_relation -= 20; c_relation -= 30; b_relation -= 10; lo_relations += 5;
 subtitle: Let the ruling classes tremble...
 
 The goal of socialism finally seems tangible, and within reach... We have a feeling this decision will be very important.
 
 @ODskeptic
-on-arrival: ODsupport=0; socialism += 2; left_strength -= 2; left_dissent += 15; left_worker_strength += 0; left_worker_dissent += 15; homeowner_a -= 5; homeowner_sf +=5; prole_sf += 7; prole_dkp += 3; prole_vs += 3; prole_prole_a -= 16; rural_a += 4; capitalist_a += 10; v_relation += 15; c_relation += 10; b_relation += 5; labor_relations -= 10;
+on-arrival: ODsupport=0; socialism += 2; left_strength -= 2; left_dissent += 15; left_worker_strength += 0; left_worker_dissent += 15; homeowner_a -= 5; homeowner_sf +=5; prole_sf += 7; prole_dkp += 3; prole_vs += 3; prole_prole_a -= 16; rural_a += 4; capitalist_a += 10; v_relation += 15; c_relation += 10; b_relation += 5; lo_relations -= 10;
 subtitle: This will greatly damage our relations with LO, though it may win us good will among other elements.
 
 Whether for strategic or ideological reasons, we have chosen to publicly disawow ØD. And while LO's leadership is aghast and much of our party disapproves, the bourgeois parties are very pleasantly surprised, which may open opportunities in the future. Let us hope this decision is right, it certainly feels important.

@@ -1,0 +1,18 @@
+title: A Socialist Summer Camp 
+new-page: true
+subtitle: As planned we gather with our Swedish and Norwegian comrades.
+view-if: month = 4 and summercamp != 0
+max-visits: 1
+on-arrival: summercamp = 0; member += 2*efc; a_activity += 2; homeowners_a += 2*efc; prole_a += 3*efc; pettyb_a += 1*efc; scandinavianism += 1; {!
+Q.addsupport('workers','a',+1)
+!}
+face-image: img/sommerlejr.jpg
+tags: event
+
+= A Socialist Summer Camp
+
+Around a lake in southern Sweden more than two thousand comrades gather, among them rank and file as well as party leaders in unflattering bathing suits. Strategies and ideas are exchanged as feelings of pan-Scandinavianism spread among our members. 
+
+The right-workerists and the left of our party seems to be the most enthused.
+
+- @return: Who would have thought.

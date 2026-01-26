@@ -1,0 +1,52 @@
+title: Tenant Statistics
+is-pinned-card: true
+tags: advisor
+card-image: img/arbejder.jpg
+view-if: tenant_stats = 1
+new-page: true
+on-display: {!
+Q.linegraph_start_year = 1970;
+if (d3 && window) {
+    // get screen width
+    var width = 500;
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50;
+        height = width;
+    }
+
+    // Tenant working class (blended) polling over time.
+    // Prefer *_disp (noisy estimate), fall back to underlying value if missing.
+    if (Q.tenant_class_support_records && Q.tenant_class_support_records.length > 0) {
+        var data = Q.tenant_class_support_records.map(function (r) {
+            var o = { date: r.date };
+            for (var party of Q.parties) {
+                var dispKey = party + "_disp";
+                var v = (r[dispKey] != null) ? Number(r[dispKey]) : Number(r[party]);
+                if (!Number.isFinite(v)) v = 0;
+                o[party] = v;
+            }
+            return o;
+        });
+
+        var proleLines = d3.linegraph(true, true,
+            Q.parties,
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#4B0082', 'z': '#fafe7a', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+        proleLines.width(width).height(400);
+        d3.select("#party_support_history").datum(data).call(proleLines);
+    } else {
+        // Optional: clear svg if no data yet
+        try { document.getElementById('party_support_history').innerHTML = ''; } catch (e) {}
+    }
+}
+!}
+
+= **Tenant worker class polling over time**
+
+We have previously ordered the economic council to keep an eye on the tenants, [? if polling_efficiency > 5 : we now reap the benefits. The current statistical uncertainty is ±[+ 12-polling_efficiency +]%. ?][? if polling_efficiency < 5 : the council seems embarassed, they warn us that the current statistical uncertainty is ±[+ 12-polling_efficiency +]%. ?]
+
+{!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
+
+- @easy_discard

@@ -34,7 +34,7 @@ Our commercialized newspapers are able to bring in more funds. However, the left
 @investigative
 title: We will advance the class struggle by focusing on investigative journalism.
 subtitle: This may alienate moderates, but perhaps returning to our roots is the answer?
-on-arrival: investigative_media += 1; prole_a += 7*(1 - globalization); homeowner_a += 4*(1 - globalization); public_prole_a += 5; public_homeowner_a += 1; technocrat_dissent += 8; right_worker_dissent += 5; mediahealth += 10
+on-arrival: investigative_media += 1; prole_a += 7*(globalization); homeowner_a += 4*(globalization); public_prole_a += 5; public_homeowner_a += 1; technocrat_dissent += 8; right_worker_dissent += 5; mediahealth += 10
 
 *Current media health: [+ mediahealth : mediahealth +]*
 
@@ -76,21 +76,21 @@ After much deliberation we are now ready to launch our radio station! Together w
 @redchannel
 title: 'Rosen' ('the Rose'), an unapologetically socialist radio station
 subtitle: This will upset the more moderate elements of our party and established society, but a national channel agitiating our views may make it worth it? 
-on-arrival: redchannel += 1; unemployed_a += 3; prole_a += 5*(1 - globalization); homeowner_a += 3*(1 - globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a -= 4; pettyb_a -= 3; capitalist -= 10; socialism += 3*(1 - globalization); technocrat_dissent += 8; right_worker_dissent += 8; mediahealth -= 10
+on-arrival: redchannel += 1; unemployed_a += 3; prole_a += 5*(globalization); homeowner_a += 3*(globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a -= 4; pettyb_a -= 3; capitalist -= 10; socialism += 3*(globalization); technocrat_dissent += 8; right_worker_dissent += 8; mediahealth -= 10
 
 With a focus on historical broadcasts, news from the labour struggle and explicitly socialist music, our bold execution is met with an, at least initial, curiousity from the working class. The bourgeois parties and press however, react with predictable horror at our 'naked propaganda'.
 
 @fmfremad
 title: 'FM Fremad' ('FM Forwards'), a channel offering a mix of popular and political programming.
 subtitle: This seems the safest option
-on-arrival: fmfremad += 1; unemployed_a += 2; prole_a += 2*(1 - globalization); homeowner_a += 3*(1 - globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a += 2; pettyb_a -= 1; capitalist -= 3; socialism += 3*(1 - globalization); technocrat_dissent += 2; mediahealth += 15
+on-arrival: fmfremad += 1; unemployed_a += 2; prole_a += 2*(globalization); homeowner_a += 3*(globalization); public_homeowner_a += 2; public_prole_a += 3; rural_a += 2; pettyb_a -= 1; capitalist -= 3; socialism += 3*(globalization); technocrat_dissent += 2; mediahealth += 15
 
 Our new radio network has a mix of popular and political programming, and as listeners are curious to be given an alternative to DR, it is even proving a limited commercial success.
 
 @radio71
 title: 'radio71', a channel mostly dedicated to popular programming, trying to beat DR at its own game
 subtitle: As DR has stood without any true competitors up until this point, the people are hungry for something new
-on-arrival: radio71 += 1; unemployed_a += 3; prole_a += 2*(1 - globalization); homeowner_a += 2*(1 - globalization); public_homeowner_a += 2; public_prole_a += 2; rural_a += 1; pettyb_a += 1; capitalist += 3; socialism += 3*(1 - globalization); technocrat_dissent -= 2; mediahealth += 25
+on-arrival: radio71 += 1; unemployed_a += 3; prole_a += 2*(globalization); homeowner_a += 2*(globalization); public_homeowner_a += 2; public_prole_a += 2; rural_a += 1; pettyb_a += 1; capitalist += 3; socialism += 3*(globalization); technocrat_dissent -= 2; mediahealth += 25
 
 Listeners initially flock to the new radio, but it is difficult to actually compete with the accumulated skill and experience of DR. Nevertheless, a not insignificant amount of the new listeners stay, and our media is slightly better of for it.
 

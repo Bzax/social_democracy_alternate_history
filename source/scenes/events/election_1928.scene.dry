@@ -377,6 +377,7 @@ Rødkløver (KF + A + B): [+ roedkloever +]/90
 ?]
 
 - @broad_arbejderflertal
+- @coalition_menu: Perhaps we have other options?
 - @no_majority
 
 # TODO: black-brown coalition
@@ -403,7 +404,7 @@ Given our rapproachment with Radikale Venstre, this is considered the least cont
 @sr_na
 subtitle: We hope this is the correct choice.
 view-if: (arbejderflertal <= 89)
-on_arrival: na_mandate = 1
+on- arrival: na_mandate = 1
 
 **Negotiations with the North Atlantic Mandates**
 
@@ -451,9 +452,9 @@ Radikale Venstre is not happy with our choice, but nonetheless they agree.
 @broad_arbejderflertal
 title: Is a broad socialist coalition possible?
 subtitle: A + SF + [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ arbejderflertal_plus +]/90 Seats) [? if arbejderflertal_plus <=90 : – Perhaps with the help of the North Atlantic mandates we could still form a majority? ?]
-unavailable-subtitle: A + SF [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ arbejderflertal_plus +]/90 Seats). [? if cs_relation < 50 : We do not have adequate relations with VS. ?] [? if dkp_relation < 50 : We do not have adequate relations with the DKP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
+unavailable-subtitle: A + SF [? if has_dkp : + DKP ?][? if has_vs : + VS ?] ([+ arbejderflertal_plus +]/90 Seats). [? if vs_relation < 50 : We do not have adequate relations with VS. ?] [? if dkp_relation < 50 : We do not have adequate relations with the DKP. ?]
 view-if: arbejderflertal_plus >= 75
-choose-if: arbejderflertal_plus >= 86 and (dkp_relation >= 50 and vs_relation >= 50)
+choose-if: arbejderflertal_plus >= 86 and (dkp_relation >= 50 and vs_relation >= 45)
 
 There are enough votes for a broad socialist coalition, if such a thing was actually possible.
 
@@ -714,10 +715,10 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
-subtitle: Z + BVP + DVP + DNVP + Others ([+ right_coalition +]%)
-unavailable-subtitle: The DNVP is not interested in a coalition with the Center.
-view-if: right_coalition >= 50
-choose-if: year < 1929
+subtitle: B + V + C ([+ vkr +])/90
+unavailable-subtitle: The socialist parties constitute an independent majority.
+view-if: vkr >= 80
+choose-if: vkr > 89
 
 There are enough votes for a right-wing coalition of the Center (+ BVP), DVP, DNVP, and minor conservative parties. [? if largest_party == "SPD": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
@@ -747,7 +748,7 @@ Even though the DNVP is very reluctant to participate in such a coalition, they 
 
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50
+view-if: vkr < 89 and vkr_irl < 89 and (arbejderflertal < 87 or sf_relation < 50) and (broad_arbejderflertal < 87 or vs_relation < 45 or dkp_relation < 45) and vcqm < 50 and vcqm_irl < 50
 on-arrival: no_majority_elections += 1
 go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"
 

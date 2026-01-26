@@ -34,7 +34,7 @@ go-to: media
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; workers_aid += 1; prole_a += 2*(efc); homeowner_a += 1.5*(etc); public_prole_a += 2*(etc); unemployed_a += 5*(efc); labor_relations += 5
+on-arrival: resources -= 1; workers_aid += 1; prole_a += 2*(efc); homeowner_a += 1.5*(etc); public_prole_a += 2*(etc); unemployed_a += 5*(efc); lo_relations += 5
 
 [? if dissent < 0.5 : The fundraising was a success, most of our members were happy to contribute. ?] [? if dissent > 0.5 : Due to many of our members feeling alienated, the fundraising was less effective than usual. ?] [? if dissent > 0.8 : In fact, only a tiny fraction donated. ?] [? if oilcrisis > 0 : In an age of economic crisis, this will be helpful for improving our standing among the unemployed. ?]
 
@@ -42,7 +42,7 @@ on-arrival: resources -= 1; workers_aid += 1; prole_a += 2*(efc); homeowner_a +=
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; cultural_organizations += 1; left_dissent -= 6; right_worker_dissent -= 6; technocrat_dissent -= 6; right_worker_dissent -= 6; a_activity += 2
+on-arrival: resources -= 1; cultural_organizations += 1; left_dissent -= 6; right_worker_dissent -= 6; technocrat_dissent -= 6; right_worker_dissent -= 6; a_activity += 3
 
 Our political party is little without its members, those who tirelessly work to keep our party-movement alive in song and action. However due to daily stresses and competition from the capitalist entertainment sector, only a small amount of our membership is active at any given point. By allocating more money to the budgets of local chapters, we may be able to do something to improve the situation.
 

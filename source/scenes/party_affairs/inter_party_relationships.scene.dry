@@ -1,6 +1,6 @@
 title: Inter-Party Relationships
 new-page: true
-view-if: year >= 1970
+view-if: year >= 1971
 tags: party_affairs
 is-card: true
 on-arrival: month_actions += 1; inter_party_relationships_timer = 6;
@@ -132,13 +132,13 @@ The Brüning semi-autocratic regime makes building friendly relations difficult,
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; b_relation += 3*(1 - globalization)
+on-arrival: resources -= 1; b_relation += 3*(globalization)
 go-to: liberal_op if b_in_government = 1 and a_in_government = 0 and chancellor != "Brüning"; liberal_coalition if a_in_government = 1 and b_in_government = 1
 
 The somewhat confusingly named 'radical left' party has historically represented the poor farmers as well as white collor workers in the cities, by extending a hand we will try to bridge the last few years' unfortunate developments.
 
 @liberal_op
-on-arrival: b_relation += 5*(1 - globalization)
+on-arrival: b_relation += 5*(globalization)
 
 We are currently in opposition to the bourgeois government, but that does not preclude the general building of feelings of good will.
 

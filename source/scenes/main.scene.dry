@@ -15,6 +15,7 @@ max-cards: 3
 
 
 - @party
+- @workers_movement
 - @govt
 - @elec
 - #advisor
@@ -69,3 +70,11 @@ card-image: img/valg.jpg
 is-deck: true
 
 - #election_campaign
+
+@workers_movement
+title: Workers Movement
+view-if: time >= 2
+card-image: img/arbbev.jpg
+is-deck: true
+
+- #workers_movement

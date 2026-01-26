@@ -1,0 +1,142 @@
+title: The Council
+new-page: true
+is-card: true
+view-if: council_timer <= 0
+max-visits: 36
+frequency: 300
+on-arrival: month_actions += 1; council_timer += 6;
+card-image: img/council.jpg
+tags: workers_movement
+go-to: council_main
+
+@council_main
+new-page: true
+on arrival: council_seen += 1
+
+= **The Council**
+
+[? if council_seen != 1 : Though its leaders insist that The Worker-Movements Economic Council represents only the united interests of the workers movement, the reality is not quite as rosy.  ?]
+
+In recent years, both the capacities and direction of the council have been hotly contested between {!<span class="tooltip-text" title="Our Party, the unions and the cooperatives.">the three pillars</span>!} of our movement.
+
+Currently the council owes us [+ council_favours +] favours.
+
+- @economic_analysis: Place orders for a sensible economic critique of the government.
+- @more_polls: The council should conduct regular voter surveys.
+- @more_polls2: Expand our voter surveys.
+- @first_we_must: First, we should improve our standing in the council.
+- @return: We dont need the council at the current time. 
+- @easy_discard
+
+@first_we_must
+
+There are a few ways we could could do this.
+
+- @economic_support_council: Donate a symbolic amount for the councils efforts.
+- @economic_finance_council: Pay for an expansion of the council.
+- @favours_from_lo: Utilize our relations with LO to gain leverage in the council.
+- @favours_from_dkf: Utilize our relations with DKF to gain leverage in the council.
+- @council_main: Actually, we need not improve our standing.
+
+
+@economic_support_council
+on-arrival: resources -= 1; council_favours += 1; technocrat_dissent -= 3; lo_relations += 2
+subtitle: - 1 resources, + 1 council favour
+unavailable-subtitle: - 1 resources, + 1 council favour – we lack resources.
+choose-if: resources >= 1
+
+We agree to cover some of the costs incurred by previous work requests. The technocrats in our party appreciates this gesture.
+
+- @first_we_must: We can improve our standing further.
+- @council_main: Let us cash in on this maneuvering.
+
+@economic_finance_council
+on-arrival: resources -= 3; council_favours += 4; technocrat_dissent -= 6; technocrat_strength += 2; lo_relations += 5
+subtitle: - 3 resources, + 4 council favour
+unavailable-subtitle: - 3 resources, + 4 council favours – we lack resources.
+choose-if: resources >= 3
+
+Employing academics is expensive, which is why it is usually left to the the unions and cooperatives. Nonetheless the council, and by extension LO and DKF, appreciates our extra funding. 
+
+The technocrats in our party are also excited by this.
+
+- @first_we_must: We can improve our standing further.
+- @council_main: Let us cash in on this maneuvering.
+
+@favours_from_lo
+on-arrival: lo_relations -= 4; council_favours += 1
+subtitle: + 1 council favour – this will worsen relations with LO slightly.
+unavailable-subtitle: Relations with LO are currently too poor. They are unwilling to compromise.
+choose-if: lo_relations >= 50
+
+'Political capital' is spent, goodwill towards us in LO decreases somewhat.
+
+- @first_we_must: We can improve our standing further.
+- @council_main: Let us cash in on this maneuvering.
+
+@favours_from_dkf
+on-arrival: dkf_relations -= 4; council_favours += 1
+subtitle: + 1 council favour – this will worsen relations with DKF slightly.
+unavailable-subtitle: Relations with DKF are currently too poor. They are unwilling to compromise.
+choose-if: dkf_relations >= 50
+
+'Political capital' is spent, goodwill towards us in DKF decreases somewhat.
+
+- @first_we_must: We can improve our standing further.
+- @council_main: Let us cash in on this maneuvering.
+
+@economic_analysis
+subtitle: - 1 council favour
+on-arrival: council_favours -= 1; {! 
+Q.addsupport('homeowners','a',+5.8)
+!}
+unavailable-subtitle: - 1 favour – we lack favours with the council.
+choose-if: council_favours >= 1
+
+Due to its employment of academics and experts, the Council is usually recognized as more objective and less partisan than our other means of communication. 
+
+Because of this we are able to reach members of the middle class who usually don't give our party much credence.
+
+@more_polls
+on-arrival: council_favours -= 2; council_level += 1
+subtitle: - 2 council favours – this will allow us to track the impact of our descisions.
+unavailable-subtitle: - 2 favours – we lack favours with the council.
+choose-if: council_favours >= 2
+view-if: council_level = 0
+
+The academics are excited to start their work, but they warn us that initially the accuracy of our polls are going to be quite bad.
+
+Nonetheless which group should we begin to survey first?
+
+- @tenants: We should focus our surveys on the tenants.
+
+@tenants
+on-arrival: tenant_stats += 1
+view-if: tenant_stats != 1
+
+
+@more_polls2
+on-arrival: council_favours -= 2
+subtitle: - 2 council favours – order the construction of polling operations.
+unavailable-subtitle: - 2 favours – we lack favours with the council.
+choose-if: council_favours >= 2
+view-if: council_level = 1
+
+The council will dedicate more of its limited energies into polling. We can now expand our polling to other social groups, but perhaps we should prioritize to improve the accuracy of our polling first?
+
+Currently our polls have a statstical uncertainty of ±[+ 12-polling_efficiency +]%.
+
+- @polls_1: Hire experts to help improve the quality of our polls.
+- @polls_2: Expand our polling to other social groups.
+
+
+@polls_1
+on-arrival: polling_efficiency += 2
+choose-if: polling_efficiency < 10
+unavailable-subtitle: We are already at the bleeding edge of polling accuracy.
+
+The statistical uncertainty of our polls has decreased by 2%.
+
+@polls_2
+
+Which group should we focus on?

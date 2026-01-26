@@ -41,11 +41,38 @@ for (var c of Q.classes) {
 Q.newspaper = Math.random()
 Q.city = Math.random()
 
-//statistical uncertainty to polls
-// Add random uncertainty to polling results
+// Debug: set true to disable all polling noise
+Q.debug_no_poll_uncertainty = true;
+
+// statistical uncertainty to newspaper polls
 function addUncertainty(baseValue) {
-    const percentageDeviation = Math.random() * 0.02; // Random value between -0.02 and +0.02 (±2%)
-    return Math.max(0, Math.min(100, baseValue * (1 + percentageDeviation))); // Ensure result is between 0 and 100
+    var v = Number(baseValue);
+    if (!Number.isFinite(v)) v = 0;
+
+    if (Q.debug_no_poll_uncertainty) return Math.max(0, Math.min(100, v));
+
+    var rel = 0.02;
+    var deviation = (Math.random() * 2 - 1) * rel;
+    return Math.max(0, Math.min(100, v * (1 + deviation)));
+}
+
+// Segment/class polling uncertainty
+function addSegmentUncertainty(baseValue) {
+    var v = Number(baseValue);
+    if (!Number.isFinite(v)) v = 0;
+
+    if (Q.debug_no_poll_uncertainty) return Math.max(0, Math.min(100, v));
+
+    var pe = Number(Q.polling_efficiency);
+    if (!Number.isFinite(pe)) pe = 0;
+    pe = Math.max(0, Math.min(100, pe));
+
+    var startRel = 0.12;
+    var minRel = 0.02;
+    var rel = startRel - (startRel - minRel) * (pe / 100);
+
+    var deviation = (Math.random() * 2 - 1) * rel;
+    return Math.max(0, Math.min(100, v * (1 + deviation)));
 }
 
 // calculate support for each of the parties
@@ -129,10 +156,10 @@ Q.right_worker_strength = 100*Q.right_worker_strength/total_strength;
 Q.neorevisionist_strength = 100*Q.neorevisionist_strength/total_strength;
 
 // slightly lower dissent each month.
-Q.left_dissent -=0.1
-Q.left_worker_dissent -=0.1
-Q.technocrat_dissent -=0.1
-Q.right_worker_dissent -=0.1
+Q.left_dissent -=0.05
+Q.left_worker_dissent -=0.05
+Q.technocrat_dissent -=0.05
+Q.right_worker_dissent -=0.05
 
 // re-calculate dissent.
 var total_dissent = Q.left_strength*Q.left_dissent + Q.left_worker_strength*Q.left_worker_dissent + Q.technocrat_strength*Q.technocrat_dissent + Q.right_worker_strength*Q.right_worker_dissent + Q.neorevisionist_strength*Q.neorevisionist_dissent;
@@ -160,7 +187,7 @@ Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
 Q.membermonthly = Q.previous_members - Q.a_members
 
 //reset memberrise
-Q.memberrise = 0
+Q.memberrise = Q.memberrise / 3
 
 //trying to get dynamic valg to work
 Q.month_actions_checked = Q.month_actions;
@@ -189,8 +216,8 @@ if (Q.valg && Q.month_actions >= 1) {
 }
 
 //activity
-Q.a_activityprevious = Q.a_activity + Q.a_bureau
-Q.a_activity = Q.a_activityprevious - Q.a_bureau
+Q.a_activityprevious = Q.a_activity + Q.a_bureau;
+Q.a_activity = Q.a_activityprevious - Q.a_bureau;
 
 // decrement timers
 for (timer of Q.timers) {
@@ -199,15 +226,41 @@ for (timer of Q.timers) {
    }
 }
 
-// Advance globalization each month
-Q.globalization += 0.0025; // adjust the increment as needed
+//Advance globalization each month
+Q.globalization = 1 - Q.exports / 50;
 
+//adjust the increment as needed
 //Calculate new GDP
 const yearlyGrowthRate = Q.economic_growth / 100; // Convert to decimal
 const monthlyGrowthRate = Math.pow(1 + yearlyGrowthRate, 1 / 8) - 1;
-Q.gdp = Q.gdp * (1 + monthlyGrowthRate);
-//disp // makes t
-Q.gdpdisp = Q.gdp.toFixed(1)
+
+Q.gdp = (Q.gdp * (1 + monthlyGrowthRate));
+//disp
+Q.gdpdisp = Q.gdp.toFixed(1);
+
+// Based on data 1995-2015 people save more in crisis: https://www.statbank.dk/statbank5a/Selectout/pivot.asp 
+// At most during this period they saved 9%, during periods of growth savings are sometimes quite negligeble. But if we count total expenditure including public expenditures, then the swings are much lower at 5,5% to -0,18%. i think this is the metric we have to use. due to the fact that the above inome measures pre tax income.
+// in all cases ill just make the worker savings rate 1.5% at the beginning, this seems reasonable. Im gonna turn the expenditure a bit up for workers and a bit down for capitalists in order to simulate keynes theory of aggregate demand.
+Q.savings_rate = 6-(Q.economic_growth)
+Q.worker_consumption = Q.worker_income * (1 - Q.savings_rate / 100)
+Q.non_worker_consumption = Q.non_worker_income * (1 - Q.savings_rate / 100) - 0.10
+
+// capital imports make up the bulk oof imported goods (≈2/3). Basically we scale imported resources with size of gdp
+
+// Exports varied from 26.2% to 36.3% of GDP in the period between 1970-1981, it was pretty stabe at around 36-37% in the period all the way up to 2000. Source: https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS?locations=DK
+Q.exports = Q.exports + Q.competitiveness
+// import investment based on approximation of 1970 gdp growth% to capital imported investment% of gdp
+Q.import_investment = Q.economic_growth * 0.75
+// percent of consumption spent on imported goods, which was pretty stable at 11-12% even in spite of the oil crisis – source: https://www.statistikbanken.dk/statbank5a/Selectout/pivot.asp
+// import calculation based on this source: https://www.statistikbanken.dk/statbank5a/Selectout/pivot.asp
+Q.imports =  Q.capital_imports + Q.import_investment + (Q.worker_consumption * 0.11) + (Q.non_worker_consumption * 0.12 - Q.import_investment);
+// percent of income going to imported goods stable througout period.
+Q.domestic_consumption = (Q.worker_consumption * 0.88) + (Q.non_worker_consumption * 0.88);
+
+// Balance of Payments – workers savings were 25% basically throughout the entire period
+Q.imports_disp = Q.imports.toFixed(1);
+Q.exports_disp = Q.exports.toFixed(1);
+Q.bop = (Q.exports_disp - Q.imports_disp).toFixed(1);
 
 // decline media health each month
 Q.mediahealth -= 0.5; // adjust the increment as needed
@@ -218,6 +271,31 @@ for (var party of Q.parties) {
     party_support_results[party] = Q[party + '_votesdisp'];
 }
 Q.party_support_records.push(party_support_results);
+
+// append to historical party support records from each of the classes
+for (var c of Q.classes) {
+    var key = c + "_support_records";
+    if (!Q[key]) Q[key] = [];
+
+    // Store both the underlying value (party) and a noisy polling estimate (party_disp)
+    var class_result = { date: new Date(Q.year, Q.month - 1) };
+
+    for (var party of Q.parties) {
+        var base;
+        if (Q.old_demographics) {
+            base = Number(Q[c + '_' + party]);
+        } else {
+            base = Number(Q[c + '_' + party + '_normalized']);
+        }
+        if (!Number.isFinite(base)) base = 0;
+
+        class_result[party] = base;
+        class_result[party + "_disp"] = Number(addSegmentUncertainty(base).toFixed(1));
+    }
+
+    Q[key].push(class_result);
+}
+
 Q.economic_records.push({'date': new Date(Q.year, Q.month - 1),
                             'inflation': Q.inflation,
                             'unemployment': Q.unemployed});
@@ -240,14 +318,88 @@ if (Q.budget <= -5 && Q.inflation < 10) {
     }
 }
 
+
+//// ADD SPECIAL CLASSES FOR POLLING ////
+// NOTE: tenant_class_support_records is appended later, after Q.public_private_worker_t is computed,
+// so that (a) the blend factor is correct and (b) party_disp uses addSegmentUncertainty properly.
+// (removed earlier duplicate append block)
+
 // public sector size
-Q.Sizeofpublicsector = (Q.public_prole + Q.public_homeowner) / (Q.public_prole + Q.public_homeowner + Q.homeowner + Q.prole + Q.rural + Q.pettyb) * 100
-Q.Sizeofpublicsectordisp = Q.Sizeofpublicsector.toFixed(1)
+Q.sizeofpublicsector = (Q.public_prole + Q.public_homeowner) / (Q.public_prole + Q.public_homeowner + Q.homeowner + Q.prole + Q.rural + Q.pettyb) * 100;
+Q.sizeofpublicsectordisp = Q.sizeofpublicsector.toFixed(1);
 
-//Urbanization
-Q.Urbanizationrate = 100-Q.rural*2
-Q.Urbanizationratedisp = Q.Urbanizationrate.toFixed(1)
+// Urbanization
+Q.urbanization_rate = 100 - Q.rural;
+Q.urbanization_ratedisp = Q.urbanization_rate.toFixed(1);
 
+// Calculating the values of the abstracted "tenant class" (public prole + private prole)
+function clamp01(x) { return Math.max(0, Math.min(1, x)); }
+var denom = Number(Q.sizeofpublicsector);
+var numer = Number(Q.urbanization_rate);
+var t = (denom > 0 && Number.isFinite(denom) && Number.isFinite(numer)) ? clamp01(numer / denom) : 0;
+
+Q.public_private_worker_t = t;
+Q.public_private_worker_t_disp = (t * 100).toFixed(0) + "%";
+
+// append to historical party support records (overall) ONCE
+if (!Q.party_support_records) Q.party_support_records = [];
+var party_support_results = { date: new Date(Q.year, Q.month - 1), _t: t };
+for (var party of Q.parties) {
+  party_support_results[party] = Q[party + '_votesdisp'];
+}
+Q.party_support_records.push(party_support_results);
+
+// append to historical party support records from each class ONCE
+for (var c of Q.classes) {
+  var key = c + "_support_records";
+  if (!Q[key]) Q[key] = [];
+
+  var class_result = { date: new Date(Q.year, Q.month - 1), _t: t };
+
+  for (var party of Q.parties) {
+    if (Q.old_demographics) {
+        class_result[party] = Number(Q[c + '_' + party]);
+    } else {
+        class_result[party] = Number(Q[c + '_' + party + '_normalized']);
+    }
+  }
+
+  Q[key].push(class_result);
+}
+
+// NEW: blended working-class (private prole + public prole) series, preserves originals
+if (!Q.tenant_class_support_records) Q.tenant_class_support_records = [];
+
+var proleRec = Q.prole_support_records && Q.prole_support_records.length
+    ? Q.prole_support_records[Q.prole_support_records.length - 1]
+    : null;
+
+var publicProleRec = Q.public_prole_support_records && Q.public_prole_support_records.length
+    ? Q.public_prole_support_records[Q.public_prole_support_records.length - 1]
+    : null;
+
+// Only append if both exist for this month
+if (proleRec && publicProleRec) {
+    // Store both underlying value (party) and a noisy polling estimate (party_disp)
+    var wc = { date: new Date(Q.year, Q.month - 1), _t: t };
+
+    for (var party of Q.parties) {
+        var va = Number(proleRec[party]);
+        var vb = Number(publicProleRec[party]);
+        if (!Number.isFinite(va)) va = 0;
+        if (!Number.isFinite(vb)) vb = 0;
+
+        var baseBlend = (1 - t) * va + t * vb;
+        wc[party] = baseBlend;
+        wc[party + "_disp"] = Number(addSegmentUncertainty(baseBlend).toFixed(1));
+    }
+
+    Q.tenant_class_support_records.push(wc);
+}
+
+
+
+//// SOCIO ECONOMICS
 
 //Urbanization rural
 if (Q.economic_growth >= 1.5 && Q.economic_growth < 4) {

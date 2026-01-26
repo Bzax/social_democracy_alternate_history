@@ -1,13 +1,25 @@
-title: Statistics
+title: General Statistics
 is-pinned-card: true
 tags: advisor, centrist
 card-image: img/statist.jpg
-view-if: statistics = 1
+go-to: intern_bully if statistics_seen != 1; polling_results if statistics_seen = 1
+view-if: time >= 4
 new-page: true
+
+@intern_bully
+title: intern
+on arrival: statistics_seen = 1
+
+Among other important tasks, {!<span class="tooltip-text" title=" 'Arbejderbevægelsens Erhvervsråd' is a council of academics in service to the workers movement. It was established in 1936 as a joint venture of the DKF and LO.">The Worker-Movements Economic Council</span>!} provides us and our allies with statistics that can help us strategize.
+
+- @polling_results: Gesture at some intern to graph recent opinion polls.
+- @root: Back to main.
+
+@polling_results
+new-page: true
+subtitle: - 0 council favours
 on-display: {!
-
 Q.linegraph_start_year = 1970;
-
 if (d3 && window) {
     // get screen width
     var width = 500;
@@ -48,10 +60,12 @@ The Monthly newspaper polls only tell us so much, but long term trends are still
 
 {!<svg id="party_support_history" style="width: 500px; height: 400px;"> </svg>!}
 
-- @election_historystat: Historical election results.
-- @root: return.
+- @election_historystat: [? if statistics2_seen != 1 : Make the intern also graph all election results since 1945. ?][? if statistics2_seen = 1 : Show previous Election results. ?]
+- @root: Back.
 
 @election_historystat
+subtitle: - 0 council favours
+on arrival: statistics2_seen = 1
 on-display: {!
 Q.linegraph_start_year = 1945;
 
