@@ -2,7 +2,7 @@ title: LO hosts its 1971 congress
 new-page: true
 subtitle: The workers movement takes a radical turn
 tags: event
-view-if: year = 1971 and month = 3
+view-if: year = 1971 and month = 2
 max-visits: 1
 face-image: img/kongres.jpg
 

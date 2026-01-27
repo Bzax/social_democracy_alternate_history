@@ -17,7 +17,7 @@ on arrival: council_seen += 1
 
 [? if council_seen != 1 : Though its leaders insist that The Worker-Movements Economic Council represents only the united interests of the workers movement, the reality is not quite as rosy.  ?]
 
-In recent years, both the capacities and direction of the council have been hotly contested between {!<span class="tooltip-text" title="Our Party, the unions and the cooperatives.">the three pillars</span>!} of our movement.
+In recent years, both the capacities and direction of {!<span class="tooltip-text" title=" 'Arbejderbevægelsens Erhvervsråd' (lit. 'The Worker-Movements Economic Council') is a council of academics in service to the workers movement. It was established in 1936 as a joint venture of the DKF and LO.">The Council</span>!} have been hotly contested between {!<span class="tooltip-text" title="Our Party, the unions and the cooperatives.">the three pillars</span>!} of our movement.
 
 Currently the council owes us [+ council_favours +] favours.
 

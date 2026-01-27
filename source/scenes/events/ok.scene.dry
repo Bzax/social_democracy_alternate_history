@@ -1,19 +1,19 @@
 title: OK Strategy
+subtitle: LO prepares for the biannual class-wide bargaining negotiations.
 new-page: true
 is-card: true
-view-if: true
+view-if: year = 1971 and month == 3
 max-visits: 36
 frequency: 300
-on-arrival: month_actions += 1; lo_relations_timer += 7;
-card-image: img/overenskomst.jpg
-tags: workers_movement
-go-to: @discuss_ok71 if year >= 1970 or year == 1971 and month >= 2; @unionrelations2 if lo_relations <= 50
-
-@discuss_ok71
+on-arrival: month_actions += 1; 
+face-image: img/overenskomst1971.jpg
+tags: event
 
 = **[+ next_ok +]**
 
-It is safe to say that the Danish Class struggle is the most instutitutionalized like nowhere else. <br>At the bi-annual sectoral aggreements the working conditions for basically all workers in Denmark are decided. The negotiations take place between the confederation of all the Danish unions; LO – and its bourgious counterparts in DI (Danish Industry) and DA (The Danish Employers Organisation). 
+It is safe to say that the Danish Class struggle is the most instutitutionalized class struggle in the world. 
+
+At the bi-annual 'OK' aggreements the working conditions for basically all workers in Denmark are decided upon. The negotiations take place between the confederation of all the Danish unions; LO – and its bourgious counterparts in DI (Danish Industry) and DA (The Danish Employers Organisation). 
 
 LO currently expects to win:
 <br>- a fourth week of paid vacation.
@@ -25,18 +25,19 @@ LO currently expects to win:
 - @support_them: Indicate that we agree with their demands.
 - @really_support_them: We promise to mobilize our membership and run a campaign in support of the negotiations.
 - @encourage_more: Encourage them to up their demands and prepare for conflict.
-- @easy_discard
 
 
 @discourage
 on-arrival: discourage_lo = 1; lo_relations -= 10; b_relation += 9; v_relation += 8; c_relation += 7 if a_in_government != 1; worker_income += worker_income * 0.035; economic_growth -= 0.2;
 subtitle: This will upset LO, but it may ease pressure on the economy [? if a_in_government != 1 : and improve our relationship with the governing parties?].
+go-to: @unionrelations2 if lo_relations <= 50
 
 Cursewords are exchanged, and a few times we are told to leave the offices. Eventually a compromise, is reached. [? if lo_relations >= 70 : But we are now walking on thin ice.?]
 
 @support_them
 on-arrival: support_lo = 1; lo_relations += 4; b_relation += 9; v_relation += 8; c_relation += 7 if a_in_government != 1; worker_income += worker_income * 0.05;
 subtitle: This will satisfy LO, but it may put pressure on the economy.
+go-to: @unionrelations2 if lo_relations <= 50
 
 
 The LO leadership is satisfied with our judgement.
@@ -45,24 +46,24 @@ The LO leadership is satisfied with our judgement.
 @really_support_them
 on-arrival: resources -= 1; a_activity -= 0.02; support_lo = 1; lo_relations += 8; worker_income += worker_income * 0.05; economic_growth -= 0.4;
 subtitle: - 1 Resource – This will please LO, but it may put pressure on the economy.
+go-to: @unionrelations2 if lo_relations <= 50
 
 The LO leadership is pleased with our judgement. Our membership is somewhat distracted over the next few months.
 
 
 @encourage_more
 on-arrival: encourage_lo = 1; lo_relations += 2; b_relation -= 3; v_relation -= 3; c_relation -= 4 if a_in_government != 1; worker_income += worker_income * 0.065; economic_growth -= 0.4;
-subtitle: - 1 Resource – This will satisfy LO, but it may put alot of pressure on the economy [? if a_in_government != 1 : and damage our relationship with the governing parties?][? if a_in_government = 1 : and damage our relationship with the bourgious parties?].
+subtitle: This will please LO, but it may put alot of pressure on the economy [? if a_in_government != 1 : and damage our relationship with the governing parties?][? if a_in_government = 1 : and damage our relationship with the bourgious parties?].
+go-to: @unionrelations2 if lo_relations <= 50
 
-The Nazi SA has disrupted our rally! Their street troops are preventing us from meeting.
-
+The LO leadership is surprised with our decision. Our membership is somewhat distracted over the next few months.
 
 
 @discuss_next_election
 
 
+not implemented
+
 @unionrelations2
 
 At the moment our relations with the LO leadership are not good enough for them to want to costrategize with us.
-
-
-- @easy_discard
