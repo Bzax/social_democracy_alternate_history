@@ -4,14 +4,13 @@ go-to: post_event if started = 1; start_menu if started = 0
 
 @start_menu
 new-page: true
-audio: music/1970_1973/byen_vagner.mp3
-set-bg: img/sort.jpg
+set-bg: img/rode_mor.jpg
 go-to: start_menu_2
 
 = Red Zenit: An Alternate History
 
+
 @start_menu_2
-audio: music/1970_1973/byen_vagner.mp3
 
 - @start: Start game
 - @Context: Premise
@@ -20,19 +19,27 @@ audio: music/1970_1973/byen_vagner.mp3
 - @game_over.achievements
 
 @Context
+new-page: true
+on-arrival: {! 
+dendryUI.audioPlaylist = []
+!}
+face-image: img/recruit.jpg
 
-In '**Red Zenit: An alternative History**' you play as the Danish Social Democrats through the Oil Crisis and transition into late-modern politics. The game is called 'Red Zenit' because in real life the 1970s was the absolute peak of the Danish workers movement. As other historical classes faded, the unity of the workers movement became harder to maintain as internal contradictions was starting to cause division. The working class was now divided between property owners and tenants, as well as public/private workers. 
+= **Premise**
 
-Can you preserve mass politics while surviving the onslaught of neo-liberalism? Can you leverage the strength of the workers movement to build a socialist majority?
+In '**Red Zenit: An alternative History**' you play as the Danish Social Democrats through the oil crisis and transition into late-modern politics. The 1970s marked the absolute peak of the Danish workers movement but as other historical classes faded and globalization set in during the 1980-1990s the unity and strength of the workers movement eventually became harder to maintain. 
 
-The aim is for the game to last quite a bit longer than the other ones in the socdem expanded universe (ideally it would last into the early 1990s), with broader demographic changes occuring as a consequence of the players choices while in government. But for now the aim is just to make the game work up until the irl earthquake election of december 1973 as a demo/proof of concept.
+But nothing is decided yet, you stand at the precipice of the red zenit. Will you ride the zeitgeist to take the first steps out of capitalism? Or will you trailblaze the spirit of new times? 
+
+(The game currently is functioning from 1970-≈1972)
+
 
 - @historyroot: Political history of the Danish Workers Movement (before 1970).
-- @start_menu_2: Return
+- @start_menu: Return.
 
 @historyroot
 
-= History of Modern Denmark (and workers movement)
+= **History of Modern Denmark (And Workers Movement)**
 
 **1848**: Amidst the civil war with German nationalists in Holstein and the broader revolutionary wave washing over Europe, the Danish King permits liberals to organize a constitutional assembly. Denmark adopts its June-Constititution the following year.
 
@@ -612,6 +619,8 @@ Q.election_records = [
 Q.city = Math.random()
 Q.newspaper = Math.random()
 
+dendryUI.audioPlaylist = [];
+
 // party support records for every month
 Q.party_support_records = [];
 
@@ -926,10 +935,10 @@ This game was made as a total conversion mod of Automn Chens amazing 'Social Dem
 
 For more information on the politics and government of Denmark during the period, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
 
-- @1928_easy: Begin (easy difficulty)
+- @1928_easy: Begin (easy difficulty) (doesnt work yet)
 - @1928_main: Begin (normal difficulty)
-- @1928_hard: Begin (hard difficulty)
-- @1928_historical: Begin (historical mode)
+- @1928_hard: Begin (hard difficulty) (doesnt work yet)
+- @1928_historical: Begin (historical mode) (doesnt work yet)
 
 @1928_easy
 on-arrival: difficulty = -1; resources = 4; dues = 3; a_members = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
@@ -962,9 +971,12 @@ go-to: 1928_main
 // In foreign policy whether to integrate into the European Community remains the burning question. But we have otherwise sided decisively with NATO, and the western powers.
 
 @1928_main
-audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Lil_Johnnys_Mund.mp3 music/1970_1973/Victor_og_socialdemokratiet.mp3 music/1970_1973/trille-ham-gud.mp3 music/1970_1973/hejsoster.mp3 music/1970_1973/hejsoster.mp3
-set-bg: img/Background-train.jpg
 new-page: true
+on-arrival: {! 
+dendryUI.audioPlaylist = []
+!}
+set-bg: img/Background-train.jpg
+audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Lil_Johnnys_Mund.mp3 music/1970_1973/Victor_og_socialdemokratiet.mp3 music/1970_1973/trille-ham-gud.mp3 music/1970_1973/hejsoster.mp3 music/1970_1973/hejsoster.mp3
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = **Spring 1970**

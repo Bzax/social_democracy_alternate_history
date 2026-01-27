@@ -42,7 +42,7 @@ Q.newspaper = Math.random()
 Q.city = Math.random()
 
 // Debug: set true to disable all polling noise
-Q.debug_no_poll_uncertainty = true;
+Q.debug_no_poll_uncertainty = false;
 
 // statistical uncertainty to newspaper polls
 function addUncertainty(baseValue) {

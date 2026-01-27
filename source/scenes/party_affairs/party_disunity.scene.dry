@@ -13,9 +13,9 @@ tags: party_affairs
 
 The party is being torn apart by internal dissent. Upset at the leadership and general direction, factions have started sabotaging their rivals, hampering our efforts to win votes and carry out our policies.
 
-[? if right_worker_dissent > 30 : The reformists are upset at our direction.  ?]
-[? if left_worker_dissent > 30 : The centrists are displeased with the direction of our party. ?]
-[? if technocrat_dissent > 30 : The trade unions disagree with our present course of action. ?]
+[? if right_worker_dissent > 30 : The right-workerists are upset at our direction.  ?]
+[? if left_worker_dissent > 30 : The left-workerists are displeased with the direction of our party. ?]
+[? if technocrat_dissent > 30 : The technocrats disagree with our present course of action. ?]
 [? if left_dissent > 30: Leftists are making noises about another party split. ?]
 [? if neorevisionist_dissent > 30 and neorevisionism = 1 : Neorevisionists are in disagreement about our political direction. ?]
 
