@@ -126,7 +126,7 @@ Last six weeks: [+ a_memberdecline_disp +]
 
 {!<span class="tooltip-text" title="The level of activity among our members is negatively affected by the proffesionalization of our bureaucracy and trends downwards over time. \nIt is positively affected by elections, party congresses as well as investment and reliance on from leadership. Our youth movement is especially active. ">Level of activity</span>!}: [+ a_activity : a_activity +]
 
-**Factions**<br>Overall dissent: [+ dissent : dissent+]
+**Factions**<br>Overall dissent: [+ dissent_percent : dissent +]
 
 {!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.\n\nIdeology: Democratic Socialism, Marxism, Anti-Atlanticism, New-Left, Modernism.">SDS</span>!} strength: [+ left_strength_disp +]%, <br>dissent: [+ left_dissent : dissent +]
 
