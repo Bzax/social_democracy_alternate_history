@@ -25,15 +25,27 @@ on-arrival: {!
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_r'] = Q[party + '_r'];
+
+    // Parties that may or may not exist this run
+    var notFormed =
+        (party === 'z'  && !Q.z_formed) ||
+        (party === 'cd' && !Q.cd_formed);
+
     if (Q.constitutional_reform > 0) {
-        if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
+        if (
+            notFormed ||
+            Q[party + '_votes'] < Q.electoral_threshold ||
+            (Q.electoral_threshold > 1 && party == 'other') ||
+            Q[party + '_banned']
+        ) {
             Q[party + '_r'] = 0;
         } else {
             Q[party + '_r'] = Q[party + '_votes'];
         }
         new_party_sum += Q[party + '_r'];
     } else {
-        Q[party + '_r'] = Q[party + '_votes'];
+        // Even without constitutional reform, don't count unformed parties
+        Q[party + '_r'] = notFormed ? 0 : Q[party + '_votes'];
     }
     // if we use decimals, then we might want to truncate the numbers
     if (Q.use_decimals) {
@@ -178,11 +190,6 @@ if (seatsCount('dkp') >= 1) {
     data.push({ "id":"dkp", "legend":"DKP", "name":"DKP", "seats": seatsCount('dkp') });
 }
 
-// CD (if formed)
-if (Q.cd_formed && seatsCount('cd') >= 1) {
-    data.push({ "id":"cd", "legend":"CD", "name":"CD", "seats": seatsCount('cd') });
-}
-
 // VS / SF / A / RFB / B / V / C / KF
 if (seatsCount('vs') >= 1)  data.push({ "id":"vs",  "legend":"VS",  "name":"VS",  "seats": seatsCount('vs')  });
 if (seatsCount('sf') >= 1)  data.push({ "id":"sf",  "legend":"SF",  "name":"SF",  "seats": seatsCount('sf')  });
@@ -191,11 +198,14 @@ if (seatsCount('rfb')>= 1)  data.push({ "id":"rfb", "legend":"RFB", "name":"RFB"
 if (seatsCount('northatlantic') > 0) {
     data.push({ "id":"northatlantic", "legend":"North Atlantic", "name":"North Atlantic", "seats": seatsCount('northatlantic') });
 }
+// CD (if formed)
+if (Q.cd_formed && seatsCount('cd') >= 1) {
+    data.push({ "id":"cd", "legend":"CD", "name":"CD", "seats": seatsCount('cd') });
+}
 if (seatsCount('b')  >= 1)  data.push({ "id":"b",   "legend":"B",   "name":"B",   "seats": seatsCount('b')   });
 if (seatsCount('v')  >= 1)  data.push({ "id":"v",   "legend":"V",   "name":"V",   "seats": seatsCount('v')   });
 if (seatsCount('c')  >= 1)  data.push({ "id":"c",   "legend":"C",   "name":"C",   "seats": seatsCount('c')   });
 if (seatsCount('kf') >= 1)  data.push({ "id":"kf",  "legend":"KF",  "name":"KF",  "seats": seatsCount('kf')  });
-
 // Z (if formed)
 if (Q.z_formed && seatsCount('z') >= 1) {
     data.push({ "id":"z", "legend":"Z", "name":"Z", "seats": seatsCount('z') });
@@ -260,8 +270,6 @@ Q.election_records.push(election_result);
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td><td>Seats</td></tr>!}
 {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **A:** {!</td><td>!} **[+ a_vote_disp +]%** {!</td><td>!} **[+ str_change_a +]** {!</td><td>!} **[+ a_seats_int +]** {!</td></tr>!}
 
-[? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +]% {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
-
 {!<tr><td><div class="box" style='background-color:#ee80fa'> </div> !} SF: {!</td><td>!} [+ sf_vote_disp +]% {!</td><td>!} [+ str_change_sf +] {!</td><td>!} [+ sf_seats_int +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} DKP: {!</td><td>!} [+ dkp_vote_disp +]% {!</td><td>!} [+ str_change_dkp +] {!</td><td>!} [+ dkp_seats_int +] {!</td></tr>!}
@@ -269,6 +277,8 @@ Q.election_records.push(election_result);
 {!<tr><td><div class="box" style='background-color:#e26969'> </div> !} VS: {!</td><td>!} [+ vs_vote_disp +]% {!</td><td>!} [+ str_change_vs +] {!</td><td>!} [+ vs_seats_int +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#4e4e94'> </div> !} RFb: {!</td><td>!} [+ rfb_vote_disp +]% {!</td><td>!} [+ str_change_rfb +] {!</td><td>!} [+ rfb_seats_int +] {!</td></tr>!}
+
+[? if cd_formed : {!<tr><td><div class="box" style='background-color:#9f5489'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +]% {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#865fac'> </div> !} B: {!</td><td>!} [+ b_vote_disp +]% {!</td><td>!} [+ str_change_b +] {!</td><td>!} [+ b_seats_int +] {!</td></tr>!}
 
@@ -281,8 +291,6 @@ Q.election_records.push(election_result);
 {!<tr><td><div class="box" style='background-color:#818589'> </div> !} {!<span class="tooltip-text" title="Since the constitution of 1953 both Greenland and the Faroe Islands have been guaranteed to seats in the Folketing.">NAM</span>!}: {!</td><td>!} n/a {!</td><td>!} n/a {!</td><td>!} 4 {!</td></tr>!}
 
 [? if z_formed : {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} Z: {!</td><td>!} [+ z_vote_disp +]% {!</td><td>!} [+ str_change_z +] {!</td><td>!} [+ z_seats_int +] {!</td></tr>!} ?]
-
-[? if cd_formed : {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +] % {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
 
 {!</table>!}
 
@@ -1077,7 +1085,7 @@ if (Q.socialism < 38) {
     Q.rural_spd -= 5;
     Q.catholics_spd -= 3;
     Q.workers_nsdap += 5;
-    Q.old_middle_nsdap += 5;
+    Q.old.middle_nsdap += 5;
     Q.new_middle_nsdap += 5;
     Q.rural_nsdap += 5;
     Q.unemployed_nsdap += 5;   
@@ -1143,7 +1151,7 @@ There are enough votes to form a majority coalition consisting of the SPD, Cente
 
 @grand_coalition_z_lead_2
 
-The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
+The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
 Brüning is not opposed to a coalition with us. Alternatively, we could enter a "toleration" agreement.
 

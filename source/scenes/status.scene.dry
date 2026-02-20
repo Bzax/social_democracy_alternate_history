@@ -18,10 +18,12 @@ if (Q.economic_growth) {
 
 Date: [? if valg != 1 and has_event = 0: [+ month : month +] [+ year +] ?] [? if valg = 1 and has_event = 0:[+ week : week +] week of the campaign ?] [? if valg != 1 and has_event = 1: Between [+ month - 1 : month +] and [+ month : month +] ?] [? if valg = 1 and has_event = 1 : End of [+ week - 1 : week +] week of the campaign ?]
 
-Next election: No later than [+ next_election_month : month +] [+ next_election_year +]
+Prime Minister: [+ chancellor +] ([+ chancellor_party +])
 
 Current position: [? if spd_toleration : toleration ?][? if a_in_government : in government - ?][? if spd_toleration == 0 and a_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
 [? if in_weimar_coalition and a_in_government: Weimar Coalition ?][? if in_grand_coalition and a_in_government: Grand Coalition ?][? if in_popular_front and a_in_government: Popular Front ?][? if in_left_front and a_in_government: Left Front ?][? if in_spd_majority and a_in_government: SPD majority ?][? if in_minority_government and a_in_government: minority government ?][? if in_emergency_government and a_in_government: emergency government ?]
+
+Next election: No later than [+ next_election_month : month +] [+ next_election_year +]
 
 [? if a_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
@@ -29,52 +31,48 @@ Current position: [? if spd_toleration : toleration ?][? if a_in_government : in
 
 [? if a_in_government == 1 : Budget: [+ budget +] ?]
 
-**Inter-party Relations**<br>{!<span class="tooltip-text" title="Socialdemokratiet \n(lit. 'The Socialdemocracy'). \n\nIdeology: \nSee factions, under the 'Party' tab.">A</span>!}: This is you!
-
-{!<span class="tooltip-text" title="Venstre \n(lit.'Left')\n\nIdeology: \nLiberalism, Agrarianism, Business Interests, Social-Liberalism (factions).">V</span>!}: [+ v_relation : relationships +]
-
-{!<span class="tooltip-text" title="Konservativt Folkeparti \n(lit. 'Conservative Peoples Party').\n\nIdeology: \nConservatism, Business Interests, National Conservatism (factions), Social Conservatism (factions).">C</span>!}: [+ c_relation : relationships +]
-
-#based on the program from 1977 https://digitalesamlinger.kb.dk/pamphlets/dasmaa/2008/feb/partiprogrammer/object18197/da/#kbOSD-0=page:2
-{!<span class="tooltip-text" title="Radikale Venstre \n(lit.'The Radical Left').\n\nIdeology: \nSocial-liberalism, Anti-Militarism, Liberal Socialism (factions), Georgism (factions).">B</span>!}: [+ b_relation : relationships +]
-
-{!<span class="tooltip-text" title="Socialistisk Folkeparti \n(lit. 'Socialist Peoples Party').\n\nIdeology: \nMarxism, Revolutionary Reformism, Catalyst-Theory, Anti-Imperialism, Anti-Atlanticism, New Left (factions).">SF</span>!}: [+ sf_relation : relationships +]
-
-{!<span class="tooltip-text" title="Danmarks Kommunistiske Parti \n(lit. 'Communist Party of Denmark')..\n\nIdeology: \nMarxism-Leninism, Communism, Anti-Imperialism, Anti-Atlanticism, Revolutionary Reformism (factions).">DKP</span>!}: [+ dkp_relation : relationships +]
-
-{!<span class="tooltip-text" title="Venstre-Socialisterne \n(lit. 'the Left-Socialists').\n\nIdeology: \nMarxism, New-Left, Left-Communism, Revolutionary Socialism, Abstentionist (factions), Situationist (factions).">VS</span>!}: [+ vs_relation : relationships +]
-
-{!<span class="tooltip-text" title="Retsforbundet \n(lit. 'the Justice League').\n\nIdeology: \nGeorgism, Social-Liberalism, Liberal Socialism (factions).">RFb</span>!}: [+ rfb_relation : relationships +]
-
-{!<span class="tooltip-text" title="Kristeligt Folkeparti \n(lit. 'Christian Peoples Party').\n\nIdeology: \nChristian Democracy, Opposition to Abortion, Cultural Conservatism.">KF</span>!}: [+ KF_relation : relationships +]
-
-[? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet \n(lit. 'The Progress Party').\n\nIdeology: \nLibertarianism, Right-Wing Populism.">Z</span>!}: [+ z_relation : relationships +]?]
-
-[? if cd_formed > 0 : {!<span class="tooltip-text" title="Centrum-Demokraterne \n(lit. 'The Center Democrats').\n\nIdeology: \nWorkerism, Homeowner Interests, Car Owner Interests, Rindallism.">Z</span>!}: [+ z_relation : relationships +]?]
-
-**Government**<br>Prime Minister: [+ chancellor +] ([+ chancellor_party +])
-
-Monarch: [+ president +]
-
-Folketing composition:
+# Folketing composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ spd_r +]%
-[? if z_formed and z_r > 0: Z: [+ z_r +]% ?]
+# {!<span class="tooltip-text" title="'The Social-Democracy in Denmark' (Danish name: 'Socialdemokratiet i Danmark')">A</span>!}: [+ a_r +]%
+# [? if z_formed and z_r > 0: Z: [+ z_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ z_r +]%
+# {!<span class="tooltip-text" title="'Left', (Danish name: 'Venstre',to discover the origins of the peculiar naming go to the 'Library' found in the top menu)">V</span>!}: [+ v_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="'The Conservative Peoples Party' (Danish name: 'Det Konservative Folkeparti')">C</span>!}: [+ kpd_r +]%
+# {!<span class="tooltip-text" title="'The Conservative Peoples Party' (Danish name: 'Det Konservative Folkeparti')">C</span>!}: [+ c_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="'Radical Left' (Danish name: 'Radikale Venstre', to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ ddp_r +]%
+# {!<span class="tooltip-text" title="'Radical Left' (Danish name: 'Radikale Venstre', to discover the origins of the peculiar naming go to the library found in the top menu)">!}[? if not ddp_name: B?][? if ddp_name != 0 : [+ B +]?]{!</span>!}: [+ b_r +]%
 # 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="Socialist Peoples Party (Danish name: 'Socialistisk Folkeparti')">SF</span>!}: [+ dvp_r +]%
+# {!<span class="tooltip-text" title="Socialist Peoples Party (Danish name: 'Socialistisk Folkeparti')">SF</span>!}: [+ sf_r +]%
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dnvp_r +]%
+# {!<span class="tooltip-text" title="'Danish Communist Party' (Danish name: 'Danmarks Kommunistiske Parti')">DKP</span>!}: [+ dkp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="'Left Socialists' (Danish Name: 'Venstresocialisterne')">VS</span>!}: [+ nsdap_r +]%
+# {!<span class="tooltip-text" title="'Left Socialists' (Danish Name: 'Venstresocialisterne')">VS</span>!}: [+ vs_r +]%
 # 1928: 9, 1930: 10
-Others: [+ other_r +]%
+# Others: [+ other_r +]%
+
+**Inter-party Relations**<br>{!<span class="tooltip-text" title="Socialdemokratiet \n(lit. 'The Socialdemocracy'). \n\nIdeology: \nSee factions, under the 'Party' tab.">Socialdemokratiet (A)</span>!}: This is you!
+
+{!<span class="tooltip-text" title="Venstre \n(lit.'Left')\n\nIdeology: \nLiberalism, Agrarianism, Business Interests, Social-Liberalism (factions).">Venstre (V)</span>!}: [+ v_relation : relationships +]
+
+{!<span class="tooltip-text" title="Konservativt Folkeparti \n(lit. 'Conservative Peoples Party').\n\nIdeology: \nConservatism, Business Interests, National Conservatism (factions), Social Conservatism (factions).">Konservativt Folkeparti (C)</span>!}: [+ c_relation : relationships +]
+
+#based on the program from 1977 https://digitalesamlinger.kb.dk/pamphlets/dasmaa/2008/feb/partiprogrammer/object18197/da/#kbOSD-0=page:2
+{!<span class="tooltip-text" title="Radikale Venstre \n(lit.'The Radical Left').\n\nIdeology: \nSocial-liberalism, Anti-Militarism, Liberal Socialism (factions), Georgism (factions).">Radikale Venstre (B)</span>!}: [+ b_relation : relationships +]
+
+{!<span class="tooltip-text" title="Socialistisk Folkeparti \n(lit. 'Socialist Peoples Party').\n\nIdeology: \nMarxism, Revolutionary Reformism, Catalyst-Theory, Anti-Imperialism, Anti-Atlanticism, New Left (factions).">SF (F)</span>!}: [+ sf_relation : relationships +]
+
+{!<span class="tooltip-text" title="Danmarks Kommunistiske Parti \n(lit. 'Communist Party of Denmark')..\n\nIdeology: \nMarxism-Leninism, Communism, Anti-Imperialism, Anti-Atlanticism, Revolutionary Reformism (factions).">DKP (     K)</span>!}: [+ dkp_relation : relationships +]
+
+{!<span class="tooltip-text" title="Venstre-Socialisterne \n(lit. 'the Left-Socialists').\n\nIdeology: \nMarxism, New-Left, Left-Communism, Revolutionary Socialism, Abstentionist (factions), Situationist (factions).">VS (Y)</span>!}: [+ vs_relation : relationships +]
+
+{!<span class="tooltip-text" title="Retsforbundet \n(lit. 'the Justice League').\n\nIdeology: \nGeorgism, Social-Liberalism, Liberal Socialism (factions).">Retsforbundet (E)</span>!}: [+ rfb_relation : relationships +]
+
+{!<span class="tooltip-text" title="Kristeligt Folkeparti \n(lit. 'Christian Peoples Party').\n\nIdeology: \nChristian Democracy, Opposition to Abortion, Cultural Conservatism.">KF (Q)</span>!}: [+ KF_relation : relationships +]
+
+[? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet \n(lit. 'The Progress Party').\n\nIdeology: \nLibertarianism, Right-Wing Populism.">Fremskridtspartiet (Z)</span>!}: [+ z_relation : relationships +]?]
+
+[? if cd_formed > 0 : {!<span class="tooltip-text" title="Centrum-Demokraterne \n(lit. 'The Center Democrats').\n\nIdeology: \nWorkerism, Homeowner Interests, Car Owner Interests, Rindallism.">Centrum-Demokraterne (Z)</span>!}: [+ z_relation : relationships +]?]
 
 @movement
 
@@ -100,7 +98,7 @@ Health of cooperatives: [+ cooperativehealth : cooperativehealth +]
 
 @politics
 on-arrival: {!
-Q.a_members_disp = Q.a_members.toFixed(2);
+Q.members_total_disp = Q.members_total.toFixed(2);
 Q.a_memberdecline_disp = -(Q.membermonthly*1000).toFixed(0);
 Q.left_strength_disp = Q.left_strength.toFixed(0)
 Q.left_worker_strength_disp = Q.left_worker_strength.toFixed(0)
@@ -120,7 +118,7 @@ Health of '{!<span class="tooltip-text" title="Our party runs and operates the n
 
 **Membership**
 
-{!<span class="tooltip-text" title="Our membership count is negatively affected by our internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ a_members_disp +]0
+{!<span class="tooltip-text" title="Our membership count is negatively affected by our internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ members_total_disp +]0
 
 Last six weeks: [+ a_memberdecline_disp +]
 
@@ -152,7 +150,7 @@ Urbanization Rate:<br> [+ urbanization_ratedisp +]%
 
 Unemployment Rate:<br> [+ unemployed_2 +]%
 
-#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ a_members_2 +] thousand
+#{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ members_total_2 +] thousand
 
 #Reichsbanner Militarization: [+ rb_militancy : militancy +]
 
@@ -211,23 +209,23 @@ Q.rigidity_disp = Math.round(Q.rigidity);
 
 Socialdemokratiet: *[+ a_votesdisp +]%*
 
-[? if z_formed: Z: *[+ z_votesdisp +]%* ?]
-
 Venstre: *[+ v_votesdisp +]%*
 
 Konservative Folkeparti: *[+ c_votesdisp +]%*
 
+Radikale Venstre: *[+ b_votesdisp +]%*
+
+[? if z_formed: Z: ?]*[? if z_formed:[+ z_votesdisp +]% ?]*
+
 Kristeligt Folkeparti: *[+ kf_votesdisp +]%*
+
+[? if cd_formed: CD:?] *[? if cd_formed:[+ cd_votesdisp +]% ?]*
 
 DKP: *[+ dkp_votesdisp +]%*
 
-Radikale Venstre: *[+ b_votesdisp +]%*
+SF: *[+ sf_votesdisp +]%*
 
-[? if cd_formed: CD: *[+ cd_votesdisp +]%* ?]
-
-Socialistisk Folkeparti: *[+ sf_votesdisp +]%*
-
-Venstresocialisterne: *[+ vs_votesdisp +]%*
+VS: *[+ vs_votesdisp +]%*
 
 Retsforbundet: *[+ rfb_votesdisp +]%*
 

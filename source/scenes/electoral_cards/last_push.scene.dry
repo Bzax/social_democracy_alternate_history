@@ -1,6 +1,6 @@
 title: Last Push
 new-page: true
-view-if: electoral_rally_timer >= 0
+view-if: last_push_timer >= 0
 on-arrival: month_actions += 1; electoral_rally_timer += 12
 max-visits: 36
 is-card: true
@@ -29,7 +29,7 @@ We may have enough resources for one last large scale campaign this election: Wh
 subtitle: -2 resources – This will satisfy Working class tenants, our traditional base.
 choose-if: resources >= 2
 unavailable-subtitle: -2 resources – Not enough resources.
-on-arrival: resources -= 2; prole_a += 8*(1-globalization)*efc; public_prole_a += 7*efc; memberrise += 1.2*efc; homeowner_a -= 2/efc; public_homeowner_a -= 2/efc;
+on-arrival: resources -= 2; prole_a += 8*(1-globalization)*efc; public_prole_a += 7*efc; memberrise += 1.2*efc; homeowner_a -= 2/efc; public_homeowner_a -= 2/efc; last_push_timer += 6;
 
 By focussing the campaign on traditional socialist issues, while expanding our work in the tenant movements, we have increased our campaigning among the proletarians. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
@@ -37,7 +37,7 @@ By focussing the campaign on traditional socialist issues, while expanding our w
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; public_prole_a += 4*efc; public_homeowner_a += 3*efc; memberrise += 1*efc; homeowner_a -= 2*efc; rural_a += 1*efc; prole_a += 2*efc
+on-arrival: resources -= 2; public_prole_a += 4*efc; public_homeowner_a += 3*efc; memberrise += 1*efc; homeowner_a -= 2*efc; rural_a += 1*efc; prole_a += 2*efc; last_push_timer += 6;
 
 Public sector workers, have felt neglected by us in the past.
 
@@ -47,7 +47,7 @@ By focussing the campaign on strenghtening the welfare state, we have bettered o
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; prole_a += 6*(1-globalization)*efc; homeowner += 3*efc*(1-globalization); memberrise += 0.3*efc*(1-globalization)
+on-arrival: resources -= 2; prole_a += 6*(1-globalization)*efc; homeowner += 3*efc*(1-globalization); memberrise += 0.3*efc*(1-globalization); last_push_timer += 6;
 
 Private sector workers, the backbone of the workers movement.
 
@@ -57,7 +57,7 @@ By focussing our campaign on the labour struggle, we have increased our campaign
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; homeowner_a += 10*(1-globalization)*efc; public_homeowner_a += 10*efc; rural_a += 8*efc; pettyb_a += 5*efc; memberrise += 1.4*efc*(1-globalization); sf_relation -= 6; dkp_relation -= 4; vs_relation -= 6
+on-arrival: resources -= 2; homeowner_a += 10*(1-globalization)*efc; public_homeowner_a += 10*efc; rural_a += 8*efc; pettyb_a += 5*efc; memberrise += 1.4*efc*(1-globalization); sf_relation -= 6; dkp_relation -= 4; vs_relation -= 6; last_push_timer += 6;
 
 The "new middle class" of homeowning workers.
 
@@ -67,7 +67,7 @@ By doubling down on the protection of state mortgages and stable socialist leade
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; rural_a += 5*(1-globalization); rural_spd -= 3*efc if peoples_party == 0; resources -= 2; peoples_party_support += 1; rural_spd += 3*efc if rural_policy >= 2
+on-arrival: resources -= 2; rural_a += 5*(1-globalization); rural_spd -= 3*efc if peoples_party == 0; resources -= 2; peoples_party_support += 1; rural_spd += 3*efc if rural_policy >= 2; last_push_timer += 6;
 
 By promising protectionist measures against banks and multinationals, we have increased our campaigning among the small businessowners in the city as well as countryside. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
 
@@ -75,7 +75,7 @@ By promising protectionist measures against banks and multinationals, we have in
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; unemployed_a += 6*(1-globalization); resources -= 2; unemployed_a -= 3 if welfare < 0; unemployed_a += 6*efc if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_a += 3*efc if welfare >= 2;
+on-arrival: resources -= 2; unemployed_a += 6*(1-globalization); resources -= 2; unemployed_a -= 3 if welfare < 0; unemployed_a += 6*efc if wtb_adopted = 1; memberrise += 0.2*efc*(1-globalization); unemployed_a += 3*efc if welfare >= 2; last_push_timer += 6;
 
 By promising public works programs and stable socialist leadership, we have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
 
@@ -83,7 +83,7 @@ By promising public works programs and stable socialist leadership, we have incr
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; unemployed_a += 5*(1.1-globalization)*efc; prole_a += 2*efc; public_prole_a += 1*efc; rural_a +=2*efc
+on-arrival: resources -= 2; unemployed_a += 5*(1.1-globalization)*efc; prole_a += 2*efc; public_prole_a += 1*efc; rural_a +=2*efc; last_push_timer += 6;
 
 By focussing on our comitment to international social justice, we have increased our campaigning among the youth.
 
@@ -92,6 +92,6 @@ By focussing on our comitment to international social justice, we have increased
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; unemployed_a += 1*(1.1-globalization)*efc; prole_a += 1; public_prole_a += 1; rural_a +=1; homeowner_a += 0.5
+on-arrival: resources -= 1; unemployed_a += 1*(1.1-globalization)*efc; prole_a += 1; public_prole_a += 1; rural_a +=1; homeowner_a += 0.5; last_push_timer += 3;
 
 The materials are boilerplate, and some of the slogans are a bit out of date. But they must be doing something?

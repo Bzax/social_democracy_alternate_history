@@ -7,10 +7,12 @@ new-page: true
 set-bg: img/rode_mor.jpg
 go-to: start_menu_2
 
+
 = Red Zenit: An Alternate History
 
 
 @start_menu_2
+audio: shuffle music/1970_1973/byen_vagner.mp3 music/1970_1973/byen_vagner.mp3 music/1970_1973/byen_vagner.mp3
 
 - @start: Start game
 - @Context: Premise
@@ -20,24 +22,22 @@ go-to: start_menu_2
 
 @Context
 new-page: true
-on-arrival: {! 
-dendryUI.audioPlaylist = []
-!}
 face-image: img/recruit.jpg
 
 = **Premise**
 
-In '**Red Zenit: An alternative History**' you play as the Danish Social Democrats through the oil crisis and transition into late-modern politics. The 1970s marked the absolute peak of the Danish workers movement but as other historical classes faded and globalization set in during the 1980-1990s the unity and strength of the workers movement eventually became harder to maintain. 
+In **Red Zenit: An alternative History** you play as the Danish Social-Democrats through the 1970s, 80s and 90s, navigating (or ressisting) the transition into late-modern politics. The game starts in early 1970, at the historical peak of the Danish workers movement. At this point almost every worker is unionized and the zeitgeist is decisively in your favour. But as the rural classes fade into oblivion, homeownership spreads and the economic realities of globalization begin to set in, the unity, identity and strength of the workers movement may become harder to maintain.
 
-But nothing is decided yet, you stand at the precipice of the red zenit. Will you ride the zeitgeist to take the first steps out of capitalism? Or will you trailblaze the spirit of new times? 
+But nothing is decided yet, you stand at the precipice <br>of the **Red Zenit**: <br>Will you ride the zeitgeist to take the first steps out of capitalism?  <br>Or will you trailblaze the spirit of new times? 
 
-(The game currently is functioning from 1970-≈1972)
+*(The game currently is only functioning from 1970-≈1972)*
 
 
 - @historyroot: Political history of the Danish Workers Movement (before 1970).
 - @start_menu: Return.
 
 @historyroot
+audio: music/1970_1973/byen_vagner.mp3
 
 = **History of Modern Denmark (And Workers Movement)**
 
@@ -107,7 +107,7 @@ Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
 Q.year = 1970;
-Q.month = 2;
+Q.month = 3;
 Q.week = 0;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -216,6 +216,9 @@ Q.neorevisionism = 0;
 Q.valg = 0
 Q.electiondate = 0
 
+///capitalist anxiety will be modelled and will influence the campaign efforts of the right in the post events scene
+Q.capitalist_angst = 0
+
 //Setup
 
 Q.z_formed = 0
@@ -285,7 +288,7 @@ Q.prussian_government = "SPD";
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.a_members = 177.500;
+Q.members_total = 177.500;
 Q.rb_militancy = 0.01;
 Q.women_in_rb = 0;
 Q.rb_banned = 0;
@@ -389,7 +392,7 @@ Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
 Q.classes = ['prole', 'homeowner', 'public_prole', 'public_homeowner','pettyb', 'rural', 'unemployed', 'capitalist'];
-Q.parties = ['a', 'v', 'c', 'b', 'z', 'dkp', 'sf', 'vs','rfb','kf','others','northatlantic'];
+Q.parties = ['a', 'v', 'c', 'b', 'dkp', 'sf', 'vs','rfb','kf','others'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
@@ -795,7 +798,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'sa_ban', 'sh_ban', 'papen_chancellor',
             'kpd_policy', 'kpd_ultimatum', 'popular_front_dispute',
             'high_inflation', 'banking_crisis', 'march_on_berlin',
-            'understanding_enemy', 'schleichers_schemes'];
+            'understanding_enemy', 'schleichers_schemes', 'last_push'];
 Q.advisor_action_timer = 0;
 // party affairs timers
 Q.confronting_nazis_timer = 0;
@@ -806,6 +809,7 @@ Q.inter_party_relationships_timer = 0;
 Q.international_relations_timer = 0;
 Q.iron_front_timer = 0;
 Q.electoral_rally_timer = 0;
+Q.last_push_timer = 0;
 Q.media_timer = 0;
 Q.enemies_timer = 0;
 Q.party_organizations_timer =  0;
@@ -941,11 +945,11 @@ For more information on the politics and government of Denmark during the period
 - @1928_historical: Begin (historical mode) (doesnt work yet)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; a_members = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
+on-arrival: difficulty = -1; resources = 4; dues = 3; members_total = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; a_members = 1000; right_worker_dissent = 25; left_dissent = 30; technocrat_dissent = 25; left_worker_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
+on-arrival: difficulty = 1; resources = 0; dues = 1; members_total = 1000; right_worker_dissent = 25; left_dissent = 30; technocrat_dissent = 25; left_worker_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; budget = 3;
 go-to: 1928_main
 
 @1928_historical
@@ -955,7 +959,7 @@ Q.difficulty = 2;
 Q.historical_mode = 1;
 Q.resources = 2;
 Q.dues = 1;
-Q.a_members = 2000;
+Q.members_total = 2000;
 Q.right_worker_dissent = 25;
 Q.left_dissent = 30;
 Q.technocrat_dissent = 25;
@@ -972,16 +976,13 @@ go-to: 1928_main
 
 @1928_main
 new-page: true
-on-arrival: {! 
-dendryUI.audioPlaylist = []
-!}
 set-bg: img/Background-train.jpg
 audio: shuffle music/1970_1973/Naar_jeg_ser_et_roedt_flag_smaelde.mp3 music/1970_1973/Der-Er-Noget-Galt-I-Danmark.mp3 music/1970_1973/Lil_Johnnys_Mund.mp3 music/1970_1973/Victor_og_socialdemokratiet.mp3 music/1970_1973/trille-ham-gud.mp3 music/1970_1973/hejsoster.mp3 music/1970_1973/hejsoster.mp3
 go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
-= **Spring 1970**
+= **1. May 1970**
 
-It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has entered a golden age and the workers movement is the strongest its ever been. Our party nears its {!<span class="tooltip-text" title="The International Labour Association of Denmark was founded in 1871.">centenary</span>!}, with high hopes for the future.
+It is a bright time for Danish democracy. Since the downfall of German nazism, our economy has entered a golden age as our workers movement is the strongest its ever been. Our party nears its {!<span class="tooltip-text" title="The International Labour Association of Denmark was founded in 1871.">centenary</span>!}, with high hopes for the future.
 
 Now, the task of Social Democracy is to prepare for the next election. The bourgeois government of Hilmar Baunsgaard is unpopular, and we stand to gain. 
 Perhaps the next folketing will have a workers majority?

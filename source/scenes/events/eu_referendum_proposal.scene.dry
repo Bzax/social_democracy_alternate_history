@@ -1,28 +1,34 @@
-title: An EEC referendum?
-subtitle: Members of our party presents us with an opportunity
+title: The European Question
+subtitle: Should the {!<span class="tooltip-text" title="The question of whether to join the European Economic Community (EEC).">European question</span>!} be decided at a public referendum? 
 view-if: year = 1971 and month == 1
 max-visits: 1
 tags: event
-face-image: img/ef.jpg
+face-image: img/vista.jpg
 new-page: true
 on-arrival: 
 
-= An EEC referendum?
+= The European Question
 
-Should the {!<span class="tooltip-text" title="Our own stance towards EEC-membership is still undecided. Chairman Kragh, the right-workerists and the technocrats have consistently advocated for our membership in the past, but other factions remain more than a little sceptical.">European question</span>!} be decided at a public referendum? Some of our electeds have been assured by the bourgeois parties that as long as we're the ones putting it forward, that they would accept such a proposal.
+As dreams of a scandinavian economic union fell through last spring, voices calling for us to join the European Economic Community have only grown more confident. With the recent fall of the Gaullist French leadership, past roadblocks for EEC expansion have een swept away. Combined with the likely entrance of the {!<span class="tooltip-text" title="An important trading partner to our country.">United Kingdom</span>!} and Norway – the historical conjunctures seem to be subtly aligning in favour of the Europeanists.
 
-A hypothetical referendum would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the scheduled parliamentary elections</span>!}.
+According to our constitution we need 149 votes in parliament (83%) in order to vote away any sovereignity. And while such a majority would take shape, were we to vote in favour – doing so would be extremely unpopular among the left-wing of our party. 
+
+In order to circumvent this impasse, some of our electeds have begun airing the possibility of a referendum in order to settle the question. We have been assured by the bourgeois parties that they would accept such a proposal.
+
+A hypothetical referendum would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the upcoming folketing election</span>!}.
 
 How should we proceed? 
 
 - @yes_referendum: A referendum is a sensible idea, let the people decide.
-- @no_referendum: We would rather decide ourselves.
+- @no_referendum: The time isn't right.
 
 @yes_referendum
-on-arrival: eu_referendum += 1; dissent -= 10;
+on-arrival: eu_referendum += 1; left_dissent += 7; technocrat_dissent -= 6; right_worker_dissent_dissent -= 2; left_worker_dissent_dissent += 3; sf_relation -= 3; vs_relation -= 3; dkp_relation -= 3; b_relation += 3; v_relation += 3; c_relation += 3;
 
-Let us hope this is the right decision...
+The left already starts to bicker, as if a referendum is the most undemocratic thing they could imagine. Let us hope this is the right decision...
 
 @no_referendum
+subtitle: We may still reconsider our position at a later point...
+on-arrival: technocrat_dissent += 3; b_relation -= 2;
 
-It is generally better to decide matters ourselves, let us hope this is the right decision...
+Whether it is because we seek to inhibit membership, or because we would rather vote it through parliament. A few Pro-market voices claim we are spoiling a historic opportunity.

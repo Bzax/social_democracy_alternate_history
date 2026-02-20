@@ -12,7 +12,7 @@ max-visits: 5
 
 Our party membership is the life-force of our politics. But as the trade union memberships soared following the liberation from Germany, the membership of our party has seen steady decline.
 
-- @militant: Let us fund a big campaign focussing on international issues.
+- @militant: Let us initiate a large scale recruiting effort.
 - @militant_2: Use our existing resources to support more training for the Reichsbanner.
 - @small_campaign: Run a small campaign.
 - @cut_rb: Cut funding for the recruitment offices.
@@ -53,7 +53,7 @@ We run a small campaign among our union members, a few houndred are convinced.
 
 @cut_rb
 subtitle: +1 resources
-on-arrival: resources += 1; memberrise -= 100; rb_militancy -= 0.05; left_strength -= 2; left_dissent -= 2; spd_militancy -= 0.05; workers_kpd += 2; unemployed_kpd += 2
+on-arrival: resources += 1; memberrise -= 4; rb_militancy -= 0.05; left_strength -= 2; left_dissent -= 2; spd_militancy -= 0.05; workers_kpd += 2; unemployed_kpd += 2
 
 Cutting resources to the Reichsbanner causes a drop in the membership, and leads some would-be members to join the Communists instead.
 

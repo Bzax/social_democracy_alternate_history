@@ -269,7 +269,7 @@ Current relations: [+ nsdap_relation : relationships +]
 
 @paramilitaries
 on-arrival: {!
-Q.a_members = Math.round(Q.a_members);
+Q.members_total = Math.round(Q.members_total);
 Q.sh_strength = Math.round(Q.sh_strength);
 Q.sa_strength = Math.round(Q.sa_strength); 
 !}
@@ -279,7 +279,7 @@ go-to: menu
 
 **Reichsbanner Schwarz-Rot-Gold**: The Reichsbanner is an organization affiliated with all of the democratic parties - the SPD, Z, and DDP, but primarily with the SPD. Historically, this has been an unarmed organization.
 
-Strength: [+ a_members +] thousand
+Strength: [+ members_total +] thousand
 
 Militarization: [+ rb_militancy : militancy +]
 

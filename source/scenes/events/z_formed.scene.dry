@@ -1,0 +1,30 @@
+on-arrival: {!
+// set up the infrastructure
+Q.cd_formed = 1;
+Q.parties.push('cd');
+
+Q.homeowner_cd = 10;
+Q.homeowner_a -= 8;
+Q.pettyb_cd = 3;
+Q.pettyb_a -= 3;
+Q.public_homeowner_cd = 6;
+Q.public_homeowner_a -= 4;
+Q.rural_cd = 2;
+Q.unemployed_cd = 2;
+
+Q.workers_other -= 5;
+
+if (Q.unions_independent) {
+    Q.workers_cd += 8;
+}
+
+// update all records
+Q.cd_r = 0;
+Q.old_cd_r = 0;
+for (var record of Q.election_records) {
+    record['cd'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['cd'] = 0;
+}
+!}

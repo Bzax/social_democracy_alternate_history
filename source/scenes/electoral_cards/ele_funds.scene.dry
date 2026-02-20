@@ -5,7 +5,7 @@ on-arrival: month_actions += 1;
 max-visits: 36
 is-card: true
 card-image: img/statistics.jpg
-frequency: 999
+frequency: 9999
 tags: - #election_campaign
 
 = Campaign Funds

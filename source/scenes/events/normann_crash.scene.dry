@@ -25,7 +25,7 @@ on-arrival: resources -= 1; {!
 Q.addsupport('homeowners','a',-0.5); Q.addsupport('tenant_workers','a',+3); left_dissent -= 5; right_worker_dissent -= 5
 !}
 subtitle: Resources -1
-choose-if: resources > 1
+choose-if: resources > 0
 unavailable-subtitle: Resources -1 – Not enough resources.
 
 For the most part we are able to come off as sympathetic, a few voices still point out our opportunism.

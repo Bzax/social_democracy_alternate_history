@@ -30,12 +30,14 @@ unavailable-subtitle: -1 resources
 The LO leadership appreciates this gesture, and promises to make it up to us.
 
 @promise_reform
+on-arrival: LO_reform_promised = 1; lo_relations += 7
 
-not implemented
+We promised some reforms to the labor market[? if a_in_government = 0 : once in power?]. The LO leadership is pleased
 
 @discuss_next_election
 
-not implemented
+As our relations are currently [+ lo_relations : lo_relations +], they are quite willing to help us out. We draw up plans for campaigns and rallies.
+
 
 @unionrelations2
 

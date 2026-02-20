@@ -8,10 +8,32 @@ if (Q.advisor_action_timer <= 0) {
 } else {
     Q.pinnedCardsDescription = 'Sleeve - next action available in ' + Q.advisor_action_timer + ' months.';
 }
+
+// News helper flag: true if any news blurb would render this month.
+Q.has_news = 0;
+if (Q.valg == 0) {
+    if (Q.year == 1970 && Q.month == 4) Q.has_news = 1;
+    if (Q.year == 1970 && Q.month == 6) Q.has_news = 1;
+    if (Q.year == 1970 && Q.month == 3) Q.has_news = 1; // Vietnam expansion blurb
+    if (Q.year == 1971 && Q.month == 2) Q.has_news = 1;
+    if (Q.year == 1972 && Q.month == 5 && Q.norway_eu != 1) Q.has_news = 1;
+    // Add other news checks here as i add more blurbs.
+    // potentially remove this as i complete all news
+}
 !}
 max-cards: 3
 
-#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
+#Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card. Maybe do randomizer for 1. may flavour? 
+[? if year >= 1971 and month == 3 : [+ efc : first_may +] socialdemocratic workers have gathered across the country to celebrate May Day. [? if efc >= 0.9 and socialism <= 44 : But t?][? if not (efc >= 0.9 and socialism <= 44) : T?]he overall turnout is [+ socialism : first_may_attendance +]. [+ newspaper : first_may_weather +] ?]
+
+[? if has_news == 1 and time >= 4: **Since [+ month - 1 : month +]:**<br> ?]
+[? if has_news == 1 and month == 4: **Since April:**<br> ?]
+[? if year == 1970 and month == 4 : ▻ The local elections was a positive landslide for us, the broader left also improved their standing in the major cities.<br> ?]
+[? if year == 1970 and month == 4 : ▻ Negotiations for {!<span class="tooltip-text" title="A proposed pan-Nordic political and economic union.">NORDEK</span>!}, a flagship for the Baunsgaard government, ultimately fell through.<br> ?]
+[? if year == 1970 and month == 6 : ▻ Salvador Allende, a Marxist through and through, was elected as president of Chile on a platform of rapid socialist transition.<br> ?]
+[? if year == 1970 and month == 4 : ▻ The Vietnam war expanded as Nixon announces the invasion of Kampuchea.<br> ?]
+[? if year == 1971 and month == 2 : ▻ The Norwegian labor party have won their national elections, Trygve Bratteli will be the new prme minister.<br> ?]
+[? if year == 1972 and month == 5 and norway_eu != 1 : ▻ After a slim victory for the "no" side, the Norwegians have turned down the offer to join the EEC. The norwegian labor prime minister has resigned, and the christian democrat Lars Korvald will instead take the reigns.<br> ?]
 
 
 - @party
@@ -36,11 +58,13 @@ max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card. Below is shown a list of NEWS NEWS NEWS
 
-[? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
+[? if year == 1928 and month == 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
 
-[? if year = 1971 and month = 2 : The Norwegian labor party have won their national elections, Trygve Bratteli will be the new prme minister ?]
+[? if year == 1970 and month == 5 : The NORDEK Treaty, a flagship for the Baunsgaard government, ultimately falls through. ?]
 
-[? if year = 1972 and month = 5 and norway_eu != 1 : After a slim victory for the "no" side, the Norwegians have turned down the offer to join the EEC. The norwegian labor prime minister has resigned, and the christian democrat Lars Korvald will instead take the reigns. ?]
+[? if year == 1971 and month == 2 : The Norwegian labor party have won their national elections, Trygve Bratteli will be the new prme minister. ?]
+
+[? if year == 1972 and month == 5 and norway_eu != 1 : After a slim victory for the "no" side, the Norwegians have turned down the offer to join the EEC. The norwegian labor prime minister has resigned, and the christian democrat Lars Korvald will instead take the reigns. ?]
 
 - @party
 - @govt

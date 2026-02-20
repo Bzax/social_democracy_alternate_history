@@ -96,18 +96,19 @@ for (var party of Q.parties) {
     Q[party+'_votes_display'] = Math.round(Q[party+'_normalized']*100);
 }
 
-Q.a_votesdisp = Number(addUncertainty(Q.a_votes).toFixed(1));
+Q.a_votesdisp = Number(addUncertainty(Q.a_votes).toFixed(0));
 console.log("Q.a_votes:", Q.a_votes);
-Q.z_votesdisp = Number(addUncertainty(Q.z_votes).toFixed(1));
-Q.v_votesdisp = Number(addUncertainty(Q.v_votes).toFixed(1));
-Q.c_votesdisp = Number(addUncertainty(Q.c_votes).toFixed(1));
-Q.kf_votesdisp = Number(addUncertainty(Q.kf_votes).toFixed(1));
-Q.dkp_votesdisp = Number(addUncertainty(Q.dkp_votes).toFixed(1));
-Q.b_votesdisp = Number(addUncertainty(Q.b_votes).toFixed(1));
-Q.sf_votesdisp = Number(addUncertainty(Q.sf_votes).toFixed(1));
-Q.vs_votesdisp = Number(addUncertainty(Q.vs_votes).toFixed(1));
-Q.rfb_votesdisp = Number(addUncertainty(Q.rfb_votes).toFixed(1));
-Q.others_votesdisp = Number(addUncertainty(Q.others_votes).toFixed(1));
+Q.z_votesdisp = Number(addUncertainty(Q.z_votes).toFixed(0));
+Q.cd_votesdisp = Number(addUncertainty(Q.cd_votes).toFixed(0));
+Q.v_votesdisp = Number(addUncertainty(Q.v_votes).toFixed(0));
+Q.c_votesdisp = Number(addUncertainty(Q.c_votes).toFixed(0));
+Q.kf_votesdisp = Number(addUncertainty(Q.kf_votes).toFixed(0));
+Q.dkp_votesdisp = Number(addUncertainty(Q.dkp_votes).toFixed(0));
+Q.b_votesdisp = Number(addUncertainty(Q.b_votes).toFixed(0));
+Q.sf_votesdisp = Number(addUncertainty(Q.sf_votes).toFixed(0));
+Q.vs_votesdisp = Number(addUncertainty(Q.vs_votes).toFixed(0));
+Q.rfb_votesdisp = Number(addUncertainty(Q.rfb_votes).toFixed(0));
+Q.others_votesdisp = Number(addUncertainty(Q.others_votes).toFixed(0));
 
 // coalitions (use Q.* names)
 Q.poll_arbejderflertal = Q.a_votesdisp + Q.sf_votesdisp;
@@ -177,14 +178,14 @@ if (Q.dissent < 0) {
 
 
 //store last months members
-Q.previous_members = Q.a_members
+Q.previous_members = Q.members_total
 
 // decline membership  each month
 Q.a_memberdecline = 0.3+(4*Q.dissent) - Q.memberrise
-Q.a_members -= Q.a_memberdecline; // adjust the increment as needed
+Q.members_total -= Q.a_memberdecline; // adjust the increment as needed
 
 //get the monthly change
-Q.membermonthly = Q.previous_members - Q.a_members
+Q.membermonthly = Q.previous_members - Q.members_total
 
 //reset memberrise
 Q.memberrise = Q.memberrise / 3
@@ -193,7 +194,7 @@ Q.memberrise = Q.memberrise / 3
 Q.month_actions_checked = Q.month_actions;
 
 // re-calculate party effectiveness.
-Q.efc = ((Q.a_members/177.5)*(Q.a_activity/100))*(1-Q.dissent) + (Q.a_bureau/200) + (Q.mediahealth/400)
+Q.efc = ((Q.members_total/177.5)*(Q.a_activity/100))*(1-Q.dissent) + (Q.a_bureau/200) + (Q.mediahealth/400)
 
 // 1. update dates
 if ((Q.month_actions >= 1 && !Q.valg) || (Q.month_actions >= 4 && Q.valg)) {
@@ -532,9 +533,20 @@ if (Q.inflation >= 8 && Q.socialism > 40) {
     Q.socialism -= 1;
 }
 
-///////////////////////////// change party support based on socialism
-// if socialism is less than the support of the workers coalition, reduce left support...
-if (Q.socialism < (Q.a_votes + Q.sf_votes + Q.vs_votes + Q.dkp_votes)) {
+///capitalist anxiety will be modelled and will influence the campaign efforts of the right
+Q.capitalist_angst = (Q.capitalist_a * 5 - (100 - Q.c_relation)) / 50;
+
+
+///during elections, other parties will also conduct campaigns
+if (Q.valg){
+    Q.addsupport('everyone','v', +0.8*Q.capitalist_angst);
+    Q.addsupport('everyone','c', +1*Q.capitalist_angst);
+    Q.addsupport('everyone','b', +0.5*Q.capitalist_angst);
+}
+    
+///////////////////////////// change party support based on popularity of socialism
+// if socialism is loosing the ideological fight, and is less popular than the support of the workers coalition, reduce left support...
+if (Q.socialism > (Q.a_votes + Q.sf_votes + Q.vs_votes + Q.dkp_votes)) {
     if (Q.homeowner_a > 0) {
         Q.homeowner_a -= 5/12;
         Q.homeowner_z += 3/12;

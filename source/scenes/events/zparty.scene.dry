@@ -5,6 +5,9 @@ max-visits: 1
 tags: event
 face-image: img/glistrup3.jpg
 new-page: true
+on-arrival: {!
+Q.parties.push('z');
+!}
 
 = Mogens Glistrup founds his own party
 
