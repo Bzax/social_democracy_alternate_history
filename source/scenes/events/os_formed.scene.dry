@@ -1,0 +1,33 @@
+on-arrival: {!
+// set up the infrastructure
+Q.os_formed = 1;
+Q.parties.push('os');
+
+Q.prole_os = 10;
+Q.prole_a -= 8;
+Q.pettyb_os = 3;
+Q.pettyb_a -= 3;
+Q.public_prole_os = 6;
+Q.public_prole_a -= 4;
+Q.rural_os = 2;
+Q.unemployed_os = 2;
+Q.capitalist_os = 1
+Q.homeowner_os = 2
+Q.public_homeowner_os = 4
+
+Q.workers_other -= 5;
+
+if (Q.unions_independent) {
+    Q.workers_os += 8;
+}
+
+// update all records
+Q.os_r = 0;
+Q.old_os_r = 0;
+for (var record of Q.election_records) {
+    record['os'] = 0;
+}
+for (var record of Q.party_support_records) {
+    record['os'] = 0;
+}
+!}

@@ -100,6 +100,7 @@ Q.a_votesdisp = Number(addUncertainty(Q.a_votes).toFixed(0));
 console.log("Q.a_votes:", Q.a_votes);
 Q.z_votesdisp = Number(addUncertainty(Q.z_votes).toFixed(0));
 Q.cd_votesdisp = Number(addUncertainty(Q.cd_votes).toFixed(0));
+Q.os_votesdisp = Number(addUncertainty(Q.os_votes).toFixed(0));
 Q.v_votesdisp = Number(addUncertainty(Q.v_votes).toFixed(0));
 Q.c_votesdisp = Number(addUncertainty(Q.c_votes).toFixed(0));
 Q.kf_votesdisp = Number(addUncertainty(Q.kf_votes).toFixed(0));
@@ -111,8 +112,8 @@ Q.rfb_votesdisp = Number(addUncertainty(Q.rfb_votes).toFixed(0));
 Q.others_votesdisp = Number(addUncertainty(Q.others_votes).toFixed(0));
 
 // coalitions (use Q.* names)
-Q.poll_arbejderflertal = Q.a_votesdisp + Q.sf_votesdisp;
-Q.poll_arbejderflertal_plus = Q.a_votesdisp + Q.sf_votesdisp + Q.dkp_votesdisp + Q.vs_votesdisp;
+Q.poll_arbejderflertal = Q.a_votesdisp + Q.sf_votesdisp + Q.os_votesdisp;
+Q.poll_arbejderflertal_plus = Q.a_votesdisp + Q.sf_votesdisp + Q.dkp_votesdisp + Q.vs_votesdisp + Q.os_votesdisp;
 Q.poll_sr = Q.a_votesdisp + Q.b_votesdisp;
 Q.poll_trekant = Q.a_votesdisp + Q.b_votesdisp + Q.rfb_votesdisp;
 Q.poll_srsf = Q.a_votesdisp + Q.b_votesdisp + Q.sf_votesdisp;

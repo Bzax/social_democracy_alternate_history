@@ -45,7 +45,7 @@ SF leaders now propose that parliamentarians from both parties should coauthor a
 
 @sf_yes_history
 on-arrival: right_worker_dissent += 5; right_worker_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; sf_rectified_history = 1; v_relation -= 3; c_relation -= 3; kf_relation -= 2; sf_relation += 8; prole_a += 4*efc; socialism += 2*efc; homeowner_a += 2*efc; public_homeowner_a += 2*efc; public_prole_a += 2*efc; pettyb_a -= 3*efc; prole_sf += 4; homeowner_sf += 2; public_homeowner_sf += 1; public_prole_sf += 4; pettyb_sf += 1
-subtitle: This will displease our Right-Workerists who see past failings as inevitable.
+subtitle: This will displease our parties Right-wing who see past failings as inevitable.
 
 The press release paints our past failings as fundamentally due to mutual mistrust, not any irreconcilable ideological differences.
 

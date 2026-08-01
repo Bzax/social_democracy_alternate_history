@@ -1,8 +1,11 @@
 
 # party faction dissent
 
-(..4.999) miniscule
-(4.999..14.999) comradely
-(14.999..30.999) <span style="color: darkorange;">substantial</span>
-(30.999..49.999) <span style="color: darkred;">debilitating</span>
-(49.999..) <span style="color: darkred;">paralyzing</span> 
+(..4.999)                miniscule
+(4.999..9.999)           <span style="color: darkgreen;">comradely (<span style="color:black">⬇</span>)</span>
+(9.999..14.999)          <span style="color: darkgreen;">comradely (<span style="color:black">⬆</span>)</span>
+(14.999..22.999)         <span style="color: darkorange;">substantial (<span style="color:black">⬇</span>)</span>
+(22.999..30.999)         <span style="color: darkorange;">substantial (<span style="color:black">⬆</span>)</span>
+(30.999..40.999)         <span style="color: darkred;">debilitating (<span style="color:black">⬇</span>)</span>
+(40.999..49.999)         <span style="color: darkred;">debilitating (<span style="color:black">⬆</span>)</span>
+(49.999..)               <span style="color: darkred;">paralyzing (<span style="color:black">⬆</span>)</span>

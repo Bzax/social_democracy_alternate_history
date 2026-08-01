@@ -1,0 +1,16 @@
+title: Left-wing Split!
+new-page: true 
+subtitle: The Lefts's disagreements with our policies have grown too severe!
+tags: event
+view-if: left_dissent >= 56
+on-arrival: left_split = 1; memberrise -= (left_strength/200)*members_total; left_strength = left_strength/2; right_worker_strength = right_worker_strength*1.2; prole_a -= 7; unemployed_a -= 7; public_prole_a -= 5; prole_os += 5; n_advisors -= 1 if levi_advisor == 1; levi_advisor = 0; sf_relation -= 6; dkp_relation -= 4; vs_relation -= 4; c_relation += 4; v_relation += 3;
+go-to: os_formed
+max-visits: 1
+faceImage: img/campaign.jpg
+
+= Left-wing Split!
+
+Spitting in the face if reason, a handful of significant left profiles have engineered a split to form a new party! These traitors have taken to calling them selves 'Oprigtige Socialdemokrater' (Actual Socialdemocrats), or 'OS'. A ridiculous name.
+
+On a positive note this has scraped off a good chunk of our most uppity left-wing members.
+

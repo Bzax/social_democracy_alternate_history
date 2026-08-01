@@ -1,7 +1,10 @@
 
-(..9.9) **Antagonistic**
-(10..29.9) Effectively Split
-(29.9..49.9) diverging
-(49.9..59.9) aligned
-(59.9..79.9) harmonious
-(79.9..) inseperable
+(..9.9)           <span style="color: darkred;">Antagonistic (<span style="color:black">⬇</span>)</span>
+(10..19.9)        <span style="color: darkred;">Antagonistic (<span style="color:black">⬆</span>)</span>
+(20..29.9)        <span style="color: darkorange;">Effectively Split (<span style="color:black">⬇</span>)</span>
+(30..39.9)        <span style="color: darkorange;">Effectively Split (<span style="color:black">⬆</span>)</span>
+(40..49.9)        <span style="color: darkyellow;">diverging (<span style="color:black">⬇</span>)</span>
+(50..59.9)        <span style="color: darkyellow;">aligned (<span style="color:black">⬆</span>)</span>
+(60..69.9)        <span style="color: darkgreen;">harmonious (<span style="color:black">⬇</span>)</span>
+(70..79.9)        <span style="color: darkgreen;">harmonious (<span style="color:black">⬆</span>)</span>
+(79.9..)          <span style="color: seagreen;">inseperable (<span style="color:black">⬆</span>)</span>

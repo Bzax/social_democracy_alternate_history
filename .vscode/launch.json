@@ -12,7 +12,7 @@
         {
             "type": "firefox",
             "request": "launch",
-            "name": "Open index.html",
+             "name": "Open index.html",
             "file": "/Users/henry/Desktop/social_democracy_alternate_history/out/html/index.html",
             "runtimeArgs": ["-private-window"],
             "preLaunchTask": "Build Dendry Project"

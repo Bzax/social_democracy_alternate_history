@@ -9,15 +9,28 @@ on-arrival:
 
 = The European Question
 
-As dreams of a scandinavian economic union fell through last spring, voices calling for us to join the European Economic Community have only grown more confident. With the recent fall of the Gaullist French leadership, past roadblocks for EEC expansion have een swept away. Combined with the likely entrance of the {!<span class="tooltip-text" title="An important trading partner to our country.">United Kingdom</span>!} and Norway – the historical conjunctures seem to be subtly aligning in favour of the Europeanists.
+As dreams of a scandinavian union fell through last spring, voices calling for us to join the European Economic Community (EEC) have grown confident. The recent change in French leadership have eased the Gaullist grip, opening the door for the {!<span class="tooltip-text" title="An important trading partner to our country.">United Kingdom</span>!} to join the bloc. Following London, our neighbors in Norway are hosting a referendum next year. Historical conjunctures thus seem to be aligning towards Brussels.
 
-According to our constitution we need 149 votes in parliament (83%) in order to vote away any sovereignity. And while such a majority would take shape, were we to vote in favour – doing so would be extremely unpopular among the left-wing of our party. 
+According to our constitution we need 149 votes in parliament in order to relinquish any sovereignity. And while such a majority would take shape, were we to vote in favour – doing so would be extremely unpopular among both the left-wing of our party as well as many privately employed workers.
+
+How should we proceed?
+
+- @vote-through: Europe is the future and it can't wait!
+- @referendum: Our party is split, perhaps a referendum could relieve some pressure?
+
+@vote-through
+on-arrival: eu_membership += 1; left_dissent += 15; technocrat_dissent -= 10; right_worker_dissent_dissent -= 4; left_worker_dissent_dissent += 10; sf_relation -= 10; vs_relation -= 10; dkp_relation -= 10; b_relation += 6; v_relation += 6; c_relation += 6; public_homeowner_a -= 1; homeowner_a -= 4; public_prole_a -= 2; prole_a -= 7; prole_sf += 6; prole_vs += 1; prole_dkp += 1; homeowner_sf += 3; homeowner_dkp += 1; homeowner_sf += 3;
+subtitle: Force the vote and join the European community!
+
+Almost a third of our electeds abstain, some even vote against! Nonetheless, together with the bourgious parties we have secured the votes necessary.
+
+Media pundits talk of an irrevercible break with the left, but what do they know. Incorporation will take time and requires alot of legal alignment, but in time the benefits of economic integration will surely become self-evident. [The progress towards joining the european community can be viewed on the right.]
+
+@referendum
 
 In order to circumvent this impasse, some of our electeds have begun airing the possibility of a referendum in order to settle the question. We have been assured by the bourgeois parties that they would accept such a proposal.
 
 A hypothetical referendum would be held sometime in 1972, after {!<span class="tooltip-text" title="Which are to be held no later than january 1971">the upcoming folketing election</span>!}.
-
-How should we proceed? 
 
 - @yes_referendum: A referendum is a sensible idea, let the people decide.
 - @no_referendum: The time isn't right.

@@ -129,17 +129,19 @@ The electoral system is essentially proportional, with the proportion of Reichst
 {!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **A:** {!</td><td>!} **[+ a_r +]%** {!</td><td>!} **[+ str_change_a +]** {!</td></tr>!}
 
-[? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_r +]% {!</td><td>!} [+ str_change_cd +] {!</td></tr>!} ?]
-
 {!<tr><td><div class="box" style='background-color:#ee80fa'> </div> !} SF: {!</td><td>!} [+ sf_r +]% {!</td><td>!} [+ str_change_sf +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} DKP: {!</td><td>!} [+ dkp_r +]% {!</td><td>!} [+ str_change_dkp +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#e26969'> </div> !} VS: {!</td><td>!} [+ vs_r +]% {!</td><td>!} [+ str_change_vs +] {!</td></tr>!}
 
+[? if os_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} OS: {!</td><td>!} [+ os_r +]% {!</td><td>!} [+ str_change_os +] {!</td></tr>!} ?]
+
 {!<tr><td><div class="box" style='background-color:#865fac'> </div> !} RFb: {!</td><td>!} [+ rfb_r +]% {!</td><td>!} [+ str_change_rfb +] {!</td></tr>!}
 
 [? if cd_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} CD: {!</td><td>!} [+ cd_r +]% {!</td><td>!} [+ str_change_cd +] {!</td></tr>!} ?]
+
+[? if os_formed : {!<tr><td><div class="box" style='background-color:#4B0082'> </div> !} OS: {!</td><td>!} [+ os_r +]% {!</td><td>!} [+ str_change_os +] {!</td></tr>!} ?]
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div> !} B: {!</td><td>!} [+ b_r +]% {!</td><td>!} [+ str_change_b +] {!</td></tr>!}
 

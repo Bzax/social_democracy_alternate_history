@@ -391,6 +391,14 @@ if (Q.cd_formed && Q.cd_r) {
             "seats": Math.round(Q.cd_r*5),
             });
 }
+if (Q.os_formed && Q.os_r) {
+    data.push({
+            "id": "os",
+            "legend": "OS",
+            "name": "OS",
+            "seats": Math.round(Q.os_r*5),
+            });
+}
 data = data.concat([
     {
         "id": "a",
@@ -458,8 +466,8 @@ if (d3 && window) {
     // Election history (Danish parties)
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#a0a0a0', 'z': '#DCCA4A', 'northatlantic': '#818589', 'other': '#a0a0a0'},
-            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'os': '#e86969', 'cd': '#a0a0a0', 'z': '#DCCA4A', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'os': 'OS', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
     lines.width(width).height(400);
 
     if (Q.election_records && Q.election_records.length > 0) {
@@ -471,8 +479,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'cd': '#4B0082', 'z': '#fafe7a', 'northatlantic': '#818589', 'other': '#a0a0a0'},
-            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
+            {'a': '#E3000F', 'sf': '#ee80fa', 'dkp': '#8B0000', 'vs': '#e26969', 'rfb': '#4e4e94', 'b': '#865fac', 'v': '#73b0f6', 'c': '#0d9340', 'kf': '#1f3f96', 'os': '#e86969', 'cd': '#a0a0a0', 'z': '#DCCA4A', 'northatlantic': '#818589', 'other': '#a0a0a0'},
+            {'a': 'Socialdemokratiet', 'sf': 'SF', 'dkp': 'DKP', 'vs': 'VS', 'rfb': 'RFb', 'b': 'Radikale Venstre', 'v': 'Venstre', 'c': 'Conservatives', 'kf': 'KF', 'cd': 'CD', 'os': 'OS', 'z': 'Z', 'northatlantic': 'NAM', 'other': 'Others'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
@@ -513,6 +521,8 @@ if (d3 && window) {
 {!<tr><td><div class="box" style='background-color:#1f3f96'> </div></td><td>!} KF: {!</td><td>!} [+ kf_r +]% {!</td></tr>!}
 
 [? if cd_formed : {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} CD: {!</td><td>!} [+ cd_r +]% {!</td></tr>!} ?]
+
+[? if os_formed : {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} OS: {!</td><td>!} [+ os_r +]% {!</td></tr>!} ?]
 
 [? if z_formed : {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} Z: {!</td><td>!} [+ z_r +]% {!</td></tr>!} ?]
 

@@ -1,9 +1,13 @@
 
-(..0.6) <span style="color: darkred;">Kaput!</span>
-(0.6..0.79) <span style="color: darkred;">broken</span>
-(0.8..0.9) <span style="color: darkorange;">dysfunctional</span>
-(0.9..1.1) <span style="color: #bf633d;">sputtering</span>
-(1.100001..1.25) <span style="color: darkgreen;">running</span>
-(1.250001..1.39) <span style="color: darkgreen;">well-oiled</span>
-(1.4..) <span style="color: seagreen;">turbocharged</span>
-
+(..0.6)          <span style="color: darkred;">Kaput! <span style="color:black"></span></span>
+(0.6..0.68)      <span style="color: darkred;">broken <span style="color:black">(⬇)</span></span>
+(0.68..0.76)     <span style="color: darkred;">broken <span style="color:black">(⬆)</span></span>
+(0.76..0.84)     <span style="color: darkorange;">dysfunctional <span style="color:black">(⬇)</span></span>
+(0.84..0.92)     <span style="color: darkorange;">dysfunctional <span style="color:black">(⬆)</span></span>
+(0.92..1.00)     <span style="color: #bf633d;">sputtering <span style="color:black">(⬇)</span></span>
+(1.00..1.08)     <span style="color: #bf633d;">sputtering <span style="color:black">(⬆)</span></span>
+(1.08..1.16)     <span style="color: darkgreen;">running <span style="color:black">(⬇)</span></span>
+(1.16..1.24)     <span style="color: darkgreen;">running <span style="color:black">(⬆)</span></span>
+(1.24..1.32)     <span style="color: darkgreen;">well-oiled <span style="color:black">(⬇)</span></span>
+(1.32..1.40)     <span style="color: darkgreen;">well-oiled <span style="color:black">(⬆)</span></span>
+(1.4..)          <span style="color: seagreen;">turbocharged <span style="color:black"></span></span>

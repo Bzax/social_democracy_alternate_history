@@ -17,7 +17,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
     /* params */
     if (!parties) {
         // Default to Danish parties used elsewhere in this project.
-        parties = ['a', 'sf', 'dkp', 'vs', 'rfb', 'b', 'v', 'c', 'kf', 'cd', 'z', 'northatlantic', 'others'];
+        parties = ['a', 'sf', 'dkp', 'vs', 'rfb', 'b', 'v', 'c', 'kf', 'cd', 'os','z', 'northatlantic', 'others'];
     }
     if (!partyColors) {
         // Match the Danish palette used in your scenes (library/election_1928).
@@ -32,6 +32,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
             'c': '#0d9340',
             'kf': '#1f3f96',
             'cd': '#a0a0a0',
+            'os': '#e86219',
             'z': '#DCCA4A',
             'northatlantic': '#818589',
             'others': '#a0a0a0'
@@ -49,6 +50,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
             'c': 'Conservatives',
             'kf': 'KF',
             'cd': 'CD',
+            'os':'OS',
             'z': 'Z',
             'northatlantic': 'NAM',
             'others': 'Others'
@@ -111,6 +113,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
         try {
           const cdFormed = !!(q && Number(q.cd_formed) === 1);
           const zFormed  = !!(q && Number(q.z_formed) === 1);
+          const osFormed  = !!(q && Number(q.os_formed) === 1);
 
           activeParties = activeParties.filter(p => {
             // always hide these series on the linegraph
@@ -119,6 +122,7 @@ d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataM
 
             // conditionally show these
             if (p === "cd") return cdFormed;
+            if (p === "os") return osFormed;
             if (p === "z")  return zFormed;
 
             return true;

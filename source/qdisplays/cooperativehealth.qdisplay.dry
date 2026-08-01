@@ -1,5 +1,7 @@
 
-(..0.7) <span style="color: darkred;">dead</span>
-(0.7..0.9) <span style="color: darkorange;">dysfunctional</span>
-(0.9..1.1) <span style="color: darkyellow;">average</span>
-(1.1..) <span style="color: darkgreen;">thriving</span>
+(..0.7)   <span style="color: darkred;">dead (<span style="color:black">⬇</span>)</span>
+(0.7..0.8)   <span style="color: darkorange;">dysfunctional (<span style="color:black">⬇</span>)</span>
+(0.8..0.9)   <span style="color: darkorange;">dysfunctional (<span style="color:black">⬆</span>)</span>
+(0.9..1.0)   <span style="color: darkyellow;">average (<span style="color:black">⬇</span>)</span>
+(1.0..1.1)   <span style="color: darkyellow;">average (<span style="color:black">⬆</span>)</span>
+(1.1..)      <span style="color: darkgreen;">thriving (<span style="color:black"></span>)</span>

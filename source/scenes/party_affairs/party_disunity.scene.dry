@@ -13,7 +13,8 @@ tags: party_affairs
 
 The party is being torn apart by internal dissent. Upset at the leadership and general direction, factions have started sabotaging their rivals, hampering our efforts to win votes and carry out our policies.
 
-[? if right_worker_dissent > 30 : The right-workerists are upset at our direction.  ?]
+[? if right_worker_dissent > 30 and cd_formed = 0: The right-workerists are upset at our direction.  ?]
+[? if right_worker_dissent > 30 and cd_formed = 1: The pragmatists are upset at our direction.  ?]
 [? if left_worker_dissent > 30 : The left-workerists are displeased with the direction of our party. ?]
 [? if technocrat_dissent > 30 : The technocrats disagree with our present course of action. ?]
 [? if left_dissent > 30: Leftists are making noises about another party split. ?]
@@ -23,6 +24,7 @@ Something must be done to reinforce party unity.
 
 - @enforce_unity
 - @concessions_reformists
+- @concessions_pragmatists
 - @concessions_center
 - @concessions_left
 - @concessions_labor
@@ -42,7 +44,14 @@ Enforcing party discipline reduces dissent, but it simultaniously leads to an ex
 
 @concessions_reformists
 title: Give concessions to the right-workerists.
-view-if: right_worker_dissent > 30
+view-if: right_worker_dissent > 30 and cd_formed = 0
+on-arrival: right_worker_dissent -= 10; left_dissent += 8
+
+We have promised to adopt a more moderate posture. This may alienate the left, however.
+
+@concessions_pragmatists
+title: Give concessions to the pragmatists.
+view-if: right_worker_dissent > 30 and cd_formed = 1
 on-arrival: right_worker_dissent -= 10; left_dissent += 8
 
 We have promised to adopt a more moderate posture. This may alienate the left, however.

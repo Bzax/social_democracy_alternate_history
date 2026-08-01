@@ -55,7 +55,7 @@ Next election: No later than [+ next_election_month : month +] [+ next_election_
 
 {!<span class="tooltip-text" title="Venstre \n(lit.'Left')\n\nIdeology: \nLiberalism, Agrarianism, Business Interests, Social-Liberalism (factions).">Venstre (V)</span>!}: [+ v_relation : relationships +]
 
-{!<span class="tooltip-text" title="Konservativt Folkeparti \n(lit. 'Conservative Peoples Party').\n\nIdeology: \nConservatism, Business Interests, National Conservatism (factions), Social Conservatism (factions).">Konservativt Folkeparti (C)</span>!}: [+ c_relation : relationships +]
+{!<span class="tooltip-text" title="Konservativt Folkeparti \n(lit. 'Conservative Peoples Party').\n\nIdeology: \nConservatism, Business Interests, National Conservatism (factions), Social Conservatism (factions).">Konservative (C)</span>!}: [+ c_relation : relationships +]
 
 #based on the program from 1977 https://digitalesamlinger.kb.dk/pamphlets/dasmaa/2008/feb/partiprogrammer/object18197/da/#kbOSD-0=page:2
 {!<span class="tooltip-text" title="Radikale Venstre \n(lit.'The Radical Left').\n\nIdeology: \nSocial-liberalism, Anti-Militarism, Liberal Socialism (factions), Georgism (factions).">Radikale Venstre (B)</span>!}: [+ b_relation : relationships +]
@@ -72,7 +72,9 @@ Next election: No later than [+ next_election_month : month +] [+ next_election_
 
 [? if z_formed > 0 : {!<span class="tooltip-text" title="Fremskridtspartiet \n(lit. 'The Progress Party').\n\nIdeology: \nLibertarianism, Right-Wing Populism.">Fremskridtspartiet (Z)</span>!}: [+ z_relation : relationships +]?]
 
-[? if cd_formed > 0 : {!<span class="tooltip-text" title="Centrum-Demokraterne \n(lit. 'The Center Democrats').\n\nIdeology: \nWorkerism, Homeowner Interests, Car Owner Interests, Rindallism.">Centrum-Demokraterne (Z)</span>!}: [+ z_relation : relationships +]?]
+[? if cd_formed > 0 : {!<span class="tooltip-text" title="Centrum-Demokraterne \n(lit. 'The Center Democrats').\n\nIdeology: \nWorkerism, Homeowner Interests, Car Owner Interests, Rindallism.">Centrum-Demokraterne (CD)</span>!}: [+ cd_relation : relationships +]?]
+
+[? if os_formed > 0 : {!<span class="tooltip-text" title="Oprigtige Socialdemokrater \n(lit. 'Actual Socialdemocrats').\n\nIdeology: \nMarxism, New-Left, Enviromentalism, Anti-Atlanticism.">Oprigtige Socialdemokrater (OS)</span>!}: [+ os_relation : relationships +]?]
 
 @movement
 
@@ -132,7 +134,10 @@ Last six weeks: [+ a_memberdecline_disp +]
 
 {!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.\n\nIdeology: Democratic Socialism, Keynesianism, Pragmatism, Modernism.">Technocrats</span>!} strength: [+ technocrat_strength_disp +]%, <br>dissent: [+ technocrat_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]
+[? if cd_formed = 0 : {!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]?]
+[? if cd_formed > 0 : {!<span class="tooltip-text" title="Pragmatists are see the left, SDS and some parts of the youth movement as obstacles to our progress. They seek to expand the welfare state, strengthen our unions and protect the interests of the modern worker.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Pragmatists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]?]
+
+
 
 
 @paramilitaries
@@ -224,6 +229,8 @@ Kristeligt Folkeparti: *[+ kf_votesdisp +]%*
 DKP: *[+ dkp_votesdisp +]%*
 
 SF: *[+ sf_votesdisp +]%*
+
+[? if os_formed: OS:?] *[? if os_formed:[+ os_votesdisp +]% ?]*
 
 VS: *[+ vs_votesdisp +]%*
 

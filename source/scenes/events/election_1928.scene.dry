@@ -29,6 +29,7 @@ for (var party of Q.parties) {
     // Parties that may or may not exist this run
     var notFormed =
         (party === 'z'  && !Q.z_formed) ||
+        (party === 'os'  && !Q.os_formed) ||
         (party === 'cd' && !Q.cd_formed);
 
     if (Q.constitutional_reform > 0) {
@@ -193,6 +194,10 @@ if (seatsCount('dkp') >= 1) {
 // VS / SF / A / RFB / B / V / C / KF
 if (seatsCount('vs') >= 1)  data.push({ "id":"vs",  "legend":"VS",  "name":"VS",  "seats": seatsCount('vs')  });
 if (seatsCount('sf') >= 1)  data.push({ "id":"sf",  "legend":"SF",  "name":"SF",  "seats": seatsCount('sf')  });
+// OS (if formed)
+if (Q.os_formed && seatsCount('os') >= 1) {
+    data.push({ "id":"os", "legend":"OS", "name":"OS", "seats": seatsCount('os') });
+}
 if (seatsCount('a')  >= 1)  data.push({ "id":"a",   "legend":"A",   "name":"A",   "seats": seatsCount('a')   });
 if (seatsCount('rfb')>= 1)  data.push({ "id":"rfb", "legend":"RFB", "name":"RFB", "seats": seatsCount('rfb') });
 if (seatsCount('northatlantic') > 0) {
@@ -230,8 +235,8 @@ if (window && d3) {
 
 // coalitions (seat counts)
 // Workerist
-Q.arbejderflertal = seatsCount('a') + seatsCount('sf');
-Q.arbejderflertal_plus = seatsCount('a') + seatsCount('sf') + seatsCount('dkp') + seatsCount('vs');
+Q.arbejderflertal = seatsCount('a') + seatsCount('sf') + seatsCount('os');
+Q.arbejderflertal_plus = seatsCount('a') + seatsCount('sf') + seatsCount('os') + seatsCount('dkp') + seatsCount('vs');
 Q.sr = seatsCount('a') + seatsCount('b');
 Q.trekant = seatsCount('a') + seatsCount('b') + seatsCount('rfb');
 Q.srsf = seatsCount('a') + seatsCount('b') + seatsCount('sf');
@@ -252,11 +257,16 @@ Q.has_dkp = seatsCount('dkp') > 1 ? 1 : 0;
 Q.has_vs  = seatsCount('vs')  > 1 ? 1 : 0;
 Q.has_rfb = seatsCount('rfb') > 0 ? 1 : 0;
 Q.has_kf  = seatsCount('kf')  > 0 ? 1 : 0;
+Q.has_os  = seatsCount('os')  > 1 ? 1 : 0;
 
 // leverage
 Q.leverage = seatsCount('a')/1.79
 
 // election push
+var election_result = { date: new Date(Q.year, Q.month - 1) };
+for (var party of Q.parties) {
+    election_result[party] = Q[party + '_vote'];
+}
 Q.election_records.push(election_result);
 !}
 
@@ -280,6 +290,8 @@ Q.election_records.push(election_result);
 
 [? if cd_formed : {!<tr><td><div class="box" style='background-color:#9f5489'> </div> !} CD: {!</td><td>!} [+ cd_vote_disp +]% {!</td><td>!} [+ str_change_cd +] {!</td><td>!} [+ cd_seats_int +] {!</td></tr>!} ?]
 
+[? if os_formed : {!<tr><td><div class="box" style='background-color:#e86219'> </div> !} OS: {!</td><td>!} [+ os_vote_disp +]% {!</td><td>!} [+ str_change_os +] {!</td><td>!} [+ os_seats_int +] {!</td></tr>!} ?]
+
 {!<tr><td><div class="box" style='background-color:#865fac'> </div> !} B: {!</td><td>!} [+ b_vote_disp +]% {!</td><td>!} [+ str_change_b +] {!</td><td>!} [+ b_seats_int +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} V: {!</td><td>!} [+ v_vote_disp +]% {!</td><td>!} [+ str_change_v +] {!</td><td>!} [+ v_seats_int +] {!</td></tr>!}
@@ -301,9 +313,21 @@ go-to: coalition_menu
 
 **Potential Majorities:**
 
-Arbejderflertal: [+ arbejderflertal +]/90
+[? if os_formed = 0 : Arbejderflertal (A + SF + OS): [+ arbejderflertal +]/90 ?]
 
-[? if has_dkp_any or has_vs_any : Broad 'Arbejderflertal' (A + SF + DKP + VS): [+ arbejderflertal_plus +]/90 ?]
+[? if os_formed : Arbejderflertal (A + SF + OS): [+ arbejderflertal +]/90 ?]
+
+[? if has_vs : Broad Arbejderflertal (A + SF + VS): [+ arbejderflertal_plus +]/90 ?]
+
+[? if has_dkp : Broad Arbejderflertal (A + SF + DKP): [+ arbejderflertal_plus +]/90 ?]
+
+[? if has_dkp and has_vs : Broad Arbejderflertal (A + SF + DKP + VS): [+ arbejderflertal_plus +]/90 ?]
+
+[? if has_dkp and has_vs and has_os : Broad Arbejderflertal (A + SF + OS + DKP + VS): [+ arbejderflertal_plus +]/90 ?]
+
+[? if has_vs and has_os : Broad Arbejderflertal (A + SF + OS + VS): [+ arbejderflertal_plus +]/90 ?]
+
+[? if has_dkp and has_os : Broad Arbejderflertal (A + SF + OS + DKP): [+ arbejderflertal_plus +]/90 ?]
 
 A + B + SF: [+ srsf +]/90
 

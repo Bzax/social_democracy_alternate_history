@@ -1,8 +1,14 @@
 
-(..70) <span style="color: darkred;">comatose</span>
-(70.1..90) <span style="color: darkorange;">low</span>
-(90.1..100) <span style="color: darkorange;">dozing off</span>
-(100.1..110) <span style="color: darkyellow;">as expected</span>
-(110.1..120) <span style="color: darkyellow;">high</span>
-(120.1..130) <span style="color: darkgreen;">activated</span>
-(130.1..) <span style="color: seagreen;">electric</span>
+(..70)           <span style="color: darkred;">comatose <span style="color:black"></span></span>
+(70..75)         <span style="color: darkorange;">low <span style="color:black">(⬇)</span></span>
+(75..80)         <span style="color: darkorange;">low <span style="color:black">(⬆)</span></span>
+(80..85)         <span style="color: darkorange;">dozing off <span style="color:black">(⬇)</span></span>
+(85..90)         <span style="color: darkorange;">dozing off <span style="color:black">(⬆)</span></span>
+(90..95)         <span style="color: darkyellow;">as expected <span style="color:black">(⬇)</span></span>
+(95..100)        <span style="color: darkyellow;">as expected <span style="color:black">(⬆)</span></span>
+(100..105)       <span style="color: darkyellow;">high <span style="color:black">(⬇)</span></span>
+(105..110)       <span style="color: darkyellow;">high <span style="color:black">(⬆)</span></span>
+(110..115)       <span style="color: darkgreen;">activated <span style="color:black">(⬇)</span></span>
+(115..120)       <span style="color: darkgreen;">activated <span style="color:black">(⬆)</span></span>
+(120..125)       <span style="color: seagreen;">electric <span style="color:black">(⬇)</span></span>
+(125..)       <span style="color: seagreen;">electric <span style="color:black"></span></span>

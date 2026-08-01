@@ -245,6 +245,95 @@
   window.dendryModifyUI = main;
   console.log("Modifying stats: see dendryUI.dendryEngine.state.qualities");
 
+  // --- Click sound effects ---
+  var _clickCtx = null;
+  function _getClickCtx() {
+      if (!_clickCtx) {
+          _clickCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return _clickCtx;
+  }
+
+  function playClickSound(isChoice) {
+      if (window.dendryUI && window.dendryUI.disable_audio) return;
+      try {
+          var ctx = _getClickCtx();
+          var now = ctx.currentTime;
+
+          // Variation: gain and filter resonance only — pitch stays fixed
+          var gainVar = 0.88 + Math.random() * 0.24;
+          var qVar    = 1.8 + Math.random() * 2.5;
+
+          // --- Initial snap: very short broadband burst for the sharp transient ---
+          var snapDur = 0.009;
+          var snapBuf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * snapDur), ctx.sampleRate);
+          var snapData = snapBuf.getChannelData(0);
+          for (var i = 0; i < snapData.length; i++) snapData[i] = Math.random() * 2 - 1;
+          var snapSrc = ctx.createBufferSource();
+          snapSrc.buffer = snapBuf;
+          var snapGain = ctx.createGain();
+          snapGain.gain.setValueAtTime((isChoice ? 0.55 : 0.40) * gainVar, now);
+          snapGain.gain.exponentialRampToValueAtTime(0.001, now + snapDur);
+          snapSrc.connect(snapGain);
+          snapGain.connect(ctx.destination);
+          snapSrc.start(now);
+          snapSrc.stop(now + snapDur + 0.002);
+
+          // --- Filtered noise body: analogue texture after the snap ---
+          var noiseDur = isChoice ? 0.055 : 0.038;
+          var noiseBuf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * noiseDur), ctx.sampleRate);
+          var noiseData = noiseBuf.getChannelData(0);
+          for (var i = 0; i < noiseData.length; i++) noiseData[i] = Math.random() * 2 - 1;
+          var noiseSrc = ctx.createBufferSource();
+          noiseSrc.buffer = noiseBuf;
+          var bp = ctx.createBiquadFilter();
+          bp.type = 'bandpass';
+          bp.frequency.value = isChoice ? 1100 : 1900;
+          bp.Q.value = qVar;
+          var noiseGain = ctx.createGain();
+          noiseGain.gain.setValueAtTime((isChoice ? 0.52 : 0.40) * gainVar, now);
+          noiseGain.gain.exponentialRampToValueAtTime(0.001, now + noiseDur);
+          noiseSrc.connect(bp);
+          bp.connect(noiseGain);
+          noiseGain.connect(ctx.destination);
+          noiseSrc.start(now);
+          noiseSrc.stop(now + noiseDur + 0.01);
+
+          // --- Low thud: weight beneath the click, fixed pitch ---
+          var osc = ctx.createOscillator();
+          osc.type = 'triangle';
+          var thudDur = isChoice ? 0.13 : 0.08;
+          osc.frequency.setValueAtTime(isChoice ? 210 : 310, now);
+          osc.frequency.exponentialRampToValueAtTime(isChoice ? 75 : 130, now + thudDur);
+          var oscGain = ctx.createGain();
+          oscGain.gain.setValueAtTime((isChoice ? 0.38 : 0.26) * gainVar, now);
+          oscGain.gain.exponentialRampToValueAtTime(0.001, now + thudDur);
+          osc.connect(oscGain);
+          oscGain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + thudDur + 0.01);
+
+      } catch(e) {}
+  }
+
+  document.addEventListener('click', function(e) {
+      var target = e.target;
+      // Choice links inside the story content get the heavier sound
+      var inContent = target.closest && target.closest('#content');
+      if (inContent) {
+          if (target.tagName === 'A' || target.closest('a')) {
+              playClickSound(true);
+              return;
+          }
+      }
+      // Everything else: tab buttons, header links, save/load, etc.
+      if (target.tagName === 'A' || target.tagName === 'BUTTON' ||
+          (target.closest && (target.closest('a') || target.closest('button')))) {
+          playClickSound(false);
+      }
+  }, true);
+  // --- End click sounds ---
+
   window.onload = function() {
     window.dendryUI.loadSettings({show_portraits: true});
     if (window.dendryUI.dark_mode) {

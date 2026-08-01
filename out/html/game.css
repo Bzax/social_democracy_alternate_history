@@ -608,6 +608,9 @@ table {
 .seat.cd {
     fill: #9f5489;
 }
+.seat.os {
+    fill: #e86219;
+}
 .seat.northatlantic {
     fill: #818589;
 }
