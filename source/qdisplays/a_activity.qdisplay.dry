@@ -1,12 +1,12 @@
 
 (..73)    <span style="color:#8C2F1E;"><span class="pips">○○○○○</span> comatose</span>
-(73..79)  <span style="color:#AA5A2A;"><span class="pips">◐○○○○</span> low</span>
-(79..85)  <span style="color:#AA5A2A;"><span class="pips">●○○○○</span> low</span>
+(73..79)  <span style="color:#AA5A2A;"><span class="pips">◐○○○○</span> geriatric</span>
+(79..85)  <span style="color:#AA5A2A;"><span class="pips">●○○○○</span> geriatric</span>
 (85..91)  <span style="color:#8A6A2F;"><span class="pips">●◐○○○</span> dozing off</span>
 (91..97)  <span style="color:#8A6A2F;"><span class="pips">●●○○○</span> dozing off</span>
 (97..103) <span style="color:#6B7355;"><span class="pips">●●◐○○</span> as expected</span>
-(103..109)<span style="color:#4A6B4A;"><span class="pips">●●●○○</span> high</span>
-(109..115)<span style="color:#4A6B4A;"><span class="pips">●●●◐○</span> high</span>
+(103..109)<span style="color:#4A6B4A;"><span class="pips">●●●○○</span> as expected</span>
+(109..115)<span style="color:#4A6B4A;"><span class="pips">●●●◐○</span> activated</span>
 (115..121)<span style="color:#2F5D4A;"><span class="pips">●●●●○</span> activated</span>
-(121..127)<span style="color:#2F5D4A;"><span class="pips">●●●●◐</span> activated</span>
-(127..)   <span style="color:#1F4A3A;"><span class="pips">●●●●●</span> electric</span>
+(121..127)<span style="color:#2F5D4A;"><span class="pips">●●●●◐</span> buzzing</span>
+(127..)   <span style="color:#1F4A3A;"><span class="pips">●●●●●</span> buzzing!</span>
