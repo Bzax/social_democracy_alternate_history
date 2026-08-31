@@ -1,13 +1,12 @@
 
-(..0.6)          <span style="color: darkred;">Kaput! <span style="color:black"></span></span>
-(0.6..0.68)      <span style="color: darkred;">broken <span style="color:black">(⬇)</span></span>
-(0.68..0.76)     <span style="color: darkred;">broken <span style="color:black">(⬆)</span></span>
-(0.76..0.84)     <span style="color: darkorange;">dysfunctional <span style="color:black">(⬇)</span></span>
-(0.84..0.92)     <span style="color: darkorange;">dysfunctional <span style="color:black">(⬆)</span></span>
-(0.92..1.00)     <span style="color: #bf633d;">sputtering <span style="color:black">(⬇)</span></span>
-(1.00..1.08)     <span style="color: #bf633d;">sputtering <span style="color:black">(⬆)</span></span>
-(1.08..1.16)     <span style="color: darkgreen;">running <span style="color:black">(⬇)</span></span>
-(1.16..1.24)     <span style="color: darkgreen;">running <span style="color:black">(⬆)</span></span>
-(1.24..1.32)     <span style="color: darkgreen;">well-oiled <span style="color:black">(⬇)</span></span>
-(1.32..1.40)     <span style="color: darkgreen;">well-oiled <span style="color:black">(⬆)</span></span>
-(1.4..)          <span style="color: seagreen;">turbocharged <span style="color:black"></span></span>
+(..0.64)     <span style="color:#8C2F1E;"><span class="pips">○○○○○</span> kaput <span class="pips">☠&#xFE0E;</span></span>
+(0.64..0.72) <span style="color:#AA5A2A;"><span class="pips">◐○○○○</span> broken</span>
+(0.72..0.80) <span style="color:#AA5A2A;"><span class="pips">●○○○○</span> broken</span>
+(0.80..0.88) <span style="color:#8A6A2F;"><span class="pips">●◐○○○</span> sputtering</span>
+(0.88..0.96) <span style="color:#8A6A2F;"><span class="pips">●●○○○</span> sputtering</span>
+(0.96..1.04) <span style="color:#6B7355;"><span class="pips">●●◐○○</span> running</span>
+(1.04..1.12) <span style="color:#6B7355;"><span class="pips">●●●○○</span> running</span>
+(1.12..1.20) <span style="color:#4A6B4A;"><span class="pips">●●●◐○</span> well-oiled</span>
+(1.20..1.28) <span style="color:#4A6B4A;"><span class="pips">●●●●○</span> well-oiled</span>
+(1.28..1.36) <span style="color:#2F5D4A;"><span class="pips">●●●●◐</span> turbocharged</span>
+(1.36..)     <span style="color:#2F5D4A;"><span class="pips">●●●●●</span> turbocharged</span>
