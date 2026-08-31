@@ -19,6 +19,13 @@
   font-display: swap;
 }
 
+.pips {
+  font-family: "DejaVu Sans", "Segoe UI Symbol", "Apple Symbols",
+               "Noto Sans Symbols 2", sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.12em;
+}
+
 /* Use the old light cut specifically for italics. */
 @font-face {
   font-family: "Futura";
