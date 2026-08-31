@@ -1,19 +1,12 @@
 
-(..5.556)    <span style="color: navy;">arctic (<span style="color:black">⬇</span>)</span>
-(5.556..11.111)  <span style="color: steelblue;">arctic (<span style="color:black">⬆</span>)</span>
-(11.111..16.667) <span style="color: steelblue;">freezing (<span style="color:black">⬇</span>)</span>
-(16.667..22.222) <span style="color: teal;">freezing (<span style="color:black">⬆</span>)</span>
-(22.222..27.778) <span style="color: teal;">frosty (<span style="color:black">⬇</span>)</span>
-(27.778..33.333) <span style="color: mediumseagreen;">frosty (<span style="color:black">⬆</span>)</span>
-(33.333..38.889) <span style="color: mediumseagreen;">cool (<span style="color:black">⬇</span>)</span>
-(38.889..44.444) <span style="color: forestgreen;">cool (<span style="color:black">⬆</span>)</span>
-(44.444..50.000) <span style="color: goldenrod;">lukewarm (<span style="color:black">⬇</span>)</span>
-(50.000..55.556) <span style="color: darkgoldenrod;">lukewarm (<span style="color:black">⬆</span>)</span>
-(55.556..61.111) <span style="color: darkorange;">warm (<span style="color:black">⬇</span>)</span>
-(61.111..66.667) <span style="color: orangered;">warm (<span style="color:black">⬆</span>)</span>
-(66.667..72.222) <span style="color: orangered;">sunny (<span style="color:black">⬇</span>)</span>
-(72.222..77.778) <span style="color: crimson;">sunny (<span style="color:black">⬆</span>)</span>
-(77.778..83.333) <span style="color: crimson;">shining (<span style="color:black">⬇</span>)</span>
-(83.333..88.889) <span style="color: darkred;">shining (<span style="color:black">⬆</span>)</span>
-(88.889..94.444) <span style="color: darkred;">welded to us (<span style="color:black">⬇</span>)</span>
-(94.444..)       <span style="color: darkred;">welded to us (<span style="color:black">⬆</span>)</span>
+(..9.091)        <span style="color:#2E4057;">○○○○○ frozen ❄&#xFE0E;</span>
+(9.091..18.182)  <span style="color:#2E4057;">◐○○○○ frozen ❄&#xFE0E;</span>
+(18.182..27.273) <span style="color:#3A6B72;">●○○○○ cold ☂&#xFE0E;</span>
+(27.273..36.364) <span style="color:#3A6B72;">●◐○○○ cold ☂&#xFE0E;</span>
+(36.364..45.455) <span style="color:#6B7355;">●●○○○ cloudy ☁&#xFE0E;</span>
+(45.455..54.545) <span style="color:#6B7355;">●●◐○○ cloudy ☁&#xFE0E;</span>
+(54.545..63.636) <span style="color:#8A6A2F;">●●●○○ pleasant ☁✷&#xFE0E;</span>
+(63.636..72.727) <span style="color:#8A6A2F;">●●●◐○ pleasant ☁✷&#xFE0E;</span>
+(72.727..81.818) <span style="color:#AA5A2A;">●●●●○ warm ✷</span>
+(81.818..90.909) <span style="color:#AA5A2A;">●●●●◐ warm ✷</span>
+(90.909..)       <span style="color:#97331F;">●●●●● sunny ✺</span>
