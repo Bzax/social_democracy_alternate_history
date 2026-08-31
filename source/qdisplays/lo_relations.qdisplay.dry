@@ -1,10 +1,12 @@
 
-(..9.9)           <span style="color: darkred;">Antagonistic (<span style="color:black">⬇</span>)</span>
-(10..19.9)        <span style="color: darkred;">Antagonistic (<span style="color:black">⬆</span>)</span>
-(20..29.9)        <span style="color: darkorange;">Effectively Split (<span style="color:black">⬇</span>)</span>
-(30..39.9)        <span style="color: darkorange;">Effectively Split (<span style="color:black">⬆</span>)</span>
-(40..49.9)        <span style="color: darkyellow;">diverging (<span style="color:black">⬇</span>)</span>
-(50..59.9)        <span style="color: darkyellow;">aligned (<span style="color:black">⬆</span>)</span>
-(60..69.9)        <span style="color: darkgreen;">harmonious (<span style="color:black">⬇</span>)</span>
-(70..79.9)        <span style="color: darkgreen;">harmonious (<span style="color:black">⬆</span>)</span>
-(79.9..)          <span style="color: seagreen;">inseperable (<span style="color:black">⬆</span>)</span>
+(..9.091)        <span style="color:#2E4057;"><span class="pips">○○○○○</span> frozen ❄&#xFE0E;</span>
+(9.091..18.182)  <span style="color:#2E4057;"><span class="pips">◐○○○○</span> frozen ❄&#xFE0E;</span>
+(18.182..27.273) <span style="color:#3A6B72;"><span class="pips">●○○○○</span> rainy ☂&#xFE0E;</span>
+(27.273..36.364) <span style="color:#3A6B72;"><span class="pips">●◐○○○</span> rainy ☂&#xFE0E;</span>
+(36.364..45.455) <span style="color:#6B7355;"><span class="pips">●●○○○</span> cloudy ☁&#xFE0E;</span>
+(45.455..54.545) <span style="color:#6B7355;"><span class="pips">●●◐○○</span> cloudy ☁&#xFE0E;</span>
+(54.545..63.636) <span style="color:#8A6A2F;"><span class="pips">●●●○○</span> pleasant ☼</span>
+(63.636..72.727) <span style="color:#8A6A2F;"><span class="pips">●●●◐○</span> pleasant ☼</span>
+(72.727..81.818) <span style="color:#AA5A2A;"><span class="pips">●●●●○</span> warm ✷</span>
+(81.818..90.909) <span style="color:#AA5A2A;"><span class="pips">●●●●◐</span> warm ✷</span>
+(90.909..)       <span style="color:#97331F;"><span class="pips">●●●●●</span> sunny ✺</span>
