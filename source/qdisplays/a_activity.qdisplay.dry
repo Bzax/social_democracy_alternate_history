@@ -1,14 +1,12 @@
 
-(..70)           <span style="color: darkred;">comatose <span style="color:black"></span></span>
-(70..75)         <span style="color: darkorange;">low <span style="color:black">(⬇)</span></span>
-(75..80)         <span style="color: darkorange;">low <span style="color:black">(⬆)</span></span>
-(80..85)         <span style="color: darkorange;">dozing off <span style="color:black">(⬇)</span></span>
-(85..90)         <span style="color: darkorange;">dozing off <span style="color:black">(⬆)</span></span>
-(90..95)         <span style="color: darkyellow;">as expected <span style="color:black">(⬇)</span></span>
-(95..100)        <span style="color: darkyellow;">as expected <span style="color:black">(⬆)</span></span>
-(100..105)       <span style="color: darkyellow;">high <span style="color:black">(⬇)</span></span>
-(105..110)       <span style="color: darkyellow;">high <span style="color:black">(⬆)</span></span>
-(110..115)       <span style="color: darkgreen;">activated <span style="color:black">(⬇)</span></span>
-(115..120)       <span style="color: darkgreen;">activated <span style="color:black">(⬆)</span></span>
-(120..125)       <span style="color: seagreen;">electric <span style="color:black">(⬇)</span></span>
-(125..)       <span style="color: seagreen;">electric <span style="color:black"></span></span>
+(..73)    <span style="color:#8C2F1E;"><span class="pips">○○○○○</span> comatose</span>
+(73..79)  <span style="color:#AA5A2A;"><span class="pips">◐○○○○</span> low</span>
+(79..85)  <span style="color:#AA5A2A;"><span class="pips">●○○○○</span> low</span>
+(85..91)  <span style="color:#8A6A2F;"><span class="pips">●◐○○○</span> dozing off</span>
+(91..97)  <span style="color:#8A6A2F;"><span class="pips">●●○○○</span> dozing off</span>
+(97..103) <span style="color:#6B7355;"><span class="pips">●●◐○○</span> as expected</span>
+(103..109)<span style="color:#4A6B4A;"><span class="pips">●●●○○</span> high</span>
+(109..115)<span style="color:#4A6B4A;"><span class="pips">●●●◐○</span> high</span>
+(115..121)<span style="color:#2F5D4A;"><span class="pips">●●●●○</span> activated</span>
+(121..127)<span style="color:#2F5D4A;"><span class="pips">●●●●◐</span> activated</span>
+(127..)   <span style="color:#1F4A3A;"><span class="pips">●●●●●</span> electric</span>
