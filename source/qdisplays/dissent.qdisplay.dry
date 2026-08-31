@@ -1,11 +1,12 @@
 
-# party faction dissent
-
-(..4.999)                miniscule
-(4.999..9.999)           <span style="color: darkgreen;">comradely (<span style="color:black">⬇</span>)</span>
-(9.999..14.999)          <span style="color: darkgreen;">comradely (<span style="color:black">⬆</span>)</span>
-(14.999..22.999)         <span style="color: darkorange;">substantial (<span style="color:black">⬇</span>)</span>
-(22.999..30.999)         <span style="color: darkorange;">substantial (<span style="color:black">⬆</span>)</span>
-(30.999..40.999)         <span style="color: darkred;">debilitating (<span style="color:black">⬇</span>)</span>
-(40.999..49.999)         <span style="color: darkred;">debilitating (<span style="color:black">⬆</span>)</span>
-(49.999..)               <span style="color: darkred;">paralyzing (<span style="color:black">⬆</span>)</span>
+(..4.999)        <span style="color:#2F5D4A;"><span class="pips">●●●●●</span> enthusaistic</span>
+(4.999..9.999)   <span style="color:#4A6B4A;"><span class="pips">●●●●◐</span> satisfied</span>
+(9.999..14.999)  <span style="color:#4A6B4A;"><span class="pips">●●●●○</span> satisfied</span>
+(14.999..19.999) <span style="color:#6B7355;"><span class="pips">●●●◐○</span> comradely</span>
+(19.999..24.999) <span style="color:#6B7355;"><span class="pips">●●●○○</span> comradely</span>
+(24.999..29.999) <span style="color:#8A6A2F;"><span class="pips">●●◐○○</span> bickering</span>
+(29.999..34.999) <span style="color:#8A6A2F;"><span class="pips">●●○○○</span> bickering</span>
+(34.999..39.999) <span style="color:#AA5A2A;"><span class="pips">●◐○○○</span> counter-productive</span>
+(39.999..44.999) <span style="color:#AA5A2A;"><span class="pips">●○○○○</span> counter-productive</span>
+(44.999..49.999) <span style="color:#97331F;"><span class="pips">◐○○○○</span> plotting something! <span class="pips">☠&#xFE0E;</span></span>
+(49.999..)       <span style="color:#97331F;"><span class="pips">○○○○○</span> split imminent! <span class="pips">☠&#xFE0E;</span></span>
