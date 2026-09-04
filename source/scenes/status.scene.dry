@@ -78,15 +78,22 @@ Next election: No later than [+ next_election_month : month +] [+ next_election_
 
 @movement
 
-= **Broader movement**
+= **Sub-Organizations**
+**Media**
+Health of {!<span class="tooltip-text" title="Our party runs and operates a plethora of local newspapers as well as the national newspaper 'Aktuelt'.">Our Newspapers</span>!}: [+ mediahealth : mediahealth +]
 
-**LO**
+**Youth Party**
+Health of {!<span class="tooltip-text" title="DSU, Danish Socialdemocratic Youth.">Our Newspapers</span>!}: 
+
+= **Sister Organizations**
+
+**Trade Unions**
 
 Relations with LO: [+ lo_relations : lo_relations +]
 
 Union Density: [+ union_density +]%
 
-**DKF**
+**Cooperatives**
 
 Relations with {!<span class="tooltip-text" title="Det Kooperative Fællesforbund (lit. 'The Cooperative Common Union') is a confederation of Danish workers cooperatives, it has traditionally been considered a third pillar of the workers movement.">DKF</span>!}: [+ dkf_relations : dkf_relations +]
 
@@ -110,32 +117,43 @@ Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 
 = **The Party**
 
-Resources available: [+ resources +]
-
 {!<span class="tooltip-text" title="The strength of our party-machine is our most important metric – it acts as a multiplier for many actions we take. \n\nFirst and foremost it is a product of the size and activity of our membership. However, a strong proffesional bureaucracy and an effective media apparatus can partially compensate for a weaker membership.">Party-machine</span>!}: [+ efc : efc +]
 
 {!<span class="tooltip-text" title="A proffesional bureaucracy can help compensate for a weaker membership, however the professionalisation of our bureaucracy also discourages party activity.">Bureaucracy</span>!}: [+ a_bureau : a_bureau +]
 
-Health of '{!<span class="tooltip-text" title="Our party runs and operates the newspaper 'Aktuelt'.">Aktuelt</span>!}': [+ mediahealth : mediahealth +]
+**[+ year +] Budget**
+*Income*
+LO: 7
+Dues: 4
+State: 3
+other: 0
+
+*expenses*
+Apparatus:4
+Local chapters: 4
+Newspapers: 3
+Youth party: 1
+
+*Surplus Resources: [+ resources +]*
 
 **Membership**
 
-{!<span class="tooltip-text" title="Our membership count is negatively affected by our internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ members_total_disp +]0
+{!<span class="tooltip-text" title="Our membership count is affected by the internal dissent and long time members dying. /nIt is positively affected by recruitment drives, efficiency and popularity.">Membership count</span>!}: [+ members_total_disp +]0
 
 Last six weeks: [+ a_memberdecline_disp +]
 
 {!<span class="tooltip-text" title="The level of activity among our members is negatively affected by the proffesionalization of our bureaucracy and trends downwards over time. \nIt is positively affected by elections, party congresses as well as investment and reliance on from leadership. Our youth movement is especially active. ">Level of activity</span>!}: [+ a_activity : a_activity +]
 
-**Factions**<br>Overall dissent: [+ dissent_percent : dissent +]
+**Factions**<br>Overall Sentiment: [+ dissent_percent : dissent +]
 
-{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.\n\nIdeology: Democratic Socialism, Marxism, Anti-Atlanticism, New-Left, Modernism.">SDS</span>!} strength: [+ left_strength_disp +]%, <br>dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="The SDS (Social Democratic Society) constitutes our parties most radical left, members of SDS are interested in radical anticapitalist policies both inside and outside our borders.\n\nIdeology: Democratic Socialism, Marxism, Anti-Atlanticism, New-Left, Modernism.">SDS</span>!} strength: [+ left_strength_disp +]%, <br>sentiment: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.\n\nIdeology: Democratic Socialism, Keynesianism, Reformist Marxism, Trade-Unionism.">Left-Workerists</span>!} strength: [+ left_worker_strength_disp +]%, <br>dissent: [+ left_worker_dissent : dissent +]
+{!<span class="tooltip-text" title="The Left-Workerists are made up of our most active union members, they seek to decisively shift the balance of class forces in Denmark.\n\nIdeology: Democratic Socialism, Keynesianism, Reformist Marxism, Trade-Unionism.">Left-Workerists</span>!} strength: [+ left_worker_strength_disp +]%, <br>sentiment: [+ left_worker_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.\n\nIdeology: Democratic Socialism, Keynesianism, Pragmatism, Modernism.">Technocrats</span>!} strength: [+ technocrat_strength_disp +]%, <br>dissent: [+ technocrat_dissent : dissent +]
+{!<span class="tooltip-text" title="The Technocrats are made up of academics and pragmatic modernists, willing to deal with the forces of capital on a case by case basis.\n\nIdeology: Democratic Socialism, Keynesianism, Pragmatism, Modernism.">Technocrats</span>!} strength: [+ technocrat_strength_disp +]%, <br>sentiment: [+ technocrat_dissent : dissent +]
 
-[? if cd_formed = 0 : {!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]?]
-[? if cd_formed > 0 : {!<span class="tooltip-text" title="Pragmatists are see the left, SDS and some parts of the youth movement as obstacles to our progress. They seek to expand the welfare state, strengthen our unions and protect the interests of the modern worker.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Pragmatists</span>!} strength: [+ right_worker_strength_disp +]%, <br>dissent: [+ right_worker_dissent : dissent +]?]
+[? if cd_formed = 0 : {!<span class="tooltip-text" title="Right-Workerists are sceptical of the left, the youth movement and modernist culture. They seek to expand the welfare state, strengthen our unions and protect the interests of car and homeowners.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Right-Workerists</span>!} strength: [+ right_worker_strength_disp +]%, <br>sentiment: [+ right_worker_dissent : dissent +]?]
+[? if cd_formed > 0 : {!<span class="tooltip-text" title="Pragmatists are see the left, SDS and some parts of the youth movement as obstacles to our progress. They seek to expand the welfare state, strengthen our unions and protect the interests of the modern worker.\n\nIdeology: Trade-Unionism, Pragmatism, Rindallism, Car Owner Interests, Homeowner Interests."">Pragmatists</span>!} strength: [+ right_worker_strength_disp +]%, <br>sentiment: [+ right_worker_dissent : dissent +]?]
 
 
 
