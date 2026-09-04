@@ -79,11 +79,14 @@ Next election: No later than [+ next_election_month : month +] [+ next_election_
 @movement
 
 = **Sub-Organizations**
+
 **Media**
+
 Health of {!<span class="tooltip-text" title="Our party runs and operates a plethora of local newspapers as well as the national newspaper 'Aktuelt'.">Our Newspapers</span>!}: [+ mediahealth : mediahealth +]
 
 **Youth Party**
-Health of {!<span class="tooltip-text" title="DSU, Danish Socialdemocratic Youth.">Our Newspapers</span>!}: 
+
+Health of {!<span class="tooltip-text" title="DSU, Danish Socialdemocratic Youth.">Our Youth Party</span>!}: 
 
 = **Sister Organizations**
 
@@ -122,19 +125,29 @@ Q.right_worker_strength_disp = Q.right_worker_strength.toFixed(0)
 {!<span class="tooltip-text" title="A proffesional bureaucracy can help compensate for a weaker membership, however the professionalisation of our bureaucracy also discourages party activity.">Bureaucracy</span>!}: [+ a_bureau : a_bureau +]
 
 **[+ year +] Budget**
+
 *Income*
+
 LO: 7
+
 Dues: 4
+
 State: 3
+
 other: 0
 
-*expenses*
+*Expenses*
+
 Apparatus:4
+
 Local chapters: 4
+
 Newspapers: 3
+
 Youth party: 1
 
-*Surplus Resources: [+ resources +]*
+
+*Surplus Resources:* [+ resources +]
 
 **Membership**
 
